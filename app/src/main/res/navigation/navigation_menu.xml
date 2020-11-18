@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_menu"
+    app:startDestination="@id/menuFragment">
+
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.cyberspace_info.menu.view.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_tempoEmMarteFragment"
+            app:destination="@id/tempoEmMarteFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_marsRoverFragment"
+            app:destination="@id/marsRoverFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/tempoEmMarteFragment"
+        android:name="com.example.cyberspace_info.listatempomarte.view.TempoEmMarteFragment"
+        android:label="fragment_tempo_em_marte"
+        tools:layout="@layout/fragment_tempo_em_marte" />
+    <fragment
+        android:id="@+id/marsRoverFragment"
+        android:name="com.example.cyberspace_info.listamarsrover.view.MarsRoverFragment"
+        android:label="fragment_mars_rover"
+        tools:layout="@layout/fragment_mars_rover" />
+</navigation>
