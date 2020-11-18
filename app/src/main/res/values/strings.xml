@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Cyberspace Info</string>
+    <string name="imagem_do_dia">IMAGEM DO DIA</string>
+    <string name="imagens_e_videos">IMAGENS E VÍDEOS</string>
+    <string name="perfil">PERFIL</string>
+    <string name="mars_rover">MARS ROVER</string>
+    <string name="eventos_naturais">EVENTOS NATURAIS</string>
+    <string name="objetos_em_rota_de_colisao">OBJETOS EM ROTA DE COLISÃO</string>
+    <string name="planetas_orbitando_estrelas">PLANETAS ORBITANDO ESTRELAS</string>
+    <string name="novas_tecnologias">NOVAS TECNOLOGIAS</string>
+    <string name="tempo_em_marte">TEMPO EM MARTE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
