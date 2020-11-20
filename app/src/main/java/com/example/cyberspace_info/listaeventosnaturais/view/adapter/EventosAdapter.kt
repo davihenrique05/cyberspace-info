@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.listaeventosnaturais.view
+package com.example.cyberspace_info.listaeventosnaturais.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
