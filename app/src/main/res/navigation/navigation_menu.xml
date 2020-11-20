@@ -25,6 +25,9 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_eventosNaturaisFragment"
+            app:destination="@id/eventosNaturaisFragment" />
     </fragment>
     <fragment
         android:id="@+id/tempoEmMarteFragment"
@@ -36,4 +39,9 @@
         android:name="com.example.cyberspace_info.listamarsrover.view.MarsRoverFragment"
         android:label="fragment_mars_rover"
         tools:layout="@layout/fragment_mars_rover" />
+    <fragment
+        android:id="@+id/eventosNaturaisFragment"
+        android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisFragment"
+        android:label="fragment_eventos_naturais"
+        tools:layout="@layout/fragment_eventos_naturais" />
 </navigation>
