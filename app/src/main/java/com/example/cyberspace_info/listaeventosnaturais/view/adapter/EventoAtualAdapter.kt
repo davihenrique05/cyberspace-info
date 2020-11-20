@@ -2,12 +2,22 @@ package com.example.cyberspace_info.listaeventosnaturais.view.adapter
 
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cyberspace_info.R
+import com.example.cyberspace_info.listaeventosnaturais.model.TesteInfo
 
-class EventoAtualAdapter(): RecyclerView.Adapter<EventoAtualAdapter.EventoAtualViewHolder>() {
+class EventoAtualAdapter(private val eventos: List<TesteInfo>): RecyclerView.Adapter<EventoAtualAdapter.EventoAtualViewHolder>() {
 
     class EventoAtualViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
+        private val title : TextView by lazy { view.findViewById<TextView>(R.id.txtTitleEvent)}
+        private val category : TextView by lazy { view.findViewById<TextView>(R.id.txtCategoryEvent)}
+        private val date : TextView by lazy { view.findViewById<TextView>(R.id.txtDateEvent)}
+
+        fun bind(event:TesteInfo){
+
+        }
 
     }
 
@@ -15,12 +25,12 @@ class EventoAtualAdapter(): RecyclerView.Adapter<EventoAtualAdapter.EventoAtualV
         TODO("Not yet implemented")
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = eventos.size
 
     override fun onBindViewHolder(holder: EventoAtualViewHolder, position: Int) {
-        TODO("Not yet implemented")
+
+        holder.bind(eventos[position])
+
     }
-    
+
 }
