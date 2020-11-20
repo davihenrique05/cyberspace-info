@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventosAdapter
+import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAdapter
 import com.google.android.material.tabs.TabLayout
 
 class EventosNaturaisFragment : Fragment() {
@@ -28,33 +28,19 @@ class EventosNaturaisFragment : Fragment() {
 
         var tab = view.findViewById<TabLayout>(R.id.layoutLogin)
         var page = view.findViewById<ViewPager>(R.id.viewPagerLogin)
-
         setupViewPagerAndTabLayout(tab,page)
-
-        setupListRecyclerView(view)
-
-    }
-
-    fun setupListRecyclerView(view:View){
-
-        val viewManager = LinearLayoutManager(view.context)
-
-        val recyclerView = view.findViewById<RecyclerView>(R.id)
 
     }
 
     fun setupViewPagerAndTabLayout(tab : TabLayout,page: ViewPager){
 
         tab.setupWithViewPager(page)
-
         var fragmentManager = (activity as FragmentActivity).supportFragmentManager
-
-        page.adapter =
-            EventosAdapter(
+        page.adapter = EventoAdapter(
                 listOf(EventosNaturaisAtuaisFragment(), EventosNaturaisAnterioresFragment()),
                 listOf(getString(R.string.atuais), getString(R.string.anteriores)),
                 fragmentManager
-            )
+        )
     }
 
 }
