@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.listaeventosnaturais.model.TesteInfo
+import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAnteriorAdapter
+import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtualAdapter
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class EventosNaturaisAnterioresFragment : Fragment() {
 
@@ -23,18 +27,30 @@ class EventosNaturaisAnterioresFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var recyclerView = view.findViewById<RecyclerView>(R.id.listAnterioresEvents)
-
         var managerLinear = LinearLayoutManager(view.context)
 
-        // criar o adapter
-
         recyclerView.apply {
-
             setHasFixedSize(true)
+            layoutManager = managerLinear
+            adapter = EventoAnteriorAdapter(listOf(
+                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
+                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
+                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
+                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
+                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
+                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
+                TesteInfo("Meu titulo","Minha categoria","20/10/10")
+            )){
 
-            // Set Manager
+                val btnsheet = layoutInflater.inflate(R.layout.bottom_sheet, null)
+                val dialog = BottomSheetDialog(context)
 
-            // Set Adapter
+                dialog.setContentView(btnsheet)
+                btnsheet.setOnClickListener {
+                    dialog.dismiss()
+                }
+                dialog.show()
+            }
 
         }
 

@@ -10,7 +10,7 @@
         android:id="@+id/listAtualEvents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/lista_eventos_naturais_atuais"
+        tools:listitem="@layout/item_eventos_naturais"
         />
 
 
