@@ -7,10 +7,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
 import com.example.cyberspace_info.listaeventosnaturais.model.TesteInfo
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class EventoAnteriorAdapter(private val eventos: List<TesteInfo>, private val listener:(TesteInfo) -> Unit) : RecyclerView.Adapter<EventoAnteriorAdapter.EventoAnteriorViewHolder>() {
+class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) : RecyclerView.Adapter<EventoAnteriorAdapter.EventoAnteriorViewHolder>() {
 
     class EventoAnteriorViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -18,10 +19,10 @@ class EventoAnteriorAdapter(private val eventos: List<TesteInfo>, private val li
         private val category : TextView by lazy { view.findViewById<TextView>(R.id.txtCategoryEvent)}
         private val date : TextView by lazy { view.findViewById<TextView>(R.id.txtDateEvent)}
 
-        fun bind(event:TesteInfo){
+        fun bind(event:EventNaturalModel){
             title.text = event.title
-            category.text = event.category
-            date.text = event.date
+            category.text = event.categories.title
+            date.text = event.geometries.date
         }
 
     }
@@ -40,10 +41,5 @@ class EventoAnteriorAdapter(private val eventos: List<TesteInfo>, private val li
         val item = eventos[position]
         holder.bind(item)
 
-
-
-        holder.itemView.setOnClickListener {
-            listener(item)
-        }
     }
 }

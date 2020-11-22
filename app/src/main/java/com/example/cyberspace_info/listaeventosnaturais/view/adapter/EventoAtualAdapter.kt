@@ -7,9 +7,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
 import com.example.cyberspace_info.listaeventosnaturais.model.TesteInfo
 
-class EventoAtualAdapter(private val eventos: List<TesteInfo>, private val listener: (TesteInfo) -> Unit): RecyclerView.Adapter<EventoAtualAdapter.EventoAtualViewHolder>() {
+class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): RecyclerView.Adapter<EventoAtualAdapter.EventoAtualViewHolder>() {
 
     class EventoAtualViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -17,11 +18,11 @@ class EventoAtualAdapter(private val eventos: List<TesteInfo>, private val liste
         private val category : TextView by lazy { view.findViewById<TextView>(R.id.txtCategoryEvent)}
         private val date : TextView by lazy { view.findViewById<TextView>(R.id.txtDateEvent)}
 
-        fun bind(event:TesteInfo){
+        fun bind(event:EventNaturalModel){
 
             title.text = event.title
-            category.text = event.category
-            date.text = event.date
+            category.text = event.categories.title
+            date.text = event.geometries.date
 
         }
 
@@ -40,10 +41,6 @@ class EventoAtualAdapter(private val eventos: List<TesteInfo>, private val liste
     override fun onBindViewHolder(holder: EventoAtualViewHolder, position: Int) {
 
         holder.bind(eventos[position])
-
-        holder.itemView.setOnClickListener {
-            Toast.makeText(it.context,"Teste",Toast.LENGTH_SHORT).show()
-        }
 
     }
 

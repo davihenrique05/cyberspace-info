@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.listaeventosnaturais.model.CategoryEventModel
+import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
+import com.example.cyberspace_info.listaeventosnaturais.model.GeometryEventModel
 import com.example.cyberspace_info.listaeventosnaturais.model.TesteInfo
 import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtualAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -32,25 +35,39 @@ class EventosNaturaisAtuaisFragment : Fragment() {
 
             setHasFixedSize(true)
             layoutManager = managerLinear
-            adapter = EventoAtualAdapter(listOf(
-                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
-                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
-                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
-                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
-                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
-                TesteInfo("Meu titulo","Minha categoria","20/10/10"),
-                TesteInfo("Meu titulo","Minha categoria","20/10/10")
-            )){
-                val btnsheet = layoutInflater.inflate(R.layout.bottom_sheet, null)
-                val dialog = BottomSheetDialog(context)
+            adapter = EventoAtualAdapter(
 
-                dialog.setContentView(btnsheet)
-                btnsheet.setOnClickListener {
-                    dialog.dismiss()
-                }
+                listOf(
 
-                dialog.show()
-            }
+                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                        CategoryEventModel(1,"Categoria : Incendios Florestais"), GeometryEventModel("20/10/2020",
+                            arrayOf(1,2))
+                    ),
+
+                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                        CategoryEventModel(1,"Categoria : Incendios Florestais"), GeometryEventModel("20/10/2020",
+                            arrayOf(1,2))
+                    ),
+
+                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                        CategoryEventModel(1,"Categoria : Incendios Florestais"), GeometryEventModel("20/10/2020",
+                            arrayOf(1,2))
+                    ),
+
+                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                        CategoryEventModel(1,"Categoria : Incendios Florestais"), GeometryEventModel("20/10/2020",
+                            arrayOf(1,2))
+                    ),
+
+                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                        CategoryEventModel(1,"Categoria : Incendios Florestais"), GeometryEventModel("20/10/2020",
+                            arrayOf(1,2))
+                    )
+
+
+                )
+
+            )
 
         }
     }
