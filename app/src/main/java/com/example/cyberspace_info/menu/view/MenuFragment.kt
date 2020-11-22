@@ -38,5 +38,11 @@ class MenuFragment : Fragment() {
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_menuFragment_to_marsRoverFragment)
         }
+
+        view.findViewById<MaterialCardView>(R.id.cardImagensEVideos).setOnClickListener {
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_menuFragment_to_pesquisaImgVidFragment)
+        }
+
     }
 }

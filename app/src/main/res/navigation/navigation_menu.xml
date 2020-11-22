@@ -25,6 +25,13 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_pesquisaImgVidFragment"
+            app:destination="@id/pesquisaImgVidFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/tempoEmMarteFragment"
@@ -36,4 +43,9 @@
         android:name="com.example.cyberspace_info.listamarsrover.view.MarsRoverFragment"
         android:label="fragment_mars_rover"
         tools:layout="@layout/fragment_mars_rover" />
+    <fragment
+        android:id="@+id/pesquisaImgVidFragment"
+        android:name="com.example.cyberspace_info.pesquisarimgvid.PesquisaImgVidFragment"
+        android:label="fragment_pesquisa_img_vid"
+        tools:layout="@layout/fragment_pesquisa_img_vid" />
 </navigation>
