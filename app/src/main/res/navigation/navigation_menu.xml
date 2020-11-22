@@ -32,6 +32,13 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_planetasOrbitandoEstrelas"
+            app:destination="@id/planetasOrbitandoEstrelas"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/tempoEmMarteFragment"
@@ -48,4 +55,9 @@
         android:name="com.example.cyberspace_info.pesquisarimgvid.PesquisaImgVidFragment"
         android:label="fragment_pesquisa_img_vid"
         tools:layout="@layout/fragment_pesquisa_img_vid" />
+    <fragment
+        android:id="@+id/planetasOrbitandoEstrelas"
+        android:name="com.example.cyberspace_info.planetasorbitandoestrelas.PlanetasOrbitandoEstrelasFragment"
+        android:label="fragment_planetas_orbitando_estrelas"
+        tools:layout="@layout/fragment_planetas_orbitando_estrelas" />
 </navigation>
