@@ -11,9 +11,7 @@ import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listaeventosnaturais.model.CategoryEventModel
 import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
 import com.example.cyberspace_info.listaeventosnaturais.model.GeometryEventModel
-import com.example.cyberspace_info.listaeventosnaturais.model.TesteInfo
 import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtualAdapter
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class EventosNaturaisAtuaisFragment : Fragment() {
 
@@ -63,7 +61,6 @@ class EventosNaturaisAtuaisFragment : Fragment() {
                         CategoryEventModel(1,"Categoria : Incendios Florestais"), GeometryEventModel("20/10/2020",
                             arrayOf(1,2))
                     )
-
 
                 )
 

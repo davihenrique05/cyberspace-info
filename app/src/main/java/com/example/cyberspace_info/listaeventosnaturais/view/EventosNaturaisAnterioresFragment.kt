@@ -11,10 +11,7 @@ import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listaeventosnaturais.model.CategoryEventModel
 import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
 import com.example.cyberspace_info.listaeventosnaturais.model.GeometryEventModel
-import com.example.cyberspace_info.listaeventosnaturais.model.TesteInfo
 import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAnteriorAdapter
-import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtualAdapter
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class EventosNaturaisAnterioresFragment : Fragment() {
 
