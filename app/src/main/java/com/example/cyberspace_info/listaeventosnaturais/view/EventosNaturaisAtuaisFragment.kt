@@ -28,7 +28,13 @@ class EventosNaturaisAtuaisFragment : Fragment() {
 
         var recyclerView = view.findViewById<RecyclerView>(R.id.listAtualEvents)
         var managerLinear = LinearLayoutManager(view.context)
-        // criar o adapter
+
+        aplicationPropertyRecyclerView(recyclerView,managerLinear)
+
+    }
+
+    fun aplicationPropertyRecyclerView(recyclerView: RecyclerView, managerLinear:LinearLayoutManager){
+
         recyclerView.apply {
 
             setHasFixedSize(true)
@@ -67,6 +73,8 @@ class EventosNaturaisAtuaisFragment : Fragment() {
             )
 
         }
+
+
     }
 
 }

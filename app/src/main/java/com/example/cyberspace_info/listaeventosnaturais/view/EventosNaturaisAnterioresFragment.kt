@@ -29,6 +29,12 @@ class EventosNaturaisAnterioresFragment : Fragment() {
         var recyclerView = view.findViewById<RecyclerView>(R.id.listAnterioresEvents)
         var managerLinear = LinearLayoutManager(view.context)
 
+        aplicationPropertyRecyclerView(recyclerView, managerLinear)
+
+    }
+
+    fun aplicationPropertyRecyclerView(recyclerView: RecyclerView, managerLinear:LinearLayoutManager){
+
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = managerLinear
@@ -37,10 +43,10 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
                 listOf(
 
-                EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
-                    CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
-                        arrayOf(1,2))
-                ),
+                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                        CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
+                            arrayOf(1,2))
+                    ),
 
                     EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
                         CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
@@ -70,6 +76,5 @@ class EventosNaturaisAnterioresFragment : Fragment() {
         }
 
     }
-
 
 }

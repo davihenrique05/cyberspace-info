@@ -55,8 +55,8 @@
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPagerLogin"
-            android:layout_width="373dp"
-            android:layout_height="544dp">
+            android:layout_width="358dp"
+            android:layout_height="592dp">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/layoutLogin"
