@@ -11,12 +11,9 @@
     <string name="tempo_em_marte">TEMPO EM MARTE</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-<<<<<<< HEAD
     <string name="imagens">Imagens</string>
     <string name="videos">Videos</string>
-=======
     <string name="eventos_naturais_titulo">Eventos Naturais</string>
     <string name="atuais">Atuais</string>
     <string name="anteriores">Anteriores</string>
->>>>>>> 1d8a534df7433da4edc4bc4022806c1a576b68d5
 </resources>

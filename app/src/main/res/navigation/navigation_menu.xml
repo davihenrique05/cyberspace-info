@@ -63,6 +63,7 @@
         android:label="fragment_pesquisa_img_vid"
         tools:layout="@layout/activity_pesquisa_img_vid" />
 
+    <activity
         android:id="@+id/eventosNaturaisActivity"
         android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisActivity"
         android:label="activity_eventos_naturais"
