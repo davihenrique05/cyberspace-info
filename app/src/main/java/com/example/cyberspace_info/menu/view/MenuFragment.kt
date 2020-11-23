@@ -39,7 +39,9 @@ class MenuFragment : Fragment() {
             navController.navigate(R.id.action_menuFragment_to_marsRoverFragment)
         }
 
-        view.findViewById<MaterialCardView>(R.id.cardImagensEVideos).setOnClickListener {
+        //Bonner: Tentei por com fragment, não deu certo, vou por activity, mas vou deixar aqui caso
+        //seja necessário usar fragment, se não removo
+        /*view.findViewById<MaterialCardView>(R.id.cardImagensEVideos).setOnClickListener {
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_menuFragment_to_pesquisaImgVidFragment)
         }
@@ -47,7 +49,7 @@ class MenuFragment : Fragment() {
         view.findViewById<MaterialCardView>(R.id.cardPlanetasOrbitando).setOnClickListener {
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_menuFragment_to_planetasOrbitandoEstrelas)
-        }
+        }*/
 
     }
 }
