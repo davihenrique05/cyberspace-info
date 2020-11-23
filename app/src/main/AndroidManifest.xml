@@ -11,8 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".pesquisarimgvid.PesquisaImgVidActivity" android:theme="@style/AppThemePesquisaImgVid"></activity>
+=======
+
+        <activity android:name=".pesquisarimgvid.PesquisaImgVidActivity"></activity>
+>>>>>>> 1d8a534df7433da4edc4bc4022806c1a576b68d5
         <activity android:name=".pesquisarimgvid.PesquisaActivity" />
+
+        <activity android:name=".listaeventosnaturais.view.EventosNaturaisActivity"></activity>
+
         <activity
             android:name=".main.view.SplashScreenActivity"
             android:theme="@style/AppThemeSplash">
