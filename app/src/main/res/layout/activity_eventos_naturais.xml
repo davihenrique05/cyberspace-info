@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPagerLogin"
+            android:id="@+id/viewPagerEventos"
             android:layout_width="358dp"
             android:layout_height="592dp">
 
