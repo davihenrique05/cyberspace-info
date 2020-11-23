@@ -23,4 +23,5 @@
     <color name="colorSecundaryDark">#c62d1f</color>
     <color name="colorSecundaryLight">#e59892</color>
     <color name="colorSecundaryLightest">#f9e0de</color>
+    <color name="colorBlueLightBackground">#EEF6FF</color>
 </resources>
