@@ -1,13 +1,12 @@
 package com.example.cyberspace_info.listaeventosnaturais.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAdapter
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayout
+
 
 class EventosNaturaisActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,4 +49,11 @@ class EventosNaturaisActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.from_left,R.anim.to_right)
+    }
+
+
 }

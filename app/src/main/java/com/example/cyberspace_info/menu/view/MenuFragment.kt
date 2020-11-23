@@ -43,12 +43,8 @@ class MenuFragment : Fragment() {
 
         view.findViewById<MaterialCardView>(R.id.cardEventosNaturais).setOnClickListener {
 
-            //val navController = Navigation.findNavController(view)
-            //navController.navigate(R.id.action_menuFragment_to_eventosNaturaisFragment)
-
-            val intent = Intent (getActivity(), EventosNaturaisActivity::class.java)
-            getActivity()?.startActivity(intent)
-
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_menuFragment_to_eventosNaturaisActivity)
 
         }
     }
