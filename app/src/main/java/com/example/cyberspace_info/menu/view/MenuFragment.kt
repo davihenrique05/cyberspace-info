@@ -1,6 +1,5 @@
 package com.example.cyberspace_info.menu.view
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,11 +8,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
-
-import com.example.cyberspace_info.main.view.MainActivity
-import com.example.cyberspace_info.pesquisarimgvid.PesquisaImgVidActivity
-
-import com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisActivity
 
 import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
