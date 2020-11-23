@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pesquisarimgvid.PesquisaActivity"></activity>
+        <activity android:name=".pesquisarimgvid.PesquisaImgVidActivity"></activity>
+        <activity android:name=".pesquisarimgvid.PesquisaActivity" />
         <activity
             android:name=".main.view.SplashScreenActivity"
             android:theme="@style/AppThemeSplash">

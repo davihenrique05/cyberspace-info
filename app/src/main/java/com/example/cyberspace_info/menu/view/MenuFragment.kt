@@ -1,5 +1,6 @@
 package com.example.cyberspace_info.menu.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.main.view.MainActivity
+import com.example.cyberspace_info.pesquisarimgvid.PesquisaImgVidActivity
 import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 
@@ -39,17 +42,12 @@ class MenuFragment : Fragment() {
             navController.navigate(R.id.action_menuFragment_to_marsRoverFragment)
         }
 
-        //Bonner: Tentei por com fragment, não deu certo, vou por activity, mas vou deixar aqui caso
-        //seja necessário usar fragment, se não removo
-        /*view.findViewById<MaterialCardView>(R.id.cardImagensEVideos).setOnClickListener {
+
+        view.findViewById<MaterialCardView>(R.id.cardImagensEVideos).setOnClickListener {
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_menuFragment_to_pesquisaImgVidFragment)
+            navController.navigate(R.id.action_menuFragment_to_pesquisaimgvidactivity)
         }
 
-        view.findViewById<MaterialCardView>(R.id.cardPlanetasOrbitando).setOnClickListener {
-            val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_menuFragment_to_planetasOrbitandoEstrelas)
-        }*/
 
     }
 }
