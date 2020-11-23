@@ -78,4 +78,11 @@ class LoginFragment : Fragment() {
         return true
     }
 
+    fun userNameAlterado(username: String) {
+        val email = view?.findViewById<TextInputEditText>(R.id.edtEmailLogin)
+        email?.setText(username)
+        val pass = view?.findViewById<TextInputEditText>(R.id.edtSenhaLogin)
+        pass?.requestFocus()
+    }
+
 }
