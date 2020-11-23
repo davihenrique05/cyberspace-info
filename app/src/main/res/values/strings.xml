@@ -11,4 +11,6 @@
     <string name="tempo_em_marte">TEMPO EM MARTE</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="imagens">Imagens</string>
+    <string name="videos">Videos</string>
 </resources>
