@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".pesquisarimgvid.PesquisaImgVidActivity"></activity>
-        <activity android:name=".listaeventosnaturais.view.EventosNaturaisActivity"></activity>
-
+        <activity android:name=".pesquisarimgvid.PesquisaImgVidActivity" />
+        <activity android:name=".listaeventosnaturais.view.EventosNaturaisActivity" />
+        <activity android:name=".login.view.LoginActivity"/>
         <activity
             android:name=".main.view.SplashScreenActivity"
             android:theme="@style/AppThemeSplash">
@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.view.MainActivity" />
+        <activity android:name=".menu.view.MainActivity" />
     </application>
 
 </manifest>
