@@ -15,9 +15,10 @@ class EventosNaturaisActivity : AppCompatActivity() {
 
         setupBackButton()
 
-        var tab = findViewById<TabLayout>(R.id.layoutLogin)
-        var page = findViewById<ViewPager>(R.id.viewPagerEventos)
-        setupViewPagerAndTabLayout(tab,page)
+
+        var tab = findViewById<TabLayout>(R.id.layoutNaturalEvents)
+        var page = findViewById<ViewPager>(R.id.viewPagerNaturalEvents)
+
     }
 
     fun setupViewPagerAndTabLayout(tab : TabLayout,page: ViewPager){
