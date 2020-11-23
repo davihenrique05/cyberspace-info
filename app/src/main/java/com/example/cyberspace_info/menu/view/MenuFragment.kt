@@ -9,7 +9,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
+
+import com.example.cyberspace_info.main.view.MainActivity
+import com.example.cyberspace_info.pesquisarimgvid.PesquisaImgVidActivity
+
 import com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisActivity
+
 import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 
@@ -41,11 +46,20 @@ class MenuFragment : Fragment() {
             navController.navigate(R.id.action_menuFragment_to_marsRoverFragment)
         }
 
+
+
+        view.findViewById<MaterialCardView>(R.id.cardImagensEVideos).setOnClickListener {
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_menuFragment_to_pesquisaimgvidactivity)
+        }
+
+
         view.findViewById<MaterialCardView>(R.id.cardEventosNaturais).setOnClickListener {
 
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_menuFragment_to_eventosNaturaisActivity)
 
         }
+
     }
 }
