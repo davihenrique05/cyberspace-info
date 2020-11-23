@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_circle_shape_300">300dp</dimen>
+    <dimen name="dimen_40">40dp</dimen>
+    <dimen name="dimen_48">48dp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
+    <dimen name="dimen_130">130dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_24">24dp</dimen>
+    <dimen name="dimen_4">4dp</dimen>
+    <dimen name="dimen_login_f_g_216dp">216dp</dimen>
+    <dimen name="dimen_38">38dp</dimen>
+    <dimen name="dimen_110">110dp</dimen>
+</resources>
