@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.main.view
+package com.example.cyberspace_info.menu.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
