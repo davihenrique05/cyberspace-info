@@ -44,6 +44,13 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
             />
+        <action
+            android:id="@+id/action_menuFragment_to_planetasorbitandoestrelas"
+            app:destination="@id/planetasOrbitandoEstrelasActivity"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
 
     </fragment>
     <fragment
@@ -68,5 +75,10 @@
         android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisActivity"
         android:label="activity_eventos_naturais"
         tools:layout="@layout/activity_eventos_naturais" />
+    <activity
+        android:id="@+id/planetasOrbitandoEstrelasActivity"
+        android:name="com.example.cyberspace_info.planetasorbitandoestrelas.PlanetasOrbitandoEstrelasActivity"
+        android:label="activity_planetas_orbitando_estrelas"
+        tools:layout="@layout/activity_planetas_orbitando_estrelas" />
 
 </navigation>
