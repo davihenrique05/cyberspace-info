@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".perfil.PerfilFragment"
+    tools:context=".perfil.view.PerfilFragment"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDarkest">
 
@@ -18,6 +18,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                         <ImageView
+                            android:id="@+id/imageIconReturnPerfil"
                             android:layout_width="@dimen/dimen_35"
                             android:layout_height="@dimen/dimen_35"
                             android:backgroundTint="@color/colorPrimaryDarkest"
@@ -27,6 +28,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"/>
 
                         <ImageView
+                            android:id="@+id/imageIconLogOut"
                             android:layout_width="@dimen/dimen_35"
                             android:layout_height="@dimen/dimen_35"
                             android:layout_marginEnd="@dimen/dimen_16"
@@ -75,6 +77,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+                    android:id="@+id/imageIconEdit"
                     android:layout_width="@dimen/dimen_28"
                     android:layout_height="@dimen/dimen_28"
                     android:layout_marginTop="@dimen/dimen_16"
@@ -109,6 +112,7 @@
                     android:text="@string/imagens_favoritas"/>
 
                 <ImageView
+                    android:id="@+id/imageIconGaleria"
                     android:layout_width="@dimen/dimen_35"
                     android:layout_height="@dimen/dimen_35"
                     android:layout_marginTop="@dimen/dimen_8"
@@ -159,6 +163,5 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:src="@drawable/apod_1"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </LinearLayout>

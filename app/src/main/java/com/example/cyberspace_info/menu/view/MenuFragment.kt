@@ -57,5 +57,9 @@ class MenuFragment : Fragment() {
             navController.navigate(R.id.action_menuFragment_to_eventosNaturaisActivity)
         }
 
+        view.findViewById<MaterialCardView>(R.id.cardPerfil).setOnClickListener {
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_menuFragment_to_perfilFragment)
+        }
     }
 }

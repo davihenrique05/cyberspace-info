@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.perfil
+package com.example.cyberspace_info.perfil.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

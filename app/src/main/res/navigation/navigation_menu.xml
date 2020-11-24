@@ -52,6 +52,9 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
             />
+        <action
+            android:id="@+id/action_menuFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
 
     </fragment>
     <fragment
@@ -100,6 +103,11 @@
 
 
     </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.cyberspace_info.perfil.view.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
 
 
 </navigation>
