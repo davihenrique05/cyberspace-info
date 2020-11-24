@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.login.view
+package com.example.cyberspace_info.autenticacao.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
