@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.main.view.MainActivity
 import com.example.cyberspace_info.pesquisarimgvid.PesquisaImgVidActivity
 import com.google.android.material.card.MaterialCardView
 import kotlinx.android.synthetic.main.activity_pesquisa.*
@@ -18,13 +21,22 @@ class PesquisaActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        pesquisar()
+
+    }
+
+    private fun pesquisar() {
         btnpesquisar.setOnClickListener {
             var intent = Intent(this@PesquisaActivity, PesquisaImgVidActivity::class.java)
-            startActivity(intent)
+            var activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
+                getApplicationContext(),
+                R.anim.from_right,
+                R.anim.to_left
+            )
+            ActivityCompat.startActivity(this, intent, activityOptionsCompat.toBundle())
+            //startActivity(intent)
 
         }
-
-
     }
 
     override fun finish() {
