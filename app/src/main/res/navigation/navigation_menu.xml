@@ -85,20 +85,12 @@
         tools:layout="@layout/fragment_tecnologias_usadas">
 
         <action
-            android:id="@+id/action"
-            app:destination="@id/tecnologiasUsadasFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right"
-            />
-        <action
             android:id="@+id/action_tecnologiasUsadasFragment_to_menuFragment"
             app:destination="@id/menuFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/from_left"
-            app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
             app:popUpTo="@id/menuFragment" />
 
 
