@@ -24,6 +24,8 @@ class PesquisaImgVidActivity : AppCompatActivity() {
 
         ResultarPesquisa()
 
+
+
     }
 
     private fun ResultarPesquisa() {
@@ -34,8 +36,8 @@ class PesquisaImgVidActivity : AppCompatActivity() {
         tab.setupWithViewPager(pager)
 
         val fragments = listOf(
-            ResultadosPesquisaFragment.newInstance("Minhas Imagens pesquisadas", true),
-            ResultadosPesquisaFragment.newInstance("Meus Vídeos pesquisados", false)
+            ResultadosPesquisaFragment.newInstance("Imagens"),
+            ResultadosPesquisaFragment.newInstance("Videos")
         )
 
         val titulos = listOf(
