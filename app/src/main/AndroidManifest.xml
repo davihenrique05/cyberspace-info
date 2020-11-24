@@ -14,7 +14,7 @@
 
         <activity android:name=".pesquisarimgvid.PesquisaImgVidActivity" />
         <activity android:name=".listaeventosnaturais.view.EventosNaturaisActivity" />
-        <activity android:name=".login.view.LoginActivity" android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
+        <activity android:name=".autenticacao.view.LoginActivity" android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
         <activity
             android:name=".main.view.SplashScreenActivity"
             android:theme="@style/AppThemeSplash">

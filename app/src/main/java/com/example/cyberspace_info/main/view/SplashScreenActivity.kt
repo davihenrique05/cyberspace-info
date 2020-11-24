@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.login.view.LoginActivity
-import com.example.cyberspace_info.menu.view.MainActivity
+import com.example.cyberspace_info.autenticacao.view.LoginActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

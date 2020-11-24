@@ -1,5 +1,6 @@
-package com.example.cyberspace_info.login.view
+package com.example.cyberspace_info.autenticacao.registro.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,11 +9,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.autenticacao.adapter.INavegarTab
+import com.example.cyberspace_info.autenticacao.view.LOGIN_FRAGMENT
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.textfield.TextInputEditText
 
 class SignFragment : Fragment() {
 
+    lateinit var mudarTab : INavegarTab
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,9 +38,15 @@ class SignFragment : Fragment() {
         view.findViewById<Button>(R.id.btnSignUP).setOnClickListener {
 
             if(verificarCampos(email,senha,confirmacao)) {
-
+                mudarTab.mudarTab(LOGIN_FRAGMENT)
+                mudarTab.emailAlterado(email.text.toString())
             }
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mudarTab = context as INavegarTab
     }
 
     private fun verificarCampos(email: TextInputEditText?,

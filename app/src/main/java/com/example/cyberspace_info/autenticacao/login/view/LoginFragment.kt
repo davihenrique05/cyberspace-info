@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.login.view
+package com.example.cyberspace_info.autenticacao.login.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,17 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doOnTextChanged
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.menu.view.MainActivity
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textfield.TextInputLayout.END_ICON_NONE
 import com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE
-import kotlinx.android.synthetic.main.fragment_login.*
-import org.w3c.dom.Text
 
 
 class LoginFragment : Fragment() {
@@ -76,6 +71,13 @@ class LoginFragment : Fragment() {
         }
 
         return true
+    }
+
+    fun userNameAlterado(username: String) {
+        val email = view?.findViewById<TextInputEditText>(R.id.edtEmailLogin)
+        email?.setText(username)
+        val pass = view?.findViewById<TextInputEditText>(R.id.edtSenhaLogin)
+        pass?.requestFocus()
     }
 
 }
