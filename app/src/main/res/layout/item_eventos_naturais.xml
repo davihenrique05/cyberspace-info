@@ -21,10 +21,11 @@
 
     <TextView
         android:id="@+id/txtTitleEvent"
-        android:layout_width="255dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="184dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="22dp"
+        android:gravity="start"
         android:text="TextView"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
@@ -34,9 +35,10 @@
 
     <TextView
         android:id="@+id/txtCategoryEvent"
-        android:layout_width="251dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="12dp"
+        android:layout_width="184dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="20dp"
+        android:gravity="start"
         android:text="TextView"
         android:textColor="@color/colorWhite"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -44,13 +46,14 @@
 
     <TextView
         android:id="@+id/txtDateEvent"
-        android:layout_width="94dp"
-        android:layout_height="29dp"
+        android:layout_width="190dp"
+        android:layout_height="26dp"
         android:layout_marginEnd="12dp"
+        android:gravity="end"
         android:text="TextView"
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/txtCategoryEvent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

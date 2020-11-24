@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#105bd8</color>
     <color name="colorPrimaryDark">#0b3d91</color>
     <color name="colorPrimaryDarkMenu">#8D0B3D91</color>
@@ -8,6 +9,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBase">#212121</color>
     <color name="colorGray">#5b616b</color>
+    <color name="colorGrayTitleAndContent">#47525E</color>
     <color name="colorGrayDark">#323a45</color>
     <color name="colorGrayLight">#aeb0b5</color>
     <color name="colorGrayLighter">#d6d7d9</color>

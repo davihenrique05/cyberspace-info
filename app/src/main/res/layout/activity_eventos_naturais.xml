@@ -7,13 +7,38 @@
     android:background="@color/colorBlueLightBackground"
     tools:context=".listaeventosnaturais.view.EventosNaturaisActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/imgReturn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <TextView
+
         android:id="@+id/txtTitleNaturalEvents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="110dp"
         android:layout_weight="1"
         android:text="@string/eventos_naturais_titulo"
         android:textAllCaps="true"
@@ -27,7 +52,7 @@
         android:layout_width="91dp"
         android:layout_height="70dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="36dp"
         android:layout_weight="1"
         android:src="@drawable/ic_storm"
@@ -42,7 +67,7 @@
         android:id="@+id/materialCardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="54dp"
         android:layout_marginBottom="95dp"
         android:background="#FFF"
         android:backgroundTint="#FFF"
@@ -55,8 +80,8 @@
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPagerNaturalEvents"
-            android:layout_width="358dp"
-            android:layout_height="592dp">
+            android:layout_width="344dp"
+            android:layout_height="409dp">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/layoutNaturalEvents"

@@ -1,6 +1,8 @@
 package com.example.cyberspace_info.listaeventosnaturais.view
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
@@ -9,15 +11,21 @@ import com.google.android.material.tabs.TabLayout
 
 
 class EventosNaturaisActivity : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eventos_naturais)
 
-        setupBackButton()
-
+        var imgBack = findViewById<ImageView>(R.id.imgReturn).setOnClickListener {
+            finish()
+        }
 
         var tab = findViewById<TabLayout>(R.id.layoutNaturalEvents)
         var page = findViewById<ViewPager>(R.id.viewPagerNaturalEvents)
+
+        setupViewPagerAndTabLayout(tab,page)
 
     }
 
@@ -34,22 +42,6 @@ class EventosNaturaisActivity : AppCompatActivity() {
         )
     }
 
-    fun setupBackButton() {
-
-        getSupportActionBar()?.setDisplayShowTitleEnabled(false);
-
-        val actionBar = supportActionBar
-
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true)
-        }
-
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
 
     override fun finish() {
         super.finish()
