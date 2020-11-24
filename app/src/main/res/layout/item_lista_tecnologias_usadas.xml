@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/txtTitleEvent"
+        android:id="@+id/txtTitleTecnologiaUsada"
         android:layout_width="wrap_content"
         android:layout_height="41dp"
         android:layout_marginStart="12dp"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         >
     <TextView
-        android:id="@+id/txtCategoryEvent"
+        android:id="@+id/txtDataTecnologiaUsada"
         android:layout_width="251dp"
         android:layout_height="30dp"
         android:layout_marginStart="12dp"
@@ -36,7 +36,7 @@
          />
 
     <TextView
-        android:id="@+id/txtDateEvent"
+        android:id="@+id/txtStatusTecnologiaUsada"
         android:layout_width="94dp"
         android:layout_height="29dp"
         android:layout_marginEnd="12dp"

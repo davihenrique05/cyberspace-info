@@ -7,6 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".listatecnologiasusadas.view.TecnologiasUsadasFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/imgReturn_fRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Oiiii"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <LinearLayout
         android:layout_marginTop="@dimen/dimen_30"
         android:layout_width="match_parent"
@@ -15,7 +39,6 @@
         >
 
         <TextView
-            android:id="@+id/txtTitleNaturalEvents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="56dp"
