@@ -49,19 +49,19 @@ class TecnologiasUsadasFragment : Fragment() {
             adapter = TecnologiasUsadasAdapter(listOf(
 
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","...")
+                    "Completed","Apr 2014 ","Jun 2017","...")
             )){
 
                 val bottomSheetFragment =  BottomSheetFragment();

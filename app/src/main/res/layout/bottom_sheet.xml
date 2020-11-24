@@ -12,7 +12,7 @@
         android:id="@+id/txtTitleProject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Apollo 11 Technology"
+        android:text="Ultra-high Energy Particle Astrophysics with ANITA-V"
         android:layout_margin="30dp"
         android:textColor="@color/colorGrayTitleAndContent"
         android:textStyle="bold"
