@@ -44,6 +44,14 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
             />
+        <action
+            android:id="@+id/action_menuFragment_to_tecnologiasUsadasFragment"
+            app:destination="@id/tecnologiasUsadasFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
 
     </fragment>
     <fragment
@@ -67,10 +75,31 @@
         android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisActivity"
         android:label="activity_eventos_naturais"
         tools:layout="@layout/activity_eventos_naturais" />
+    <fragment
+        android:id="@+id/tecnologiasUsadasFragment"
+        android:name="com.example.cyberspace_info.listatecnologiasusadas.view.TecnologiasUsadasFragment"
+        android:label="fragment_tecnologias_usadas"
+        tools:layout="@layout/fragment_tecnologias_usadas">
 
-    android:id="@+id/eventosNaturaisActivity"
-        android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisActivity"
-        android:label="activity_eventos_naturais"
-        tools:layout="@layout/activity_eventos_naturais" />
+        <action
+            android:id="@+id/action"
+            app:destination="@id/tecnologiasUsadasFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
+        <action
+            android:id="@+id/action_tecnologiasUsadasFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/from_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/menuFragment" />
+
+
+    </fragment>
+
 
 </navigation>

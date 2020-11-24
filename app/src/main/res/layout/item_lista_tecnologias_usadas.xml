@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/txtTitleTecnologiaUsada"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <TextView
+        android:id="@+id/txtDataTecnologiaUsada"
+        android:layout_width="251dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:text="2/1980 - 9/2006"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+         />
+
+    <TextView
+        android:id="@+id/txtStatusTecnologiaUsada"
+        android:layout_width="94dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="12dp"
+        android:text="Completed"
+        android:gravity="end"
+        android:textStyle="bold"
+        android:textColor="#FFF" />
+
+    </LinearLayout>
+
+</LinearLayout>
