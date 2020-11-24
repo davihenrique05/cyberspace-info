@@ -17,15 +17,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
+
                         <ImageView
                             android:id="@+id/imageIconReturnPerfil"
                             android:layout_width="@dimen/dimen_35"
                             android:layout_height="@dimen/dimen_35"
                             android:backgroundTint="@color/colorPrimaryDarkest"
                             android:src="@drawable/ic_baseline_arrow_back_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
                             android:id="@+id/imageIconLogOut"
@@ -33,9 +34,9 @@
                             android:layout_height="@dimen/dimen_35"
                             android:layout_marginEnd="@dimen/dimen_16"
                             android:background="@drawable/ic_exit_to_app_24px"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
+                            app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.MaterialToolbar>
@@ -43,7 +44,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/dimen_8"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:background="@drawable/apod_1">
                 <View
                     android:layout_width="match_parent"
@@ -60,7 +61,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@tools:sample/avatars[2]" />
+                    android:src="@drawable/babe_yoda" />
 
                 <TextView
                     android:id="@+id/txtPerfilNome"
@@ -68,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/dimen_16"
                     android:layout_marginStart="@dimen/dimen_16"
-                    android:text="Doguinho"
+                    android:text="Babe Yoda"
                     android:textStyle="bold"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_30"
@@ -94,8 +95,8 @@
             android:layout_marginTop="@dimen/dimen_35"
             android:layout_marginStart="@dimen/dimen_35"
             android:layout_marginEnd="@dimen/dimen_35"
-            android:layout_height="350dp"
-            android:layout_gravity="center_vertical"
+            android:layout_height="@dimen/dimen_340"
+            android:layout_gravity="center_horizontal"
             android:background="@color/colorBlueLightBackground">
                 
                 <TextView

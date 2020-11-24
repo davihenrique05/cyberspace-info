@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".autenticacao.view.LoginActivity"
+    tools:context=".autenticacao.view.AutenticacaoActivity"
     android:background="@color/colorBlueLightBackground">
 
 
@@ -32,9 +32,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/dimen_24"
-        android:layout_marginTop="@dimen/dimen_30"
+        android:layout_marginTop="@dimen/dimen_28"
         android:layout_marginEnd="@dimen/dimen_24"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="@dimen/dimen_28"
         app:cardBackgroundColor="@color/colorWhite"
         app:cardCornerRadius="@dimen/dimen_4"
         app:cardElevation="@dimen/dimen_16"

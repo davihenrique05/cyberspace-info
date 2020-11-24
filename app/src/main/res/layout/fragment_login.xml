@@ -6,7 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".autenticacao.login.view.LoginFragment"
-    android:padding="@dimen/dimen_16">
+    android:paddingStart="@dimen/dimen_16"
+    android:paddingEnd="@dimen/dimen_16"
+    android:paddingTop="@dimen/dimen_8">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputEmailLogin"
@@ -21,7 +23,7 @@
             android:id="@+id/edtEmailLogin"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -44,10 +46,10 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="@dimen/dimen_110"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dimen_30"
+        android:layout_marginTop="@dimen/dimen_16"
         android:backgroundTint="@color/colorPrimaryDark"
         android:text="@string/login"
         app:cornerRadius="0dp" />
@@ -55,7 +57,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_40"
+        android:layout_marginTop="@dimen/dimen_16"
         android:orientation="horizontal">
 
         <View

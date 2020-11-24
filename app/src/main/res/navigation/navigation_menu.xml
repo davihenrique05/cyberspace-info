@@ -107,7 +107,19 @@
         android:id="@+id/perfilFragment"
         android:name="com.example.cyberspace_info.perfil.view.PerfilFragment"
         android:label="fragment_perfil"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_galeriaFragment"
+            app:destination="@id/galeriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galeriaFragment"
+        android:name="com.example.cyberspace_info.perfil.galeria.view.GaleriaFragment"
+        android:label="fragment_galeria"
+        tools:layout="@layout/fragment_galeria" />
 
 
 </navigation>
