@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.autenticacao.view.AutenticacaoActivity
@@ -43,19 +44,25 @@ class PerfilFragment : Fragment() {
             navController.navigate(R.id.action_perfilFragment_to_galeriaFragment)
         }
 
-        view.findViewById<ImageView>(R.id.imageGalery1).setOnClickListener {
+        val imagem = view.findViewById<ImageView>(R.id.imageGalery1)
+        imagem.setOnClickListener {
+            val bundle = bundleOf("Tela" to "Perfil", "Imagem" to R.drawable.apod_2)
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_perfilFragment_to_galeriaFragment)
+            navController.navigate(R.id.action_perfilFragment_to_imagemFragment, bundle)
         }
 
-        view.findViewById<ImageView>(R.id.imageGalery1).setOnClickListener {
+        val imagem2 = view.findViewById<ImageView>(R.id.imageGalery2)
+        imagem2.setOnClickListener {
+            val bundle = bundleOf("Tela" to "Perfil", "Imagem" to R.drawable.apod_1)
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_perfilFragment_to_galeriaFragment)
+            navController.navigate(R.id.action_perfilFragment_to_imagemFragment, bundle)
         }
 
-        view.findViewById<ImageView>(R.id.imageGalery1).setOnClickListener {
+        val imagem3 = view.findViewById<ImageView>(R.id.imageGalery3)
+        imagem3.setOnClickListener {
+            val bundle = bundleOf("Tela" to "Perfil", "Imagem" to R.drawable.apod_3)
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_perfilFragment_to_galeriaFragment)
+            navController.navigate(R.id.action_perfilFragment_to_imagemFragment, bundle)
         }
     }
 }

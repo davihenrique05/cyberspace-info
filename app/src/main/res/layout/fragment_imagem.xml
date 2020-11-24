@@ -11,6 +11,7 @@
         android:id="@+id/imageViewShow"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,6 +19,7 @@
         tools:src="@drawable/apod_1" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarImagemFrag"
         android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_height="60dp"

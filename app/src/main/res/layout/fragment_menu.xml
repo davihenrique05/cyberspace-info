@@ -26,7 +26,6 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardImagemDoDia"
-                android:background="@drawable/apod_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
@@ -36,7 +35,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:src="@drawable/apod_1"
+                    android:src="@drawable/apod_2"
                     android:scaleType="fitXY"
                     android:id="@+id/imgImagemDoDia"
                     android:layout_gravity="center"/>
