@@ -6,8 +6,7 @@ import android.widget.ImageView
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
 import com.google.android.material.tabs.TabLayout
-import java.lang.reflect.Array.newInstance
-import android.widget.TableLayout
+import com.example.cyberspace_info.planetasorbitandoestrelas.ViewPagerAdapter
 
 class PesquisaImgVidActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +36,12 @@ class PesquisaImgVidActivity : AppCompatActivity() {
             getString(R.string.imagens), getString(R.string.videos)
         )
 
-        pager.adapter = ViewPagerAdapter(fragments, titulos, supportFragmentManager)
+        pager.adapter =
+            ViewPagerAdapter(
+                fragments,
+                titulos,
+                supportFragmentManager
+            )
     }
 
     override fun finish() {

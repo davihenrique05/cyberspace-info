@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.planetasorbitandoestrelas
+package com.example.cyberspace_info.pesquisarimgvid
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,11 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
-import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.main.view.MainActivity
-import com.example.cyberspace_info.pesquisarimgvid.PesquisaImgVidActivity
-import com.google.android.material.card.MaterialCardView
 import kotlinx.android.synthetic.main.activity_pesquisa.*
 
 class PesquisaActivity : AppCompatActivity() {

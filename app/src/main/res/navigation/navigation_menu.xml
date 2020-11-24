@@ -76,7 +76,7 @@
         tools:layout="@layout/activity_planetas_orbitando_estrelas" />
     <activity
         android:id="@+id/pesquisaActivity"
-        android:name="com.example.cyberspace_info.planetasorbitandoestrelas.PesquisaActivity"
+        android:name="com.example.cyberspace_info.pesquisarimgvid.PesquisaActivity"
         android:label="activity_pesquisa"
         tools:layout="@layout/activity_pesquisa" />
 
