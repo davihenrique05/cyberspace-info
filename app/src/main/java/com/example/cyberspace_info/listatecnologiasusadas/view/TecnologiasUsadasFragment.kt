@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,8 @@ import com.example.cyberspace_info.listatecnologiasusadas.view.adapter.Tecnologi
 
 
 class TecnologiasUsadasFragment : Fragment() {
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +32,8 @@ class TecnologiasUsadasFragment : Fragment() {
 
         val navController = Navigation.findNavController(view)
 
-        view.findViewById<ImageView>(R.id.imgReturn_fRegistro).setOnClickListener {
-            navController.navigate(R.id.menuFragment)
+        view.findViewById<ImageView>(R.id.imgReturn).setOnClickListener {
+            navController.navigate(R.id.action_tecnologiasUsadasFragment_to_menuFragment)
         }
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTecnologiasUsadas)
@@ -44,21 +47,28 @@ class TecnologiasUsadasFragment : Fragment() {
             layoutManager = linearManager
 
             adapter = TecnologiasUsadasAdapter(listOf(
+
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","..."),
+                    "Completed","Apr 2014 ","Jun 2017","..."),
                 ProjectModel(1,"Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I",
-                    "Completed","14 jan ","24 Out","...")
-            ))
+                    "Completed","Apr 2014 ","Jun 2017","...")
+            )){
+
+                val bottomSheetFragment =  BottomSheetFragment();
+
+                bottomSheetFragment.show((activity as AppCompatActivity).supportFragmentManager,"BottomSheetDialog")
+
+            }
 
         }
 

@@ -10,7 +10,7 @@ import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
 import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtualAdapter
 import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectModel
 
-class TecnologiasUsadasAdapter(private val tecnologias: List<ProjectModel>): RecyclerView.Adapter<TecnologiasUsadasAdapter.TecnologiasUsadasViewHolder>() {
+class TecnologiasUsadasAdapter(private val tecnologias: List<ProjectModel>, private val listener: (ProjectModel) -> Unit): RecyclerView.Adapter<TecnologiasUsadasAdapter.TecnologiasUsadasViewHolder>() {
 
     class TecnologiasUsadasViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -41,7 +41,9 @@ class TecnologiasUsadasAdapter(private val tecnologias: List<ProjectModel>): Rec
     override fun onBindViewHolder(holder: TecnologiasUsadasViewHolder, position: Int) {
 
         holder.bind(tecnologias[position])
-
+        holder.itemView.setOnClickListener {
+            listener(tecnologias[position])
+        }
     }
     
 }
