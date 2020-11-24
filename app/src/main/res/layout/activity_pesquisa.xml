@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".pesquisarimgvid.PesquisaActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/fundotelapesquisa">
 
     <Toolbar
         android:layout_width="match_parent"
@@ -22,17 +23,41 @@
 
     </Toolbar>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Pesquise astros, estrelas, etc..."
-        />
 
-    <Button
-        android:id="@+id/btnpesquisar"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pesquisar"
-        />
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_observatory"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pesquise astros, estrelas, etc..."
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                />
+
+            <ImageView
+                android:id="@+id/imgBtnPesquisar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_search_24"/>
+
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

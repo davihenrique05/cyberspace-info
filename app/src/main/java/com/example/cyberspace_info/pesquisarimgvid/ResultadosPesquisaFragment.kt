@@ -27,7 +27,6 @@ class ResultadosPesquisaFragment : Fragment() {
     ): View? {
         val minhaView = inflater.inflate(R.layout.fragment_resultados_pesquisa, container, false)
         minhaView.findViewById<TextView>(R.id.txtMeuTexto).text = param1
-
         return minhaView
     }
 
