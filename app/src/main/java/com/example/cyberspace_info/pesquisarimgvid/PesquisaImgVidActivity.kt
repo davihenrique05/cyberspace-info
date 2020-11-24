@@ -13,11 +13,15 @@ class PesquisaImgVidActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesquisa_img_vid)
-
         findViewById<ImageView>(R.id.imgViewMenuPesquisaImgVid).setOnClickListener {
             onBackPressed()
         }
 
+        ResultarPesquisa()
+
+    }
+
+    private fun ResultarPesquisa() {
         val pager = findViewById<ViewPager>(R.id.viewPager)
         val tab = findViewById<TabLayout>(R.id.tabLayout)
 
@@ -26,7 +30,7 @@ class PesquisaImgVidActivity : AppCompatActivity() {
 
         val fragments = listOf(
             ResultadosPesquisaFragment.newInstance("Minhas Imagens pesquisadas", true),
-            ResultadosPesquisaFragment.newInstance("Meus Vídeos pesquisados",false)
+            ResultadosPesquisaFragment.newInstance("Meus Vídeos pesquisados", false)
         )
 
         val titulos = listOf(
@@ -34,8 +38,6 @@ class PesquisaImgVidActivity : AppCompatActivity() {
         )
 
         pager.adapter = ViewPagerAdapter(fragments, titulos, supportFragmentManager)
-
-
     }
 
     override fun finish() {

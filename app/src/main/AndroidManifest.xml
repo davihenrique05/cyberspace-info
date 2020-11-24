@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".planetasorbitandoestrelas.PlanetasOrbitandoEstrelasActivity" android:theme="@style/AppThemePesquisaImgVid"></activity>
+        <activity android:name=".planetasorbitandoestrelas.PesquisaActivity" android:theme="@style/AppThemePesquisaImgVid"></activity>
+        <activity
+            android:name=".planetasorbitandoestrelas.PlanetasOrbitandoEstrelasActivity"
+            android:theme="@style/AppThemePesquisaImgVid" />
         <activity
             android:name=".pesquisarimgvid.PesquisaImgVidActivity"
             android:theme="@style/AppThemePesquisaImgVid" />
