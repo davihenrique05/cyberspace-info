@@ -92,7 +92,15 @@
         android:id="@+id/marsRoverFragment"
         android:name="com.example.cyberspace_info.listamarsrover.view.MarsRoverFragment"
         android:label="fragment_mars_rover"
-        tools:layout="@layout/fragment_mars_rover" />
+        tools:layout="@layout/fragment_mars_rover" >
+        <action
+            android:id="@+id/action_marsRoverFragment_to_galeriaFragment"
+            app:destination="@id/galeriaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
 
 
     <activity
