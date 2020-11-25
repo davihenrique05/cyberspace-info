@@ -20,14 +20,15 @@ class PlanetasOrbitandoEstrelasActivity : AppCompatActivity() {
         val viewManager = LinearLayoutManager(this)
         val recyclerView = findViewById<RecyclerView>(R.id.listaPlanetasOrbitandoEstrelas)
 
-        var meusPlanetas = arrayListOf(PlanetaOrbitandoEstrela("Mercurio", "Sol"),
-            PlanetaOrbitandoEstrela("Venus", "Sol"),
-            PlanetaOrbitandoEstrela("Terra", "Sol"),
-            PlanetaOrbitandoEstrela("Marte", "Sol"),
-            PlanetaOrbitandoEstrela("Júpiter", "Sol"),
-            PlanetaOrbitandoEstrela("Saturno", "Sol"),
-            PlanetaOrbitandoEstrela("Urano", "Sol"),
-            PlanetaOrbitandoEstrela("Netuno", "Sol"))
+        var meusPlanetas = arrayListOf(
+            PlanetaOrbitandoEstrela("Mercurio", "Sol", R.drawable.mercurio),
+            PlanetaOrbitandoEstrela("Venus", "Sol", R.drawable.venus),
+            PlanetaOrbitandoEstrela("Terra", "Sol", R.drawable.terra),
+            PlanetaOrbitandoEstrela("Marte", "Sol", R.drawable.marte),
+            PlanetaOrbitandoEstrela("Júpiter", "Sol", R.drawable.jupiter),
+            PlanetaOrbitandoEstrela("Saturno", "Sol", R.drawable.saturno),
+            PlanetaOrbitandoEstrela("Urano", "Sol", R.drawable.urano),
+            PlanetaOrbitandoEstrela("Netuno", "Sol", R.drawable.netuno))
 
         val viewAdapter = PlanetasOrbitandoEstrelasAdapter(meusPlanetas)
         recyclerView.apply {
