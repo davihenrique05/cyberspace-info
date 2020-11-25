@@ -7,10 +7,10 @@
 
     <ImageView
         android:id="@+id/imgFotoVideo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
         android:src="@drawable/ic_satellite"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
