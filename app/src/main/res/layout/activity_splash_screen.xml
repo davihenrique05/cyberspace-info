@@ -31,7 +31,7 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="Cyberspace Info"
             android:textColor="@color/colorGrayLightest"
-            android:textSize="39sp" />
+            android:textSize="40sp" />
 
 
 
