@@ -33,11 +33,12 @@ class ImagemFragment : Fragment() {
 
         val tela = arguments?.getString("Tela")
         val imagemId = arguments?.getInt("Imagem")
-
         var favorito = false
         val imagem = view.findViewById<ImageView>(R.id.imageViewShow)
+        val icone = view.findViewById<ImageView>(R.id.imageIconFavorite)
         var visivel = false
-        if(imagemId!= null){
+
+        if(imagemId != null){
             imagem.setImageResource(imagemId)
         }
 
@@ -54,8 +55,6 @@ class ImagemFragment : Fragment() {
 
         }
 
-        val icone = view.findViewById<ImageView>(R.id.imageIconFavorite)
-
         icone?.setOnClickListener {
             favorito = if(!favorito){
 
@@ -66,6 +65,7 @@ class ImagemFragment : Fragment() {
                 false
             }
         }
+
         fecharTela(tela!!)
     }
 
