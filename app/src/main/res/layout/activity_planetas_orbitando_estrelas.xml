@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/colorPrimaryDarkest">
 
         <ImageView
             android:id="@+id/imgSetaVoltarPlanetasOrbitandoEstrelas"
