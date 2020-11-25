@@ -46,7 +46,7 @@ class PerfilFragment : Fragment() {
 
         val imagem = view.findViewById<ImageView>(R.id.imageGalery1)
         imagem.setOnClickListener {
-            val bundle = bundleOf("Tela" to "Perfil", "Imagem" to R.drawable.apod_2)
+            val bundle = bundleOf("Tela" to getString(R.string.perfil_comparacao), "Imagem" to R.drawable.apod_2)
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_perfilFragment_to_imagemFragment, bundle)
         }

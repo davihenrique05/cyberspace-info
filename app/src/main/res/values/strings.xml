@@ -23,4 +23,12 @@
     <string name="imagens_favoritas">Imagens Favoritas</string>
     <string name="tecnologias_usadas_menu">TECNOLOGIAS USADAS</string>
     <string name="galeria">GALERIA</string>
+    <string name="menu_comparacao">Menu</string>
+    <string name="galeria_comparacao">Galeria</string>
+    <string name="perfil_comparacao">Perfil</string>
+    <string name="asteroides_em_colisao">Asteroides em colisão</string>
+    <string name="saiba_mais">Saiba mais...</string>
+    <string name="diametro_minimo">Diametro mínimo:</string>
+    <string name="diametro_maximo">Diametro máximo:</string>
+    <string name="velocidade">Velocidade:</string>
 </resources>
