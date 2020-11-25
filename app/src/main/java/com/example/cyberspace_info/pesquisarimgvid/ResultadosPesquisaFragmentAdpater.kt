@@ -8,12 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 
-class ResultadosPesquisaFragmentAdpater(private val dataSet: List<Int>): RecyclerView.Adapter<ResultadosPesquisaFragmentAdpater.meuViewHolder>() {
+class ResultadosPesquisaFragmentAdpater(private val dataSet: List<FotoVideo>): RecyclerView.Adapter<ResultadosPesquisaFragmentAdpater.meuViewHolder>() {
     //Para tratar cada elemento da linha, colocar todos os elementos aqui
     class meuViewHolder(view: View): RecyclerView.ViewHolder(view){
         private val fotoPlaneta: ImageView = view.findViewById(R.id.imgFotoVideo)
 
-        fun bind(imagem: Int){
+        fun bind(fotoVideo: FotoVideo){
+            fotoPlaneta.setImageResource(fotoVideo.imagem)
         }
     }
 

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".pesquisarimgvid.PesquisaActivity" />
         <activity android:name=".pesquisarimgvid.PesquisaImgVidActivity" />
         <activity android:name=".listaeventosnaturais.view.EventosNaturaisActivity" />
         <activity android:name=".autenticacao.view.AutenticacaoActivity" android:theme="@style/AppTheme"/>

@@ -28,7 +28,7 @@
 
         <action
             android:id="@+id/action_menuFragment_to_pesquisaimgvidactivity"
-            app:destination="@id/pesquisaImgVidActivity"
+            app:destination="@+id/pesquisaActivity"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
@@ -93,12 +93,8 @@
         android:name="com.example.cyberspace_info.listamarsrover.view.MarsRoverFragment"
         android:label="fragment_mars_rover"
         tools:layout="@layout/fragment_mars_rover" />
-    <activity
 
-        android:id="@+id/pesquisaImgVidActivity"
-        android:name="com.example.cyberspace_info.pesquisarimgvid.PesquisaImgVidActivity"
-        android:label="fragment_pesquisa_img_vid"
-        tools:layout="@layout/activity_pesquisa_img_vid" />
+
     <activity
         android:id="@+id/eventosNaturaisActivity"
         android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisActivity"
@@ -199,6 +195,11 @@
         android:name="com.example.cyberspace_info.planetasorbitandoestrelas.PlanetasOrbitandoEstrelasActivity"
         android:label="activity_planetas_orbitando_estrelas"
         tools:layout="@layout/activity_planetas_orbitando_estrelas" />
+    <activity
+        android:id="@+id/pesquisaActivity"
+        android:name="com.example.cyberspace_info.pesquisarimgvid.PesquisaActivity"
+        android:label="activity_pesquisa"
+        tools:layout="@layout/activity_pesquisa" />
 
 
 </navigation>
