@@ -73,6 +73,14 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_menuFragment_to_planetasorbitandoestrelasActivity"
+            app:destination="@id/planetasOrbitandoEstrelasActivity"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+
 
     </fragment>
     <fragment
@@ -182,6 +190,11 @@
             android:id="@+id/action_asteroidesFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
+    <activity
+        android:id="@+id/planetasOrbitandoEstrelasActivity"
+        android:name="com.example.cyberspace_info.planetasorbitandoestrelas.PlanetasOrbitandoEstrelasActivity"
+        android:label="activity_planetas_orbitando_estrelas"
+        tools:layout="@layout/activity_planetas_orbitando_estrelas" />
 
 
 </navigation>
