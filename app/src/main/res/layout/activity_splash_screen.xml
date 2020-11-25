@@ -27,7 +27,7 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/foguete"
             android:layout_width="@dimen/dimen_200"
-            android:layout_height="@dimen/dimen_20">
+            android:layout_height="@dimen/dimen_200">
         </com.airbnb.lottie.LottieAnimationView>
 
         <TextView
