@@ -54,13 +54,25 @@
             />
         <action
             android:id="@+id/action_menuFragment_to_perfilFragment"
-            app:destination="@id/perfilFragment" />
+            app:destination="@id/perfilFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_menuFragment_to_imagemFragment"
-            app:destination="@id/imagemFragment" />
+            app:destination="@id/imagemFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
         <action
             android:id="@+id/action_menuFragment_to_asteroidesFragment"
-            app:destination="@id/asteroidesFragment" />
+            app:destination="@id/asteroidesFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
 
     </fragment>
     <fragment
@@ -108,13 +120,23 @@
         tools:layout="@layout/fragment_perfil" >
         <action
             android:id="@+id/action_perfilFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_perfilFragment_to_galeriaFragment"
-            app:destination="@id/galeriaFragment" />
+            app:destination="@id/galeriaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_perfilFragment_to_imagemFragment"
-            app:destination="@id/imagemFragment" />
+            app:destination="@id/imagemFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:popEnterAnim="@anim/fragment_close_enter" />
     </fragment>
     <fragment
         android:id="@+id/galeriaFragment"
@@ -123,10 +145,16 @@
         tools:layout="@layout/fragment_galeria" >
         <action
             android:id="@+id/action_galeriaFragment_to_imagemFragment"
-            app:destination="@id/imagemFragment" />
+            app:destination="@id/imagemFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:popEnterAnim="@anim/fragment_close_enter" />
         <action
             android:id="@+id/action_galeriaFragment_to_perfilFragment"
-            app:destination="@id/perfilFragment" />
+            app:destination="@id/perfilFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/imagemFragment"
@@ -135,7 +163,9 @@
         tools:layout="@layout/fragment_imagem" >
         <action
             android:id="@+id/action_imagemFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_imagemFragment_to_perfilFragment"
             app:destination="@id/perfilFragment" />
