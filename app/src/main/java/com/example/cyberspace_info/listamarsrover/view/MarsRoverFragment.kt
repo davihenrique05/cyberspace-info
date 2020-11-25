@@ -58,9 +58,14 @@ class MarsRoverFragment : Fragment() {
             abrirCalendario(view)
         }
 
-        var imgBack = view.findViewById<ImageView>(R.id.imgReturn_fMarsRover).setOnClickListener {
+        view.findViewById<ImageView>(R.id.imgReturn_fMarsRover).setOnClickListener {
             val navController = Navigation.findNavController(view)
             navController.popBackStack()
+        }
+
+        view.findViewById<ImageView>(R.id.imgPesquisar_fMarsRover).setOnClickListener {
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_marsRoverFragment_to_galeriaFragment)
         }
     }
 

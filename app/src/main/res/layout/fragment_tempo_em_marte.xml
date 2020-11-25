@@ -31,7 +31,7 @@
                 android:gravity="center"
                 android:text="@string/tempo_em_marte"
                 android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
+                android:textSize="21sp" />
 
             <ImageView
                 android:layout_width="75dp"
