@@ -25,6 +25,6 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, AutenticacaoActivity::class.java)
             startActivity(intent)
-        },7500)
+        },7501)
     }
 }
