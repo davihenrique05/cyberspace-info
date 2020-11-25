@@ -36,8 +36,8 @@ class PesquisaImgVidActivity : AppCompatActivity() {
         tab.setupWithViewPager(pager)
 
         val fragments = listOf(
-            ResultadosPesquisaFragment.newInstance("Imagens"),
-            ResultadosPesquisaFragment.newInstance("Videos")
+            ResultadosPesquisaFragment(),
+            ResultadosPesquisaFragment()
         )
 
         val titulos = listOf(

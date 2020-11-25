@@ -11,14 +11,9 @@ import android.widget.TextView
 import com.example.cyberspace_info.R
 
 class ResultadosPesquisaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString("TEXTO")
-        }
     }
 
     override fun onCreateView(
@@ -26,18 +21,11 @@ class ResultadosPesquisaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val minhaView = inflater.inflate(R.layout.fragment_resultados_pesquisa, container, false)
-        minhaView.findViewById<TextView>(R.id.txtMeuTexto).text = param1
-
         return minhaView
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(texto: String) =
-            ResultadosPesquisaFragment().apply {
-                arguments = Bundle().apply {
-                    putString("TEXTO", texto)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        
     }
 }
