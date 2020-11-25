@@ -43,6 +43,24 @@ class ResultadosPesquisaFragment : Fragment() {
             FotoVideo(R.drawable.jupiter),
             FotoVideo(R.drawable.saturno),
             FotoVideo(R.drawable.urano),
+            FotoVideo(R.drawable.netuno),
+
+            FotoVideo(R.drawable.mercurio),
+            FotoVideo(R.drawable.venus),
+            FotoVideo(R.drawable.terra),
+            FotoVideo(R.drawable.marte),
+            FotoVideo(R.drawable.jupiter),
+            FotoVideo(R.drawable.saturno),
+            FotoVideo(R.drawable.urano),
+            FotoVideo(R.drawable.netuno),
+
+            FotoVideo(R.drawable.mercurio),
+            FotoVideo(R.drawable.venus),
+            FotoVideo(R.drawable.terra),
+            FotoVideo(R.drawable.marte),
+            FotoVideo(R.drawable.jupiter),
+            FotoVideo(R.drawable.saturno),
+            FotoVideo(R.drawable.urano),
             FotoVideo(R.drawable.netuno)
         )
 
