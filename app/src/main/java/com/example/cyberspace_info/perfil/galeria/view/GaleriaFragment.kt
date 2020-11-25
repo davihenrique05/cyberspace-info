@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.perfil.galeria.view.adapter.ImagensAdapter
-import com.example.cyberspace_info.perfil.galeria.view.adapter.ItemOffsetDecoration
 
 
 class GaleriaFragment : Fragment() {
@@ -31,14 +33,23 @@ class GaleriaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyler = view.findViewById<RecyclerView>(R.id.recyclerViewGaleria)
         val listaDeImagens = popularLista()
-        val recylerAdapter = ImagensAdapter(listaDeImagens)
         val manager = GridLayoutManager(view.context,3)
-        val spacing = R.dimen.dimen_4
+        val back = view.findViewById<ImageView>(R.id.imageIconReturnGaleria)
+        val recylerAdapter = ImagensAdapter(listaDeImagens) {
+            val navController = Navigation.findNavController(view)
+            val bundle = bundleOf("Tela" to getString(R.string.galeria_comparacao), "Imagem" to it.toInt())
+            navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
+        }
 
         recyler.apply {
             setHasFixedSize(true)
             adapter = recylerAdapter
             layoutManager = manager
+        }
+
+        back.setOnClickListener {
+            val navegar = Navigation.findNavController(view)
+            navegar.navigate(R.id.action_galeriaFragment_to_perfilFragment)
         }
     }
 
