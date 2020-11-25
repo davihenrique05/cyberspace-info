@@ -17,44 +17,31 @@
 
             <ImageView
                 android:id="@+id/imgReturn"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
+
                 android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/tecnologias_usadas"
+                android:textColor="@color/colorWhite"
+                android:textSize="26sp" />
+
+            <ImageView
+                android:id="@+id/imgReturn2"
+                android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_satellite" />
 
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-        android:layout_marginTop="@dimen/dimen_30"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="35dp"
-            android:layout_weight="1"
-            android:text="@string/tecnologias_usadas"
-            android:textAllCaps="true"
-            android:textColor="@color/colorPrimaryDarkest"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            />
-
-        <ImageView
-            android:layout_width="91dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="36dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_satellite"
-            />
-
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
 
