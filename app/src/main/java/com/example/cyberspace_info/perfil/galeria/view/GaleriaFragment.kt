@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.perfil.galeria.view.adapter.ImagensAdapter
-import com.example.cyberspace_info.perfil.galeria.view.adapter.ItemOffsetDecoration
 
 
 class GaleriaFragment : Fragment() {
