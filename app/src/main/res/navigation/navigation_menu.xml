@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_menuFragment_to_imagemFragment"
             app:destination="@id/imagemFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_asteroidesFragment"
+            app:destination="@id/asteroidesFragment" />
 
     </fragment>
     <fragment
@@ -121,6 +124,9 @@
         <action
             android:id="@+id/action_galeriaFragment_to_imagemFragment"
             app:destination="@id/imagemFragment" />
+        <action
+            android:id="@+id/action_galeriaFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
     </fragment>
     <fragment
         android:id="@+id/imagemFragment"
@@ -136,6 +142,15 @@
         <action
             android:id="@+id/action_imagemFragment_to_galeriaFragment"
             app:destination="@id/galeriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/asteroidesFragment"
+        android:name="com.example.cyberspace_info.asteroidesemcolisao.view.AsteroidesFragment"
+        android:label="fragment_asteroides"
+        tools:layout="@layout/fragment_asteroides" >
+        <action
+            android:id="@+id/action_asteroidesFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
 
 

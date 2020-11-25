@@ -60,9 +60,15 @@ class MenuFragment : Fragment() {
 
         view.findViewById<MaterialCardView>(R.id.cardImagemDoDia).setOnClickListener {
             val imagem = view.findViewById<ImageView>(R.id.imgImagemDoDia)
-            val bundle = bundleOf("Tela" to "Menu", "Imagem" to R.drawable.apod_2)
+            val bundle = bundleOf("Tela" to getString(R.string.menu_comparacao), "Imagem" to R.drawable.apod_2)
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_menuFragment_to_imagemFragment,bundle)
+        }
+
+
+        view.findViewById<MaterialCardView>(R.id.cardObjetosEmColisao).setOnClickListener {
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_menuFragment_to_asteroidesFragment)
         }
     }
 }

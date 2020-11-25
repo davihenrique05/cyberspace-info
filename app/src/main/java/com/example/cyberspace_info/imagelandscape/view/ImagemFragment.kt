@@ -76,21 +76,33 @@ class ImagemFragment : Fragment() {
     }
 
     private fun fecharTela(tela:String){
-        if(tela== "Perfil"){
-            view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
-                val navController = Navigation.findNavController(requireView())
-                navController.navigate(R.id.action_imagemFragment_to_menuFragment)
-                activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                @Suppress("DEPRECATION")
-                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        when (tela) {
+            getString(R.string.perfil_comparacao) -> {
+                view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
+                    val navController = Navigation.findNavController(requireView())
+                    navController.navigate(R.id.action_imagemFragment_to_menuFragment)
+                    activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    @Suppress("DEPRECATION")
+                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                }
             }
-        }else if(tela=="Menu"){
-            view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
-                val navController = Navigation.findNavController(requireView())
-                navController.navigate(R.id.action_imagemFragment_to_menuFragment)
-                activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                @Suppress("DEPRECATION")
-                activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getString(R.string.menu_comparacao) -> {
+                view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
+                    val navController = Navigation.findNavController(requireView())
+                    navController.navigate(R.id.action_imagemFragment_to_menuFragment)
+                    activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    @Suppress("DEPRECATION")
+                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                }
+            }
+            getString(R.string.galeria_comparacao) -> {
+                view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
+                    val navController = Navigation.findNavController(requireView())
+                    navController.navigate(R.id.action_imagemFragment_to_galeriaFragment)
+                    activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    @Suppress("DEPRECATION")
+                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                }
             }
         }
     }

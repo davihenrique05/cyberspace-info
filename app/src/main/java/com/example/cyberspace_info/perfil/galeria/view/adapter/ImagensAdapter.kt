@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 
-class ImagensAdapter(private val listaDeImagens: MutableList<String>):RecyclerView.Adapter<ImagensAdapter.ImagensViewHolder>() {
+class ImagensAdapter(private val listaDeImagens: MutableList<String>, private val listener: (String) -> Unit):RecyclerView.Adapter<ImagensAdapter.ImagensViewHolder>() {
 
     class ImagensViewHolder(view: View):RecyclerView.ViewHolder(view) {
         private val imagem = view.findViewById<ImageView>(R.id.imageViewItem)
@@ -24,7 +24,9 @@ class ImagensAdapter(private val listaDeImagens: MutableList<String>):RecyclerVi
     }
 
     override fun onBindViewHolder(holder: ImagensViewHolder, position: Int) {
-        holder.bind(listaDeImagens[position])
+        val item = listaDeImagens[position]
+        holder.bind(item)
+        holder.itemView.setOnClickListener { listener(item) }
     }
 
     override fun getItemCount(): Int = listaDeImagens.size
