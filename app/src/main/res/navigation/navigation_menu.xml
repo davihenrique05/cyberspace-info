@@ -188,7 +188,11 @@
         tools:layout="@layout/fragment_asteroides" >
         <action
             android:id="@+id/action_asteroidesFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <activity
         android:id="@+id/planetasOrbitandoEstrelasActivity"

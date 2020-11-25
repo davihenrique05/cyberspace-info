@@ -23,7 +23,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@drawable/tempoemmarte" />
+                android:src="@drawable/tempo_em_marte"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBase"
+                android:alpha="0.28"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="SOL 123"
                 android:textColor="@color/colorWhite"
-                android:textSize="60dp"
+                android:textSize="@dimen/dimen_text_60"
                 android:gravity="center"
                 android:textStyle="bold" />
                 <LinearLayout
@@ -56,7 +61,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="20 DE AGOSTO, 2020."
                     android:textColor="@color/colorWhite"
-                    android:textSize="30dp"
+                    android:textSize="@dimen/dimen_text_30"
                     android:gravity="center"
                     android:textStyle="bold" />
                 </LinearLayout>
@@ -66,55 +71,55 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_weight="1"
+            android:layout_weight="0.3"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginEnd="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/dimen_8"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MÁXIMA"
+                    android:text="@string/temp_maxima"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MÍNIMA"
+                    android:text="@string/temp_minima"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MÉDIA"
+                    android:text="@string/temp_media"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
             </LinearLayout>
 
             <LinearLayout
@@ -128,9 +133,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TEMPERATURA"
+                    android:text="@string/temperatura"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/dimen_14"
                     android:textStyle="bold"
                     android:layout_weight="1"/>
 
@@ -139,47 +144,47 @@
                     android:layout_height="wrap_content"
                     android:text="3.1 °C"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="-178.4 °C"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="-78.4 °C"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginEnd="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/dimen_8"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/dimen_14"
                     android:textStyle="bold"
-                    android:text="VENTOS(mph)"
+                    android:text="@string/ventos_mph"
                     android:textColor="@color/colorWhite"
                     android:layout_weight="1"/>
 
@@ -188,46 +193,46 @@
                     android:layout_height="wrap_content"
                     android:text="49.3"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="16.9"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1.8"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginEnd="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/dimen_8"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/dimen_14"
                     android:textColor="@color/colorWhite"
-                    android:text="PRESSÃO(Pa)"
+                    android:text="@string/pressao"
                     android:textStyle="bold"
                     android:layout_weight="1"/>
 
@@ -236,30 +241,30 @@
                     android:layout_height="wrap_content"
                     android:text="554.6"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="504.6"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="458.6"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_17"
                     android:textStyle="bold"
                     android:layout_weight="1"
-                    android:gravity="right"/>
+                    android:gravity="end"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
