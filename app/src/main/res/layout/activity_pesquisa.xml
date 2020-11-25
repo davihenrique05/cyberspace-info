@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".pesquisarimgvid.PesquisaActivity"
     android:orientation="vertical"
-    android:background="@drawable/fundotelapesquisa">
+    android:background="@drawable/apod_1">
 
     <Toolbar
         android:layout_width="match_parent"
@@ -40,7 +40,8 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp">
+        android:layout_marginTop="200dp"
+        android:padding="@dimen/dimen_20">
 
         <ImageView
             android:layout_width="150dp"
