@@ -1,6 +1,7 @@
 package com.example.cyberspace_info.pesquisarimgvid
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,47 +10,35 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.viewpager.widget.ViewPager
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import com.example.cyberspace_info.R
-import com.google.android.material.tabs.TabLayout
-import com.example.cyberspace_info.planetasorbitandoestrelas.ViewPagerAdapter
+import kotlinx.android.synthetic.main.activity_pesquisa.*
 
-class PesquisaImgVidActivity : AppCompatActivity() {
+class PesquisaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pesquisa_img_vid)
-        findViewById<ImageView>(R.id.imgViewMenuPesquisaImgVid).setOnClickListener {
+        setContentView(R.layout.activity_pesquisa)
+        findViewById<ImageView>(R.id.imgViewMenuPesquisa).setOnClickListener {
             onBackPressed()
         }
 
-        ResultarPesquisa()
-
-
+        pesquisar()
 
     }
 
-    private fun ResultarPesquisa() {
-        val pager = findViewById<ViewPager>(R.id.viewPager)
-        val tab = findViewById<TabLayout>(R.id.tabLayout)
-
-        //Faz com que o tab use o Viewpager
-        tab.setupWithViewPager(pager)
-
-        val fragments = listOf(
-            ResultadosPesquisaFragment.newInstance("Imagens"),
-            ResultadosPesquisaFragment.newInstance("Videos")
-        )
-
-        val titulos = listOf(
-            "imagens", "videos"
-        )
-
-        pager.adapter =
-            ViewPagerAdapter(
-                fragments,
-                titulos,
-                supportFragmentManager
+    private fun pesquisar() {
+        findViewById<ImageView>(R.id.imgBtnPesquisar).setOnClickListener {
+            var intent = Intent(this@PesquisaActivity, PesquisaImgVidActivity::class.java)
+            var activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
+                getApplicationContext(),
+                R.anim.from_right,
+                R.anim.to_left
             )
+            ActivityCompat.startActivity(this, intent, activityOptionsCompat.toBundle())
+            //startActivity(intent)
+
+        }
     }
 
     override fun finish() {
