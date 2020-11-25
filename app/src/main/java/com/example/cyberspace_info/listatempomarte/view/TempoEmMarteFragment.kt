@@ -10,6 +10,7 @@ import android.widget.DatePicker
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
 import java.text.SimpleDateFormat
 import java.util.*
@@ -40,6 +41,10 @@ class TempoEmMarteFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.imgCalendario).setOnClickListener {
             abrirCalendario(view)
+        }
+        var imgBack = view.findViewById<ImageView>(R.id.imgReturn_fTempoEmMarte).setOnClickListener {
+            val navController = Navigation.findNavController(view)
+            navController.popBackStack()
         }
     }
 
