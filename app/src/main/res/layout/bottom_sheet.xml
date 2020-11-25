@@ -13,10 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ultra-high Energy Particle Astrophysics with ANITA-V"
-        android:layout_margin="30dp"
+        android:layout_margin="@dimen/dimen_30"
         android:textColor="@color/colorGrayTitleAndContent"
         android:textStyle="bold"
-        android:textSize="35dp"
+        android:textSize="@dimen/dimen_text_35"
         android:layout_gravity="center"
         android:gravity="center"
         />
@@ -30,7 +30,7 @@
         android:textSize="25sp"
         android:textColor="@color/colorGrayTitleAndContent"
         android:textAlignment="textStart"
-        android:layout_margin="45dp"
+        android:layout_margin="@dimen/dimen_45"
         android:layout_gravity="center"
         android:gravity="center"
         tools:ignore="RtlCompat" />

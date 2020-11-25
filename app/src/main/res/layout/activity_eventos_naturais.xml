@@ -18,42 +18,58 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
 
-            <ImageView
-                android:id="@+id/imgReturn"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_arrow_back_24" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="@string/eventos_naturais_titulo"
-                android:textColor="@color/colorWhite"
-                android:textSize="26sp" />
+                <ImageView
+                    android:id="@+id/imgReturn"
+                    android:layout_width="@dimen/dimen_35"
+                    android:layout_height="@dimen/dimen_35"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            <ImageView
-                android:id="@+id/imgReturn2"
-                android:layout_width="75dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_storm" />
+                <TextView
+                    android:id="@+id/txtTittleEventos"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20"
+                    android:text="@string/eventos_naturais_titulo"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimen_text_24"
+                    app:layout_constraintStart_toEndOf="@id/imgReturn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/imgReturn2"
+                    android:layout_width="@dimen/dimen_60"
+                    android:layout_height="@dimen/dimen_40"
+                    android:src="@drawable/ic_storm"
+                    android:layout_marginStart="@dimen/dimen_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtTittleEventos"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
-
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/materialCardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:layout_marginBottom="95dp"
+        android:layout_marginTop="@dimen/dimen_54"
+        android:layout_marginBottom="@dimen/dimen_95"
         android:background="#FFF"
         android:backgroundTint="#FFF"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="@dimen/dimen_10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,8 +78,8 @@
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPagerNaturalEvents"
-            android:layout_width="363dp"
-            android:layout_height="515dp">
+            android:layout_width="@dimen/dimen_363"
+            android:layout_height="@dimen/dimen_515">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/layoutNaturalEvents"

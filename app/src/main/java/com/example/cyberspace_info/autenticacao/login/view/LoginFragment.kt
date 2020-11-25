@@ -38,7 +38,9 @@ class LoginFragment : Fragment() {
 
             if(verificarCampos(email,senha,senhaContainer)){
                 val intent = Intent(view.context,MainActivity::class.java)
+                activity?.overridePendingTransition(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
                 startActivity(intent)
+                activity?.finish()
             }
         }
 
