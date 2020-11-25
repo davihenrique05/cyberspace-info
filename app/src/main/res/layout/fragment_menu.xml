@@ -35,9 +35,15 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
+                    android:src="@drawable/apod_2"
                     android:scaleType="fitXY"
                     android:id="@+id/imgImagemDoDia"
                     android:layout_gravity="center"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/colorBase"
+                    android:alpha="0.31"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"

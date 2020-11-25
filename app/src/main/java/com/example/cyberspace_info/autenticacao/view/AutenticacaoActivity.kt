@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayout
 
     const val LOGIN_FRAGMENT = 0
 
-class LoginActivity : AppCompatActivity(), INavegarTab {
+class AutenticacaoActivity : AppCompatActivity(), INavegarTab {
 
     private val tab by lazy { findViewById<TabLayout>(R.id.tabLayoutLogin) }
     lateinit var loginFragment: LoginFragment

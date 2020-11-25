@@ -52,6 +52,12 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
             />
+        <action
+            android:id="@+id/action_menuFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_imagemFragment"
+            app:destination="@id/imagemFragment" />
 
     </fragment>
     <fragment
@@ -91,6 +97,45 @@
             app:popUpTo="@id/menuFragment" />
 
 
+    </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.cyberspace_info.perfil.view.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_galeriaFragment"
+            app:destination="@id/galeriaFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_imagemFragment"
+            app:destination="@id/imagemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galeriaFragment"
+        android:name="com.example.cyberspace_info.perfil.galeria.view.GaleriaFragment"
+        android:label="fragment_galeria"
+        tools:layout="@layout/fragment_galeria" >
+        <action
+            android:id="@+id/action_galeriaFragment_to_imagemFragment"
+            app:destination="@id/imagemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagemFragment"
+        android:name="com.example.cyberspace_info.imagelandscape.view.ImagemFragment"
+        android:label="fragment_imagem"
+        tools:layout="@layout/fragment_imagem" >
+        <action
+            android:id="@+id/action_imagemFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_imagemFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+        <action
+            android:id="@+id/action_imagemFragment_to_galeriaFragment"
+            app:destination="@id/galeriaFragment" />
     </fragment>
 
 

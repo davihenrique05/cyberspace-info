@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
 
 import com.google.android.material.card.MaterialCardView
-import com.squareup.picasso.Picasso
-
 
 class MenuFragment : Fragment() {
 
@@ -25,10 +24,6 @@ class MenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        Picasso.get()
-            .load("https://api.nasa.gov/assets/img/general/apod.jpg")
-            .into(view.findViewById<ImageView>(R.id.imgImagemDoDia))
 
         view.findViewById<MaterialCardView>(R.id.cardTempoEmMarte).setOnClickListener {
             val navController = Navigation.findNavController(view)
@@ -57,5 +52,17 @@ class MenuFragment : Fragment() {
             navController.navigate(R.id.action_menuFragment_to_eventosNaturaisActivity)
         }
 
+        view.findViewById<MaterialCardView>(R.id.cardPerfil).setOnClickListener {
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_menuFragment_to_perfilFragment)
+        }
+
+
+        view.findViewById<MaterialCardView>(R.id.cardImagemDoDia).setOnClickListener {
+            val imagem = view.findViewById<ImageView>(R.id.imgImagemDoDia)
+            val bundle = bundleOf("Tela" to "Menu", "Imagem" to R.drawable.apod_2)
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_menuFragment_to_imagemFragment,bundle)
+        }
     }
 }

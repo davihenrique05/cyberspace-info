@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".perfil.view.PerfilFragment"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDarkest">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDarkest">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageIconReturnPerfil"
+                            android:layout_width="@dimen/dimen_35"
+                            android:layout_height="@dimen/dimen_35"
+                            android:backgroundTint="@color/colorPrimaryDarkest"
+                            android:src="@drawable/ic_baseline_arrow_back_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageIconLogOut"
+                            android:layout_width="@dimen/dimen_35"
+                            android:layout_height="@dimen/dimen_35"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:background="@drawable/ic_exit_to_app_24px"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_height="200dp"
+            android:background="@drawable/apod_1">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorBase"
+                    android:alpha="0.4"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgPerfil"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="50dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/babe_yoda" />
+
+                <TextView
+                    android:id="@+id/txtPerfilNome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_16"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:text="Babe Yoda"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimen_text_30"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imgPerfil"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageIconEdit"
+                    android:layout_width="@dimen/dimen_28"
+                    android:layout_height="@dimen/dimen_28"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:src="@drawable/ic_outline_edit_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dimen_35"
+            android:layout_marginStart="@dimen/dimen_35"
+            android:layout_marginEnd="@dimen/dimen_35"
+            android:layout_height="@dimen/dimen_340"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorBlueLightBackground">
+                
+                <TextView
+                    android:id="@+id/txtImagemFavorita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dimen_text_24"
+                    android:textColor="@color/colorBase"
+                    android:text="@string/imagens_favoritas"/>
+
+                <ImageView
+                    android:id="@+id/imageIconGaleria"
+                    android:layout_width="@dimen/dimen_35"
+                    android:layout_height="@dimen/dimen_35"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_open_in_new_24px"/>
+
+                <ImageView
+                    android:id="@+id/imageGalery1"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="@dimen/dimen_16"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:scaleType="fitXY"
+                    app:layout_constraintTop_toBottomOf="@id/txtImagemFavorita"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/apod_2"/>
+
+                <ImageView
+                    android:id="@+id/imageGalery2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:layout_marginBottom="@dimen/dimen_16"
+                    android:scaleType="fitXY"
+                    app:layout_constraintTop_toBottomOf="@id/imageGalery1"
+                    app:layout_constraintEnd_toStartOf="@id/imageGalery3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/apod_1"/>
+
+                <ImageView
+                    android:id="@+id/imageGalery3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/dimen_8"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:layout_marginBottom="@dimen/dimen_16"
+                    android:scaleType="fitXY"
+                    app:layout_constraintTop_toBottomOf="@id/imageGalery1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imageGalery2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/apod_3"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
