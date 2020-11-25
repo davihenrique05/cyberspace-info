@@ -31,7 +31,9 @@ class PerfilFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.imageIconLogOut).setOnClickListener {
             val intent = Intent(view.context, AutenticacaoActivity::class.java)
+            activity?.overridePendingTransition(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
             startActivity(intent)
+            activity?.finish()
         }
 
         view.findViewById<ImageView>(R.id.imageIconReturnPerfil).setOnClickListener {
@@ -53,14 +55,14 @@ class PerfilFragment : Fragment() {
 
         val imagem2 = view.findViewById<ImageView>(R.id.imageGalery2)
         imagem2.setOnClickListener {
-            val bundle = bundleOf("Tela" to "Perfil", "Imagem" to R.drawable.apod_1)
+            val bundle = bundleOf("Tela" to getString(R.string.perfil_comparacao), "Imagem" to R.drawable.apod_1)
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_perfilFragment_to_imagemFragment, bundle)
         }
 
         val imagem3 = view.findViewById<ImageView>(R.id.imageGalery3)
         imagem3.setOnClickListener {
-            val bundle = bundleOf("Tela" to "Perfil", "Imagem" to R.drawable.apod_3)
+            val bundle = bundleOf("Tela" to getString(R.string.perfil_comparacao), "Imagem" to R.drawable.apod_3)
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_perfilFragment_to_imagemFragment, bundle)
         }

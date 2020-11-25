@@ -80,7 +80,7 @@ class ImagemFragment : Fragment() {
             getString(R.string.perfil_comparacao) -> {
                 view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
                     val navController = Navigation.findNavController(requireView())
-                    navController.navigate(R.id.action_imagemFragment_to_menuFragment)
+                    navController.navigate(R.id.action_imagemFragment_to_perfilFragment)
                     activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                     @Suppress("DEPRECATION")
                     activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
