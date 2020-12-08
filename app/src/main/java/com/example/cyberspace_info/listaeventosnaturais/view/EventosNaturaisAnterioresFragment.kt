@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
@@ -15,63 +16,67 @@ import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAnter
 
 class EventosNaturaisAnterioresFragment : Fragment() {
 
+    private lateinit var _recyclerView:RecyclerView
+    private lateinit var _adaptador:EventoAnteriorAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        var recyclerView = view.findViewById<RecyclerView>(R.id.listAnterioresEvents)
+       var view =  inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
+
+        _recyclerView = view.findViewById<RecyclerView>(R.id.listAnterioresEvents)
         var managerLinear = LinearLayoutManager(view.context)
 
-        aplicationPropertyRecyclerView(recyclerView, managerLinear)
+        _adaptador = EventoAnteriorAdapter(
+
+            listOf(
+
+                EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                    CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
+                        arrayOf(1,2))
+                ),
+
+                EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                    CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
+                        arrayOf(1,2))
+                ),
+
+                EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                    CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
+                        arrayOf(1,2))
+                ),
+
+                EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                    CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
+                        arrayOf(1,2))
+                ),
+
+                EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
+                    CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
+                        arrayOf(1,2))
+                )
+
+
+            )
+
+        )
+
+        aplicationPropertyRecyclerView(managerLinear)
+
+        return view
 
     }
 
-    fun aplicationPropertyRecyclerView(recyclerView: RecyclerView, managerLinear:LinearLayoutManager){
+    fun aplicationPropertyRecyclerView(managerLinear:LinearLayoutManager){
 
-        recyclerView.apply {
+        _recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = managerLinear
-
-            adapter = EventoAnteriorAdapter(
-
-                listOf(
-
-                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
-                        CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
-                            arrayOf(1,2))
-                    ),
-
-                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
-                        CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
-                            arrayOf(1,2))
-                    ),
-
-                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
-                        CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
-                            arrayOf(1,2))
-                    ),
-
-                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
-                        CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
-                            arrayOf(1,2))
-                    ),
-
-                    EventNaturalModel("Wildfire - Pinto Commune (Reserva Nuble Fire)",
-                        CategoryEventModel(1,"Categoria : Incendios Florestais"),GeometryEventModel("20/10/2020",
-                            arrayOf(1,2))
-                    )
-
-
-                )
-
-            )
+            adapter = _adaptador
 
         }
 

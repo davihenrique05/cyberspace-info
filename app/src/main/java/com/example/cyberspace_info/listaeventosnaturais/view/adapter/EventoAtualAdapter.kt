@@ -37,9 +37,7 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): Recycler
     override fun getItemCount(): Int = eventos.size
 
     override fun onBindViewHolder(holder: EventoAtualViewHolder, position: Int) {
-
         holder.bind(eventos[position])
-
     }
 
 }

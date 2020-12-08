@@ -49,7 +49,7 @@ class MenuFragment : Fragment() {
 
         view.findViewById<MaterialCardView>(R.id.cardEventosNaturais).setOnClickListener {
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_menuFragment_to_eventosNaturaisActivity)
+            navController.navigate(R.id.action_menuFragment_to_eventosNaturaisFragment)
         }
 
         view.findViewById<MaterialCardView>(R.id.cardPerfil).setOnClickListener {

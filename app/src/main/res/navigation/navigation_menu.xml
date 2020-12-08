@@ -34,16 +34,6 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
 
-
-
-        <action
-            android:id="@+id/action_menuFragment_to_eventosNaturaisActivity"
-            app:destination="@id/eventosNaturaisActivity"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right"
-            />
         <action
             android:id="@+id/action_menuFragment_to_tecnologiasUsadasFragment"
             app:destination="@id/tecnologiasUsadasFragment"
@@ -80,6 +70,14 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_menuFragment_to_eventosNaturaisFragment"
+            app:destination="@id/eventosNaturaisFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
 
 
     </fragment>
@@ -103,11 +101,7 @@
     </fragment>
 
 
-    <activity
-        android:id="@+id/eventosNaturaisActivity"
-        android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisActivity"
-        android:label="activity_eventos_naturais"
-        tools:layout="@layout/activity_eventos_naturais" />
+
     <fragment
         android:id="@+id/tecnologiasUsadasFragment"
         android:name="com.example.cyberspace_info.listatecnologiasusadas.view.TecnologiasUsadasFragment"
@@ -208,6 +202,18 @@
         android:name="com.example.cyberspace_info.pesquisarimgvid.PesquisaActivity"
         android:label="activity_pesquisa"
         tools:layout="@layout/activity_pesquisa" />
+    <fragment
+        android:id="@+id/eventosNaturaisFragment"
+        android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisFragment"
+        android:label="EventosNaturaisFragment" >
+        <action
+            android:id="@+id/action_eventosNaturaisFragment_to_menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
+            app:destination="@id/menuFragment" />
+    </fragment>
 
 
 </navigation>

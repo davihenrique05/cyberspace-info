@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorBlueLightBackground"
-    tools:context=".listaeventosnaturais.view.EventosNaturaisActivity">
+    tools:context=".listaeventosnaturais.view.EventosNaturaisFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@id/tolbarNaturalEvents"
