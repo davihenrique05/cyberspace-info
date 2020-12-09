@@ -18,8 +18,8 @@ class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) : Recy
 
         fun bind(event:EventNaturalModel){
             title.text = event.title
-            category.text = event.categories.title
-            date.text = event.geometries.date
+            category.text = event.categories[0].title
+            date.text = event.geometries[0].date
         }
 
     }

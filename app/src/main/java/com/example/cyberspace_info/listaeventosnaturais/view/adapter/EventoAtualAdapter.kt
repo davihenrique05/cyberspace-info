@@ -19,8 +19,8 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): Recycler
         fun bind(event:EventNaturalModel){
 
             title.text = event.title
-            category.text = event.categories.title
-            date.text = event.geometries.date
+            category.text = event.categories[0].title
+            date.text = event.geometries[0].date
 
         }
 
@@ -35,7 +35,6 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): Recycler
     }
 
     override fun getItemCount(): Int = eventos.size
-
     override fun onBindViewHolder(holder: EventoAtualViewHolder, position: Int) {
         holder.bind(eventos[position])
     }

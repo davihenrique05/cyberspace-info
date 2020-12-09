@@ -9,9 +9,7 @@ class NetworkUtils {
 
     companion object{
 
-        const val BASE_URL = "https://api.nasa.gov/"
-
-        fun getRetrofitInstance() : Retrofit {
+        fun getRetrofitInstance(BASE_URL : String) : Retrofit {
             return Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
         }
 
