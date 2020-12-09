@@ -5,5 +5,5 @@ import kotlin.collections.ArrayList
 
 data class GeometryEventModel(
     val date: String,
-    val coordinates : Array<Int>
+    val coordinates : Array<Double>
 )
