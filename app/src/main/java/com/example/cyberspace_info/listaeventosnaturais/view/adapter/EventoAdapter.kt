@@ -9,9 +9,7 @@ class EventoAdapter(private val frags:List<Fragment>,private val title:List<Stri
 
 
     override fun getItem(position: Int): Fragment = frags[position]
-
     override fun getCount(): Int = frags.size
-
     override fun getPageTitle(position: Int): CharSequence? = title[position]
 
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
@@ -15,27 +16,29 @@ import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtual
 
 class EventosNaturaisAtuaisFragment : Fragment() {
 
+    private lateinit var _recyclerView : RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_eventos_naturais_atuais, container, false)
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        var view =  inflater.inflate(R.layout.fragment_eventos_naturais_atuais, container, false)
 
-        var recyclerView = view.findViewById<RecyclerView>(R.id.listAtualEvents)
+        _recyclerView = view.findViewById<RecyclerView>(R.id.listAtualEvents)
         var managerLinear = LinearLayoutManager(view.context)
 
-        aplicationPropertyRecyclerView(recyclerView,managerLinear)
+        aplicationPropertyRecyclerView(managerLinear)
+
+        return view
 
     }
 
-    fun aplicationPropertyRecyclerView(recyclerView: RecyclerView, managerLinear:LinearLayoutManager){
 
-        recyclerView.apply {
+    fun aplicationPropertyRecyclerView(managerLinear:LinearLayoutManager){
+
+        _recyclerView.apply {
 
             setHasFixedSize(true)
             layoutManager = managerLinear
