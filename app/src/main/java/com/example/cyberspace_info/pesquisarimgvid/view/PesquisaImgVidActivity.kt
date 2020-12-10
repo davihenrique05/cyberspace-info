@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.pesquisarimgvid
+package com.example.cyberspace_info.pesquisarimgvid.view
 
 import android.content.Context
 import android.graphics.Rect
@@ -12,7 +12,7 @@ import android.widget.ImageView
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
 import com.google.android.material.tabs.TabLayout
-import com.example.cyberspace_info.planetasorbitandoestrelas.ViewPagerAdapter
+import com.example.cyberspace_info.planetasorbitandoestrelas.view.adapter.ViewPagerAdapter
 
 class PesquisaImgVidActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
