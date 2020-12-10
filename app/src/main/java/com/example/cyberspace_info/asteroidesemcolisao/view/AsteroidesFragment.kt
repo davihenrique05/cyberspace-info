@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.asteroidesemcolisao.model.AsteroideModel
-import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesEmColisaoRepository
+import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesRepository
 import com.example.cyberspace_info.asteroidesemcolisao.view.adapter.AsteroidesAdapter
 import com.example.cyberspace_info.asteroidesemcolisao.viewmodel.AsteroidesEmColisaoViewModel
 
@@ -34,7 +33,7 @@ class AsteroidesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel = ViewModelProvider(this,AsteroidesEmColisaoViewModel.AsteroidesEmColisaoViewModelFactory(
-            AsteroidesEmColisaoRepository()
+            AsteroidesRepository()
         )).get(AsteroidesEmColisaoViewModel::class.java)
 
         val recyler = view.findViewById<RecyclerView>(R.id.recyclerViewAsteroides)

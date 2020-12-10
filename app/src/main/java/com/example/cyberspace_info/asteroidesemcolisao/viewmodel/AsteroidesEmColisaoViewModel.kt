@@ -1,14 +1,13 @@
 package com.example.cyberspace_info.asteroidesemcolisao.viewmodel
 
 import android.content.Context
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
 import com.example.cyberspace_info.asteroidesemcolisao.model.AsteroideModel
-import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesEmColisaoRepository
+import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesRepository
 import com.example.cyberspace_info.asteroidesemcolisao.view.BottomSheetAsteroideFragment
 import com.google.gson.internal.LinkedTreeMap
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +16,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class AsteroidesEmColisaoViewModel(
-    private val repository: AsteroidesEmColisaoRepository
+    private val repository: AsteroidesRepository
 ):ViewModel() {
 
     private var _lista = mutableListOf<AsteroideModel>()
@@ -99,7 +98,7 @@ class AsteroidesEmColisaoViewModel(
         )
         return asteroid
     }
-    class AsteroidesEmColisaoViewModelFactory(private val repository: AsteroidesEmColisaoRepository): ViewModelProvider.Factory {
+    class AsteroidesEmColisaoViewModelFactory(private val repository: AsteroidesRepository): ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return AsteroidesEmColisaoViewModel(repository) as T
         }
