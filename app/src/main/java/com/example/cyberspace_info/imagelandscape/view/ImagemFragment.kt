@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
 
@@ -33,6 +34,7 @@ class ImagemFragment : Fragment() {
 
         val tela = arguments?.getString("Tela")
         val imagemId = arguments?.getInt("Imagem")
+        val origem = arguments?.getString("Origem")
         var favorito = false
         val imagem = view.findViewById<ImageView>(R.id.imageViewShow)
         val icone = view.findViewById<ImageView>(R.id.imageIconFavorite)
@@ -66,7 +68,7 @@ class ImagemFragment : Fragment() {
             }
         }
 
-        fecharTela(tela!!)
+        fecharTela(tela!!, origem)
     }
 
     override fun onDestroy() {
@@ -75,7 +77,7 @@ class ImagemFragment : Fragment() {
 
     }
 
-    private fun fecharTela(tela:String){
+    private fun fecharTela(tela:String, origem:String?){
         when (tela) {
             getString(R.string.perfil_comparacao) -> {
                 view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
@@ -98,7 +100,8 @@ class ImagemFragment : Fragment() {
             getString(R.string.galeria_comparacao) -> {
                 view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
                     val navController = Navigation.findNavController(requireView())
-                    navController.navigate(R.id.action_imagemFragment_to_galeriaFragment)
+                    val bundle = bundleOf("Origem" to origem)
+                    navController.navigate(R.id.action_imagemFragment_to_galeriaFragment, bundle)
                     activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                     @Suppress("DEPRECATION")
                     activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);

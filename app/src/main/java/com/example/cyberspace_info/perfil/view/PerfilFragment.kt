@@ -42,8 +42,9 @@ class PerfilFragment : Fragment() {
         }
 
         view.findViewById<ImageView>(R.id.imageIconGaleria).setOnClickListener {
+            val bundle = bundleOf("Origem" to getString(R.string.perfil_comparacao))
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_perfilFragment_to_galeriaFragment)
+            navController.navigate(R.id.action_perfilFragment_to_galeriaFragment,bundle)
         }
 
         val imagem = view.findViewById<ImageView>(R.id.imageGalery1)

@@ -4,13 +4,12 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.asteroidesemcolisao.model.Asteroide
+import com.example.cyberspace_info.asteroidesemcolisao.model.AsteroideModel
 
-class AsteroidesAdapter(private val listaDeImagens: MutableList<Asteroide>, private val listener: (Asteroide) -> Unit):RecyclerView.Adapter<AsteroidesAdapter.ImagensViewHolder>() {
+class AsteroidesAdapter(private val listaDeImagens: MutableList<AsteroideModel>, private val listener: (AsteroideModel) -> Unit):RecyclerView.Adapter<AsteroidesAdapter.ImagensViewHolder>() {
 
     class ImagensViewHolder(view: View):RecyclerView.ViewHolder(view) {
         private val nome = view.findViewById<TextView>(R.id.txtTitleAsteroid)
@@ -19,11 +18,11 @@ class AsteroidesAdapter(private val listaDeImagens: MutableList<Asteroide>, priv
         private val data =  view.findViewById<TextView>(R.id.txtDataAsteroides)
 
         @SuppressLint("SetTextI18n")
-        fun bind(asteroide:Asteroide){
-            nome.text = asteroide.nome
-            diametroMax.text = "Diametro: ${asteroide.diametroMaximo}"
-            velocidade.text = "Velocidade: ${asteroide.velocidadeRel.quilometros}"
-            data.text = asteroide.data
+        fun bind(asteroideModel:AsteroideModel){
+            nome.text = asteroideModel.nome
+            diametroMax.text = "Diametro: ${asteroideModel.diametroMaximo}"
+            velocidade.text = "Velocidade: ${asteroideModel.velocidadeModelRel}"
+            data.text = asteroideModel.data
         }
     }
 
