@@ -7,20 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.asteroidesemcolisao.model.Asteroide
-import com.example.cyberspace_info.asteroidesemcolisao.model.Velocidade
+import com.example.cyberspace_info.asteroidesemcolisao.model.AsteroideModel
+import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesEmColisaoRepository
 import com.example.cyberspace_info.asteroidesemcolisao.view.adapter.AsteroidesAdapter
-import com.example.cyberspace_info.listatecnologiasusadas.view.BottomSheetFragment
-import com.example.cyberspace_info.perfil.galeria.view.adapter.ImagensAdapter
+import com.example.cyberspace_info.asteroidesemcolisao.viewmodel.AsteroidesEmColisaoViewModel
 
 class AsteroidesFragment : Fragment() {
 
+    private var _lista = mutableListOf<AsteroideModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,16 +33,16 @@ class AsteroidesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = ViewModelProvider(this,AsteroidesEmColisaoViewModel.AsteroidesEmColisaoViewModelFactory(
+            AsteroidesEmColisaoRepository()
+        )).get(AsteroidesEmColisaoViewModel::class.java)
+
         val recyler = view.findViewById<RecyclerView>(R.id.recyclerViewAsteroides)
         val manager = LinearLayoutManager(view.context)
-        val lista = popularLista()
-        val bottomSheetFragment =  BottomSheetAsteroideFragment()
 
-        val recylerAdapter = AsteroidesAdapter(lista){
-            bottomSheetFragment.show((activity as AppCompatActivity).supportFragmentManager,"BottomSheetDialog")
+        val recylerAdapter = AsteroidesAdapter(_lista){
+            viewModel.showBottomSheet(view.context, it)
         }
-
-        val back = view.findViewById<ImageView>(R.id.imageIconReturnAsteroides)
 
         recyler.apply {
             setHasFixedSize(true)
@@ -50,27 +50,18 @@ class AsteroidesFragment : Fragment() {
             layoutManager = manager
         }
 
-        back.setOnClickListener {
+        view.findViewById<ImageView>(R.id.imageIconReturnAsteroides).setOnClickListener {
             val navegar = Navigation.findNavController(view)
             navegar.navigate(R.id.action_asteroidesFragment_to_menuFragment)
         }
 
-    }
-
-    private fun popularLista(): MutableList<Asteroide> {
-        val asteroide = Asteroide("465633 (2009 JR5)",
-            "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=2465633",
-            231.5021,517.6544,
-            "2015-09-08",
-            Velocidade(65260.6370))
-
-        val lista = mutableListOf<Asteroide>()
-
-        for(i in 0..15){
-            lista.add(asteroide)
+        viewModel.obterLista().observe(viewLifecycleOwner) {
+            _lista.addAll(it)
+            recylerAdapter.notifyDataSetChanged()
         }
 
-        return lista
     }
+
+
 
 }

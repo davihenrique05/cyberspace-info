@@ -32,25 +32,44 @@ class GaleriaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyler = view.findViewById<RecyclerView>(R.id.recyclerViewGaleria)
-        val listaDeImagens = popularLista()
         val manager = GridLayoutManager(view.context,3)
         val back = view.findViewById<ImageView>(R.id.imageIconReturnGaleria)
-        val recylerAdapter = ImagensAdapter(listaDeImagens) {
-            val navController = Navigation.findNavController(view)
-            val bundle = bundleOf("Tela" to getString(R.string.galeria_comparacao), "Imagem" to it.toInt())
-            navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
+        val tela = arguments?.getString("Origem")
+
+
+        if(tela == "Perfil"){
+            //Chamar a função que popula através do BD
+            val listaDeImagens = popularLista()
+
+            //Esse Adapter eu fiz com imagens que estavam no Drawable, portanto a Imagem é INT, mas
+            //você pode usar a mesma estrutura em baixo e trocar para String que é uma URL que será carregada
+            // Pelo Picasso, não se esqueça de passar esse Parametro Tela para que a view de exibir imagem volte
+            //para o devido lugar.
+            //E a origem para que a tela de imagem possa mandar para a tela anterior também como se organizar com API ou BD
+            val recylerAdapter = ImagensAdapter(listaDeImagens) {
+                val navController = Navigation.findNavController(view)
+                val bundle = bundleOf("Tela" to getString(R.string.galeria_comparacao), "Imagem" to it.toInt(), "Origem" to getString(R.string.perfil_comparacao))
+                navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
+            }
+
+            recyler.apply {
+                setHasFixedSize(true)
+                adapter = recylerAdapter
+                layoutManager = manager
+            }
+
+
+            //O botão de retorno nesse caso volta para o perfil
+            back.setOnClickListener {
+                val navegar = Navigation.findNavController(view)
+                navegar.navigate(R.id.action_galeriaFragment_to_perfilFragment)
+            }
+        }else{
+            //Chamar a função que popula através da API
+            val listaDeImagens = popularLista()
         }
 
-        recyler.apply {
-            setHasFixedSize(true)
-            adapter = recylerAdapter
-            layoutManager = manager
-        }
 
-        back.setOnClickListener {
-            val navegar = Navigation.findNavController(view)
-            navegar.navigate(R.id.action_galeriaFragment_to_perfilFragment)
-        }
     }
 
     private fun popularLista(): MutableList<String> {
