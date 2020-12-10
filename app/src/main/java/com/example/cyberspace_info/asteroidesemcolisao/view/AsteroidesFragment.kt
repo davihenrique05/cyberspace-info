@@ -59,16 +59,18 @@ class AsteroidesFragment : Fragment() {
         val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkest)
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
-        
+
         view.findViewById<ImageView>(R.id.imageIconReturnAsteroides).setOnClickListener {
             val navegar = Navigation.findNavController(view)
             navegar.navigate(R.id.action_asteroidesFragment_to_menuFragment)
         }
 
         viewModel.obterLista().observe(viewLifecycleOwner) {
-            _lista.addAll(it)
-            showLoading(false)
-            recylerAdapter.notifyDataSetChanged()
+            if(!it.isNullOrEmpty()){
+                _lista.addAll(it)
+                showLoading(false)
+                recylerAdapter.notifyDataSetChanged()
+            }
         }
 
     }
