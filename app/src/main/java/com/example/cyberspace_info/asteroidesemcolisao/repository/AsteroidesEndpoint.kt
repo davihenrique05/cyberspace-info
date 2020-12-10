@@ -2,11 +2,10 @@ package com.example.cyberspace_info.asteroidesemcolisao.repository
 
 import com.example.cyberspace_info.api.NetworkUtils
 import com.example.cyberspace_info.asteroidesemcolisao.model.ResponseAsteroidModel
-import com.example.cyberspace_info.listaeventosnaturais.repository.EventosNaturaisEndpoint
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface AsteroidesEmColisaoEndpoint {
+interface AsteroidesEndpoint {
 
     @GET("feed")
     suspend fun obterListaDeAsteroides(
@@ -18,8 +17,8 @@ interface AsteroidesEmColisaoEndpoint {
     companion object{
         const val BASE_URL_ASTEROIDES = "https://api.nasa.gov/neo/rest/v1/"
 
-        val Endpoint: AsteroidesEmColisaoEndpoint by lazy {
-            NetworkUtils.getRetrofitInstance(AsteroidesEmColisaoEndpoint.BASE_URL_ASTEROIDES).create(AsteroidesEmColisaoEndpoint::class.java)
+        val endpoint: AsteroidesEndpoint by lazy {
+            NetworkUtils.getRetrofitInstance(BASE_URL_ASTEROIDES).create(AsteroidesEndpoint::class.java)
         }
     }
 }

@@ -33,11 +33,11 @@
                 app:cardBackgroundColor="@color/colorPrimaryDarkMenu">
 
                 <ImageView
+                    android:id="@+id/imgImagemDoDia"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:src="@drawable/apod_2"
+                    tools:src="@drawable/apod_2"
                     android:scaleType="fitXY"
-                    android:id="@+id/imgImagemDoDia"
                     android:layout_gravity="center"/>
                 <View
                     android:layout_width="match_parent"
@@ -56,14 +56,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="IMAGEM DO DIA"
-                        android:textSize="10dp"
+                        android:text="@string/imagem_do_dia"
+                        android:textSize="@dimen/dimen_text_10"
                         android:textColor="@color/colorWhite"/>
                     <TextView
+                        android:id="@+id/txtImagemTittle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="North of Orion's Belt"
-                        android:textSize="20dp"
+                        tools:text="North of Orion's Belt"
+                        android:textSize="@dimen/dimen_text_20"
                         android:textColor="@color/colorWhite"/>
 
                 </LinearLayout>
@@ -99,7 +100,7 @@
                     android:layout_gravity="center|bottom"
                     android:text="@string/imagens_e_videos"
                     android:textStyle="bold"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_12"
                     android:textColor="@color/colorWhite" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -139,7 +140,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/perfil"
-                        android:textSize="12dp"
+                        android:textSize="@dimen/dimen_text_12"
                         android:textColor="@color/colorWhite"
                         android:textStyle="bold"
                         android:layout_gravity="center_vertical"/>
@@ -150,14 +151,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="@dimen/dimen_3"
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardMarsRover"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginEnd="3dp"
+                        android:layout_marginEnd="@dimen/dimen_3"
                         android:clickable="true"
                         android:focusable="true"
                         android:layout_weight="1"
@@ -176,7 +177,7 @@
                             android:text="@string/mars_rover"
                             android:layout_gravity="center|bottom"
                             android:textStyle="bold"
-                            android:textSize="12dp"
+                            android:textSize="@dimen/dimen_text_12"
                             android:textColor="@color/colorWhite" />
                     </com.google.android.material.card.MaterialCardView>
 
@@ -211,7 +212,7 @@
                             android:layout_gravity="center|bottom"
                             android:textStyle="bold"
                             android:textColor="@color/colorWhite"
-                            android:textSize="12dp"/>
+                            android:textSize="@dimen/dimen_text_12"/>
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
@@ -249,7 +250,7 @@
                     android:layout_gravity="center|bottom"
                     android:text="@string/eventos_naturais"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_12"
                     android:textStyle="bold" />
             </com.google.android.material.card.MaterialCardView>
 
@@ -275,7 +276,7 @@
                     android:text="@string/objetos_em_rota_de_colisao"
                     android:textColor="@color/colorWhite"
                     android:layout_gravity="center|bottom"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_12"
                     android:textStyle="bold"/>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
@@ -312,7 +313,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:layout_gravity="center|bottom"
-                    android:textSize="12dp"/>
+                    android:textSize="@dimen/dimen_text_12"/>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -336,7 +337,7 @@
                     android:text="@string/tecnologias_usadas_menu"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/dimen_text_12"
                     android:layout_gravity="center|bottom"/>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

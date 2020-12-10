@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
+import com.squareup.picasso.Picasso
 
 
 class ImagemFragment : Fragment() {
@@ -34,6 +35,7 @@ class ImagemFragment : Fragment() {
 
         val tela = arguments?.getString("Tela")
         val imagemId = arguments?.getInt("Imagem")
+        val imagemUrl = arguments?.getString("Imagem")
         val origem = arguments?.getString("Origem")
         var favorito = false
         val imagem = view.findViewById<ImageView>(R.id.imageViewShow)
@@ -42,6 +44,12 @@ class ImagemFragment : Fragment() {
 
         if(imagemId != null){
             imagem.setImageResource(imagemId)
+        }
+
+        if(imagemUrl != null){
+            Picasso.get()
+                .load(imagemUrl)
+                .into(imagem)
         }
 
         imagem.setOnClickListener {
