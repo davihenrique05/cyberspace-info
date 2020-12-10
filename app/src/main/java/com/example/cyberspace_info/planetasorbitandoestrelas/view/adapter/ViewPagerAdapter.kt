@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.pesquisarimgvid
+package com.example.cyberspace_info.planetasorbitandoestrelas.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

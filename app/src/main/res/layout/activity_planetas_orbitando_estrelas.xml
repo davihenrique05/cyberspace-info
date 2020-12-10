@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".planetasorbitandoestrelas.PlanetasOrbitandoEstrelasActivity">
+    tools:context=".planetasorbitandoestrelas.view.PlanetasOrbitandoEstrelasActivity">
 
     <Toolbar
         android:layout_width="match_parent"

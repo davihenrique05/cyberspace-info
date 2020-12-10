@@ -1,11 +1,11 @@
-package com.example.cyberspace_info.planetasorbitandoestrelas
+package com.example.cyberspace_info.planetasorbitandoestrelas.view.adapter
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
-import com.squareup.picasso.Picasso
+import com.example.cyberspace_info.planetasorbitandoestrelas.model.PlanetaOrbitandoEstrelaModel
 
 class PlanetasOrbitandoEstrelasViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private val nomePlaneta: TextView = view.findViewById(R.id.txtNomePlaneta)
@@ -13,9 +13,9 @@ class PlanetasOrbitandoEstrelasViewHolder(view: View): RecyclerView.ViewHolder(v
     private val fotoPlaneta: ImageView = view.findViewById(R.id.imgPlanetaOrbitandoEstrela)
 
 
-    fun bind(planeta: PlanetaOrbitandoEstrela){
-        nomePlaneta.text = planeta.nomePlaneta
-        nomeEstrela.text = "Nome da Estrela: " + planeta.nomeEstela
-        fotoPlaneta.setImageResource(planeta.imagem)
+    fun bind(planetaModel: PlanetaOrbitandoEstrelaModel){
+        nomePlaneta.text = planetaModel.nomePlaneta
+        nomeEstrela.text = "Nome da Estrela: " + planetaModel.nomeEstela
+        fotoPlaneta.setImageResource(planetaModel.imagem)
     }
 }

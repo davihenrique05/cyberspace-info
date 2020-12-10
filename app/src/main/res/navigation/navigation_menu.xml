@@ -194,12 +194,12 @@
     </fragment>
     <activity
         android:id="@+id/planetasOrbitandoEstrelasActivity"
-        android:name="com.example.cyberspace_info.planetasorbitandoestrelas.PlanetasOrbitandoEstrelasActivity"
+        android:name="com.example.cyberspace_info.planetasorbitandoestrelas.view.PlanetasOrbitandoEstrelasActivity"
         android:label="activity_planetas_orbitando_estrelas"
         tools:layout="@layout/activity_planetas_orbitando_estrelas" />
     <activity
         android:id="@+id/pesquisaActivity"
-        android:name="com.example.cyberspace_info.pesquisarimgvid.PesquisaActivity"
+        android:name="com.example.cyberspace_info.pesquisarimgvid.view.PesquisaActivity"
         android:label="activity_pesquisa"
         tools:layout="@layout/activity_pesquisa" />
     <fragment

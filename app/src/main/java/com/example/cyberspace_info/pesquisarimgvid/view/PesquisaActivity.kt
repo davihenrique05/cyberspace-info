@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.pesquisarimgvid
+package com.example.cyberspace_info.pesquisarimgvid.view
 
 import android.content.Context
 import android.content.Intent
@@ -13,7 +13,6 @@ import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import com.example.cyberspace_info.R
-import kotlinx.android.synthetic.main.activity_pesquisa.*
 
 class PesquisaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

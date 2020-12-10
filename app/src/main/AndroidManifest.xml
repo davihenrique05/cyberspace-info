@@ -13,11 +13,11 @@
         android:largeHeap="true"
         android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".pesquisarimgvid.PesquisaActivity" />
-        <activity android:name=".pesquisarimgvid.PesquisaImgVidActivity" />
+        <activity android:name=".pesquisarimgvid.view.PesquisaActivity" />
+        <activity android:name=".pesquisarimgvid.view.PesquisaImgVidActivity" />
         <activity android:name=".autenticacao.view.AutenticacaoActivity" android:theme="@style/AppTheme"/>
         <activity
-            android:name=".planetasorbitandoestrelas.PlanetasOrbitandoEstrelasActivity"/>
+            android:name=".planetasorbitandoestrelas.view.PlanetasOrbitandoEstrelasActivity"/>
         <activity
             android:name=".main.view.SplashScreenActivity"
             android:theme="@style/AppThemeSplash">
