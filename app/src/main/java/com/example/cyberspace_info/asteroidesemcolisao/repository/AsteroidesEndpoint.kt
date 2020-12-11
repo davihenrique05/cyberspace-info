@@ -1,6 +1,6 @@
 package com.example.cyberspace_info.asteroidesemcolisao.repository
 
-import com.example.cyberspace_info.api.NetworkUtils
+import com.example.cyberspace_info.data.api.NetworkUtils
 import com.example.cyberspace_info.asteroidesemcolisao.model.ResponseAsteroidModel
 import retrofit2.http.GET
 import retrofit2.http.Query

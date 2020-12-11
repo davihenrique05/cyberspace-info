@@ -1,6 +1,6 @@
 package com.example.cyberspace_info.listaeventosnaturais.repository
 
-import com.example.cyberspace_info.api.MY_PUBLIC_KEY
+import com.example.cyberspace_info.data.api.NetworkUtils.Companion.MY_PUBLIC_KEY
 import com.example.cyberspace_info.listaeventosnaturais.model.EventoNaturalContainerModel
 import retrofit2.http.Query
 
