@@ -12,13 +12,16 @@ import android.widget.AutoCompleteTextView
 import android.widget.DatePicker
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.listamarsrover.repository.MarsRoverPhotosRepository
+import com.example.cyberspace_info.listamarsrover.viewmodel.MarsRoverPhotosViewModel
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.fragment_mars_rover.*
 import java.util.*
-
 
 class MarsRoverFragment : Fragment() {
     var dia: Int
@@ -50,7 +53,17 @@ class MarsRoverFragment : Fragment() {
         val adapterRover = ArrayAdapter(requireContext(), R.layout.lista_rover, itemsRover)
         (textField.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
 
-        val itemsCamera = listOf("FHAZ", "RHAZ", "MAST","CHEMCAM","MAHLI","MARDI","NAVCAM","PANCAM","MINITES")
+        val itemsCamera = listOf(
+            "FHAZ",
+            "RHAZ",
+            "MAST",
+            "CHEMCAM",
+            "MAHLI",
+            "MARDI",
+            "NAVCAM",
+            "PANCAM",
+            "MINITES"
+        )
         val adapterCamera = ArrayAdapter(requireContext(), R.layout.lista_camera, itemsCamera)
         (textField1.editText as? AutoCompleteTextView)?.setAdapter(adapterCamera)
 
@@ -64,20 +77,39 @@ class MarsRoverFragment : Fragment() {
         }
 
         view.findViewById<ImageView>(R.id.imgPesquisar_fMarsRover).setOnClickListener {
-            val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_marsRoverFragment_to_galeriaFragment)
+            val _viewModel = ViewModelProvider(
+                this,
+                MarsRoverPhotosViewModel.MarsRoverPhotosViewModelFactory(MarsRoverPhotosRepository())
+            ).get(MarsRoverPhotosViewModel::class.java)
+
+            _viewModel.obterLista("curiosity","2015-6-3").observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                var lista = mutableListOf<String>()
+
+                for (marsRover in it){
+                     lista.add(marsRover.imagemURL)
+                }
+
+                val bundle = bundleOf("Origem" to getString(R.string.marsrover_comparacao), "imagens" to lista)
+                val navController = Navigation.findNavController(view)
+                navController.navigate(R.id.action_marsRoverFragment_to_galeriaFragment,bundle)
+            })
         }
     }
 
-    private fun abrirCalendario(minhaView:View) {
-        DatePickerDialog(minhaView.context,
-            AlertDialog.THEME_DEVICE_DEFAULT_DARK,  object : DatePickerDialog.OnDateSetListener {
-            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                dia = dayOfMonth
-                mes = month
-                ano = year
-            }
+    fun consistirTela(){
 
-        },ano, mes, dia).show()
+    }
+
+    private fun abrirCalendario(minhaView: View) {
+        DatePickerDialog(minhaView.context,
+            AlertDialog.THEME_DEVICE_DEFAULT_DARK, object : DatePickerDialog.OnDateSetListener {
+                override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                    dia = dayOfMonth
+                    mes = month
+                    ano = year
+                }
+
+            }, ano, mes, dia
+        ).show()
     }
 }

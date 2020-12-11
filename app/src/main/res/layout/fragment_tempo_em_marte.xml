@@ -73,7 +73,7 @@
                 android:layout_marginTop="100dp"
                 android:orientation="vertical">
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/txtSol_fTempoEmMarte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="SOL 123"
@@ -86,14 +86,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="center">
-                <ImageView
-                    android:id="@+id/imgCalendario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_baseline_calendar_today_24"/>
                 <TextView
-                    android:id="@+id/txtData"
+                    android:id="@+id/txtData_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -178,34 +172,34 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/txtTempMax_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="3.1 °C"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtTempMin_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="-178.4 °C"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtTempMed_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="-78.4 °C"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -227,34 +221,34 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/txtVentosMax_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="49.3"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtVentosMin_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="16.9"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtVentosMed_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="1.8"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -275,34 +269,34 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/txtPressaoMax_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="554.6"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtPressaoMin_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="504.6"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtPressaoMed_fTempoEmMarte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="458.6"
+                    android:layout_weight="1"
+                    android:gravity="end"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_17"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="end"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

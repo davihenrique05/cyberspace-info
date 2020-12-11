@@ -1,6 +1,6 @@
 package com.example.cyberspace_info.menu.imagemdodia.repository
 
-import com.example.cyberspace_info.api.MY_PUBLIC_KEY
+import com.example.cyberspace_info.data.api.NetworkUtils.Companion.MY_PUBLIC_KEY
 
 class ImageModelRepository {
 

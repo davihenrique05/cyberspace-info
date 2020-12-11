@@ -6,14 +6,21 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
+import com.squareup.picasso.Picasso
 
-class ImagensAdapter(private val listaDeImagens: MutableList<String>, private val listener: (String) -> Unit):RecyclerView.Adapter<ImagensAdapter.ImagensViewHolder>() {
+class ImagensAdapter(private val listaDeImagens: MutableList<String>, private val isImagemInt:Boolean, private val listener: (String) -> Unit):RecyclerView.Adapter<ImagensAdapter.ImagensViewHolder>() {
 
     class ImagensViewHolder(view: View):RecyclerView.ViewHolder(view) {
         private val imagem = view.findViewById<ImageView>(R.id.imageViewItem)
 
-        fun bind(url:String){
-            imagem.setImageResource(url.toInt())
+        fun bind(url:String, isInt:Boolean){
+            if (isInt) {
+                imagem.setImageResource(url.toInt())
+            } else {
+                Picasso.get()
+                    .load(url)
+                    .into(imagem)
+            }
         }
     }
 
@@ -25,7 +32,7 @@ class ImagensAdapter(private val listaDeImagens: MutableList<String>, private va
 
     override fun onBindViewHolder(holder: ImagensViewHolder, position: Int) {
         val item = listaDeImagens[position]
-        holder.bind(item)
+        holder.bind(item,isImagemInt)
         holder.itemView.setOnClickListener { listener(item) }
     }
 
