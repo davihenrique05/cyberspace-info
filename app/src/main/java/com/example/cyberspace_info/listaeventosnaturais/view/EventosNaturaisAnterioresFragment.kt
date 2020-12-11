@@ -1,19 +1,18 @@
 package com.example.cyberspace_info.listaeventosnaturais.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.ProgressBar
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.listaeventosnaturais.model.CategoryEventModel
 import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
-import com.example.cyberspace_info.listaeventosnaturais.model.GeometryEventModel
 import com.example.cyberspace_info.listaeventosnaturais.repository.EventosNaturaisRepository
 import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAnteriorAdapter
 import com.example.cyberspace_info.listaeventosnaturais.viewmodel.EventosNaturaisViewModel
@@ -34,7 +33,14 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
         listaEventos = mutableListOf()
 
-       var view =  inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
+       val view =  inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
+
+        val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
+
+        showLoading(true)
+        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkest)
+        @Suppress("DEPRECATION")
+        progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
         _recyclerView = view.findViewById<RecyclerView>(R.id.listAnterioresEvents)
 
@@ -45,17 +51,32 @@ class EventosNaturaisAnterioresFragment : Fragment() {
         _adaptador = EventoAnteriorAdapter(listaEventos)
 
         _viewModel.getPastNaturalEvents().observe(viewLifecycleOwner,{
-            exibirResultado(it)
+            if(!it.isNullOrEmpty()){
+                exibirResultado(it)
+            }
         })
 
-        var managerLinear = LinearLayoutManager(view.context)
+        val managerLinear = LinearLayoutManager(view.context)
         aplicationPropertyRecyclerView(managerLinear)
         return view
     }
 
+    private fun showLoading(isLoading: Boolean) {
+        val viewLoading = view?.findViewById<View>(R.id.loading)
+
+        if (isLoading) {
+            viewLoading?.visibility = View.VISIBLE
+        } else {
+            viewLoading?.visibility = View.GONE
+        }
+    }
+
     fun exibirResultado(lista:List<EventNaturalModel>){
+
         listaEventos.addAll(lista)
+        showLoading(false)
         _adaptador.notifyDataSetChanged()
+
     }
 
     fun aplicationPropertyRecyclerView(managerLinear:LinearLayoutManager){
