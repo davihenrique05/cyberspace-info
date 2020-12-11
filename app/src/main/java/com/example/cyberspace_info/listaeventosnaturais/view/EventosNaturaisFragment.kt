@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.replace
 import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
@@ -31,14 +28,14 @@ class EventosNaturaisFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var navController = Navigation.findNavController(view)
+        val navController = Navigation.findNavController(view)
 
         view.findViewById<ImageView>(R.id.imgReturn).setOnClickListener {
             navController.navigate(R.id.action_eventosNaturaisFragment_to_menuFragment)
         }
 
-        var tab = view.findViewById<TabLayout>(R.id.layoutNaturalEvents)
-        var page = view.findViewById<ViewPager>(R.id.viewPagerNaturalEvents)
+        val tab = view.findViewById<TabLayout>(R.id.layoutNaturalEvents)
+        val page = view.findViewById<ViewPager>(R.id.viewPagerNaturalEvents)
 
         setupViewPagerAndTabLayout(tab,page)
     }
@@ -47,7 +44,7 @@ class EventosNaturaisFragment : Fragment() {
 
         tab.setupWithViewPager(page)
 
-        var fragmentManager = (activity as AppCompatActivity).supportFragmentManager
+        (activity as AppCompatActivity).supportFragmentManager
 
         page.adapter = EventoAdapter(
             listOf(EventosNaturaisAtuaisFragment(), EventosNaturaisAnterioresFragment()),

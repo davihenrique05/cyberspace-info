@@ -1,8 +1,6 @@
 package com.example.cyberspace_info.listatecnologiasusadas.view
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,13 +9,13 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtualAdapter
 import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectDataModel
 import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectIdModel
 import com.example.cyberspace_info.listatecnologiasusadas.repository.ProjectIdRepository
@@ -28,7 +26,7 @@ class TecnologiasUsadasFragment : Fragment() {
 
     lateinit var _viewModelProject : ProjectIdViewModel
     lateinit var _listaProjetos : MutableList<ProjectDataModel>
-    lateinit var _adaptador : TecnologiasUsadasAdapter
+    private lateinit var _adaptador : TecnologiasUsadasAdapter
     lateinit var _listaIdProjeto : MutableList<ProjectIdModel>
 
     override fun onCreateView(
