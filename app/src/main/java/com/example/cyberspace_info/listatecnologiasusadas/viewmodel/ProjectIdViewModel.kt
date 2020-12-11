@@ -29,10 +29,7 @@ class ProjectIdViewModel(val repository: ProjectIdRepository):ViewModel(){
                     val response = repository.getUniqueObjectProject(listProjeto[i].id)
                     listaTecnologias.add(response.project)
                 }
-
                 emit(listaTecnologias)
-
-
 
      }
 

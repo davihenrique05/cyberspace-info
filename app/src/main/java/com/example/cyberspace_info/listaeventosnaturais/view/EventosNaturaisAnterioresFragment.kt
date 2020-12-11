@@ -33,7 +33,13 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
         listaEventos = mutableListOf()
 
-       val view =  inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
+        val view =  inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
+
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
 
@@ -58,7 +64,7 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
         val managerLinear = LinearLayoutManager(view.context)
         aplicationPropertyRecyclerView(managerLinear)
-        return view
+
     }
 
     private fun showLoading(isLoading: Boolean) {

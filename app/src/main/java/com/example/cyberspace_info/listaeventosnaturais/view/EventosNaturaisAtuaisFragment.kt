@@ -37,6 +37,12 @@ class EventosNaturaisAtuaisFragment : Fragment() {
         _listaEventos = mutableListOf()
         var view =  inflater.inflate(R.layout.fragment_eventos_naturais_atuais, container, false)
 
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
 
         showLoading(true)
@@ -54,12 +60,11 @@ class EventosNaturaisAtuaisFragment : Fragment() {
         var managerLinear = LinearLayoutManager(view.context)
         aplicationPropertyRecyclerView(managerLinear)
 
-        return view
     }
 
     private fun showLoading(isLoading: Boolean) {
-        val viewLoading = view?.findViewById<View>(R.id.loading)
 
+        val viewLoading = view?.findViewById<View>(R.id.loading)
         if (isLoading) {
             viewLoading?.visibility = View.VISIBLE
         } else {

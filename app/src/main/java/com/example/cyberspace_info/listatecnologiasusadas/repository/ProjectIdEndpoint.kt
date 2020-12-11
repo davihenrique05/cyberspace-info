@@ -12,7 +12,10 @@ interface ProjectIdEndpoint {
     suspend fun getAllIdsProjects(@Query("api_key")api_key:String) : ProjectContainerModel
 
     @GET("projects/{id_parameter}")
-    suspend fun getUniqueObjectProject(@Path("id_parameter")id_parameter:Int,@Query("api_key")api_key:String) : ResultSearchProjectModel
+    suspend fun getUniqueObjectProject(@Path("id_parameter")id_parameter:Int,
+                                       @Query("updatedSince")updatedSince:String,
+                                       @Query("api_key")api_key:String
+                                       ) : ResultSearchProjectModel
 
     companion object{
 

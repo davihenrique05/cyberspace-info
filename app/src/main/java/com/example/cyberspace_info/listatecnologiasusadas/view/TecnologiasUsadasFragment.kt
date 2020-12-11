@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -65,8 +67,15 @@ class TecnologiasUsadasFragment : Fragment() {
             navController.navigate(R.id.action_tecnologiasUsadasFragment_to_menuFragment)
         }
 
+        val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
+
+        showLoading(true)
+        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkest)
+        @Suppress("DEPRECATION")
+        progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTecnologiasUsadas)
-        var linearManager = LinearLayoutManager(view.context)
+        val linearManager = LinearLayoutManager(view.context)
 
         recyclerView.apply{
 
@@ -81,15 +90,28 @@ class TecnologiasUsadasFragment : Fragment() {
               _listaIdProjeto.addAll(it)
 
                _viewModelProject.getUniqueObjectProject(_listaIdProjeto).observe(viewLifecycleOwner,{
-                   listarResultados(it)
+                   if(!it.isNullOrEmpty()) {
+                       listarResultados(it)
+                   }
                })
 
         })
 
     }
 
+    private fun showLoading(isLoading: Boolean) {
+        val viewLoading = view?.findViewById<View>(R.id.loading)
+
+        if (isLoading) {
+            viewLoading?.visibility = View.VISIBLE
+        } else {
+            viewLoading?.visibility = View.GONE
+        }
+    }
+
     fun listarResultados(lista:List<ProjectDataModel>){
         _listaProjetos.addAll(lista)
+        showLoading(false)
         _adaptador.notifyDataSetChanged()
     }
 }
