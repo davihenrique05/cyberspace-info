@@ -16,25 +16,46 @@
         android:layout_margin="@dimen/dimen_30"
         android:textColor="@color/colorGrayTitleAndContent"
         android:textStyle="bold"
-        android:textSize="@dimen/dimen_text_35"
+        android:textSize="@dimen/dimen_text_24"
         android:layout_gravity="center"
         android:gravity="center"
         />
 
 
-    <TextView
-        android:id="@+id/txtDescriptionProject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month. Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month."
-        android:textSize="25sp"
-        android:textColor="@color/colorGrayTitleAndContent"
-        android:textAlignment="textStart"
-        android:layout_margin="@dimen/dimen_45"
-        android:layout_gravity="center"
-        android:gravity="center"
-        tools:ignore="RtlCompat" />
+    <ScrollView
+        android:id="@+id/scroller"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="12dp"
+        android:paddingBottom="20dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:fillViewport="true">
 
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtDescriptionProject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen_45"
+                android:gravity="center"
+                android:text="Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month. Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month."
+                android:textAlignment="textStart"
+                android:textColor="@color/colorGrayTitleAndContent"
+                android:textSize="20sp"
+                tools:ignore="RtlCompat" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 

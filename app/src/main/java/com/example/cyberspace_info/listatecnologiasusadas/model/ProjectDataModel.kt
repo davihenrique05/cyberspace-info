@@ -1,7 +1,8 @@
 package com.example.cyberspace_info.listatecnologiasusadas.model
 
-data class ProjectModel(
-    val id:Int,
+data class ProjectDataModel(
+    val id: Int,
+    val lastUpdated:String,
     val title:String,
     val status:String,
     val startDate:String,

@@ -81,7 +81,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardImagensEVideos"
-                android:layout_width="500dp"
+                android:layout_width="507dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:clickable="true"
@@ -99,9 +99,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
                     android:text="@string/imagens_e_videos"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/dimen_text_12"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -129,21 +129,21 @@
                         android:src="@drawable/ic_alien"/>
 
                     <ImageView
-                        android:layout_marginStart="35dp"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
+                        android:layout_width="62dp"
+                        android:layout_height="55dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_astronaut"/>
+                        android:layout_marginStart="35dp"
+                        android:src="@drawable/ic_astronaut" />
 
                     <TextView
-                        android:layout_marginStart="115dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="115dp"
                         android:text="@string/perfil"
-                        android:textSize="@dimen/dimen_text_12"
                         android:textColor="@color/colorWhite"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_vertical"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -167,18 +167,18 @@
                         <ImageView
                             android:layout_width="55dp"
                             android:layout_height="55dp"
-                            android:src="@drawable/ic_mars_rover"
-                            android:layout_marginTop="12dp"
-                            android:layout_gravity="center|top"/>
+                            android:layout_gravity="center|top"
+                            android:layout_marginTop="7dp"
+                            android:src="@drawable/ic_mars_rover" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/mars_rover"
                             android:layout_gravity="center|bottom"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/dimen_text_12"
-                            android:textColor="@color/colorWhite" />
+                            android:text="@string/mars_rover"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -193,9 +193,9 @@
                         <ImageView
                             android:layout_width="55dp"
                             android:layout_height="55dp"
-                            android:src="@drawable/ic_mars"
-                            android:layout_marginTop="12dp"
-                            android:layout_gravity="center|top"/>
+                            android:layout_gravity="center|top"
+                            android:layout_marginTop="7dp"
+                            android:src="@drawable/ic_mars" />
                         <ImageView
                             android:layout_width="55dp"
                             android:layout_height="55dp"
@@ -207,12 +207,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/tempo_em_marte"
-                            android:gravity="center"
                             android:layout_gravity="center|bottom"
-                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:text="@string/tempo_em_marte"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimen_text_12"/>
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
@@ -232,16 +232,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="3dp"
-                android:layout_weight="1"
+                android:layout_weight="15"
                 android:clickable="true"
                 android:focusable="true"
                 app:cardBackgroundColor="@color/colorPrimaryDarkMenu">
 
                 <ImageView
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
                     android:layout_gravity="top|center"
-                    android:layout_marginTop="43dp"
+                    android:layout_marginTop="20dp"
                     android:src="@drawable/ic_storm" />
 
                 <TextView
@@ -250,13 +250,13 @@
                     android:layout_gravity="center|bottom"
                     android:text="@string/eventos_naturais"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimen_text_12"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardObjetosEmColisao"
-                android:layout_width="wrap_content"
+                android:layout_width="230dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:clickable="true"
@@ -264,20 +264,20 @@
                 app:cardBackgroundColor="@color/colorPrimaryDarkMenu">
 
                 <ImageView
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:src="@drawable/ic_asteroid"
-                    android:layout_marginTop="43dp"
-                    android:layout_gravity="top|center"/>
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_asteroid" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
                     android:text="@string/objetos_em_rota_de_colisao"
                     android:textColor="@color/colorWhite"
-                    android:layout_gravity="center|bottom"
-                    android:textSize="@dimen/dimen_text_12"
-                    android:textStyle="bold"/>
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
@@ -299,21 +299,21 @@
                 app:cardBackgroundColor="@color/colorPrimaryDarkMenu">
 
                 <ImageView
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:layout_marginTop="43dp"
-                    android:src="@drawable/ic_astronomy"
-                    android:layout_gravity="top|center"/>
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_astronomy" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:gravity="center"
                     android:text="@string/planetas_orbitando_estrelas"
                     android:textColor="@color/colorWhite"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_gravity="center|bottom"
-                    android:textSize="@dimen/dimen_text_12"/>
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -326,19 +326,20 @@
                 app:cardBackgroundColor="@color/colorPrimaryDarkMenu">
 
                 <ImageView
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:layout_marginTop="43dp"
-                    android:src="@drawable/ic_satellite"
-                    android:layout_gravity="top|center"/>
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_satellite" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
                     android:text="@string/tecnologias_usadas_menu"
                     android:textColor="@color/colorWhite"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/dimen_text_12"
-                    android:layout_gravity="center|bottom"/>
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
