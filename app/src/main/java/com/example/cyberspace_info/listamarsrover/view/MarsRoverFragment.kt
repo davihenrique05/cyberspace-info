@@ -96,10 +96,6 @@ class MarsRoverFragment : Fragment() {
         }
     }
 
-    fun consistirTela(){
-
-    }
-
     private fun abrirCalendario(minhaView: View) {
         DatePickerDialog(minhaView.context,
             AlertDialog.THEME_DEVICE_DEFAULT_DARK, object : DatePickerDialog.OnDateSetListener {

@@ -84,8 +84,12 @@ class GaleriaFragment : Fragment() {
         //O botão de retorno nesse caso volta para o perfil
         back.setOnClickListener {
             val navegar = Navigation.findNavController(view)
-            navegar.popBackStack()
-            //navegar.navigate(R.id.action_galeriaFragment_to_perfilFragment)
+            if (tela == "Perfil") {
+
+                navegar.navigate(R.id.action_galeriaFragment_to_perfilFragment)
+            }else {
+                navegar.navigate(R.id.action_galeriaFragment_to_marsRoverFragment)
+            }
         }
     }
 
