@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -27,6 +28,7 @@ import com.example.cyberspace_info.pesquisarimgvid.view.adapter.PesquisaImgVidAd
 import com.example.cyberspace_info.pesquisarimgvid.viewmodel.ImageVideoViewModel
 import com.google.android.material.tabs.TabLayout
 import com.example.cyberspace_info.planetasorbitandoestrelas.view.adapter.ViewPagerAdapter
+import com.google.android.material.card.MaterialCardView
 
 class PesquisaImgVidActivity : AppCompatActivity() {
 
@@ -74,11 +76,14 @@ class PesquisaImgVidActivity : AppCompatActivity() {
         }
 
         if (search != null) {
-            _viewModel.getUrlsImages(search).observe(this,{
-                if(!it.isNullOrEmpty()) {
+            _viewModel.getUrlsImages(search).observe(this) {
+                if (!it.isNullOrEmpty()) {
                     exibirLista(it)
+                }else{
+                    showLoading(false)
+                    findViewById<MaterialCardView>(R.id.cardNotFound).visibility = View.VISIBLE
                 }
-            })
+            }
         }
 
     }

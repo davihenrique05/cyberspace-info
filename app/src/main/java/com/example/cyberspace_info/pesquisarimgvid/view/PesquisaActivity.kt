@@ -35,7 +35,7 @@ class PesquisaActivity : AppCompatActivity() {
             var intent = Intent(this@PesquisaActivity, PesquisaImgVidActivity::class.java)
             intent.putExtra("search",search)
             var activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
-                getApplicationContext(),
+                applicationContext,
                 R.anim.from_right,
                 R.anim.to_left
             )
