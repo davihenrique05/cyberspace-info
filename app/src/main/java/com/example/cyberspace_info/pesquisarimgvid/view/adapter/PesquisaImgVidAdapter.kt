@@ -7,14 +7,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.pesquisarimgvid.model.LinksImageModel
+import com.example.cyberspace_info.pesquisarimgvid.model.ObjectImageModel
+import com.squareup.picasso.Picasso
 
-class PesquisaImgVidAdapter(private val dataSet: List<Icon>): RecyclerView.Adapter<PesquisaImgVidAdapter.meuViewHolder>() {
+class PesquisaImgVidAdapter(private val dataSet: List<ObjectImageModel>): RecyclerView.Adapter<PesquisaImgVidAdapter.meuViewHolder>() {
     //Para tratar cada elemento da linha, colocar todos os elementos aqui
     class meuViewHolder(view: View): RecyclerView.ViewHolder(view){
+
         private val fotovideo: ImageView = view.findViewById(R.id.imgFotoVideo)
 
-        fun bind(imgVid: Icon){
-            //fotovideo.drawable() = imgVid
+        fun bind(imgVid: ObjectImageModel){
+            Picasso.get().load(imgVid.links[0].href).into(fotovideo)
         }
     }
 

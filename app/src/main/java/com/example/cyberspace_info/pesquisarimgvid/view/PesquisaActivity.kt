@@ -10,6 +10,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import com.example.cyberspace_info.R
@@ -28,7 +29,11 @@ class PesquisaActivity : AppCompatActivity() {
 
     private fun pesquisar() {
         findViewById<ImageView>(R.id.imgBtnPesquisar).setOnClickListener {
+
+            var search = findViewById<TextView>(R.id.txtPesquisaImage).text.toString()
+
             var intent = Intent(this@PesquisaActivity, PesquisaImgVidActivity::class.java)
+            intent.putExtra("search",search)
             var activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
                 getApplicationContext(),
                 R.anim.from_right,
