@@ -18,30 +18,59 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
 
-            <ImageView
-                android:id="@+id/imgReturn_fTempoEmMarte"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_arrow_back_24" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:gravity="center"
-                android:text="@string/tempo_em_marte"
-                android:textColor="@color/colorWhite"
-                android:textSize="21sp" />
+                <ImageView
+                    android:id="@+id/imgReturn_fTempoEmMarte"
+                    android:layout_width="@dimen/dimen_35"
+                    android:layout_height="@dimen/dimen_35"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/ic_baseline_arrow_back_24" />
 
-            <ImageView
-                android:layout_width="75dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_mars" />
+                <TextView
+                    android:id="@+id/txtTittleClima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/imgReturn_fTempoEmMarte"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:gravity="center"
+                    android:text="@string/tempo_em_marte"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimen_text_24" />
 
-            <ImageView
-                android:layout_width="75dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_thermometer" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/txtTittleClima"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:id="@+id/icon1"
+                        android:layout_width="75dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="@dimen/dimen_16"
+                        android:src="@drawable/ic_mars" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_thermometer"
+                    app:layout_constraintHorizontal_bias="0.631"
+                    app:layout_constraintVertical_bias="0.333" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
@@ -62,11 +91,13 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:src="@drawable/tempo_em_marte"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorBase"
-                android:alpha="0.28"/>
+                android:alpha="0.28"
+                android:background="@color/colorBase" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
