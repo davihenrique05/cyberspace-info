@@ -20,8 +20,7 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): Recycler
 
             title.text = event.title
             category.text = event.categories[0].title
-            date.text = event.geometries[0].date
-
+            date.text = event.geometries[0].date.split("T")[0]
         }
 
     }

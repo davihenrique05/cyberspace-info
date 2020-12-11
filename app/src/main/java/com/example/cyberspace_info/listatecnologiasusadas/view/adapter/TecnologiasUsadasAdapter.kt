@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
 import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtualAdapter
-import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectModel
+import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectDataModel
 
-class TecnologiasUsadasAdapter(private val tecnologias: List<ProjectModel>, private val listener: (ProjectModel) -> Unit): RecyclerView.Adapter<TecnologiasUsadasAdapter.TecnologiasUsadasViewHolder>() {
+
+class TecnologiasUsadasAdapter( val tecnologias: List<ProjectDataModel>, val listener: (ProjectDataModel) -> Unit): RecyclerView.Adapter<TecnologiasUsadasAdapter.TecnologiasUsadasViewHolder>() {
 
     class TecnologiasUsadasViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -18,7 +19,7 @@ class TecnologiasUsadasAdapter(private val tecnologias: List<ProjectModel>, priv
         private val date : TextView by lazy { view.findViewById<TextView>(R.id.txtDataTecnologiaUsada)}
         private val status : TextView by lazy { view.findViewById<TextView>(R.id.txtStatusTecnologiaUsada)}
 
-        fun bind(tecnologia:ProjectModel){
+        fun bind(tecnologia:ProjectDataModel){
 
             title.text = tecnologia.title
             date.text = "${tecnologia.startDate} - ${tecnologia.endDate}"
@@ -41,9 +42,12 @@ class TecnologiasUsadasAdapter(private val tecnologias: List<ProjectModel>, priv
     override fun onBindViewHolder(holder: TecnologiasUsadasViewHolder, position: Int) {
 
         holder.bind(tecnologias[position])
+
+
         holder.itemView.setOnClickListener {
             listener(tecnologias[position])
         }
+
     }
     
 }

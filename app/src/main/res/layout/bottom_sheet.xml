@@ -22,21 +22,26 @@
         />
 
 
-    <TextView
-        android:id="@+id/txtDescriptionProject"
+    <ScrollView
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month. Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month."
-        android:textSize="25sp"
-        android:textColor="@color/colorGrayTitleAndContent"
-        android:textAlignment="textStart"
-        android:layout_margin="@dimen/dimen_45"
-        android:layout_gravity="center"
-        android:gravity="center"
-        tools:ignore="RtlCompat" />
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/txtDescriptionProject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dimen_45"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:text="Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month. Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month."
+            android:textAlignment="textStart"
+            android:textColor="@color/colorGrayTitleAndContent"
+            android:textSize="25sp"
+            tools:ignore="RtlCompat" />
 
-
+    </ScrollView>
 
 
 </LinearLayout>
