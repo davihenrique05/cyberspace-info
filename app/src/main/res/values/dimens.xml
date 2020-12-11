@@ -38,4 +38,6 @@
     <dimen name="dimen_text_20">20sp</dimen>
     <dimen name="dimen_text_12">12sp</dimen>
     <dimen name="dimen_3">3dp</dimen>
+    <dimen name="dimen_50">50dp</dimen>
+    <dimen name="dimen_100">100dp</dimen>
 </resources>

@@ -38,4 +38,5 @@
     <string name="ventos_mph">VENTOS(mph)</string>
     <string name="pressao">PRESSÃO(Pa)</string>
     <string name="app">Cyberspace Info</string>
+    <string name="not_found">Conteúdo não encontrado :(</string>
 </resources>
