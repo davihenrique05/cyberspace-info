@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Imagens e Vídeos"
+            android:text="Imagens"
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
             android:padding="10dp"/>
