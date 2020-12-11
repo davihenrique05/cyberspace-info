@@ -28,7 +28,6 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): Recycler
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventoAtualViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_eventos_naturais, parent, false)
-
         return EventoAtualViewHolder(view)
 
     }
