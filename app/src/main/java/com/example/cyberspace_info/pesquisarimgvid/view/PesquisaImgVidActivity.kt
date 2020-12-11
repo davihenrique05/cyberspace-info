@@ -9,12 +9,30 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.listatecnologiasusadas.repository.ProjectIdRepository
+import com.example.cyberspace_info.listatecnologiasusadas.viewmodel.ProjectIdViewModel
+import com.example.cyberspace_info.pesquisarimgvid.model.LinksImageModel
+import com.example.cyberspace_info.pesquisarimgvid.model.ObjectImageModel
+import com.example.cyberspace_info.pesquisarimgvid.repository.ImageVideoRepository
+import com.example.cyberspace_info.pesquisarimgvid.view.adapter.PesquisaImgVidAdapter
+import com.example.cyberspace_info.pesquisarimgvid.viewmodel.ImageVideoViewModel
 import com.google.android.material.tabs.TabLayout
 import com.example.cyberspace_info.planetasorbitandoestrelas.view.adapter.ViewPagerAdapter
 
 class PesquisaImgVidActivity : AppCompatActivity() {
+
+    private lateinit var _viewModel : ImageVideoViewModel
+    private lateinit var _listaImagens : MutableList<ObjectImageModel>
+    private lateinit var _adaptador : PesquisaImgVidAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesquisa_img_vid)
@@ -24,32 +42,62 @@ class PesquisaImgVidActivity : AppCompatActivity() {
 
         ResultarPesquisa()
 
-
-
     }
 
     private fun ResultarPesquisa() {
-        val pager = findViewById<ViewPager>(R.id.viewPager)
-        val tab = findViewById<TabLayout>(R.id.tabLayout)
 
-        //Faz com que o tab use o Viewpager
-        tab.setupWithViewPager(pager)
+        _listaImagens = mutableListOf()
 
-        val fragments = listOf(
-            ResultadosPesquisaFragment(),
-            ResultadosPesquisaFragment()
-        )
+        val search = intent.getStringExtra("search")
 
-        val titulos = listOf(
-            "imagens", "videos"
-        )
+        val progresBar = findViewById<ProgressBar>(R.id.progessBar)
 
-        pager.adapter =
-            ViewPagerAdapter(
-                fragments,
-                titulos,
-                supportFragmentManager
-            )
+        showLoading(true)
+        val color = ContextCompat.getColor(this,R.color.colorPrimaryDarkest)
+        @Suppress("DEPRECATION")
+        progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
+
+        _viewModel = ViewModelProvider(this, ImageVideoViewModel.ImageVideoViewModelFactory(
+            ImageVideoRepository()
+        )).get(ImageVideoViewModel::class.java)
+
+        val viewManager = GridLayoutManager(this, 3)
+        val recyclerView = findViewById<RecyclerView>(R.id.listaFotosVideos)
+        _adaptador = PesquisaImgVidAdapter(_listaImagens)
+
+        recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = _adaptador
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL))
+        }
+
+        if (search != null) {
+            _viewModel.getUrlsImages(search).observe(this,{
+                if(!it.isNullOrEmpty()) {
+                    exibirLista(it)
+                }
+            })
+        }
+
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        val viewLoading = findViewById<View>(R.id.loading)
+
+        if (isLoading) {
+            viewLoading?.visibility = View.VISIBLE
+        } else {
+            viewLoading?.visibility = View.GONE
+        }
+    }
+
+
+    private fun exibirLista(lista:List<ObjectImageModel>){
+        _listaImagens.addAll(lista)
+        showLoading(false)
+        _adaptador.notifyDataSetChanged()
     }
 
     override fun finish() {
