@@ -1,6 +1,7 @@
 package com.example.cyberspace_info.pesquisarimgvid.view
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -43,6 +46,22 @@ class PesquisaImgVidActivity : AppCompatActivity() {
         }
 
         ResultarPesquisa()
+
+        findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid).setOnClickListener {
+
+            var search = findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
+
+            var intent = Intent(this@PesquisaImgVidActivity, PesquisaImgVidActivity::class.java)
+            intent.putExtra("search",search)
+            var activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
+                applicationContext,
+                R.anim.from_right,
+                R.anim.to_left
+            )
+            ActivityCompat.startActivity(this, intent, activityOptionsCompat.toBundle())
+            //startActivity(intent)
+
+        }
 
     }
 
