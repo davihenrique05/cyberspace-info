@@ -34,7 +34,6 @@ class TecnologiasUsadasFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         _listaProjetos = mutableListOf()
         _listaIdProjeto = mutableListOf()
         _adaptador = TecnologiasUsadasAdapter(_listaProjetos){
@@ -47,7 +46,6 @@ class TecnologiasUsadasFragment : Fragment() {
 
             bottomSheetFragment.arguments = bundle
             bottomSheetFragment.show((activity as AppCompatActivity).supportFragmentManager,"BottomSheetDialog")
-
         }
 
         _viewModelProject = ViewModelProvider(this,ProjectIdViewModel.ProjectIdViewModelFactory(ProjectIdRepository()
@@ -87,12 +85,23 @@ class TecnologiasUsadasFragment : Fragment() {
 
             _listaIdProjeto.addAll(it)
 
+            /*
             _viewModelProject.getUniqueObjectProject(_listaIdProjeto).observe(viewLifecycleOwner) {
                 if(!it.isNullOrEmpty()) {
                     listarResultados(it)
                 }
             }
+             */
 
+            for(i in 0..40) {
+                _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
+
+                    .observe(viewLifecycleOwner) {
+                        if (!it.isNullOrEmpty()) {
+                            listarResultados(it)
+                        }
+                    }
+            }
         }
 
     }
@@ -108,6 +117,7 @@ class TecnologiasUsadasFragment : Fragment() {
     }
 
     private fun listarResultados(lista:List<ProjectDataModel>){
+        _listaProjetos.clear()
         _listaProjetos.addAll(lista)
         showLoading(false)
         _adaptador.notifyDataSetChanged()

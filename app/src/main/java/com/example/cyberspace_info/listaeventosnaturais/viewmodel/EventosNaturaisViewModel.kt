@@ -22,6 +22,7 @@ class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository
          }catch(ex:Exception){
              Log.e("ERRO_EVENTO_PASSADO",ex.message.toString())
          }
+
     }
 
     fun getCurrentNaturalEvents() = liveData(Dispatchers.IO) {
@@ -33,7 +34,7 @@ class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository
         try {
 
             val response = repository.getListEvents(numberDays,numberEvents,status)
-            response.events = response.events.slice(0..19)
+            response.events = response.events.slice(0..(response.events.size-1))
             emit(response.events)
 
         }catch(ex:Exception){
