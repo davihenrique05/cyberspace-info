@@ -22,7 +22,6 @@ class PesquisaActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.imgViewMenuPesquisa).setOnClickListener {
             onBackPressed()
         }
-
         pesquisar()
 
     }
@@ -40,7 +39,6 @@ class PesquisaActivity : AppCompatActivity() {
                 R.anim.to_left
             )
             ActivityCompat.startActivity(this, intent, activityOptionsCompat.toBundle())
-            //startActivity(intent)
 
         }
     }
