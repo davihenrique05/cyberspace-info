@@ -1,7 +1,5 @@
 package com.example.cyberspace_info.listatempomarte.model
 
-import java.util.*
-
 data class SolModel (
     val id: Int,
     val atmosphericTemperature: SolInfoModel,

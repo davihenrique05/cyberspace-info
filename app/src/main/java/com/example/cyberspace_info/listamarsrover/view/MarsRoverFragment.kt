@@ -3,18 +3,16 @@ package com.example.cyberspace_info.listamarsrover.view
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.DatePicker
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listamarsrover.repository.MarsRoverPhotosRepository
@@ -24,9 +22,9 @@ import kotlinx.android.synthetic.main.fragment_mars_rover.*
 import java.util.*
 
 class MarsRoverFragment : Fragment() {
-    var dia: Int
-    var mes: Int
-    var ano: Int
+    private var dia: Int
+    private var mes: Int
+    private var ano: Int
 
     init {
         val calendar = Calendar.getInstance()
@@ -83,7 +81,7 @@ class MarsRoverFragment : Fragment() {
             ).get(MarsRoverPhotosViewModel::class.java)
 
             _viewModel.obterLista("curiosity","2015-6-3").observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-                var lista = mutableListOf<String>()
+                val lista = mutableListOf<String>()
 
                 for (marsRover in it){
                      lista.add(marsRover.imagemURL)
@@ -98,13 +96,11 @@ class MarsRoverFragment : Fragment() {
 
     private fun abrirCalendario(minhaView: View) {
         DatePickerDialog(minhaView.context,
-            AlertDialog.THEME_DEVICE_DEFAULT_DARK, object : DatePickerDialog.OnDateSetListener {
-                override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                    dia = dayOfMonth
-                    mes = month
-                    ano = year
-                }
-
+            AlertDialog.THEME_DEVICE_DEFAULT_DARK,
+            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                dia = dayOfMonth
+                mes = month
+                ano = year
             }, ano, mes, dia
         ).show()
     }

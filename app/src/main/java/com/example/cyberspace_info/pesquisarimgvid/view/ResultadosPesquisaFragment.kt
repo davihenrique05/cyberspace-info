@@ -14,16 +14,11 @@ import com.example.cyberspace_info.pesquisarimgvid.model.FotoVideoModel
 
 class ResultadosPesquisaFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val minhaView = inflater.inflate(R.layout.fragment_resultados_pesquisa, container, false)
-        return minhaView
+        return inflater.inflate(R.layout.fragment_resultados_pesquisa, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +28,7 @@ class ResultadosPesquisaFragment : Fragment() {
         val viewManager = GridLayoutManager(view.context, 3)
         val recyclerView = view.findViewById<RecyclerView>(R.id.listaFotosVideos)
 
-        var meusPlanetas = listOf(
+        val meusPlanetas = listOf(
             FotoVideoModel(R.drawable.mercurio),
             FotoVideoModel(R.drawable.venus),
             FotoVideoModel(R.drawable.terra),

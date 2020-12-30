@@ -1,5 +1,6 @@
 package com.example.cyberspace_info.pesquisarimgvid.view.adapter
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +12,7 @@ class PesquisaImgVidViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private val nomeEstrela: TextView = view.findViewById(R.id.txtNomeEstrela)
 
 
+    @SuppressLint("SetTextI18n")
     fun bind(planetaModel: PlanetaOrbitandoEstrelaModel){
         nomePlaneta.text = "Nome do planeta: " + planetaModel.nomePlaneta
         nomeEstrela.text = "Nome da Estrela: " + planetaModel.nomeEstela

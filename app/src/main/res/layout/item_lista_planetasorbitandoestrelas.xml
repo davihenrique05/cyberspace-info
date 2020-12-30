@@ -20,21 +20,22 @@
             android:id="@+id/imgPlanetaOrbitandoEstrela"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:src="@mipmap/ic_launcher"
+            android:contentDescription="@string/imagem_planeta_orbitando_estrela"
             android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
+            android:src="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
 
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
 
         <TextView
             android:id="@+id/txtNomePlaneta"
             android:layout_height="wrap_content"
-            android:text="Nome Planeta"
+            android:text="@string/nome_planeta"
             android:padding="5dp"
-            android:textSize="72px"
+            android:textSize="@dimen/dimen_text_30"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgPlanetaOrbitandoEstrela"
             android:layout_marginStart="10dp"
@@ -50,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="Nome Estrela"
             android:padding="5dp"
-            android:textSize="42px"
+            android:textSize="@dimen/dimen_text_20"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtNomePlaneta"
             android:layout_marginStart="10dp"
@@ -60,7 +61,6 @@
             android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

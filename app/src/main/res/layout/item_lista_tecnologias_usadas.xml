@@ -14,7 +14,7 @@
         android:layout_height="41dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
-        android:text="Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I"
+        android:text="@string/ultra_high_energy_particle_astrophysics_with_anita_v_washington_university_co_i"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginStart="12dp"
-            android:text="2/1980 - 9/2006"
+            android:text="@string/_2_1980_9_2006"
             android:textColor="@color/colorWhite"
             android:layout_weight="1"
             android:textSize="16sp"
@@ -43,7 +43,7 @@
             android:layout_height="29dp"
             android:layout_marginEnd="12dp"
             android:gravity="end"
-            android:text="Completed"
+            android:text="@string/completed"
             android:textColor="@color/colorWhite"
             android:textSize="16sp"
             android:textStyle="bold" />

@@ -30,7 +30,7 @@ class ImagemFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         @Suppress("DEPRECATION")
-        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         val tela = arguments?.getString("Tela")
@@ -93,7 +93,7 @@ class ImagemFragment : Fragment() {
                     navController.navigate(R.id.action_imagemFragment_to_perfilFragment)
                     activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                     @Suppress("DEPRECATION")
-                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
                 }
             }
             getString(R.string.menu_comparacao) -> {
@@ -102,7 +102,7 @@ class ImagemFragment : Fragment() {
                     navController.navigate(R.id.action_imagemFragment_to_menuFragment)
                     activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                     @Suppress("DEPRECATION")
-                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
                 }
             }
             getString(R.string.galeria_comparacao) -> {
@@ -112,7 +112,7 @@ class ImagemFragment : Fragment() {
                     navController.navigate(R.id.action_imagemFragment_to_galeriaFragment, bundle)
                     activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                     @Suppress("DEPRECATION")
-                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
                 }
             }
         }

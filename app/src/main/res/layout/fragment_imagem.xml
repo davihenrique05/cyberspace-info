@@ -16,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/apod_1" />
+        tools:src="@drawable/apod_1"
+        android:contentDescription="@string/imagem_view_show" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbarImagemFrag"
@@ -38,7 +39,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageIconFavorite"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/icone_voltar" />
 
         <ImageView
             android:id="@+id/imageIconFavorite"
@@ -48,7 +50,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="@dimen/dimen_35"
             android:layout_height="@dimen/dimen_35"
-            android:src="@drawable/ic_fav"/>
+            android:src="@drawable/ic_fav"
+            android:contentDescription="@string/icone_favoritos" />
 
         <ImageView
             android:id="@+id/imageIconeDownload"
@@ -59,7 +62,8 @@
             android:layout_marginEnd="@dimen/dimen_250"
             android:layout_width="@dimen/dimen_30"
             android:layout_height="@dimen/dimen_30"
-            android:src="@drawable/ic_download"/>
+            android:src="@drawable/ic_download"
+            android:contentDescription="@string/icone_download" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

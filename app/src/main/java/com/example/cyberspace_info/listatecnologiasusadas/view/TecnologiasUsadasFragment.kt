@@ -24,10 +24,10 @@ import com.example.cyberspace_info.listatecnologiasusadas.viewmodel.ProjectIdVie
 
 class TecnologiasUsadasFragment : Fragment() {
 
-    lateinit var _viewModelProject : ProjectIdViewModel
-    lateinit var _listaProjetos : MutableList<ProjectDataModel>
+    private lateinit var _viewModelProject : ProjectIdViewModel
+    private lateinit var _listaProjetos : MutableList<ProjectDataModel>
     private lateinit var _adaptador : TecnologiasUsadasAdapter
-    lateinit var _listaIdProjeto : MutableList<ProjectIdModel>
+    private lateinit var _listaIdProjeto : MutableList<ProjectIdModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +39,7 @@ class TecnologiasUsadasFragment : Fragment() {
         _listaIdProjeto = mutableListOf()
         _adaptador = TecnologiasUsadasAdapter(_listaProjetos){
 
-            val bottomSheetFragment =  BottomSheetFragment();
+            val bottomSheetFragment =  BottomSheetFragment()
 
             val bundle = bundleOf("title" to it.title,
                 "description" to it.description
@@ -83,17 +83,17 @@ class TecnologiasUsadasFragment : Fragment() {
 
         }
         
-        _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner,{
+        _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner) { it ->
 
-              _listaIdProjeto.addAll(it)
+            _listaIdProjeto.addAll(it)
 
-               _viewModelProject.getUniqueObjectProject(_listaIdProjeto).observe(viewLifecycleOwner,{
-                   if(!it.isNullOrEmpty()) {
-                       listarResultados(it)
-                   }
-               })
+            _viewModelProject.getUniqueObjectProject(_listaIdProjeto).observe(viewLifecycleOwner) {
+                if(!it.isNullOrEmpty()) {
+                    listarResultados(it)
+                }
+            }
 
-        })
+        }
 
     }
 
@@ -107,7 +107,7 @@ class TecnologiasUsadasFragment : Fragment() {
         }
     }
 
-    fun listarResultados(lista:List<ProjectDataModel>){
+    private fun listarResultados(lista:List<ProjectDataModel>){
         _listaProjetos.addAll(lista)
         showLoading(false)
         _adaptador.notifyDataSetChanged()

@@ -12,7 +12,7 @@ interface ImageModelEndpoint {
 
 
     companion object{
-        const val BASE_URL_IMAGE = "https://api.nasa.gov/planetary/"
+        private const val BASE_URL_IMAGE = "https://api.nasa.gov/planetary/"
 
         val endpoint: ImageModelEndpoint by lazy {
             NetworkUtils.getRetrofitInstance(BASE_URL_IMAGE).create(ImageModelEndpoint::class.java)

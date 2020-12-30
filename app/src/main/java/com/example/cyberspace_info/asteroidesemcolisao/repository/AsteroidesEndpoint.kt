@@ -15,7 +15,7 @@ interface AsteroidesEndpoint {
     ):ResponseAsteroidModel
 
     companion object{
-        const val BASE_URL_ASTEROIDES = "https://api.nasa.gov/neo/rest/v1/"
+        private const val BASE_URL_ASTEROIDES = "https://api.nasa.gov/neo/rest/v1/"
 
         val endpoint: AsteroidesEndpoint by lazy {
             NetworkUtils.getRetrofitInstance(BASE_URL_ASTEROIDES).create(AsteroidesEndpoint::class.java)

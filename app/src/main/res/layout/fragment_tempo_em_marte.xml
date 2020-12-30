@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,7 +21,8 @@
                 android:id="@+id/imgReturn_fTempoEmMarte"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_arrow_back_24" />
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:contentDescription="@string/icone_voltar" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,12 +36,14 @@
             <ImageView
                 android:layout_width="75dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_mars" />
+                android:src="@drawable/ic_mars"
+                android:contentDescription="@string/icone_mars" />
 
             <ImageView
                 android:layout_width="75dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_thermometer" />
+                android:src="@drawable/ic_thermometer"
+                android:contentDescription="@string/icone_thermometer" />
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
@@ -61,7 +63,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@drawable/tempo_em_marte"/>
+                android:src="@drawable/tempo_em_marte"
+                android:contentDescription="@string/tempo_em_marte" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -76,7 +79,7 @@
                 android:id="@+id/txtSol_fTempoEmMarte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SOL 123"
+                android:text="@string/sol_123"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimen_text_60"
                 android:gravity="center"
@@ -91,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="20 DE AGOSTO, 2020."
+                    android:text="@string/_20_de_agosto_2020"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_30"
                     android:gravity="center"

@@ -17,7 +17,7 @@ class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository
 
          try {
              val response = repository.getListEvents(numberDays,numberEvents,status)
-             response.events = response.events.slice(19..(response.events.size - 1))
+             response.events = response.events.slice(19 until response.events.size)
              emit(response.events)
          }catch(ex:Exception){
              Log.e("ERRO_EVENTO_PASSADO",ex.message.toString())

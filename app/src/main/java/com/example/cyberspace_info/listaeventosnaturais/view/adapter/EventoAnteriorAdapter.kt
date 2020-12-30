@@ -25,7 +25,7 @@ class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) : Recy
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventoAnteriorAdapter.EventoAnteriorViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventoAnteriorViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_eventos_naturais,parent,false)
 
@@ -35,7 +35,7 @@ class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) : Recy
 
     override fun getItemCount(): Int = eventos.size
 
-    override fun onBindViewHolder(holder: EventoAnteriorAdapter.EventoAnteriorViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: EventoAnteriorViewHolder, position: Int) {
         val item = eventos[position]
         holder.bind(item)
 

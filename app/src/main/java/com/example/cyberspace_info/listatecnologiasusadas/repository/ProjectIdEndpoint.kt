@@ -1,6 +1,6 @@
 package com.example.cyberspace_info.listatecnologiasusadas.repository
 
-import com.example.cyberspace_info.api.NetworkUtils
+import com.example.cyberspace_info.data.api.NetworkUtils
 import com.example.cyberspace_info.listatecnologiasusadas.model.*
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -19,7 +19,7 @@ interface ProjectIdEndpoint {
 
     companion object{
 
-        val BASE_URL = "https://api.nasa.gov/techport/api/"
+        private const val BASE_URL = "https://api.nasa.gov/techport/api/"
         val Endpoint:ProjectIdEndpoint by lazy {
             NetworkUtils.getRetrofitInstance(BASE_URL).create(ProjectIdEndpoint::class.java)
         }

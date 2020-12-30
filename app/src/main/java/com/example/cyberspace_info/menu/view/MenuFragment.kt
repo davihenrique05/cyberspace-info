@@ -1,28 +1,25 @@
 package com.example.cyberspace_info.menu.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesRepository
-import com.example.cyberspace_info.asteroidesemcolisao.viewmodel.AsteroidesEmColisaoViewModel
 import com.example.cyberspace_info.menu.imagemdodia.repository.ImageModelRepository
 import com.example.cyberspace_info.menu.imagemdodia.viewmodel.ImageViewModel
-
 import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 
 class MenuFragment : Fragment() {
 
-    lateinit var _url: String
+    private lateinit var _url: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

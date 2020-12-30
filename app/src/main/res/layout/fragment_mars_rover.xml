@@ -21,7 +21,8 @@
                 android:id="@+id/imgReturn_fMarsRover"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_arrow_back_24" />
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:contentDescription="@string/imagem_return_mars" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,7 +37,8 @@
                 android:id="@+id/imgReturn2"
                 android:layout_width="75dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_mars_rover" />
+                android:src="@drawable/ic_mars_rover"
+                android:contentDescription="@string/icone_voltar" />
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
@@ -45,7 +47,8 @@
         android:id="@+id/imgFundo_MarsRover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:contentDescription="@string/imagem_fundo_mars" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTempoEmMarte"
@@ -68,7 +71,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rover">
+                android:text="@string/rover">
 
                 <AutoCompleteTextView
                     android:id="@+id/filled_exposed_dropdown"
@@ -85,7 +88,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rover">
+                android:text="@string/rover">
 
                 <AutoCompleteTextView
                     android:id="@+id/filled_exposed_dropdown1"
@@ -102,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
-                android:hint="Data na Terra"
+                android:hint="@string/data_na_terra"
                 android:textColor="@color/colorPrimaryAltLightest"
                 android:textColorHint="@color/colorPrimaryAltLightest"
                 app:hintTextColor="@color/colorPrimaryAltLightest">
@@ -122,7 +125,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_search_24"
-                android:layout_gravity="right"/>
+                android:layout_gravity="right"
+                android:contentDescription="@string/imagem_pesquisar_mars" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

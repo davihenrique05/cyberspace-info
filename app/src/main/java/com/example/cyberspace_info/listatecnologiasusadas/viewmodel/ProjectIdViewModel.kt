@@ -1,16 +1,12 @@
 package com.example.cyberspace_info.listatecnologiasusadas.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
-import com.example.cyberspace_info.listaeventosnaturais.repository.EventosNaturaisRepository
-import com.example.cyberspace_info.listaeventosnaturais.viewmodel.EventosNaturaisViewModel
 import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectDataModel
 import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectIdModel
 import com.example.cyberspace_info.listatecnologiasusadas.repository.ProjectIdRepository
 import kotlinx.coroutines.Dispatchers
-import java.lang.Exception
 
 class ProjectIdViewModel(val repository: ProjectIdRepository):ViewModel(){
 

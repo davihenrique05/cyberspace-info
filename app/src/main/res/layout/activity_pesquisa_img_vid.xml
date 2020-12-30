@@ -23,13 +23,14 @@
             android:id="@+id/imgViewMenuPesquisaImgVid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_back_24"/>
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:contentDescription="@string/imagem_menu_pesquisa" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtpesquisaimagefragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Pesquise astros, estrelas, etc..."
+            android:hint="@string/pesquise_astros_estrelas_etc"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             />
@@ -39,7 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_search_24"
-            android:layout_marginStart="@dimen/dimen_100"/>
+            android:layout_marginStart="@dimen/dimen_100"
+            android:contentDescription="@string/imagem_procurar_imagem" />
 
     </Toolbar>
 

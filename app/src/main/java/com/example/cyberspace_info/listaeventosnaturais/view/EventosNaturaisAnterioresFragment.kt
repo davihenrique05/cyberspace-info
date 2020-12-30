@@ -33,9 +33,7 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
         listaEventos = mutableListOf()
 
-        val view =  inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
-
-        return view
+        return inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,7 +46,7 @@ class EventosNaturaisAnterioresFragment : Fragment() {
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
-        _recyclerView = view.findViewById<RecyclerView>(R.id.listAnterioresEvents)
+        _recyclerView = view.findViewById(R.id.listAnterioresEvents)
 
         _viewModel = ViewModelProvider(this,EventosNaturaisViewModel.EventosNaturaisViewModelFactory(
             EventosNaturaisRepository()
@@ -56,11 +54,11 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
         _adaptador = EventoAnteriorAdapter(listaEventos)
 
-        _viewModel.getPastNaturalEvents().observe(viewLifecycleOwner,{
+        _viewModel.getPastNaturalEvents().observe(viewLifecycleOwner) {
             if(!it.isNullOrEmpty()){
                 exibirResultado(it)
             }
-        })
+        }
 
         val managerLinear = LinearLayoutManager(view.context)
         aplicationPropertyRecyclerView(managerLinear)
@@ -77,7 +75,7 @@ class EventosNaturaisAnterioresFragment : Fragment() {
         }
     }
 
-    fun exibirResultado(lista:List<EventNaturalModel>){
+    private fun exibirResultado(lista:List<EventNaturalModel>){
 
         listaEventos.addAll(lista)
         showLoading(false)
@@ -85,7 +83,7 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
     }
 
-    fun aplicationPropertyRecyclerView(managerLinear:LinearLayoutManager){
+    private fun aplicationPropertyRecyclerView(managerLinear:LinearLayoutManager){
 
         _recyclerView.apply {
             setHasFixedSize(true)

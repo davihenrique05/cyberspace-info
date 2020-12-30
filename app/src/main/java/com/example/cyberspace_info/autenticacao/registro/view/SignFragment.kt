@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputEditText
 
 class SignFragment : Fragment() {
 
-    lateinit var mudarTab : INavegarTab
+    private lateinit var mudarTab : INavegarTab
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -30,11 +30,11 @@ class PesquisaActivity : AppCompatActivity() {
     private fun pesquisar() {
         findViewById<ImageView>(R.id.imgBtnPesquisar).setOnClickListener {
 
-            var search = findViewById<TextView>(R.id.txtPesquisaImage).text.toString()
+            val search = findViewById<TextView>(R.id.txtPesquisaImage).text.toString()
 
-            var intent = Intent(this@PesquisaActivity, PesquisaImgVidActivity::class.java)
+            val intent = Intent(this@PesquisaActivity, PesquisaImgVidActivity::class.java)
             intent.putExtra("search",search)
-            var activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
+            val activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
                 applicationContext,
                 R.anim.from_right,
                 R.anim.to_left

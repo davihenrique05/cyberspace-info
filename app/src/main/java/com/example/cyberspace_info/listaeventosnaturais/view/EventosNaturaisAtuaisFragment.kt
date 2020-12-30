@@ -6,17 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.listaeventosnaturais.model.CategoryEventModel
 import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
-import com.example.cyberspace_info.listaeventosnaturais.model.GeometryEventModel
 import com.example.cyberspace_info.listaeventosnaturais.repository.EventosNaturaisRepository
 import com.example.cyberspace_info.listaeventosnaturais.view.adapter.EventoAtualAdapter
 import com.example.cyberspace_info.listaeventosnaturais.viewmodel.EventosNaturaisViewModel
@@ -35,9 +31,8 @@ class EventosNaturaisAtuaisFragment : Fragment() {
         // Inflate the layout for this fragment
 
         _listaEventos = mutableListOf()
-        var view =  inflater.inflate(R.layout.fragment_eventos_naturais_atuais, container, false)
 
-        return view
+        return inflater.inflate(R.layout.fragment_eventos_naturais_atuais, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,8 +51,8 @@ class EventosNaturaisAtuaisFragment : Fragment() {
             EventosNaturaisRepository()
         )).get(EventosNaturaisViewModel::class.java)
 
-        _recyclerView = view.findViewById<RecyclerView>(R.id.listAtualEvents)
-        var managerLinear = LinearLayoutManager(view.context)
+        _recyclerView = view.findViewById(R.id.listAtualEvents)
+        val managerLinear = LinearLayoutManager(view.context)
         aplicationPropertyRecyclerView(managerLinear)
 
     }
@@ -72,7 +67,7 @@ class EventosNaturaisAtuaisFragment : Fragment() {
         }
     }
 
-    fun aplicationPropertyRecyclerView(managerLinear:LinearLayoutManager){
+    private fun aplicationPropertyRecyclerView(managerLinear:LinearLayoutManager){
 
         _recyclerView.apply {
             setHasFixedSize(true)
@@ -80,16 +75,16 @@ class EventosNaturaisAtuaisFragment : Fragment() {
             adapter = _adaptador
         }
 
-        _viewModel.getCurrentNaturalEvents().observe(viewLifecycleOwner,{
+        _viewModel.getCurrentNaturalEvents().observe(viewLifecycleOwner) {
             if(!it.isNullOrEmpty()){
                 exibirResultado(it)
             }
 
-        })
+        }
 
     }
 
-    fun exibirResultado(lista:List<EventNaturalModel>){
+    private fun exibirResultado(lista:List<EventNaturalModel>){
         _listaEventos.addAll(lista)
         showLoading(false)
         _adaptador.notifyDataSetChanged()

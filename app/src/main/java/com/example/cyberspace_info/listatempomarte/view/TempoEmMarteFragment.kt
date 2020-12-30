@@ -1,29 +1,24 @@
 package com.example.cyberspace_info.listatempomarte.view
 
-import android.app.AlertDialog
-import android.app.DatePickerDialog
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.listamarsrover.repository.MarsRoverPhotosRepository
-import com.example.cyberspace_info.listamarsrover.viewmodel.MarsRoverPhotosViewModel
 import com.example.cyberspace_info.listatempomarte.repository.SolRepository
 import com.example.cyberspace_info.listatempomarte.viewmodel.SolViewModel
-import java.text.SimpleDateFormat
 import java.util.*
 
 class TempoEmMarteFragment : Fragment() {
-    var dia: Int
-    var mes: Int
-    var ano: Int
+    private var dia: Int
+    private var mes: Int
+    private var ano: Int
 
     init {
         val calendar = Calendar.getInstance()
@@ -41,6 +36,7 @@ class TempoEmMarteFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_tempo_em_marte, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -72,15 +68,15 @@ class TempoEmMarteFragment : Fragment() {
         })
     }
 
-    fun formatarDados(valor: Double, isTemperatura: Boolean = false):String{
-        if (valor != 0.0){
+    private fun formatarDados(valor: Double, isTemperatura: Boolean = false):String{
+        return if (valor != 0.0){
             if (isTemperatura) {
-                return "%.2f".format(valor) + " °C"
+                "%.2f".format(valor) + " °C"
             } else {
-                return "%.2f".format(valor)
+                "%.2f".format(valor)
             }
         } else {
-            return "-"
+            "-"
         }
     }
 }

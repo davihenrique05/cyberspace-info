@@ -22,7 +22,7 @@ class PlanetasOrbitandoEstrelasActivity : AppCompatActivity() {
         val viewManager = LinearLayoutManager(this)
         val recyclerView = findViewById<RecyclerView>(R.id.listaPlanetasOrbitandoEstrelas)
 
-        var meusPlanetas = arrayListOf(
+        val meusPlanetas = arrayListOf(
             PlanetaOrbitandoEstrelaModel(
                 "Mercurio",
                 "Sol",

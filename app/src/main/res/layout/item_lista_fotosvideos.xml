@@ -11,6 +11,6 @@
         android:layout_height="110dp"
         android:src="@drawable/ic_satellite"
         android:scaleType="fitXY"
-        />
+        android:contentDescription="@string/icone_satelite" />
 
 </LinearLayout>

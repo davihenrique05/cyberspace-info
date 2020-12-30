@@ -11,7 +11,7 @@ class MarsRoverPhotosViewModel(
     private val repository: MarsRoverPhotosRepository
 ) : ViewModel() {
 
-    var photos: List<MarsRoverPhotosModel> = listOf()
+    private var photos: List<MarsRoverPhotosModel> = listOf()
 
     fun obterLista(rover: String, earthDate: String, page: Int = 1) = liveData(Dispatchers.IO) {
         val response = repository.obterRover(rover, earthDate, page)

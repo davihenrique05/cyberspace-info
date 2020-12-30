@@ -3,15 +3,11 @@ package com.example.cyberspace_info.listatempomarte.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
-import com.example.cyberspace_info.asteroidesemcolisao.model.AsteroideModel
-import com.example.cyberspace_info.listamarsrover.repository.MarsRoverPhotosRepository
-import com.example.cyberspace_info.listamarsrover.viewmodel.MarsRoverPhotosViewModel
 import com.example.cyberspace_info.listatempomarte.model.SolInfoModel
 import com.example.cyberspace_info.listatempomarte.model.SolModel
 import com.example.cyberspace_info.listatempomarte.repository.SolRepository
 import com.google.gson.internal.LinkedTreeMap
 import kotlinx.coroutines.Dispatchers
-import java.util.*
 
 class SolViewModel(
     private val repository: SolRepository
@@ -24,7 +20,7 @@ class SolViewModel(
         try {
             val body = response as LinkedTreeMap<String, Any>
 
-            for (key in body!!.keys) {
+            for (key in body.keys) {
                 try {
                     if ((key.toString().toLowerCase() != "validity_checks") && (key.toString()
                             .toLowerCase() != "sol_keys")

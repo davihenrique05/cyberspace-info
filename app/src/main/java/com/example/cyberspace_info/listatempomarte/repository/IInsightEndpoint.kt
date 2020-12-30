@@ -3,7 +3,6 @@ package com.example.cyberspace_info.listatempomarte.repository
 import com.example.cyberspace_info.data.api.NetworkUtils
 import com.example.cyberspace_info.data.api.NetworkUtils.Companion.BASE_URL
 import com.example.cyberspace_info.data.api.NetworkUtils.Companion.MY_PUBLIC_KEY
-import com.google.gson.internal.LinkedTreeMap
 import retrofit2.http.GET
 import retrofit2.http.Query
 

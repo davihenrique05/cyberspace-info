@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/fundo_test" />
+        android:src="@drawable/fundo_test"
+        android:contentDescription="@string/imagem_test" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +39,8 @@
                     android:layout_height="180dp"
                     tools:src="@drawable/apod_2"
                     android:scaleType="fitXY"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/imagem_apod" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
@@ -93,7 +95,8 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_gravity="center|center_horizontal|center_vertical"
-                    android:src="@drawable/ic_observatory" />
+                    android:src="@drawable/ic_observatory"
+                    android:contentDescription="@string/icone_observatorio" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -128,14 +131,16 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_alien"/>
+                        android:src="@drawable/ic_alien"
+                        android:contentDescription="@string/icone_alien" />
 
                     <ImageView
                         android:layout_width="62dp"
                         android:layout_height="55dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="35dp"
-                        android:src="@drawable/ic_astronaut" />
+                        android:src="@drawable/ic_astronaut"
+                        android:contentDescription="@string/icone_astronauta" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -172,7 +177,8 @@
                             android:layout_height="55dp"
                             android:layout_gravity="center|top"
                             android:layout_marginTop="7dp"
-                            android:src="@drawable/ic_mars_rover" />
+                            android:src="@drawable/ic_mars_rover"
+                            android:contentDescription="@string/icone_mars_rover" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -199,14 +205,16 @@
                             android:layout_height="55dp"
                             android:layout_gravity="center|top"
                             android:layout_marginTop="7dp"
-                            android:src="@drawable/ic_mars" />
+                            android:src="@drawable/ic_mars"
+                            android:contentDescription="@string/icone_mars" />
                         <ImageView
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:layout_marginTop="12dp"
                             android:src="@drawable/ic_thermometer"
                             android:layout_gravity="top|center"
-                            android:layout_marginStart="25dp"/>
+                            android:layout_marginStart="25dp"
+                            android:contentDescription="@string/icone_termometro" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -247,7 +255,8 @@
                     android:layout_height="110dp"
                     android:layout_gravity="top|center"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_storm" />
+                    android:src="@drawable/ic_storm"
+                    android:contentDescription="@string/icone_storm" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -274,7 +283,8 @@
                     android:layout_height="110dp"
                     android:layout_gravity="top|center"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_asteroid" />
+                    android:src="@drawable/ic_asteroid"
+                    android:contentDescription="@string/icone_asteroide" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -310,7 +320,8 @@
                     android:layout_height="110dp"
                     android:layout_gravity="top|center"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_astronomy" />
+                    android:src="@drawable/ic_astronomy"
+                    android:contentDescription="@string/icone_astronomia" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -338,7 +349,8 @@
                     android:layout_height="110dp"
                     android:layout_gravity="top|center"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_satellite" />
+                    android:src="@drawable/ic_satellite"
+                    android:contentDescription="@string/icone_satelite" />
 
                 <TextView
                     android:layout_width="wrap_content"

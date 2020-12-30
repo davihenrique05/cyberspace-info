@@ -3,7 +3,6 @@ package com.example.cyberspace_info.pesquisarimgvid.view
 import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -12,6 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
@@ -20,17 +20,11 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
-import com.example.cyberspace_info.listatecnologiasusadas.repository.ProjectIdRepository
-import com.example.cyberspace_info.listatecnologiasusadas.viewmodel.ProjectIdViewModel
-import com.example.cyberspace_info.pesquisarimgvid.model.LinksImageModel
 import com.example.cyberspace_info.pesquisarimgvid.model.ObjectImageModel
 import com.example.cyberspace_info.pesquisarimgvid.repository.ImageVideoRepository
 import com.example.cyberspace_info.pesquisarimgvid.view.adapter.PesquisaImgVidAdapter
 import com.example.cyberspace_info.pesquisarimgvid.viewmodel.ImageVideoViewModel
-import com.google.android.material.tabs.TabLayout
-import com.example.cyberspace_info.planetasorbitandoestrelas.view.adapter.ViewPagerAdapter
 import com.google.android.material.card.MaterialCardView
 
 class PesquisaImgVidActivity : AppCompatActivity() {
@@ -45,15 +39,15 @@ class PesquisaImgVidActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        ResultarPesquisa()
+        resultarPesquisa()
 
         findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid).setOnClickListener {
 
-            var search = findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
+            val search = findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
 
-            var intent = Intent(this@PesquisaImgVidActivity, PesquisaImgVidActivity::class.java)
+            val intent = Intent(this@PesquisaImgVidActivity, PesquisaImgVidActivity::class.java)
             intent.putExtra("search",search)
-            var activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
+            val activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
                 applicationContext,
                 R.anim.from_right,
                 R.anim.to_left
@@ -65,7 +59,7 @@ class PesquisaImgVidActivity : AppCompatActivity() {
 
     }
 
-    private fun ResultarPesquisa() {
+    private fun resultarPesquisa() {
 
         _listaImagens = mutableListOf()
 

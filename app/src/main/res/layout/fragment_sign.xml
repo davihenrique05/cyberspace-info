@@ -118,7 +118,8 @@
         android:layout_height="@dimen/dimen_38"
         android:layout_gravity="center"
         android:backgroundTint="@color/colorWhite"
-        android:src="@drawable/ic_sign_with_google"/>
+        android:src="@drawable/ic_sign_with_google"
+        android:contentDescription="@string/icone_sign_google" />
 
     <ImageView
         android:id="@+id/btnSignFacebook"
@@ -128,6 +129,7 @@
         android:layout_height="@dimen/dimen_38"
         android:backgroundTint="@color/colorWhite"
         android:layout_gravity="center"
-        android:src="@drawable/ic_sign_with_facebook"/>
+        android:src="@drawable/ic_sign_with_facebook"
+        android:contentDescription="@string/icone_sign_facebook" />
 
 </LinearLayout>

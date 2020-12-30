@@ -17,10 +17,6 @@ import com.example.cyberspace_info.perfil.galeria.view.adapter.ImagensAdapter
 class GaleriaFragment : Fragment() {
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -94,7 +90,7 @@ class GaleriaFragment : Fragment() {
     }
 
     private fun popularLista(): MutableList<String> {
-        var lista = mutableListOf<String>()
+        val lista = mutableListOf<String>()
 
         for (i in 0..20) {
             lista.add(R.drawable.apod_1.toString())

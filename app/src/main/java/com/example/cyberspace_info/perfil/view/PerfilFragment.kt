@@ -14,10 +14,6 @@ import com.example.cyberspace_info.autenticacao.view.AutenticacaoActivity
 
 class PerfilFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

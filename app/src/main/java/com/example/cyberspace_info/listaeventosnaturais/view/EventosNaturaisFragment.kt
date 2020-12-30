@@ -40,7 +40,7 @@ class EventosNaturaisFragment : Fragment() {
         setupViewPagerAndTabLayout(tab,page)
     }
 
-    fun setupViewPagerAndTabLayout(tab : TabLayout,page: ViewPager){
+    private fun setupViewPagerAndTabLayout(tab : TabLayout, page: ViewPager){
 
         tab.setupWithViewPager(page)
 
@@ -49,7 +49,7 @@ class EventosNaturaisFragment : Fragment() {
         page.adapter = EventoAdapter(
             listOf(EventosNaturaisAtuaisFragment(), EventosNaturaisAnterioresFragment()),
             listOf(getString(R.string.atuais), getString(R.string.anteriores)),
-            getChildFragmentManager()
+            childFragmentManager
         )
 
 

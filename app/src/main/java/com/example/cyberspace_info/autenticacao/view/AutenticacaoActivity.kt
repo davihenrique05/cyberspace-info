@@ -15,7 +15,7 @@ import com.google.android.material.tabs.TabLayout
 class AutenticacaoActivity : AppCompatActivity(), INavegarTab {
 
     private val tab by lazy { findViewById<TabLayout>(R.id.tabLayoutLogin) }
-    lateinit var loginFragment: LoginFragment
+    private lateinit var loginFragment: LoginFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_autenticacao)
