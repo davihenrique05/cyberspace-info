@@ -47,7 +47,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <ImageView
-                    android:id="@+id/imgReturn2"
+                    android:id="@+id/imgSatelite"
                     android:layout_width="@dimen/dimen_60"
                     android:layout_height="@dimen/dimen_40"
                     android:layout_marginStart="@dimen/dimen_24"
