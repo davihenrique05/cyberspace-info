@@ -32,6 +32,7 @@ class PesquisaImgVidActivity : AppCompatActivity() {
     private lateinit var _viewModel : ImageVideoViewModel
     private lateinit var _listaImagens : MutableList<ObjectImageModel>
     private lateinit var _adaptador : PesquisaImgVidAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesquisa_img_vid)
@@ -40,22 +41,7 @@ class PesquisaImgVidActivity : AppCompatActivity() {
         }
 
         resultarPesquisa()
-
-        findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid).setOnClickListener {
-
-            val search = findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
-
-            val intent = Intent(this@PesquisaImgVidActivity, PesquisaImgVidActivity::class.java)
-            intent.putExtra("search",search)
-            val activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
-                applicationContext,
-                R.anim.from_right,
-                R.anim.to_left
-            )
-            ActivityCompat.startActivity(this, intent, activityOptionsCompat.toBundle())
-            //startActivity(intent)
-
-        }
+        setClickImageSearch()
 
     }
 
@@ -68,9 +54,16 @@ class PesquisaImgVidActivity : AppCompatActivity() {
         val progresBar = findViewById<ProgressBar>(R.id.progessBar)
 
         showLoading(true)
+
         val color = ContextCompat.getColor(this,R.color.colorPrimaryDarkest)
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
+
+        setRecyclerViewAndProviders()
+        verifySearchNull(search)
+    }
+
+    private fun setRecyclerViewAndProviders(){
 
         _viewModel = ViewModelProvider(this, ImageVideoViewModel.ImageVideoViewModelFactory(
             ImageVideoRepository()
@@ -88,6 +81,10 @@ class PesquisaImgVidActivity : AppCompatActivity() {
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL))
         }
 
+    }
+
+    private fun verifySearchNull(search:String?){
+
         if (search != null) {
             _viewModel.getUrlsImages(search).observe(this) {
                 if (!it.isNullOrEmpty()) {
@@ -97,6 +94,25 @@ class PesquisaImgVidActivity : AppCompatActivity() {
                     findViewById<MaterialCardView>(R.id.cardNotFound).visibility = View.VISIBLE
                 }
             }
+        }
+
+    }
+
+    private fun setClickImageSearch(){
+
+        findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid).setOnClickListener {
+
+            val search = findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
+
+            val intent = Intent(this@PesquisaImgVidActivity, PesquisaImgVidActivity::class.java)
+            intent.putExtra("search",search)
+            val activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(
+                applicationContext,
+                R.anim.from_right,
+                R.anim.to_left
+            )
+            ActivityCompat.startActivity(this, intent, activityOptionsCompat.toBundle())
+
         }
 
     }

@@ -43,7 +43,7 @@
     <string name="icone">icone</string>
     <string name="menupesquisa">MenuPesquisa</string>
     <string name="imagens">Imagens</string>
-    <string name="pesquise_astros_estrelas_etc">Pesquise astros, estrelas, etc...</string>
+    <string name="pesquise_astros_estrelas_etc">Pesquise astros, estrelas, etc…</string>
     <string name="botao_pesquisar">botao_pesquisar</string>
     <string name="imagem_menu_pesquisa">imagem_menu_pesquisa</string>
     <string name="imagem_procurar_imagem">imagem_procurar_imagem</string>
@@ -95,6 +95,6 @@
     <string name="imagem_planeta_orbitando_estrela">imagem_planeta_orbitando_estrela</string>
     <string name="nome_planeta">Nome Planeta</string>
     <string name="ultra_high_energy_particle_astrophysics_with_anita_v_washington_university_co_i">Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I</string>
-    <string name="_2_1980_9_2006">2/1980 - 9/2006</string>
+    <string name="_2_1980_9_2006">2/1980 – 9/2006</string>
     <string name="completed">Completed</string>
 </resources>
