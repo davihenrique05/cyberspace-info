@@ -116,6 +116,16 @@
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left"
             app:popUpTo="@id/menuFragment" />
+        <action
+            android:id="@+id/action_tecnologiasUsadasFragment_to_filtroTecnologiasUsadasFragment"
+            app:destination="@id/filtroTecnologiasUsadasFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
+            app:popUpTo="@id/menuFragment"
+
+            />
 
 
     </fragment>
@@ -221,6 +231,11 @@
             app:popExitAnim="@anim/to_left"
             app:destination="@id/menuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/filtroTecnologiasUsadasFragment"
+        android:name="com.example.cyberspace_info.filtrotecnologiasusadas.view.FiltroTecnologiasUsadasFragment"
+        android:label="fragment_filtro_tecnologias_usadas"
+        tools:layout="@layout/fragment_filtro_tecnologias_usadas" />
 
 
 </navigation>

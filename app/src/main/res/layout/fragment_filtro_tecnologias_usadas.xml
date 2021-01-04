@@ -55,6 +55,7 @@
                     app:layout_constraintStart_toEndOf="@id/txtTittleTec"
                     android:contentDescription="@string/icone_satelite" />
 
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.Toolbar>
@@ -124,7 +125,7 @@
 
 
     <Button
-        android:id="@+id/btnSignUP"
+        android:id="@+id/btnFiltroTecnologiasUsadas"
         android:layout_width="match_parent"
         android:layout_marginLeft="@dimen/dimen_40"
         android:layout_marginRight="@dimen/dimen_40"

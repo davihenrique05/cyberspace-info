@@ -48,14 +48,27 @@
 
                 <ImageView
                     android:id="@+id/imgSatelite"
-                    android:layout_width="@dimen/dimen_60"
+                    android:layout_width="@dimen/dimen_40"
                     android:layout_height="@dimen/dimen_40"
-                    android:layout_marginStart="@dimen/dimen_24"
+                    android:layout_marginStart="@dimen/dimen_16"
                     android:src="@drawable/ic_satellite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/txtTittleTec"
                     android:contentDescription="@string/icone_satelite" />
+
+
+                <ImageView
+
+                    android:id="@+id/imgFiltroTecnologiasUsadas"
+                    android:layout_width="40dp"
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:src="@drawable/ic_filter_alt_white_18dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imgSatelite"
+                    android:contentDescription="@string/icone_filtro_tecnologias_usadas" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

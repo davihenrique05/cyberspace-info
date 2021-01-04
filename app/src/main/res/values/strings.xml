@@ -101,4 +101,5 @@
     <string name="palavra_chave">Palavra Chave</string>
     <string name="diretoria_da_miss_o">Diretoria da Missão</string>
     <string name="pesquisar">Pesquisar</string>
+    <string name="icone_filtro_tecnologias_usadas">icone_filtro_tecnologias_usadas</string>
 </resources>

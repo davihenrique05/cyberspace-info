@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +35,7 @@ class TecnologiasUsadasFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         _listaProjetos = mutableListOf()
         _listaIdProjeto = mutableListOf()
         _adaptador = TecnologiasUsadasAdapter(_listaProjetos){
@@ -58,6 +60,8 @@ class TecnologiasUsadasFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setFilterButton(view)
+
         val navController = Navigation.findNavController(view)
         view.findViewById<ImageView>(R.id.imgReturn).setOnClickListener {
             navController.navigate(R.id.action_tecnologiasUsadasFragment_to_menuFragment)
@@ -70,8 +74,15 @@ class TecnologiasUsadasFragment : Fragment() {
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
+        setRecyclerViewWithCoroutine(view)
+
+    }
+
+    private fun setRecyclerViewWithCoroutine(view: View){
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTecnologiasUsadas)
         val linearManager = LinearLayoutManager(view.context)
+
 
         recyclerView.apply{
 
@@ -80,18 +91,10 @@ class TecnologiasUsadasFragment : Fragment() {
             adapter = _adaptador
 
         }
-        
+
         _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner) { it ->
 
             _listaIdProjeto.addAll(it)
-
-            /*
-            _viewModelProject.getUniqueObjectProject(_listaIdProjeto).observe(viewLifecycleOwner) {
-                if(!it.isNullOrEmpty()) {
-                    listarResultados(it)
-                }
-            }
-             */
 
             for(i in 0..40) {
                 _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
@@ -102,6 +105,20 @@ class TecnologiasUsadasFragment : Fragment() {
                         }
                     }
             }
+        }
+
+    }
+
+
+    private fun setFilterButton(view: View){
+
+        val btnFilter = view.findViewById<Button>(R.id.btnFiltroTecnologiasUsadas)
+
+        btnFilter.setOnClickListener {
+
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_tecnologiasUsadasFragment_to_filtroTecnologiasUsadasFragment)
+
         }
 
     }
