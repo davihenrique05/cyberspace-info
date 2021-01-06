@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -68,10 +66,7 @@ class ResultsSearchTecnologiasUsadasFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navController = Navigation.findNavController(view)
-        view.findViewById<ImageView>(R.id.imgReturn).setOnClickListener {
-            navController.navigate(R.id.action_tecnologiasUsadasFragment_to_menuFragment)
-        }
+        setButtonBack(view)
 
         val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
 
@@ -81,6 +76,15 @@ class ResultsSearchTecnologiasUsadasFragment : Fragment() {
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
         setRecyclerViewWithCoroutine(view)
+    }
+
+    private fun setButtonBack(view:View){
+
+        val navController = Navigation.findNavController(view)
+        view.findViewById<ImageView>(R.id.imgReturnToTecnologiasUsadas).setOnClickListener {
+            navController.navigate(R.id.action_resultsSearchTecnologiasUsadasFragment_to_filtroTecnologiasUsadasFragment)
+        }
+
     }
 
     private fun setRecyclerViewWithCoroutine(view: View){

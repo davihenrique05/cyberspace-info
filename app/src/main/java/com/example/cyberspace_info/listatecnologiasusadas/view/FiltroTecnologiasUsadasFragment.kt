@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -27,6 +28,8 @@ class FiltroTecnologiasUsadasFragment : Fragment() {
 
         val btnPesquisar = view.findViewById<Button>(R.id.btnFiltroTecnologiasUsadas)
 
+        setButtonBack(view)
+
         btnPesquisar.setOnClickListener {
 
             val objectId = view.findViewById<EditText>(R.id.edtObjectId).text.toString()
@@ -37,6 +40,17 @@ class FiltroTecnologiasUsadasFragment : Fragment() {
 
             val navigateController = Navigation.findNavController(view)
             navigateController.navigate(R.id.action_filtroTecnologiasUsadasFragment_to_resultsSearchTecnologiasUsadasFragment,bundle)
+
+        }
+
+    }
+
+    private fun setButtonBack(view: View){
+
+        view.findViewById<ImageView>(R.id.imgBackTecnologiasUsadas).setOnClickListener {
+
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_filtroTecnologiasUsadasFragment_to_tecnologiasUsadasFragment)
 
         }
 
