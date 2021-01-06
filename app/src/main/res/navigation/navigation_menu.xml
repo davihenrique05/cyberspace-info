@@ -119,11 +119,10 @@
         <action
             android:id="@+id/action_tecnologiasUsadasFragment_to_filtroTecnologiasUsadasFragment"
             app:destination="@id/filtroTecnologiasUsadasFragment"
-            app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"
-            app:popEnterAnim="@anim/from_right"
-            app:popExitAnim="@anim/to_left"
-            app:popUpTo="@id/menuFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
 
             />
 
@@ -233,9 +232,23 @@
     </fragment>
     <fragment
         android:id="@+id/filtroTecnologiasUsadasFragment"
-        android:name="com.example.cyberspace_info.filtrotecnologiasusadas.view.FiltroTecnologiasUsadasFragment"
+        android:name="com.example.cyberspace_info.listatecnologiasusadas.view.FiltroTecnologiasUsadasFragment"
         android:label="fragment_filtro_tecnologias_usadas"
-        tools:layout="@layout/fragment_filtro_tecnologias_usadas" />
+        tools:layout="@layout/fragment_filtro_tecnologias_usadas" >
+        <action
+            android:id="@+id/action_filtroTecnologiasUsadasFragment_to_resultsSearchTecnologiasUsadasFragment"
+            app:destination="@id/resultsSearchTecnologiasUsadasFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsSearchTecnologiasUsadasFragment"
+        android:name="com.example.cyberspace_info.listatecnologiasusadas.view.ResultsSearchTecnologiasUsadasFragment"
+        android:label="fragment_results_search_tecnologias_usadas"
+        tools:layout="@layout/fragment_results_search_tecnologias_usadas" />
 
 
 </navigation>

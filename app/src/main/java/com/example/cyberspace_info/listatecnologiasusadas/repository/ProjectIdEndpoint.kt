@@ -17,6 +17,13 @@ interface ProjectIdEndpoint {
                                        @Query("api_key")api_key:String
                                        ) : ResultSearchProjectModel
 
+    @GET("projects/search")
+    suspend fun getFilterObjectsProject(@Query("objectId") objectId: String?,
+                                        @Query("searchQuery") searchQuery:String,
+                                        @Query("missionDirectorate") missionDirectorate:String,
+                                        @Query("api_key") api_key: String
+                                        ) : ProjectFilterModel
+
     companion object{
 
         private const val BASE_URL = "https://api.nasa.gov/techport/api/"
