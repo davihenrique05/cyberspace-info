@@ -31,7 +31,6 @@
             android:textSize="@dimen/dimen_text_24"
             android:padding="10dp"/>
 
-
     </Toolbar>
 
 

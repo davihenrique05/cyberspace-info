@@ -10,7 +10,6 @@ interface ImageModelEndpoint {
     @GET("apod")
     suspend fun obterImagemDoDia(@Query("api_key") api_key: String) :ResponseImageModel
 
-
     companion object{
         const val BASE_URL_IMAGE = "https://api.nasa.gov/planetary/"
 
