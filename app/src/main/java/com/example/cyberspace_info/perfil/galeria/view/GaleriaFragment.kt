@@ -17,10 +17,6 @@ import com.example.cyberspace_info.perfil.galeria.view.adapter.ImagensAdapter
 class GaleriaFragment : Fragment() {
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -72,7 +68,6 @@ class GaleriaFragment : Fragment() {
         back.setOnClickListener {
             val navegar = Navigation.findNavController(view)
             if (tela == "Perfil") {
-
                 navegar.navigate(R.id.action_galeriaFragment_to_perfilFragment)
             }else {
                 navegar.navigate(R.id.action_galeriaFragment_to_marsRoverFragment)

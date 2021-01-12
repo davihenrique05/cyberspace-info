@@ -32,6 +32,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtpesquisaimagefragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/pesquise_astros_estrelas_etc"

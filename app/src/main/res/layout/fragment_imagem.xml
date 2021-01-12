@@ -47,8 +47,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="@dimen/dimen_35"
-            android:layout_height="@dimen/dimen_35"
-            android:src="@drawable/ic_fav"/>
+            android:layout_height="@dimen/dimen_35"/>
 
         <ImageView
             android:id="@+id/imageIconeDownload"
