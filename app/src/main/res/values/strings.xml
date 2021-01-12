@@ -45,4 +45,5 @@
     <string name="mars_rover_min">Mars Rover</string>
     <string name="favorito">Favoritado com sucesso</string>
     <string name="removido">Removido com sucesso</string>
+    <string name="lista_fav_vazia">Sua lista de favoritos está vazia.</string>
 </resources>

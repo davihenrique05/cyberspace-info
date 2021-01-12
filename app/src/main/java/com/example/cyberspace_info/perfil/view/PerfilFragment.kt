@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -18,6 +19,7 @@ import com.example.cyberspace_info.perfil.entity.ImagemEntity
 import com.example.cyberspace_info.perfil.repository.ImagemRepository
 import com.example.cyberspace_info.perfil.viewmodel.ImagemViewModel
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 
 class PerfilFragment : Fragment() {
 
@@ -37,6 +39,8 @@ class PerfilFragment : Fragment() {
         val imagem = view.findViewById<ImageView>(R.id.imageGalery1)
         val imagem2 = view.findViewById<ImageView>(R.id.imageGalery2)
         val imagem3 = view.findViewById<ImageView>(R.id.imageGalery3)
+        val backView = view.findViewById<View>(R.id.viewListaVazia)
+        val mensagem = view.findViewById<TextView>(R.id.txtListaVazia)
 
         _viewModel = ViewModelProvider(
             this,
@@ -51,34 +55,39 @@ class PerfilFragment : Fragment() {
             _listaDeImagens.clear()
             _listaDeImagens.addAll(it)
 
-            var urls = mutableListOf<String>()
-            val ultimaPosicao =  _listaDeImagens.size - 1
+            if(_listaDeImagens.isEmpty()){
+                backView.visibility = View.VISIBLE
+                mensagem.visibility = View.VISIBLE
+            }else{
+                backView.visibility = View.GONE
+                mensagem.visibility = View.GONE
+                var urls = mutableListOf<String>()
+                val ultimaPosicao =  _listaDeImagens.size - 1
 
-            for( i in ultimaPosicao downTo 0 ){
-                urls.add(_listaDeImagens[i].url)
-            }
+                for( i in ultimaPosicao downTo 0 ){
+                    urls.add(_listaDeImagens[i].url)
+                }
 
-            for(i in urls){
-                var posicao = urls.indexOf(i)
+                for(i in urls){
+                    var posicao = urls.indexOf(i)
 
-                if(posicao == 0){
-                    atribuirImagem(imagem,i)
-                    abrirImagem(imagem,i)
+                    if(posicao == 0){
+                        atribuirImagem(imagem,i)
+                        abrirImagem(imagem,i)
 
-                }else if(posicao == 1){
-                    atribuirImagem(imagem2,i)
-                    abrirImagem(imagem2,i)
+                    }else if(posicao == 1){
+                        atribuirImagem(imagem2,i)
+                        abrirImagem(imagem2,i)
 
-                }else if(posicao == 2){
-                    atribuirImagem(imagem3,i)
-                    abrirImagem(imagem3,i)
+                    }else if(posicao == 2){
+                        atribuirImagem(imagem3,i)
+                        abrirImagem(imagem3,i)
 
-                }else{
-                    break
+                    }else{
+                        break
+                    }
                 }
             }
-
-
         }
 
         view.findViewById<ImageView>(R.id.imageIconReturnPerfil).setOnClickListener {
