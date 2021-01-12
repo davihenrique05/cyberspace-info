@@ -77,11 +77,11 @@ class ImagemFragment : Fragment() {
                 if (verificar) {
                     removerImagem(imagemUrl)
                     verificar = verificarImagem(imagemUrl)
-                    icone.setImageResource(R.drawable.ic_fav)
+                    definirIcone(icone, false)
                 } else {
                     favoritarImagem(imagemUrl)
                     verificar = verificarImagem(imagemUrl)
-                    icone.setImageResource(R.drawable.ic_unfav)
+                    definirIcone(icone, true)
                 }
             }
         }

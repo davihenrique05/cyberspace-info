@@ -2,13 +2,13 @@ package com.example.cyberspace_info.perfil.view
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
@@ -19,7 +19,6 @@ import com.example.cyberspace_info.perfil.entity.ImagemEntity
 import com.example.cyberspace_info.perfil.repository.ImagemRepository
 import com.example.cyberspace_info.perfil.viewmodel.ImagemViewModel
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
 class PerfilFragment : Fragment() {
 
@@ -55,35 +54,35 @@ class PerfilFragment : Fragment() {
             _listaDeImagens.clear()
             _listaDeImagens.addAll(it)
 
-            if(_listaDeImagens.isEmpty()){
+            if (_listaDeImagens.isEmpty()) {
                 backView.visibility = View.VISIBLE
                 mensagem.visibility = View.VISIBLE
-            }else{
+            } else {
                 backView.visibility = View.GONE
                 mensagem.visibility = View.GONE
                 var urls = mutableListOf<String>()
-                val ultimaPosicao =  _listaDeImagens.size - 1
+                val ultimaPosicao = _listaDeImagens.size - 1
 
-                for( i in ultimaPosicao downTo 0 ){
+                for (i in ultimaPosicao downTo 0) {
                     urls.add(_listaDeImagens[i].url)
                 }
 
-                for(i in urls){
+                for (i in urls) {
                     var posicao = urls.indexOf(i)
 
-                    if(posicao == 0){
-                        atribuirImagem(imagem,i)
-                        abrirImagem(imagem,i)
+                    if (posicao == 0) {
+                        atribuirImagem(imagem, i)
+                        abrirImagem(imagem, i)
 
-                    }else if(posicao == 1){
-                        atribuirImagem(imagem2,i)
-                        abrirImagem(imagem2,i)
+                    } else if (posicao == 1) {
+                        atribuirImagem(imagem2, i)
+                        abrirImagem(imagem2, i)
 
-                    }else if(posicao == 2){
-                        atribuirImagem(imagem3,i)
-                        abrirImagem(imagem3,i)
+                    } else if (posicao == 2) {
+                        atribuirImagem(imagem3, i)
+                        abrirImagem(imagem3, i)
 
-                    }else{
+                    } else {
                         break
                     }
                 }
@@ -97,7 +96,10 @@ class PerfilFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.imageIconLogOut).setOnClickListener {
             val intent = Intent(view.context, AutenticacaoActivity::class.java)
-            activity?.overridePendingTransition(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
+            activity?.overridePendingTransition(
+                R.anim.fragment_fade_enter,
+                R.anim.fragment_fade_exit
+            )
             startActivity(intent)
             activity?.finish()
         }
@@ -105,18 +107,18 @@ class PerfilFragment : Fragment() {
         view.findViewById<ImageView>(R.id.imageIconGaleria).setOnClickListener {
             val bundle = bundleOf("Origem" to getString(R.string.perfil_comparacao))
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_perfilFragment_to_galeriaFragment,bundle)
+            navController.navigate(R.id.action_perfilFragment_to_galeriaFragment, bundle)
         }
 
     }
 
-    fun atribuirImagem(imagem: ImageView, url: String){
+    fun atribuirImagem(imagem: ImageView, url: String) {
         Picasso.get()
             .load(url)
             .into(imagem)
     }
 
-    fun abrirImagem(imagem: ImageView,url: String){
+    fun abrirImagem(imagem: ImageView, url: String) {
         imagem.setOnClickListener {
             val bundle = bundleOf("Tela" to getString(R.string.perfil_comparacao), "Imagem" to url)
             val navController = Navigation.findNavController(requireView())
