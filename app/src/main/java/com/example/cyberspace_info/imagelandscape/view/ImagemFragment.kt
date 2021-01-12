@@ -2,7 +2,6 @@ package com.example.cyberspace_info.imagelandscape.view
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -102,7 +101,7 @@ class ImagemFragment : Fragment() {
             _viewModel.salvarImagem(url).observe(viewLifecycleOwner) {
                 val toast = Toast.makeText(
                     requireView().context,
-                    "Favoritado com sucesso",
+                    getString(R.string.favorito),
                     Toast.LENGTH_SHORT
                 )
                 toast.show()
@@ -112,10 +111,8 @@ class ImagemFragment : Fragment() {
 
     private fun verificarImagem(urlImagem: String?): Boolean {
 
-        Log.e("Verificar", "Tamanho da lista de imagens ${_listaDeImagens.size}")
         _listaDeImagens.forEach {
             if (it.url == urlImagem) {
-                Log.i("Verificar", "Isso aqui é true")
                 return true
             }
         }
@@ -128,7 +125,7 @@ class ImagemFragment : Fragment() {
             _viewModel.deletarImagem(urlImagem).observe(viewLifecycleOwner) {
                 val toast = Toast.makeText(
                     requireView().context,
-                    "Removido com sucesso",
+                    getString(R.string.removido),
                     Toast.LENGTH_SHORT
                 )
                 toast.show()
