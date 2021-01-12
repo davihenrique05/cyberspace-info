@@ -1,7 +1,7 @@
-package com.example.cyberspace_info.imagelandscape.repository
+package com.example.cyberspace_info.perfil.repository
 
-import com.example.cyberspace_info.imagelandscape.dao.ImagemDao
-import com.example.cyberspace_info.imagelandscape.entity.ImagemEntity
+import com.example.cyberspace_info.perfil.dao.ImagemDao
+import com.example.cyberspace_info.perfil.entity.ImagemEntity
 
 class ImagemRepository(private val imagemDao: ImagemDao) {
 

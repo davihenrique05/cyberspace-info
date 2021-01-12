@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".imagelandscape.view.ImagemFragment">
+    tools:context=".perfil.imagelandscape.view.ImagemFragment">
 
     <ImageView
         android:id="@+id/imageViewShow"

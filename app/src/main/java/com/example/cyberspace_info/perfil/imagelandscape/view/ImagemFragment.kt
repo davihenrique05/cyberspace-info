@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.imagelandscape.view
+package com.example.cyberspace_info.perfil.imagelandscape.view
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -16,9 +16,9 @@ import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.db.ImagemDatabase
-import com.example.cyberspace_info.imagelandscape.entity.ImagemEntity
-import com.example.cyberspace_info.imagelandscape.repository.ImagemRepository
-import com.example.cyberspace_info.imagelandscape.viewmodel.ImagemViewModel
+import com.example.cyberspace_info.perfil.entity.ImagemEntity
+import com.example.cyberspace_info.perfil.repository.ImagemRepository
+import com.example.cyberspace_info.perfil.viewmodel.ImagemViewModel
 import com.squareup.picasso.Picasso
 
 

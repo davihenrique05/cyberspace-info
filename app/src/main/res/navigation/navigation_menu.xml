@@ -178,7 +178,7 @@
     </fragment>
     <fragment
         android:id="@+id/imagemFragment"
-        android:name="com.example.cyberspace_info.imagelandscape.view.ImagemFragment"
+        android:name="com.example.cyberspace_info.perfil.imagelandscape.view.ImagemFragment"
         android:label="fragment_imagem"
         tools:layout="@layout/fragment_imagem" >
         <action

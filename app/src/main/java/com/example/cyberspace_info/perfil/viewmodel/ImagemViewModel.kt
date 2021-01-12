@@ -1,11 +1,10 @@
-package com.example.cyberspace_info.imagelandscape.viewmodel
+package com.example.cyberspace_info.perfil.viewmodel
 
-import android.media.Image
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
-import com.example.cyberspace_info.imagelandscape.entity.ImagemEntity
-import com.example.cyberspace_info.imagelandscape.repository.ImagemRepository
+import com.example.cyberspace_info.perfil.entity.ImagemEntity
+import com.example.cyberspace_info.perfil.repository.ImagemRepository
 import kotlinx.coroutines.Dispatchers
 
 class ImagemViewModel(

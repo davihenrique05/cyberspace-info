@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.imagelandscape.entity
+package com.example.cyberspace_info.perfil.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
