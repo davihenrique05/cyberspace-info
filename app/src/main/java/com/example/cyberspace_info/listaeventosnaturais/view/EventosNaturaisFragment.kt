@@ -49,7 +49,7 @@ class EventosNaturaisFragment : Fragment() {
         page.adapter = EventoAdapter(
             listOf(EventosNaturaisAtuaisFragment(), EventosNaturaisAnterioresFragment()),
             listOf(getString(R.string.atuais), getString(R.string.anteriores)),
-            getChildFragmentManager()
+            childFragmentManager
         )
 
 

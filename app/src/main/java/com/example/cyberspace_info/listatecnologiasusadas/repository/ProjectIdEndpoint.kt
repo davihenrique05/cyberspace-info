@@ -1,6 +1,6 @@
 package com.example.cyberspace_info.listatecnologiasusadas.repository
 
-import com.example.cyberspace_info.api.NetworkUtils
+import com.example.cyberspace_info.data.api.NetworkUtils
 import com.example.cyberspace_info.listatecnologiasusadas.model.*
 import retrofit2.http.GET
 import retrofit2.http.Path

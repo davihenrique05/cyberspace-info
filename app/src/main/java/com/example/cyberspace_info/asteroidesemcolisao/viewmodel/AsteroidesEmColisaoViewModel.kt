@@ -65,7 +65,7 @@ class AsteroidesEmColisaoViewModel(
         c.add(Calendar.DAY_OF_YEAR, -1)
 
         val dataNova = c.time
-        val string = dateFormat.format(dataNova);
+        val string = dateFormat.format(dataNova)
 
         return string
     }

@@ -1,25 +1,30 @@
 package com.example.cyberspace_info.perfil.galeria.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
+import com.example.cyberspace_info.db.ImagemDatabase
+import com.example.cyberspace_info.perfil.entity.ImagemEntity
 import com.example.cyberspace_info.perfil.galeria.view.adapter.ImagensAdapter
+import com.example.cyberspace_info.perfil.repository.ImagemRepository
+import com.example.cyberspace_info.perfil.viewmodel.ImagemViewModel
 
 
 class GaleriaFragment : Fragment() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    lateinit var _viewModel: ImagemViewModel
+    lateinit var _recylerAdapter: ImagensAdapter
+    private var _listaDeImagens = mutableListOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,75 +38,87 @@ class GaleriaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyler = view.findViewById<RecyclerView>(R.id.recyclerViewGaleria)
         val manager = GridLayoutManager(view.context, 3)
-        val back = view.findViewById<ImageView>(R.id.imageIconReturnGaleria)
         val tela = arguments?.getString("Origem")
 
-        lateinit var listaDeImagens: MutableList<String>
-        lateinit var recylerAdapter: ImagensAdapter
+
+        _viewModel = ViewModelProvider(
+            this,
+            ImagemViewModel.ImagemViewModelFacytory(
+                ImagemRepository(
+                    ImagemDatabase.getDataBase(view.context).imagemDao()
+                )
+            )
+        ).get(ImagemViewModel::class.java)
 
         if (tela == "Perfil") {
-            //Chamar a função que popula através do BD
-            listaDeImagens = popularLista()
 
-            //Esse Adapter eu fiz com imagens que estavam no Drawable, portanto a Imagem é INT, mas
-            //você pode usar a mesma estrutura em baixo e trocar para String que é uma URL que será carregada
-            // Pelo Picasso, não se esqueça de passar esse Parametro Tela para que a view de exibir imagem volte
-            //para o devido lugar.
-            //E a origem para que a tela de imagem possa mandar para a tela anterior também como se organizar com API ou BD
-            recylerAdapter = ImagensAdapter(listaDeImagens, true) {
-                val navController = Navigation.findNavController(view)
+            carregarImagensFavoritas()
+
+        } else if (tela == "MarsRover") {
+            _listaDeImagens = arguments?.get("imagens") as MutableList<String>
+            _recylerAdapter = ImagensAdapter(_listaDeImagens) {
+                val navController = Navigation.findNavController(requireView())
                 val bundle = bundleOf(
                     "Tela" to getString(R.string.galeria_comparacao),
-                    "Imagem" to it.toInt(),
-                    "Origem" to getString(R.string.perfil_comparacao)
+                    "Imagem" to it,
+                    "Origem" to getString(R.string.marsrover_comparacao)
                 )
                 navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
-            }
-        } else {
-            if (tela == "MarsRover") {
-                listaDeImagens = arguments?.get("imagens") as MutableList<String>
-                recylerAdapter = ImagensAdapter(listaDeImagens, false) {
-                    val navController = Navigation.findNavController(view)
-                    val bundle = bundleOf(
-                        "Tela" to getString(R.string.galeria_comparacao),
-                        "Imagem" to it,
-                        "Origem" to getString(R.string.marsrover_comparacao)
-                    )
-                    navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
-                }
-            } else {
-                //Chamar a função que popula através da API
-                val listaDeImagens = popularLista()
             }
         }
 
         recyler.apply {
             setHasFixedSize(true)
-            adapter = recylerAdapter
+            adapter = _recylerAdapter
             layoutManager = manager
         }
 
-        //O botão de retorno nesse caso volta para o perfil
-        back.setOnClickListener {
-            val navegar = Navigation.findNavController(view)
-            if (tela == "Perfil") {
+        navegacaoEntreTelas(tela)
+    }
 
+
+    fun carregarImagensFavoritas() {
+
+        _recylerAdapter = ImagensAdapter(_listaDeImagens) {
+            val navController = Navigation.findNavController(requireView())
+            val bundle = bundleOf(
+                "Tela" to getString(R.string.galeria_comparacao),
+                "Imagem" to it,
+                "Origem" to getString(R.string.perfil_comparacao)
+            )
+            navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
+        }
+
+        _viewModel.obterImagems().observe(viewLifecycleOwner) {
+            val listaUrl = extrairUrl(it)
+            _listaDeImagens.clear()
+            _listaDeImagens.addAll(listaUrl)
+            _recylerAdapter.notifyDataSetChanged()
+        }
+    }
+
+    fun navegacaoEntreTelas(tela: String?) {
+
+        val back = requireView().findViewById<ImageView>(R.id.imageIconReturnGaleria)
+        back.setOnClickListener {
+            val navegar = Navigation.findNavController(requireView())
+            if (tela == "Perfil") {
                 navegar.navigate(R.id.action_galeriaFragment_to_perfilFragment)
-            }else {
+            } else {
                 navegar.navigate(R.id.action_galeriaFragment_to_marsRoverFragment)
             }
         }
     }
 
-    private fun popularLista(): MutableList<String> {
-        var lista = mutableListOf<String>()
+    fun extrairUrl(lista: MutableList<ImagemEntity>): MutableList<String> {
+        val listaDeUrl = mutableListOf<String>()
+        val ultimo = lista.size - 1
 
-        for (i in 0..20) {
-            lista.add(R.drawable.apod_1.toString())
-            lista.add(R.drawable.apod_2.toString())
-            lista.add(R.drawable.apod_3.toString())
+        for (i in ultimo downTo 0) {
+            val imagem = lista[i]
+            listaDeUrl.add(imagem.url)
         }
 
-        return lista
+        return listaDeUrl
     }
 }

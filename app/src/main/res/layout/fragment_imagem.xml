@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".imagelandscape.view.ImagemFragment">
+    tools:context=".perfil.imagelandscape.view.ImagemFragment">
 
     <ImageView
         android:id="@+id/imageViewShow"
@@ -47,8 +47,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="@dimen/dimen_35"
-            android:layout_height="@dimen/dimen_35"
-            android:src="@drawable/ic_fav"/>
+            android:layout_height="@dimen/dimen_35"/>
 
         <ImageView
             android:id="@+id/imageIconeDownload"

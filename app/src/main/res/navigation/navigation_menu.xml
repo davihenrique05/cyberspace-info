@@ -98,6 +98,13 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_marsRoverFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"/>
     </fragment>
 
 
@@ -164,14 +171,14 @@
         <action
             android:id="@+id/action_galeriaFragment_to_marsRoverFragment"
             app:destination="@id/marsRoverFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right"/>
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/imagemFragment"
-        android:name="com.example.cyberspace_info.imagelandscape.view.ImagemFragment"
+        android:name="com.example.cyberspace_info.perfil.imagelandscape.view.ImagemFragment"
         android:label="fragment_imagem"
         tools:layout="@layout/fragment_imagem" >
         <action
