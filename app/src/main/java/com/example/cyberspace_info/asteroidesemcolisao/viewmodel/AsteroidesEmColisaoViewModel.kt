@@ -1,6 +1,7 @@
 package com.example.cyberspace_info.asteroidesemcolisao.viewmodel
 
 import android.content.Context
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModel
@@ -11,7 +12,6 @@ import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesRepo
 import com.example.cyberspace_info.asteroidesemcolisao.view.BottomSheetAsteroideFragment
 import com.google.gson.internal.LinkedTreeMap
 import kotlinx.coroutines.Dispatchers
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,7 +24,8 @@ class AsteroidesEmColisaoViewModel(
     fun obterLista() = liveData(Dispatchers.IO) {
         val dataAtual = obterDiaDeHoje()
         val dataFinal = intervaloDia()
-        val response = repository.obterListaDeAsteroides(dataAtual, dataFinal)
+        val response = repository.obterListaDeAsteroides( dataFinal,dataAtual)
+        Log.e("Requisição", response.total.toString())
 
         try{
             val body = response.asteiroides as LinkedTreeMap<String, Any>
@@ -40,7 +41,7 @@ class AsteroidesEmColisaoViewModel(
             }
             emit(_lista)
         }catch (e: Exception){
-            println(e.stackTrace)
+            Log.e("Requisição", e.message.toString())
         }
     }
 
@@ -48,7 +49,7 @@ class AsteroidesEmColisaoViewModel(
     fun obterDiaDeHoje():String {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
+        val month = c.get(Calendar.MONTH)+1
         val day = c.get(Calendar.DAY_OF_MONTH)
         val string = "${year}-${String.format("%02d", month)}-${String.format("%02d", day)}"
 
