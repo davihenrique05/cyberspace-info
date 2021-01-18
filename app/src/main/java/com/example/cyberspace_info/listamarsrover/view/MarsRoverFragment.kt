@@ -73,7 +73,7 @@ class MarsRoverFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.imgReturn_fMarsRover).setOnClickListener {
             val navController = Navigation.findNavController(view)
-            navController.popBackStack()
+            navController.navigate(R.id.action_marsRoverFragment_to_menuFragment)
         }
 
         view.findViewById<ImageView>(R.id.imgPesquisar_fMarsRover).setOnClickListener {

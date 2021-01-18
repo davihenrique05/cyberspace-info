@@ -24,7 +24,7 @@ class SolViewModel(
         try {
             val body = response as LinkedTreeMap<String, Any>
 
-            for (key in body!!.keys) {
+            for (key in body.keys) {
                 try {
                     if ((key.toString().toLowerCase() != "validity_checks") && (key.toString()
                             .toLowerCase() != "sol_keys")

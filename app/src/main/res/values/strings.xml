@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Cyberspace Info</string>
     <string name="imagem_do_dia">IMAGEM DO DIA</string>
-    <string name="imagens_e_videos">IMAGENS E VÍDEOS</string>
+    <string name="imagens">IMAGENS</string>
     <string name="perfil">PERFIL</string>
     <string name="mars_rover">MARS ROVER</string>
     <string name="eventos_naturais">EVENTOS NATURAIS</string>
@@ -40,4 +40,10 @@
     <string name="pressao">PRESSÃO(Pa)</string>
     <string name="app">Cyberspace Info</string>
     <string name="not_found">Conteúdo não encontrado :(</string>
+    <string name="pesquise_astros_estrelas_etc">Pesquise astros, estrelas, etc...</string>
+    <string name="pesquisar_imagens">Pesquisar Imagens</string>
+    <string name="mars_rover_min">Mars Rover</string>
+    <string name="favorito">Favoritado com sucesso</string>
+    <string name="removido">Removido com sucesso</string>
+    <string name="lista_fav_vazia">Sua lista de favoritos está vazia.</string>
 </resources>

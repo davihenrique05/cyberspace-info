@@ -39,7 +39,7 @@ class TecnologiasUsadasFragment : Fragment() {
         _listaIdProjeto = mutableListOf()
         _adaptador = TecnologiasUsadasAdapter(_listaProjetos){
 
-            val bottomSheetFragment =  BottomSheetFragment();
+            val bottomSheetFragment =  BottomSheetFragment()
 
             val bundle = bundleOf("title" to it.title,
                 "description" to it.description

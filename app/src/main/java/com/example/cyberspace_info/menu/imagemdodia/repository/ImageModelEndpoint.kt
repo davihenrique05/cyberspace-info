@@ -7,15 +7,13 @@ import retrofit2.http.Query
 
 interface ImageModelEndpoint {
 
-    @GET("apod")
+    @GET("planetary/apod")
     suspend fun obterImagemDoDia(@Query("api_key") api_key: String) :ResponseImageModel
 
-
     companion object{
-        const val BASE_URL_IMAGE = "https://api.nasa.gov/planetary/"
 
         val endpoint: ImageModelEndpoint by lazy {
-            NetworkUtils.getRetrofitInstance(BASE_URL_IMAGE).create(ImageModelEndpoint::class.java)
+            NetworkUtils.getRetrofitInstance(NetworkUtils.BASE_URL).create(ImageModelEndpoint::class.java)
         }
     }
 }
