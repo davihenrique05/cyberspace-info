@@ -25,43 +25,35 @@ class PlanetasOrbitandoEstrelasActivity : AppCompatActivity() {
         var meusPlanetas = arrayListOf(
             PlanetaOrbitandoEstrelaModel(
                 "Mercurio",
-                "Sol",
-                R.drawable.mercurio
+                "Sol"
             ),
             PlanetaOrbitandoEstrelaModel(
                 "Venus",
-                "Sol",
-                R.drawable.venus
+                "Sol"
             ),
             PlanetaOrbitandoEstrelaModel(
                 "Terra",
-                "Sol",
-                R.drawable.terra
+                "Sol"
             ),
             PlanetaOrbitandoEstrelaModel(
                 "Marte",
-                "Sol",
-                R.drawable.marte
+                "Sol"
             ),
             PlanetaOrbitandoEstrelaModel(
                 "Júpiter",
-                "Sol",
-                R.drawable.jupiter
+                "Sol"
             ),
             PlanetaOrbitandoEstrelaModel(
                 "Saturno",
-                "Sol",
-                R.drawable.saturno
+                "Sol"
             ),
             PlanetaOrbitandoEstrelaModel(
                 "Urano",
-                "Sol",
-                R.drawable.urano
+                "Sol"
             ),
             PlanetaOrbitandoEstrelaModel(
                 "Netuno",
-                "Sol",
-                R.drawable.netuno
+                "Sol"
             )
         )
 

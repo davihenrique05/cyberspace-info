@@ -30,7 +30,7 @@ class PesquisaActivity : AppCompatActivity() {
     private fun pesquisar() {
         findViewById<ImageView>(R.id.imgBtnPesquisar).setOnClickListener {
 
-            var search = findViewById<TextView>(R.id.txtPesquisaImage).text.toString()
+            var search = findViewById<EditText>(R.id.txtPesquisaImage).text.toString()
 
             var intent = Intent(this@PesquisaActivity, PesquisaImgVidActivity::class.java)
             intent.putExtra("search",search)

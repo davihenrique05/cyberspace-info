@@ -15,20 +15,6 @@
         android:layout_height="match_parent"
         >
 
-
-        <ImageView
-            android:id="@+id/imgPlanetaOrbitandoEstrela"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@mipmap/ic_launcher"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            />
-
-
-
         <TextView
             android:id="@+id/txtNomePlaneta"
             android:layout_height="wrap_content"
@@ -36,7 +22,6 @@
             android:padding="5dp"
             android:textSize="72px"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imgPlanetaOrbitandoEstrela"
             android:layout_marginStart="10dp"
             android:textColor="@color/colorWhite"
             android:layout_width="0dp"

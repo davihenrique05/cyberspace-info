@@ -10,12 +10,10 @@ import com.example.cyberspace_info.planetasorbitandoestrelas.model.PlanetaOrbita
 class PlanetasOrbitandoEstrelasViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private val nomePlaneta: TextView = view.findViewById(R.id.txtNomePlaneta)
     private val nomeEstrela: TextView = view.findViewById(R.id.txtNomeEstrela)
-    private val fotoPlaneta: ImageView = view.findViewById(R.id.imgPlanetaOrbitandoEstrela)
 
 
     fun bind(planetaModel: PlanetaOrbitandoEstrelaModel){
         nomePlaneta.text = planetaModel.nomePlaneta
         nomeEstrela.text = "Nome da Estrela: " + planetaModel.nomeEstela
-        fotoPlaneta.setImageResource(planetaModel.imagem)
     }
 }
