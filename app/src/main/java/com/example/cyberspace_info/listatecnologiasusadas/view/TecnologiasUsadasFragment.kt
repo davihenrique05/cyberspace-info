@@ -66,8 +66,12 @@ class TecnologiasUsadasFragment : Fragment() {
         }
 
         createProgressBar(view)
-
         showLoading(true)
+        recyclerviewItens(view)
+
+    }
+
+    private fun recyclerviewItens(view:View){
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTecnologiasUsadas)
         val linearManager = LinearLayoutManager(view.context)
@@ -79,21 +83,24 @@ class TecnologiasUsadasFragment : Fragment() {
             adapter = _adaptador
 
         }
-        
+
         _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner,{
 
-              _listaIdProjeto.addAll(it)
+            _listaIdProjeto.addAll(it)
 
-               _viewModelProject.getUniqueObjectProject(_listaIdProjeto).observe(viewLifecycleOwner,{
-                   if(!it.isNullOrEmpty()) {
-                       listarResultados(it)
-                   }
-               })
+            for(i in 0..40) {
+
+                _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
+                    .observe(viewLifecycleOwner, {
+                        if (!it.isNullOrEmpty()) {
+                            listarResultados(it)
+                        }
+                    })
+            }
 
         })
 
     }
-
 
     private fun createProgressBar(view:View){
 

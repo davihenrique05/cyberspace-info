@@ -23,12 +23,10 @@ class ProjectIdViewModel(val repository: ProjectIdRepository):ViewModel(){
 
     }
 
-     fun getUniqueObjectProject(listProjeto: List<ProjectIdModel>) = liveData(Dispatchers.IO) {
+     fun getUniqueObjectProject(project: ProjectIdModel) = liveData(Dispatchers.IO) {
 
-                for(i in 0..9) {
-                    val response = repository.getUniqueObjectProject(listProjeto[i].id)
-                    listaTecnologias.add(response.project)
-                }
+                val response = repository.getUniqueObjectProject(project.id)
+                listaTecnologias.add(response.project)
                 emit(listaTecnologias)
 
      }
