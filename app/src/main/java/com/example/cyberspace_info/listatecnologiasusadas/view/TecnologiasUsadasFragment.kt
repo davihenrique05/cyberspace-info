@@ -122,6 +122,7 @@ class TecnologiasUsadasFragment : Fragment() {
     }
 
     fun listarResultados(lista:List<ProjectDataModel>){
+        _listaProjetos.clear()
         _listaProjetos.addAll(lista)
         showLoading(false)
         _adaptador.notifyDataSetChanged()
