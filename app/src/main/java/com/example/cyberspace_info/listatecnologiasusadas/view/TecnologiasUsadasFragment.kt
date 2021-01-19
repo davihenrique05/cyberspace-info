@@ -65,12 +65,13 @@ class TecnologiasUsadasFragment : Fragment() {
             navController.navigate(R.id.action_tecnologiasUsadasFragment_to_menuFragment)
         }
 
-        val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
-
+        createProgressBar(view)
         showLoading(true)
-        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkest)
-        @Suppress("DEPRECATION")
-        progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
+        recyclerviewItens(view)
+
+    }
+
+    private fun recyclerviewItens(view:View){
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTecnologiasUsadas)
         val linearManager = LinearLayoutManager(view.context)
@@ -82,18 +83,31 @@ class TecnologiasUsadasFragment : Fragment() {
             adapter = _adaptador
 
         }
-        
+
         _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner,{
 
-              _listaIdProjeto.addAll(it)
+            _listaIdProjeto.addAll(it)
 
-               _viewModelProject.getUniqueObjectProject(_listaIdProjeto).observe(viewLifecycleOwner,{
-                   if(!it.isNullOrEmpty()) {
-                       listarResultados(it)
-                   }
-               })
+            for(i in 0..40) {
+
+                _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
+                    .observe(viewLifecycleOwner, {
+                        if (!it.isNullOrEmpty()) {
+                            listarResultados(it)
+                        }
+                    })
+            }
 
         })
+
+    }
+
+    private fun createProgressBar(view:View){
+
+        val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
+        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkest)
+        @Suppress("DEPRECATION")
+        progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
     }
 
@@ -108,6 +122,7 @@ class TecnologiasUsadasFragment : Fragment() {
     }
 
     fun listarResultados(lista:List<ProjectDataModel>){
+        _listaProjetos.clear()
         _listaProjetos.addAll(lista)
         showLoading(false)
         _adaptador.notifyDataSetChanged()
