@@ -25,11 +25,19 @@ class BottomSheetFragment : BottomSheetDialogFragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setTitleAndDescription(view)
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun setTitleAndDescription(view:View){
+
         val title = arguments?.getString("title")
         val description = arguments?.getString("description")
 
         view.findViewById<TextView>(R.id.txtTitleProject).text = title
         view.findViewById<TextView>(R.id.txtDescriptionProject).text = Html.fromHtml(description, Html.FROM_HTML_MODE_COMPACT)
+
 
     }
 
