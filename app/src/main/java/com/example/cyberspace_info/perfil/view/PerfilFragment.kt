@@ -91,7 +91,7 @@ class PerfilFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.imageIconReturnPerfil).setOnClickListener {
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_perfilFragment_to_menuFragment)
+            navController.popBackStack()
         }
 
         view.findViewById<ImageView>(R.id.imageIconLogOut).setOnClickListener {
@@ -120,7 +120,7 @@ class PerfilFragment : Fragment() {
 
     fun abrirImagem(imagem: ImageView, url: String) {
         imagem.setOnClickListener {
-            val bundle = bundleOf("Tela" to getString(R.string.perfil_comparacao), "Imagem" to url)
+            val bundle = bundleOf( "Imagem" to url)
             val navController = Navigation.findNavController(requireView())
             navController.navigate(R.id.action_perfilFragment_to_imagemFragment, bundle)
         }

@@ -84,14 +84,14 @@ class PesquisaImgVidActivity : AppCompatActivity() {
 
         val viewManager = GridLayoutManager(this, 3)
         val recyclerView = findViewById<RecyclerView>(R.id.listaFotosVideos)
-        _adaptador = PesquisaImgVidAdapter(_listaImagens)
+        _adaptador = PesquisaImgVidAdapter(_listaImagens){
+
+        }
 
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = _adaptador
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL))
         }
 
         if (search != null) {

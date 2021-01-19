@@ -62,7 +62,7 @@ class AsteroidesFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.imageIconReturnAsteroides).setOnClickListener {
             val navegar = Navigation.findNavController(view)
-            navegar.navigate(R.id.action_asteroidesFragment_to_menuFragment)
+            navegar.popBackStack()
         }
 
         viewModel.obterLista().observe(viewLifecycleOwner) {

@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/e_mail"
         app:boxStrokeColor="@color/colorPrimaryDark"
-        app:hintTextColor="@color/colorBase"
+        app:hintTextColor="@color/colorPrimaryDark"
+        android:layout_marginTop="@dimen/dimen_24"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -33,7 +34,7 @@
         app:boxStrokeColor="@color/colorPrimaryDark"
         android:hint="@string/senha"
         app:endIconMode="password_toggle"
-        app:hintTextColor="@color/colorBase"
+        app:hintTextColor="@color/colorPrimaryDark"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -46,12 +47,13 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dimen_login_f_g_216dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dimen_16"
         android:backgroundTint="@color/colorPrimaryDark"
         android:text="@string/login"
+        android:textAllCaps="false"
         app:cornerRadius="0dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -58,11 +58,7 @@ class GaleriaFragment : Fragment() {
             _listaDeImagens = arguments?.get("imagens") as MutableList<String>
             _recylerAdapter = ImagensAdapter(_listaDeImagens) {
                 val navController = Navigation.findNavController(requireView())
-                val bundle = bundleOf(
-                    "Tela" to getString(R.string.galeria_comparacao),
-                    "Imagem" to it,
-                    "Origem" to getString(R.string.marsrover_comparacao)
-                )
+                val bundle = bundleOf("Imagem" to it)
                 navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
             }
         }
@@ -81,11 +77,7 @@ class GaleriaFragment : Fragment() {
 
         _recylerAdapter = ImagensAdapter(_listaDeImagens) {
             val navController = Navigation.findNavController(requireView())
-            val bundle = bundleOf(
-                "Tela" to getString(R.string.galeria_comparacao),
-                "Imagem" to it,
-                "Origem" to getString(R.string.perfil_comparacao)
-            )
+            val bundle = bundleOf("Imagem" to it)
             navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
         }
 
@@ -102,11 +94,7 @@ class GaleriaFragment : Fragment() {
         val back = requireView().findViewById<ImageView>(R.id.imageIconReturnGaleria)
         back.setOnClickListener {
             val navegar = Navigation.findNavController(requireView())
-            if (tela == "Perfil") {
-                navegar.navigate(R.id.action_galeriaFragment_to_perfilFragment)
-            } else {
-                navegar.navigate(R.id.action_galeriaFragment_to_marsRoverFragment)
-            }
+            navegar.popBackStack()
         }
     }
 
