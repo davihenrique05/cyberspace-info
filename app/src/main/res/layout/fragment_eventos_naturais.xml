@@ -34,25 +34,26 @@
                 <TextView
                     android:id="@+id/txtTittleEventos"
                     android:layout_width="wrap_content"
-                    android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_20"
+                    android:layout_marginStart="72dp"
+                    android:gravity="center"
                     android:text="@string/eventos_naturais_titulo"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/imgReturn"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintVertical_bias="0.583" />
 
                 <ImageView
                     android:id="@+id/imgReturn2"
                     android:layout_width="@dimen/dimen_60"
                     android:layout_height="@dimen/dimen_40"
+                    android:layout_marginStart="40dp"
                     android:src="@drawable/ic_storm"
-                    android:layout_marginStart="@dimen/dimen_24"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtTittleEventos"/>
+                    app:layout_constraintStart_toEndOf="@id/txtTittleEventos"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
