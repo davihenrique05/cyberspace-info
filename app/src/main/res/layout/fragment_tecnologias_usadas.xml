@@ -36,26 +36,26 @@
                     android:id="@+id/txtTittleTec"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_20"
+                    android:layout_marginStart="44dp"
                     android:gravity="center"
                     android:text="@string/tecnologias_usadas"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimen_text_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/imgReturn"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintVertical_bias="0.458" />
 
                 <ImageView
                     android:id="@+id/imgReturn2"
                     android:layout_width="@dimen/dimen_60"
                     android:layout_height="@dimen/dimen_40"
-                    android:layout_marginStart="@dimen/dimen_24"
+                    android:layout_marginStart="32dp"
                     android:src="@drawable/ic_satellite"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtTittleTec"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtTittleTec"/>
-
-
+                    app:layout_constraintVertical_bias="0.687" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
