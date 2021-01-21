@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.planetasorbitandoestrelas.model.PlanetaOrbitandoEstrelaModel
 
-class PesquisaImgVidViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class PesquisaImgViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private val nomePlaneta: TextView = view.findViewById(R.id.txtNomePlaneta)
     private val nomeEstrela: TextView = view.findViewById(R.id.txtNomeEstrela)
 

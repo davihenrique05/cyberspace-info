@@ -9,7 +9,6 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -42,9 +41,8 @@ class ImagemFragment : Fragment() {
         activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
-        val tela = arguments?.getString("Tela")
         val imagemUrl = arguments?.getString("Imagem")
-        val origem = arguments?.getString("Origem")
+
 
         val imagem = view.findViewById<ImageView>(R.id.imageViewShow)
         val icone = view.findViewById<ImageView>(R.id.imageIconFavorite)
@@ -87,7 +85,7 @@ class ImagemFragment : Fragment() {
         }
 
         mostrarToolbar(imagem)
-        fecharTela(tela!!, origem)
+        fecharTela()
     }
 
     override fun onDestroy() {
@@ -157,37 +155,16 @@ class ImagemFragment : Fragment() {
         }
     }
 
-    private fun fecharTela(tela: String, origem: String?) {
-        when (tela) {
-            getString(R.string.perfil_comparacao) -> {
-                view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
-                    val navController = Navigation.findNavController(requireView())
-                    navController.navigate(R.id.action_imagemFragment_to_perfilFragment)
-                    activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                    @Suppress("DEPRECATION")
-                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-                }
-            }
-            getString(R.string.menu_comparacao) -> {
-                view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
-                    val navController = Navigation.findNavController(requireView())
-                    navController.navigate(R.id.action_imagemFragment_to_menuFragment)
-                    activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                    @Suppress("DEPRECATION")
-                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-                }
-            }
-            getString(R.string.galeria_comparacao) -> {
-                view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
-                    val navController = Navigation.findNavController(requireView())
-                    val bundle = bundleOf("Origem" to origem)
-                    navController.navigate(R.id.action_imagemFragment_to_galeriaFragment, bundle)
-                    activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                    @Suppress("DEPRECATION")
-                    activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-                }
-            }
+    private fun fecharTela() {
+
+        view?.findViewById<ImageView>(R.id.imageIconClose)?.setOnClickListener {
+            val navController = Navigation.findNavController(requireView())
+            navController.popBackStack()
+            activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            @Suppress("DEPRECATION")
+            activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         }
+
     }
 
 }

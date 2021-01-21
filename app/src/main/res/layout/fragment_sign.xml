@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".autenticacao.registro.view.SignFragment"
@@ -14,9 +14,10 @@
         android:id="@+id/txtInputEmailSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8"
         android:hint="@string/e_mail"
         app:boxStrokeColor="@color/colorPrimaryDark"
-        app:hintTextColor="@color/colorBase"
+        app:hintTextColor="@color/colorPrimaryDark"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/colorPrimaryDark"
         android:hint="@string/senha"
-        app:hintTextColor="@color/colorBase"
+        app:hintTextColor="@color/colorPrimaryDark"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -49,7 +50,7 @@
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/colorPrimaryDark"
         android:hint="@string/confirmar_senha"
-        app:hintTextColor="@color/colorBase"
+        app:hintTextColor="@color/colorPrimaryDark"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -62,7 +63,7 @@
 
     <Button
         android:id="@+id/btnSignUP"
-        android:layout_width="@dimen/dimen_110"
+        android:layout_width="@dimen/dimen_login_f_g_216dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDark"
         android:text="@string/sign_up"

@@ -27,14 +27,6 @@
             app:popExitAnim="@anim/to_right"/>
 
         <action
-            android:id="@+id/action_menuFragment_to_pesquisaimgvidactivity"
-            app:destination="@+id/pesquisaActivity"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right" />
-
-        <action
             android:id="@+id/action_menuFragment_to_tecnologiasUsadasFragment"
             app:destination="@id/tecnologiasUsadasFragment"
             app:enterAnim="@anim/from_right"
@@ -64,13 +56,6 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
         <action
-            android:id="@+id/action_menuFragment_to_planetasorbitandoestrelasActivity"
-            app:destination="@id/planetasOrbitandoEstrelasActivity"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right" />
-        <action
             android:id="@+id/action_menuFragment_to_eventosNaturaisFragment"
             app:destination="@id/eventosNaturaisFragment"
             app:enterAnim="@anim/from_right"
@@ -78,6 +63,13 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
             />
+        <action
+            android:id="@+id/action_menuFragment_to_pesquisaFragment"
+            app:destination="@id/pesquisaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
 
 
     </fragment>
@@ -188,10 +180,19 @@
             app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_imagemFragment_to_perfilFragment"
-            app:destination="@id/perfilFragment" />
+            app:destination="@id/perfilFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_close_exit"/>
         <action
             android:id="@+id/action_imagemFragment_to_galeriaFragment"
-            app:destination="@id/galeriaFragment" />
+            app:destination="@id/galeriaFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_close_exit"/>
+        <action
+            android:id="@+id/action_imagemFragment_to_resultadoPesquisaFragment"
+            app:destination="@id/resultadoPesquisaFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_close_exit"/>
     </fragment>
     <fragment
         android:id="@+id/asteroidesFragment"
@@ -206,16 +207,6 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
     </fragment>
-    <activity
-        android:id="@+id/planetasOrbitandoEstrelasActivity"
-        android:name="com.example.cyberspace_info.planetasorbitandoestrelas.view.PlanetasOrbitandoEstrelasActivity"
-        android:label="activity_planetas_orbitando_estrelas"
-        tools:layout="@layout/activity_planetas_orbitando_estrelas" />
-    <activity
-        android:id="@+id/pesquisaActivity"
-        android:name="com.example.cyberspace_info.pesquisarimgvid.view.PesquisaActivity"
-        android:label="activity_pesquisa"
-        tools:layout="@layout/activity_pesquisa" />
     <fragment
         android:id="@+id/eventosNaturaisFragment"
         android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisFragment"
@@ -227,6 +218,44 @@
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left"
             app:destination="@id/menuFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pesquisaFragment"
+        android:name="com.example.cyberspace_info.pesquisarimgvid.view.PesquisaFragment"
+        android:label="fragment_pesquisa"
+        tools:layout="@layout/fragment_pesquisa" >
+        <action
+            android:id="@+id/action_pesquisaFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"/>
+        <action
+            android:id="@+id/action_pesquisaFragment_to_resultadoPesquisaFragment"
+            app:destination="@id/resultadoPesquisaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultadoPesquisaFragment"
+        android:name="com.example.cyberspace_info.pesquisarimgvid.view.ResultadoPesquisaFragment"
+        android:label="fragment_resultado_pesquisa"
+        tools:layout="@layout/fragment_resultado_pesquisa" >
+        <action
+            android:id="@+id/action_resultadoPesquisaFragment_to_pesquisaFragment"
+            app:destination="@id/pesquisaFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"/>
+        <action
+            android:id="@+id/action_resultadoPesquisaFragment_to_imagemFragment"
+            app:destination="@id/imagemFragment" />
     </fragment>
 
 

@@ -56,13 +56,13 @@ class AsteroidesFragment : Fragment() {
         }
 
         showLoading(true)
-        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkest)
+        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkMenu)
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
         view.findViewById<ImageView>(R.id.imageIconReturnAsteroides).setOnClickListener {
             val navegar = Navigation.findNavController(view)
-            navegar.navigate(R.id.action_asteroidesFragment_to_menuFragment)
+            navegar.popBackStack()
         }
 
         viewModel.obterLista().observe(viewLifecycleOwner) {
