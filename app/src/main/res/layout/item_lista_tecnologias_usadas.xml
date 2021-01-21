@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimaryDarkMenu"
     android:layout_width="match_parent"
     android:layout_margin="5dp"
     android:layout_height="wrap_content">
@@ -34,8 +34,8 @@
             android:text="2/1980 - 9/2006"
             android:textColor="@color/colorWhite"
             android:layout_weight="1"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="17sp"
+             />
 
         <TextView
             android:id="@+id/txtStatusTecnologiaUsada"
@@ -45,8 +45,8 @@
             android:gravity="end"
             android:text="Completed"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="17sp"
+            />
 
     </LinearLayout>
 
