@@ -56,7 +56,7 @@ class AsteroidesFragment : Fragment() {
         }
 
         showLoading(true)
-        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkest)
+        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkMenu)
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 

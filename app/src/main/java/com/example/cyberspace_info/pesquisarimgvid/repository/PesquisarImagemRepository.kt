@@ -1,9 +1,9 @@
 package com.example.cyberspace_info.pesquisarimgvid.repository
 
 
-class ImageVideoRepository {
+class PesquisarImagemRepository {
 
-    val client = ImageVideoEndpoint.Endpoint
+    val client = PesquisarImagemEndpoint.Endpoint
 
     suspend fun getUrlsImages(search:String) = client.getUrlsImages(search)
 

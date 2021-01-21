@@ -66,7 +66,7 @@ class MenuFragment : Fragment() {
 
         view.findViewById<MaterialCardView>(R.id.cardImagensEVideos).setOnClickListener {
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_menuFragment_to_pesquisaimgvidactivity)
+            navController.navigate(R.id.action_menuFragment_to_pesquisaFragment)
         }
 
 
@@ -91,11 +91,6 @@ class MenuFragment : Fragment() {
         view.findViewById<MaterialCardView>(R.id.cardObjetosEmColisao).setOnClickListener {
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_menuFragment_to_asteroidesFragment)
-        }
-
-        view.findViewById<MaterialCardView>(R.id.cardPlanetasOrbitando).setOnClickListener {
-            val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_menuFragment_to_planetasorbitandoestrelasActivity)
         }
     }
 }
