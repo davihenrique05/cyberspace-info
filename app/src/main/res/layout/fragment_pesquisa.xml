@@ -55,7 +55,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/dimen_50"
         android:padding="@dimen/dimen_20">
 
         <ImageView
@@ -75,7 +75,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Pesquise astros, estrelas, etc..."
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite" />
+                android:textColorHint="@color/colorWhite"
+                android:backgroundTint="@color/colorWhite"
+                android:textCursorDrawable ="@null"/>
 
             <ImageView
                 android:layout_gravity="center"

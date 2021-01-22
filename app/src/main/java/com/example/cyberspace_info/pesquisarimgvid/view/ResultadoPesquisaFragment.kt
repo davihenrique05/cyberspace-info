@@ -1,10 +1,12 @@
 package com.example.cyberspace_info.pesquisarimgvid.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -53,6 +55,7 @@ class ResultadoPesquisaFragment : Fragment() {
         requireView().findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid).setOnClickListener {
             var search = requireView().findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
             _listaImagens = mutableListOf()
+            view?.hideKeyboard()
             resultarPesquisa(search)
         }
     }
@@ -114,5 +117,10 @@ class ResultadoPesquisaFragment : Fragment() {
         _listaImagens.addAll(lista)
         showLoading(false)
         _adaptador.notifyDataSetChanged()
+    }
+
+    fun View.hideKeyboard() {
+        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 }
