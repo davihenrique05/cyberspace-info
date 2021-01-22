@@ -7,10 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.DatePicker
-import android.widget.ImageView
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +17,7 @@ import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listamarsrover.repository.MarsRoverPhotosRepository
 import com.example.cyberspace_info.listamarsrover.viewmodel.MarsRoverPhotosViewModel
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.fragment_mars_rover.*
 import java.util.*
 
@@ -46,25 +44,11 @@ class MarsRoverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
+       /* val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
         val adapterRover = ArrayAdapter(requireContext(), R.layout.lista_rover, itemsRover)
-        (textField.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
-
-        val itemsCamera = listOf(
-            "FHAZ",
-            "RHAZ",
-            "MAST",
-            "CHEMCAM",
-            "MAHLI",
-            "MARDI",
-            "NAVCAM",
-            "PANCAM",
-            "MINITES"
-        )
-        val adapterCamera = ArrayAdapter(requireContext(), R.layout.lista_camera, itemsCamera)
-        (textField1.editText as? AutoCompleteTextView)?.setAdapter(adapterCamera)
-
-        view.findViewById<TextInputEditText>(R.id.edtMarsRover).setOnClickListener {
+        (cmbRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
+*/
+        view.findViewById<EditText>(R.id.edtMarsRover).setOnClickListener {
             abrirCalendario(view)
         }
 
@@ -84,7 +68,6 @@ class MarsRoverFragment : Fragment() {
 
                 for (marsRover in it){
                     lista.add(marsRover.imagemURL)
-                    //lista.add("https://apod.nasa.gov/apod/image/2101/M78wideHiggins1024.jpg")
                 }
 
                 val bundle = bundleOf("Origem" to getString(R.string.marsrover_comparacao), "imagens" to lista)
@@ -106,4 +89,6 @@ class MarsRoverFragment : Fragment() {
             }, ano, mes, dia
         ).show()
     }
+
+
 }

@@ -21,18 +21,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class TempoEmMarteFragment : Fragment() {
-    var dia: Int
-    var mes: Int
-    var ano: Int
-
-    init {
-        val calendar = Calendar.getInstance()
-        dia = calendar.get(Calendar.DAY_OF_MONTH)
-        mes = calendar.get(Calendar.MONTH)
-        ano = calendar.get(Calendar.YEAR)
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,9 +55,32 @@ class TempoEmMarteFragment : Fragment() {
             view.findViewById<TextView>(R.id.txtVentosMin_fTempoEmMarte).text = formatarDados(it[0].windSpeed.mn)
             view.findViewById<TextView>(R.id.txtVentosMed_fTempoEmMarte).text = formatarDados(it[0].windSpeed.av)
 
-            view.findViewById<TextView>(R.id.txtData_fTempoEmMarte).text = it[0].firstUTC
+            view.findViewById<TextView>(R.id.txtData_fTempoEmMarte).text = formatarData(it[0].firstUTC)
             view.findViewById<TextView>(R.id.txtSol_fTempoEmMarte).text = "SOL " + it[0].id.toString()
         })
+    }
+
+    fun formatarData(valor: String):String{
+        return valor.substring(8,10)+" de "+meses(valor.substring(5,7))+" de "+valor.substring(0,4)
+    }
+
+    fun meses(mes:String):String{
+        var descMes = ""
+        when (mes) {
+            "01" -> descMes = "janeiro"
+            "02" -> descMes = "fevereiro"
+            "03" -> descMes = "março"
+            "04" -> descMes = "abril"
+            "05" -> descMes = "maio"
+            "06" -> descMes = "junho"
+            "07" -> descMes = "julho"
+            "08" -> descMes = "agosto"
+            "09" -> descMes = "setembro"
+            "10" -> descMes = "outubro"
+            "11" -> descMes = "novembro"
+            "12" -> descMes = "dezembro"
+        }
+        return descMes
     }
 
     fun formatarDados(valor: Double, isTemperatura: Boolean = false):String{
@@ -80,7 +91,7 @@ class TempoEmMarteFragment : Fragment() {
                 return "%.2f".format(valor)
             }
         } else {
-            return "-"
+            return "S/D"
         }
     }
 }
