@@ -61,7 +61,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTempoEmMarte"
         android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_weight="1"
         android:clickable="false"
@@ -74,59 +74,15 @@
             android:layout_margin="10dp"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            <EditText
+                android:id="@+id/edtMarsRover"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rover">
-
-                <AutoCompleteTextView
-                    android:id="@+id/filled_exposed_dropdown"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:editable="false"
-                    android:textColor="@color/colorPrimaryAltLightest" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField1"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Rover">
-
-                <AutoCompleteTextView
-                    android:id="@+id/filled_exposed_dropdown1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:editable="false"
-                    android:textColor="@color/colorPrimaryAltLightest" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtMarRover"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/transparent"
                 android:hint="Data na Terra"
-                android:textColor="@color/colorPrimaryAltLightest"
-                android:textColorHint="@color/colorPrimaryAltLightest"
-                app:hintTextColor="@color/colorPrimaryAltLightest">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtMarsRover"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:editable="false"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryAltLightest" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:backgroundTint="@android:color/transparent"
+                android:textCursorDrawable ="@null"/>
 
             <ImageView
                 android:id="@+id/imgPesquisar_fMarsRover"
