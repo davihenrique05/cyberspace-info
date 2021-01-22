@@ -1,5 +1,6 @@
 package com.example.cyberspace_info.pesquisarimgvid.view.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.pesquisarimgvid.model.ObjectImageModel
 import com.squareup.picasso.Picasso
+import java.lang.Exception
 
 class PesquisaImgAdapter(private val dataSet: List<ObjectImageModel>, private val listener: (ObjectImageModel) -> Unit): RecyclerView.Adapter<PesquisaImgAdapter.meuViewHolder>() {
 
@@ -16,7 +18,11 @@ class PesquisaImgAdapter(private val dataSet: List<ObjectImageModel>, private va
         private val fotovideo: ImageView = view.findViewById(R.id.imgFotoVideo)
 
         fun bind(imgVid: ObjectImageModel){
-            Picasso.get().load(imgVid.links[0].href).into(fotovideo)
+            try{
+                Picasso.get().load(imgVid.links[0].href).into(fotovideo)
+            }catch (e: Exception){
+                Log.e("Leitura",e.message.toString())
+            }
         }
     }
 

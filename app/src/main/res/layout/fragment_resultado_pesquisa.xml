@@ -41,6 +41,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
+                android:backgroundTint="@color/colorWhite"
+                android:textCursorDrawable ="@null"
                 />
 
             <ImageView

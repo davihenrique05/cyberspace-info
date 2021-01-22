@@ -14,11 +14,8 @@
         android:largeHeap="true"
         android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".pesquisarimgvid.view.PesquisaActivity" />
-        <activity android:name=".pesquisarimgvid.view.PesquisaImgVidActivity" />
         <activity android:name=".autenticacao.view.AutenticacaoActivity" android:theme="@style/AppTheme"/>
-        <activity
-            android:name=".planetasorbitandoestrelas.view.PlanetasOrbitandoEstrelasActivity"/>
+
         <activity
             android:name=".main.view.SplashScreenActivity"
             android:theme="@style/AppThemeSplash">
@@ -28,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".menu.view.MainActivity" />
+        <activity android:name=".menu.view.MainActivity" android:windowSoftInputMode="adjustNothing" />
 
         <meta-data
             android:name="preloaded_fonts"
