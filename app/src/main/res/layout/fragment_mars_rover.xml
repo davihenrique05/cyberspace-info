@@ -61,7 +61,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTempoEmMarte"
         android:layout_width="300dp"
-        android:layout_height="220dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_weight="1"
         android:clickable="false"
@@ -82,6 +82,7 @@
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
                 android:backgroundTint="@android:color/transparent"
+                android:editable="false"
                 android:textCursorDrawable ="@null"/>
 
             <ImageView
