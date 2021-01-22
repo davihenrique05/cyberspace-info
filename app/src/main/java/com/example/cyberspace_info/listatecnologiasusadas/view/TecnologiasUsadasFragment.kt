@@ -21,13 +21,14 @@ import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectIdModel
 import com.example.cyberspace_info.listatecnologiasusadas.repository.ProjectIdRepository
 import com.example.cyberspace_info.listatecnologiasusadas.view.adapter.TecnologiasUsadasAdapter
 import com.example.cyberspace_info.listatecnologiasusadas.viewmodel.ProjectIdViewModel
+import com.google.android.material.card.MaterialCardView
 
 class TecnologiasUsadasFragment : Fragment() {
 
-    lateinit var _viewModelProject : ProjectIdViewModel
-    lateinit var _listaProjetos : MutableList<ProjectDataModel>
-    private lateinit var _adaptador : TecnologiasUsadasAdapter
-    lateinit var _listaIdProjeto : MutableList<ProjectIdModel>
+    lateinit var _viewModelProject: ProjectIdViewModel
+    lateinit var _listaProjetos: MutableList<ProjectDataModel>
+    private lateinit var _adaptador: TecnologiasUsadasAdapter
+    lateinit var _listaIdProjeto: MutableList<ProjectIdModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,21 +38,28 @@ class TecnologiasUsadasFragment : Fragment() {
 
         _listaProjetos = mutableListOf()
         _listaIdProjeto = mutableListOf()
-        _adaptador = TecnologiasUsadasAdapter(_listaProjetos){
+        _adaptador = TecnologiasUsadasAdapter(_listaProjetos) {
 
-            val bottomSheetFragment =  BottomSheetFragment()
+            val bottomSheetFragment = BottomSheetFragment()
 
-            val bundle = bundleOf("title" to it.title,
+            val bundle = bundleOf(
+                "title" to it.title,
                 "description" to it.description
-                )
+            )
 
             bottomSheetFragment.arguments = bundle
-            bottomSheetFragment.show((activity as AppCompatActivity).supportFragmentManager,"BottomSheetDialog")
+            bottomSheetFragment.show(
+                (activity as AppCompatActivity).supportFragmentManager,
+                "BottomSheetDialog"
+            )
 
         }
 
-        _viewModelProject = ViewModelProvider(this,ProjectIdViewModel.ProjectIdViewModelFactory(ProjectIdRepository()
-        )).get(ProjectIdViewModel::class.java)
+        _viewModelProject = ViewModelProvider(
+            this, ProjectIdViewModel.ProjectIdViewModelFactory(
+                ProjectIdRepository()
+            )
+        ).get(ProjectIdViewModel::class.java)
 
         return inflater.inflate(R.layout.fragment_tecnologias_usadas, container, false)
 
@@ -71,12 +79,12 @@ class TecnologiasUsadasFragment : Fragment() {
 
     }
 
-    private fun recyclerviewItens(view:View){
+    private fun recyclerviewItens(view: View) {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTecnologiasUsadas)
         val linearManager = LinearLayoutManager(view.context)
 
-        recyclerView.apply{
+        recyclerView.apply {
 
             setHasFixedSize(true)
             layoutManager = linearManager
@@ -84,30 +92,38 @@ class TecnologiasUsadasFragment : Fragment() {
 
         }
 
-        _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner,{
+        _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner) {
 
-            _listaIdProjeto.addAll(it)
+            if (!it.isNullOrEmpty()) {
+                _listaIdProjeto.addAll(it)
 
-            for(i in 0..40) {
+                for (i in 0..40) {
 
-                _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
-                    .observe(viewLifecycleOwner, {
-                        if (!it.isNullOrEmpty()) {
-                            listarResultados(it)
+                    _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
+                        .observe(viewLifecycleOwner) {
+                            if (!it.isNullOrEmpty()) {
+                                listarResultados(it)
+                            }
                         }
-                    })
+                }
+            } else {
+                showLoading(false)
+                view.findViewById<MaterialCardView>(R.id.cardNotFoundTec).visibility = View.VISIBLE
             }
 
-        })
+        }
 
     }
 
-    private fun createProgressBar(view:View){
+    private fun createProgressBar(view: View) {
 
         val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
-        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkestMenu)
+        val color = ContextCompat.getColor(view.context, R.color.colorWhite)
         @Suppress("DEPRECATION")
-        progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
+        progresBar.indeterminateDrawable.setColorFilter(
+            color,
+            android.graphics.PorterDuff.Mode.MULTIPLY
+        )
 
     }
 
@@ -121,7 +137,7 @@ class TecnologiasUsadasFragment : Fragment() {
         }
     }
 
-    fun listarResultados(lista:List<ProjectDataModel>){
+    fun listarResultados(lista: List<ProjectDataModel>) {
         _listaProjetos.clear()
         _listaProjetos.addAll(lista)
         showLoading(false)

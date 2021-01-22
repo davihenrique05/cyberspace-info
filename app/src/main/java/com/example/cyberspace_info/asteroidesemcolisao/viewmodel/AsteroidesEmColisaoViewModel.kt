@@ -17,46 +17,46 @@ import java.util.*
 
 class AsteroidesEmColisaoViewModel(
     private val repository: AsteroidesRepository
-):ViewModel() {
+) : ViewModel() {
 
     private var _lista = mutableListOf<AsteroideModel>()
 
     fun obterLista() = liveData(Dispatchers.IO) {
         val dataAtual = obterDiaDeHoje()
         val dataFinal = intervaloDia()
-        val response = repository.obterListaDeAsteroides( dataFinal,dataAtual)
-        Log.e("Requisição", response.total.toString())
 
-        try{
+        try {
+            val response = repository.obterListaDeAsteroides(dataFinal, dataAtual)
             val body = response.asteiroides as LinkedTreeMap<String, Any>
 
-            for(i in body.keys){
+            for (i in body.keys) {
                 val atual = body[i] as List<LinkedTreeMap<String, Any>>
 
-                for(it in atual){
+                for (it in atual) {
 
                     val asteroid = mapearTreeMap(it)
                     _lista.add(asteroid)
                 }
             }
             emit(_lista)
-        }catch (e: Exception){
+        } catch (e: Exception) {
             Log.e("Requisição", e.message.toString())
+            emit(_lista)
         }
     }
 
 
-    fun obterDiaDeHoje():String {
+    fun obterDiaDeHoje(): String {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)+1
+        val month = c.get(Calendar.MONTH) + 1
         val day = c.get(Calendar.DAY_OF_MONTH)
         val string = "${year}-${String.format("%02d", month)}-${String.format("%02d", day)}"
 
         return string
     }
 
-    fun intervaloDia():String {
+    fun intervaloDia(): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd")
         val data = obterDiaDeHoje()
         val parsed = dateFormat.parse(data)
@@ -71,23 +71,28 @@ class AsteroidesEmColisaoViewModel(
         return string
     }
 
-    fun showBottomSheet(context: Context, it: AsteroideModel){
-        val bottomSheetFragment =  BottomSheetAsteroideFragment()
-        val bundle = bundleOf("Nome" to it.nome,
-                                        "min" to it.diametroMinimo,
-                                        "max" to it.diametroMaximo,
-                                        "velocidade" to it.velocidadeModelRel,
-                                        "link" to it.link)
+    fun showBottomSheet(context: Context, it: AsteroideModel) {
+        val bottomSheetFragment = BottomSheetAsteroideFragment()
+        val bundle = bundleOf(
+            "Nome" to it.nome,
+            "min" to it.diametroMinimo,
+            "max" to it.diametroMaximo,
+            "velocidade" to it.velocidadeModelRel,
+            "link" to it.link
+        )
 
         bottomSheetFragment.arguments = bundle
-        bottomSheetFragment.show((context as AppCompatActivity).supportFragmentManager,"BottomSheetDialog")
+        bottomSheetFragment.show(
+            (context as AppCompatActivity).supportFragmentManager,
+            "BottomSheetDialog"
+        )
     }
 
-    fun mapearTreeMap(it: LinkedTreeMap<String, Any>): AsteroideModel{
+    fun mapearTreeMap(it: LinkedTreeMap<String, Any>): AsteroideModel {
 
-        val diametros = it["estimated_diameter"] as LinkedTreeMap<String,Any>
+        val diametros = it["estimated_diameter"] as LinkedTreeMap<String, Any>
         val metros = diametros["meters"] as LinkedTreeMap<String, Double>
-        val data = it["close_approach_data"] as List<LinkedTreeMap<String,Any>>
+        val data = it["close_approach_data"] as List<LinkedTreeMap<String, Any>>
         val velocidade = data[0]["relative_velocity"] as LinkedTreeMap<String, String>
         val asteroid = AsteroideModel(
             it["name"].toString(),
@@ -99,7 +104,9 @@ class AsteroidesEmColisaoViewModel(
         )
         return asteroid
     }
-    class AsteroidesEmColisaoViewModelFactory(private val repository: AsteroidesRepository): ViewModelProvider.Factory {
+
+    class AsteroidesEmColisaoViewModelFactory(private val repository: AsteroidesRepository) :
+        ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return AsteroidesEmColisaoViewModel(repository) as T
         }

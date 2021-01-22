@@ -47,4 +47,11 @@
     <string name="favorito">Favoritado com sucesso</string>
     <string name="removido">Removido com sucesso</string>
     <string name="lista_fav_vazia">Sua lista de favoritos está vazia.</string>
+    <string name="erro_tittle">Erro de conectividade!</string>
+    <string name="internet_erro_content">Você precisa estar conectado a internet para utilizar o aplicativo.</string>
+    <string name="internet_erro_confirmed">OK!</string>
+    <string name="internet_erro_sair">Sair</string>
+    <string name="internet_erro_perfil">Sem conexão apenas o perfil estára disponível</string>
+    <string name="erro_de_conexao">Erro de conexão, verifique sua internet!</string>
+    <string name="verifique_internet">A conexão está com problemas, verifique sua internet!</string>
 </resources>

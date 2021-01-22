@@ -4,18 +4,20 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
+import com.example.cyberspace_info.pesquisarimgvid.model.ObjectImageModel
 import com.example.cyberspace_info.pesquisarimgvid.repository.PesquisarImagemRepository
 import kotlinx.coroutines.Dispatchers
 
 class PesquisarImagemViewModel(val repository: PesquisarImagemRepository):ViewModel() {
-
+    private var _lista = mutableListOf<ObjectImageModel>()
     fun getUrlsImages(search:String) = liveData(Dispatchers.IO){
-
         try {
             var response = repository.getUrlsImages(search)
-            emit(response.collection.items)
+            _lista = response.collection.items.toMutableList()
+            emit(_lista)
         }catch(ex:Exception){
-            Log.e("Requisição", ex.message.toString())
+            Log.e("Requisicao", ex.stackTrace.toString())
+            emit(_lista)
         }
     }
 

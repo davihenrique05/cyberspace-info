@@ -38,7 +38,7 @@
                     android:gravity="center"
                     android:text="@string/mars_rover_min"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimen_text_20"
+                    android:textSize="@dimen/dimen_text_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/imgReturn2"
                     app:layout_constraintStart_toEndOf="@+id/imgReturn_fMarsRover"
@@ -78,18 +78,18 @@
                 android:id="@+id/edtMarsRover"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
                 android:hint="Data na Terra"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
-                android:backgroundTint="@android:color/transparent"
-                android:textCursorDrawable ="@null"/>
+                android:textCursorDrawable="@null" />
 
             <ImageView
                 android:id="@+id/imgPesquisar_fMarsRover"
                 android:layout_width="@dimen/dimen_35"
                 android:layout_height="@dimen/dimen_35"
-                android:layout_marginTop="@dimen/dimen_8"
                 android:layout_gravity="right"
+                android:layout_marginTop="@dimen/dimen_8"
                 android:src="@drawable/ic_baseline_search_24" />
 
         </LinearLayout>
