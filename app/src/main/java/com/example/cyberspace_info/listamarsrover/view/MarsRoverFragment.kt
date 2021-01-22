@@ -46,9 +46,6 @@ class MarsRoverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val imagemFundo = ContextCompat.getDrawable(view.context, R.drawable.rover)
-        view.findViewById<ImageView>(R.id.imgFundo_MarsRover).setImageDrawable(imagemFundo)
-
         val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
         val adapterRover = ArrayAdapter(requireContext(), R.layout.lista_rover, itemsRover)
         (textField.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
@@ -86,7 +83,8 @@ class MarsRoverFragment : Fragment() {
                 var lista = mutableListOf<String>()
 
                 for (marsRover in it){
-                     lista.add(marsRover.imagemURL)
+                    lista.add(marsRover.imagemURL)
+                    //lista.add("https://apod.nasa.gov/apod/image/2101/M78wideHiggins1024.jpg")
                 }
 
                 val bundle = bundleOf("Origem" to getString(R.string.marsrover_comparacao), "imagens" to lista)

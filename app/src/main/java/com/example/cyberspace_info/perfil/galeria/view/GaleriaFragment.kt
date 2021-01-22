@@ -55,12 +55,15 @@ class GaleriaFragment : Fragment() {
             carregarImagensFavoritas()
 
         } else if (tela == "MarsRover") {
-            _listaDeImagens = arguments?.get("imagens") as MutableList<String>
+            _listaDeImagens.clear()
+            val lista = arguments?.get("imagens") as MutableList<String>
+            _listaDeImagens.addAll(lista)
             _recylerAdapter = ImagensAdapter(_listaDeImagens) {
                 val navController = Navigation.findNavController(requireView())
                 val bundle = bundleOf("Imagem" to it)
                 navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
             }
+            _recylerAdapter.notifyDataSetChanged()
         }
 
         recyler.apply {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundo_test"
     tools:context=".listamarsrover.view.MarsRoverFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -19,48 +20,43 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <ImageView
                     android:id="@+id/imgReturn_fMarsRover"
                     android:layout_width="@dimen/dimen_35"
                     android:layout_height="@dimen/dimen_35"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/ic_baseline_arrow_back_24" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.523" />
 
                 <TextView
                     android:id="@+id/txtTittleMars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/imgReturn_fMarsRover"
-                    android:layout_marginStart="@dimen/dimen_35"
                     android:gravity="center"
                     android:text="@string/mars_rover_min"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimen_text_30" />
+                    android:textSize="@dimen/dimen_text_20"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imgReturn2"
+                    app:layout_constraintStart_toEndOf="@+id/imgReturn_fMarsRover"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/imgReturn2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txtTittleMars"
-                    android:layout_marginStart="@dimen/dimen_8"
                     android:layout_width="75dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_mars_rover" />
+                    android:src="@drawable/ic_mars_rover"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
-    <ImageView
-        android:id="@+id/imgFundo_MarsRover"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTempoEmMarte"

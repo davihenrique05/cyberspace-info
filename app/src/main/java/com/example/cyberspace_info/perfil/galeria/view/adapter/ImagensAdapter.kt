@@ -18,8 +18,15 @@ class ImagensAdapter(
         private val imagem = view.findViewById<ImageView>(R.id.imageViewItem)
 
         fun bind(url: String) {
+            var urlConverted = ""
+            if(url.contains("http") && !url.contains("https")){
+                urlConverted = url.replace("http","https")
+            }else{
+                urlConverted = url
+            }
+
             Picasso.get()
-                .load(url)
+                .load(urlConverted)
                 .into(imagem)
         }
     }
