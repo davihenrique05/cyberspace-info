@@ -1,12 +1,15 @@
 package com.example.cyberspace_info.listaeventosnaturais.view.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
+import com.squareup.picasso.Picasso
 
 class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): RecyclerView.Adapter<EventoAtualAdapter.EventoAtualViewHolder>() {
 
@@ -15,8 +18,15 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): Recycler
         private val title : TextView by lazy { view.findViewById<TextView>(R.id.txtTitleEvent)}
         private val category : TextView by lazy { view.findViewById<TextView>(R.id.txtCategoryEvent)}
         private val date : TextView by lazy { view.findViewById<TextView>(R.id.txtDateEvent)}
+        private val imagemCordenadas : ImageView by lazy {view.findViewById<ImageView>(R.id.imgCoordinates)}
 
         fun bind(event:EventNaturalModel){
+
+
+            var coordenadasUrl = "https://maps.googleapis.com/maps/api/staticmap?"+"center=${event.geometries[0].coordinates[1]},${event.geometries[0].coordinates[0]}&"+"zoom=11&size=250x250&key=AIzaSyDFf6J-wAKE1OS-K7EYkn_pbznUhy55J2w"
+
+            Log.i("IMAGEM : ",coordenadasUrl)
+            Picasso.get().load(coordenadasUrl).into(imagemCordenadas)
 
             title.text = event.title
             category.text = event.categories[0].title

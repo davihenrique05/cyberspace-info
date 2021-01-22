@@ -105,7 +105,7 @@ class TecnologiasUsadasFragment : Fragment() {
     private fun createProgressBar(view:View){
 
         val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
-        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkest)
+        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkestMenu)
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
