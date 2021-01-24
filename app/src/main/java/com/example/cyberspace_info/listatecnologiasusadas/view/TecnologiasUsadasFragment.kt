@@ -21,7 +21,6 @@ import com.example.cyberspace_info.listatecnologiasusadas.model.ProjectIdModel
 import com.example.cyberspace_info.listatecnologiasusadas.repository.ProjectIdRepository
 import com.example.cyberspace_info.listatecnologiasusadas.view.adapter.TecnologiasUsadasAdapter
 import com.example.cyberspace_info.listatecnologiasusadas.viewmodel.ProjectIdViewModel
-import com.google.android.material.card.MaterialCardView
 
 class TecnologiasUsadasFragment : Fragment() {
 
@@ -94,23 +93,17 @@ class TecnologiasUsadasFragment : Fragment() {
 
         _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner) {
 
-            if (!it.isNullOrEmpty()) {
-                _listaIdProjeto.addAll(it)
+            _listaIdProjeto.addAll(it)
 
-                for (i in 0..40) {
+            for (i in 0..40) {
 
-                    _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
-                        .observe(viewLifecycleOwner) {
-                            if (!it.isNullOrEmpty()) {
-                                listarResultados(it)
-                            }
+                _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
+                    .observe(viewLifecycleOwner) {
+                        if (!it.isNullOrEmpty()) {
+                            listarResultados(it)
                         }
-                }
-            } else {
-                showLoading(false)
-                view.findViewById<MaterialCardView>(R.id.cardNotFoundTec).visibility = View.VISIBLE
+                    }
             }
-
         }
 
     }

@@ -83,43 +83,5 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardNotFoundAsteroides"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/dimen_50"
-        android:layout_marginTop="@dimen/dimen_250"
-        android:layout_marginEnd="@dimen/dimen_50"
-        android:layout_marginBottom="@dimen/dimen_250"
-        android:visibility="gone"
-        app:cardBackgroundColor="@color/colorPrimaryDark"
-        app:cardElevation="@dimen/dimen_16"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/dimen_16">
-
-            <TextView
-                android:id="@+id/txtCardNotFoundAsteroides"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_35"
-                android:text="@string/verifique_internet"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimen_text_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

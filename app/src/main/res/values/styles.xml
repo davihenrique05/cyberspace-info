@@ -19,5 +19,10 @@
         <item name="colorAccent">@color/colorPrimaryDarkest</item>
     </style>
 
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/colorGrayDark</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColorPrimary">@color/colorWhite</item>
+    </style>
 
 </resources>

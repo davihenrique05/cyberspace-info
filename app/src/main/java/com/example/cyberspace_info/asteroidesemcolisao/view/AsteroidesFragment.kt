@@ -77,10 +77,6 @@ class AsteroidesFragment : Fragment() {
                 _lista.addAll(it)
                 showLoading(false)
                 recylerAdapter.notifyDataSetChanged()
-            } else {
-                showLoading(false)
-                requireView().findViewById<MaterialCardView>(R.id.cardNotFoundAsteroides).visibility =
-                    View.VISIBLE
             }
         }
 

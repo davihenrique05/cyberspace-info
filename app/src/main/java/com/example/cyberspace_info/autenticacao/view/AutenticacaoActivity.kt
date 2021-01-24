@@ -34,7 +34,7 @@ class AutenticacaoActivity : AppCompatActivity(), INavegarTab {
     fun checkConnection() {
         var isOnline = NetworkListener.isOnline(this)
         if (!isOnline) {
-            val dialog = MaterialAlertDialogBuilder(this)
+            val dialog = MaterialAlertDialogBuilder(this,R.style.MyDialogTheme)
                 .setCancelable(false)
                 .setTitle(getString(R.string.erro_tittle))
                 .setMessage(getString(R.string.internet_erro_content))
