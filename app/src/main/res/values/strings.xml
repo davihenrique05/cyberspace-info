@@ -47,4 +47,11 @@
     <string name="favorito">Favoritado com sucesso</string>
     <string name="removido">Removido com sucesso</string>
     <string name="lista_fav_vazia">Sua lista de favoritos está vazia.</string>
+    <string name="data_na_terra">Data na Terra</string>
+    <string-array name="rover_array">
+        <item></item>
+        <item>Curiosity</item>
+        <item>Opportunity</item>
+        <item>Spirit</item>
+    </string-array>
 </resources>
