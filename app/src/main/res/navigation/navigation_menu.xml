@@ -266,7 +266,7 @@
     </fragment>
     <fragment
         android:id="@+id/erroFragment"
-        android:name="com.example.cyberspace_info.seminternet.ErroFragment"
+        android:name="com.example.cyberspace_info.mensagemdeerro.ErroFragment"
         android:label="fragment_erro"
         tools:layout="@layout/fragment_erro" >
         <action

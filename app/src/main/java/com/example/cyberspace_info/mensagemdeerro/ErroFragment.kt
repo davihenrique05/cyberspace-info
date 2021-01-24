@@ -1,4 +1,4 @@
-package com.example.cyberspace_info.seminternet
+package com.example.cyberspace_info.mensagemdeerro
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
