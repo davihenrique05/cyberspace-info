@@ -59,9 +59,8 @@ class MenuFragment : Fragment() {
         if (!isOnline) {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(activity.getString(R.string.erro_tittle))
-                .setMessage(activity.getString(R.string.internet_erro_content))
+                .setMessage(activity.getString(R.string.internet_erro_perfil))
                 .setPositiveButton(activity.getString(R.string.internet_erro_confirmed)) { _, _ ->
-                    checkConnection(activity)
                 }
                 .setNegativeButton(activity.getString(R.string.internet_erro_sair)) { _, _ ->
                     requireActivity().finish()

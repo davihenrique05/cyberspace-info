@@ -44,10 +44,10 @@ class MarsRoverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       /* val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
-        val adapterRover = ArrayAdapter(requireContext(), R.layout.lista_rover, itemsRover)
-        (cmbRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
-*/
+        /* val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
+         val adapterRover = ArrayAdapter(requireContext(), R.layout.lista_rover, itemsRover)
+         (cmbRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
+ */
         view.findViewById<EditText>(R.id.edtMarsRover).setOnClickListener {
             abrirCalendario(view)
         }
@@ -58,37 +58,64 @@ class MarsRoverFragment : Fragment() {
         }
 
         view.findViewById<ImageView>(R.id.imgPesquisar_fMarsRover).setOnClickListener {
-            val _viewModel = ViewModelProvider(
-                this,
-                MarsRoverPhotosViewModel.MarsRoverPhotosViewModelFactory(MarsRoverPhotosRepository())
-            ).get(MarsRoverPhotosViewModel::class.java)
+            if (view.findViewById<EditText>(R.id.edtMarsRover).text.toString() != "") {
+                val _viewModel = ViewModelProvider(
+                    this,
+                    MarsRoverPhotosViewModel.MarsRoverPhotosViewModelFactory(
+                        MarsRoverPhotosRepository()
+                    )
+                ).get(MarsRoverPhotosViewModel::class.java)
 
-            _viewModel.obterLista("curiosity","2015-6-3").observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-                var lista = mutableListOf<String>()
 
-                for (marsRover in it){
-                    lista.add(marsRover.imagemURL)
-                }
+                _viewModel.obterLista("curiosity", "2015-6-3")
+               // _viewModel.obterLista("curiosity", data)
+                    .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                        var lista = mutableListOf<String>()
 
-                val bundle = bundleOf("Origem" to getString(R.string.marsrover_comparacao), "imagens" to lista)
-                val navController = Navigation.findNavController(view)
-                navController.navigate(R.id.action_marsRoverFragment_to_galeriaFragment,bundle)
-            })
+                        for (marsRover in it) {
+                            lista.add(marsRover.imagemURL)
+                        }
+
+                        val bundle = bundleOf(
+                            "Origem" to getString(R.string.marsrover_comparacao),
+                            "imagens" to lista
+                        )
+                        val navController = Navigation.findNavController(view)
+                        navController.navigate(
+                            R.id.action_marsRoverFragment_to_galeriaFragment,
+                            bundle
+                        )
+                    })
+            } else {
+                view.findViewById<EditText>(R.id.edtMarsRover).error = "Informe a data"
+            }
         }
     }
 
     private fun abrirCalendario(minhaView: View) {
-        DatePickerDialog(minhaView.context,
+        DatePickerDialog(
+            minhaView.context,
             AlertDialog.THEME_DEVICE_DEFAULT_DARK, object : DatePickerDialog.OnDateSetListener {
                 override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                    dia = dayOfMonth
-                    mes = month
-                    ano = year
+                    var diaRetorno = dayOfMonth
+                    var mesRetorno = month + 1
+
+                    var diaString = ""
+                    if (diaRetorno < 10){
+                        diaString = "0"
+                    }
+
+                    var mesString = ""
+                    if (mesRetorno < 10){
+                        mesString = "0"
+                    }
+                    mesString = mesString + mesRetorno
+                    diaString = diaString + diaRetorno
+                    minhaView.findViewById<EditText>(R.id.edtMarsRover)
+                        .setText("$diaString/$mesString/$year")
                 }
 
             }, ano, mes, dia
         ).show()
     }
-
-
 }

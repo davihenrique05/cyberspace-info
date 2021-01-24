@@ -202,7 +202,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center|bottom"
-                                android:layout_marginEnd="@dimen/dimen_14"
+                                android:layout_marginEnd="14dp"
                                 android:gravity="center"
                                 android:text="@string/tempo_em_marte"
                                 android:textColor="@color/colorWhite"
