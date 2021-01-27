@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "219017359820",
+    "project_id": "cyberspace-af3f5",
+    "storage_bucket": "cyberspace-af3f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219017359820:android:49710bca26374831232d69",
+        "android_client_info": {
+          "package_name": "com.example.cyberspace_info"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219017359820-moco2pcfer1bhv6691cnn3vlqtn93193.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cyberspace_info",
+            "certificate_hash": "13391fa777f6fd18f5d3d65f84c7a53de46617ce"
+          }
+        },
+        {
+          "client_id": "219017359820-cm9soocskvlf2cojk50t3u0b1076r9fo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1HOHoGQs7-8nY3B5pDhNnpDA8X3yQw-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219017359820-cm9soocskvlf2cojk50t3u0b1076r9fo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
