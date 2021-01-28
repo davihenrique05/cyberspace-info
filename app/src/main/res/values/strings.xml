@@ -54,4 +54,11 @@
     <string name="internet_erro_perfil">Sem conexão apenas o perfil estára disponível</string>
     <string name="erro_de_conexao">Erro de conexão, verifique sua internet!</string>
     <string name="verifique_internet">A conexão está com problemas, verifique sua internet!</string>
+    <string name="data_na_terra">Data na Terra</string>
+    <string-array name="rover_array">
+        <item></item>
+        <item>Curiosity</item>
+        <item>Opportunity</item>
+        <item>Spirit</item>
+    </string-array>
 </resources>

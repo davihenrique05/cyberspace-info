@@ -1,25 +1,27 @@
 package com.example.cyberspace_info.listamarsrover.view
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.core.content.ContextCompat
+import android.widget.ArrayAdapter
+import android.widget.DatePicker
+import android.widget.ImageView
+import android.widget.Spinner
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listamarsrover.repository.MarsRoverPhotosRepository
 import com.example.cyberspace_info.listamarsrover.viewmodel.MarsRoverPhotosViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.fragment_mars_rover.*
 import java.util.*
+
 
 class MarsRoverFragment : Fragment() {
     var dia: Int
@@ -41,14 +43,19 @@ class MarsRoverFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mars_rover, container, false)
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /* val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
-         val adapterRover = ArrayAdapter(requireContext(), R.layout.lista_rover, itemsRover)
-         (cmbRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
- */
-        view.findViewById<EditText>(R.id.edtMarsRover).setOnClickListener {
+        val spinner = view.findViewById<Spinner>(R.id.rover_spinner)
+        val adapter = ArrayAdapter.createFromResource(
+            view.context,
+            R.array.rover_array, R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        view.findViewById<TextInputLayout>(R.id.textField).setEndIconOnClickListener {
             abrirCalendario(view)
         }
 
@@ -58,7 +65,7 @@ class MarsRoverFragment : Fragment() {
         }
 
         view.findViewById<ImageView>(R.id.imgPesquisar_fMarsRover).setOnClickListener {
-            if (view.findViewById<EditText>(R.id.edtMarsRover).text.toString() != "") {
+            if (consisteTela(view.findViewById<TextInputEditText>(R.id.textd),view.findViewById<Spinner>(R.id.rover_spinner))) {
                 val _viewModel = ViewModelProvider(
                     this,
                     MarsRoverPhotosViewModel.MarsRoverPhotosViewModelFactory(
@@ -66,9 +73,13 @@ class MarsRoverFragment : Fragment() {
                     )
                 ).get(MarsRoverPhotosViewModel::class.java)
 
+                val dataMarsRover = view.findViewById<TextInputEditText>(R.id.textd).text.toString()
+                val dia = dataMarsRover.substring(0, 2)
+                val mes = dataMarsRover.substring(3, 5)
+                val ano = dataMarsRover.substring(6, 10)
 
-                _viewModel.obterLista("curiosity", "2015-6-3")
-               // _viewModel.obterLista("curiosity", data)
+                val spnRover = view.findViewById<Spinner>(R.id.rover_spinner)
+                _viewModel.obterLista(spnRover.selectedItem.toString().toLowerCase(), "$ano-$mes-$dia")
                     .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                         var lista = mutableListOf<String>()
 
@@ -87,13 +98,13 @@ class MarsRoverFragment : Fragment() {
                         )
                     })
             } else {
-                view.findViewById<EditText>(R.id.edtMarsRover).error = "Informe a data"
+                view.findViewById<TextInputEditText>(R.id.textd).error = "Informe a data"
             }
         }
     }
 
     private fun abrirCalendario(minhaView: View) {
-        DatePickerDialog(
+        val dialog = DatePickerDialog(
             minhaView.context,
             AlertDialog.THEME_DEVICE_DEFAULT_DARK, object : DatePickerDialog.OnDateSetListener {
                 override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
@@ -101,21 +112,34 @@ class MarsRoverFragment : Fragment() {
                     var mesRetorno = month + 1
 
                     var diaString = ""
-                    if (diaRetorno < 10){
+                    if (diaRetorno < 10) {
                         diaString = "0"
                     }
 
                     var mesString = ""
-                    if (mesRetorno < 10){
+                    if (mesRetorno < 10) {
                         mesString = "0"
                     }
                     mesString = mesString + mesRetorno
                     diaString = diaString + diaRetorno
-                    minhaView.findViewById<EditText>(R.id.edtMarsRover)
+
+                    minhaView.findViewById<TextInputEditText>(R.id.textd)
                         .setText("$diaString/$mesString/$year")
                 }
 
             }, ano, mes, dia
-        ).show()
+        )
+        dialog.datePicker.setMaxDate(Date().time)
+        dialog.show()
+    }
+
+    fun consisteTela(edtDataMarsRover:TextInputEditText,spnRover:Spinner):Boolean{
+        if (edtDataMarsRover.text.toString() == "") {
+            edtDataMarsRover.error = "Informe a data da Terra"
+            return false
+        } else {
+        }
+
+        return true
     }
 }
