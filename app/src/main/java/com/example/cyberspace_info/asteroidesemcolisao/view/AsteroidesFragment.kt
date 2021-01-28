@@ -20,6 +20,7 @@ import com.example.cyberspace_info.asteroidesemcolisao.model.AsteroideModel
 import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesRepository
 import com.example.cyberspace_info.asteroidesemcolisao.view.adapter.AsteroidesAdapter
 import com.example.cyberspace_info.asteroidesemcolisao.viewmodel.AsteroidesEmColisaoViewModel
+import com.google.android.material.card.MaterialCardView
 
 class AsteroidesFragment : Fragment() {
 
@@ -37,15 +38,17 @@ class AsteroidesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel = ViewModelProvider(this,AsteroidesEmColisaoViewModel.AsteroidesEmColisaoViewModelFactory(
-            AsteroidesRepository()
-        )).get(AsteroidesEmColisaoViewModel::class.java)
+        val viewModel = ViewModelProvider(
+            this, AsteroidesEmColisaoViewModel.AsteroidesEmColisaoViewModelFactory(
+                AsteroidesRepository()
+            )
+        ).get(AsteroidesEmColisaoViewModel::class.java)
 
         val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
 
         val recyler = view.findViewById<RecyclerView>(R.id.recyclerViewAsteroides)
         val manager = LinearLayoutManager(view.context)
-        val recylerAdapter = AsteroidesAdapter(_lista){
+        val recylerAdapter = AsteroidesAdapter(_lista) {
             viewModel.showBottomSheet(view.context, it)
         }
 
@@ -56,22 +59,27 @@ class AsteroidesFragment : Fragment() {
         }
 
         showLoading(true)
-        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkMenu)
+        val color = ContextCompat.getColor(view.context, R.color.colorWhite)
         @Suppress("DEPRECATION")
-        progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
+        progresBar.indeterminateDrawable.setColorFilter(
+            color,
+            android.graphics.PorterDuff.Mode.MULTIPLY
+        )
 
         view.findViewById<ImageView>(R.id.imageIconReturnAsteroides).setOnClickListener {
             val navegar = Navigation.findNavController(view)
             navegar.popBackStack()
         }
 
+
         viewModel.obterLista().observe(viewLifecycleOwner) {
-            if(!it.isNullOrEmpty()){
+            if (!it.isNullOrEmpty()) {
                 _lista.addAll(it)
                 showLoading(false)
                 recylerAdapter.notifyDataSetChanged()
             }
         }
+
 
     }
 

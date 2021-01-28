@@ -4,11 +4,14 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
+import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
 import com.example.cyberspace_info.listaeventosnaturais.repository.EventosNaturaisRepository
 import kotlinx.coroutines.Dispatchers
 
 class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository) : ViewModel() {
 
+    private var _listaAtual = mutableListOf<EventNaturalModel>()
+    private var _listaAntigos = mutableListOf<EventNaturalModel>()
      fun getPastNaturalEvents() = liveData(Dispatchers.IO) {
 
          val numberDays = 40
@@ -17,10 +20,11 @@ class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository
 
          try {
              val response = repository.getListEvents(numberDays,numberEvents,status)
-             response.events = response.events.slice(19..(response.events.size - 1))
-             emit(response.events)
+             _listaAtual = response.events.slice(19..(response.events.size - 1)).toMutableList()
+             emit(_listaAtual)
          }catch(ex:Exception){
              Log.e("ERRO_EVENTO_PASSADO",ex.message.toString())
+             emit(_listaAtual)
          }
     }
 
@@ -33,12 +37,11 @@ class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository
         try {
 
             val response = repository.getListEvents(numberDays,numberEvents,status)
-            response.events = response.events.slice(0..(response.events.size - 1))
-            emit(response.events)
-
+            _listaAntigos = response.events.slice(0..(response.events.size - 1)).toMutableList()
+            emit(_listaAntigos)
         }catch(ex:Exception){
-            //println("Erro:"+ex.message)
             Log.e("ERRO_EVENTO_ATUAL",ex.message.toString())
+            emit(_listaAntigos)
         }
 
     }

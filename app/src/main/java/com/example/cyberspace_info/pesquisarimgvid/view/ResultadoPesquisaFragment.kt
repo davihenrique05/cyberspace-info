@@ -2,7 +2,6 @@ package com.example.cyberspace_info.pesquisarimgvid.view
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
@@ -26,9 +26,9 @@ import com.google.android.material.card.MaterialCardView
 
 class ResultadoPesquisaFragment : Fragment() {
 
-    lateinit var _viewModel : PesquisarImagemViewModel
-    lateinit var _listaImagens : MutableList<ObjectImageModel>
-    lateinit var _adaptador : PesquisaImgAdapter
+    lateinit var _viewModel: PesquisarImagemViewModel
+    lateinit var _listaImagens: MutableList<ObjectImageModel>
+    lateinit var _adaptador: PesquisaImgAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,34 +51,41 @@ class ResultadoPesquisaFragment : Fragment() {
         novaPesquisa()
     }
 
-    fun novaPesquisa(){
-        requireView().findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid).setOnClickListener {
-            var search = requireView().findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
-            _listaImagens = mutableListOf()
-            view?.hideKeyboard()
-            resultarPesquisa(search)
-        }
+    fun novaPesquisa() {
+        requireView().findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid)
+            .setOnClickListener {
+                var search =
+                    requireView().findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
+                _listaImagens = mutableListOf()
+                view?.hideKeyboard()
+                resultarPesquisa(search)
+            }
     }
 
-    private fun resultarPesquisa(search:String?) {
+    private fun resultarPesquisa(search: String?) {
 
         val progresBar = requireView().findViewById<ProgressBar>(R.id.progessBar)
         showLoading(true)
 
-        val color = ContextCompat.getColor(requireContext(),R.color.colorPrimaryDarkest)
+        val color = ContextCompat.getColor(requireContext(), R.color.colorWhite)
         @Suppress("DEPRECATION")
-        progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
+        progresBar.indeterminateDrawable.setColorFilter(
+            color,
+            android.graphics.PorterDuff.Mode.MULTIPLY
+        )
 
-        _viewModel = ViewModelProvider(this,PesquisarImagemViewModel.PesquisarImagemViewModelFactory(
-            PesquisarImagemRepository()
-        )).get(PesquisarImagemViewModel::class.java)
+        _viewModel = ViewModelProvider(
+            this, PesquisarImagemViewModel.PesquisarImagemViewModelFactory(
+                PesquisarImagemRepository()
+            )
+        ).get(PesquisarImagemViewModel::class.java)
 
         val viewManager = GridLayoutManager(requireContext(), 3)
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.listaFotosVideos)
-        _adaptador = PesquisaImgAdapter(_listaImagens){
+        _adaptador = PesquisaImgAdapter(_listaImagens) {
             val navigation = Navigation.findNavController(requireView())
             val bundle = bundleOf("Imagem" to it.links[0].href)
-            navigation.navigate(R.id.action_resultadoPesquisaFragment_to_imagemFragment,bundle)
+            navigation.navigate(R.id.action_resultadoPesquisaFragment_to_imagemFragment, bundle)
         }
 
         recyclerView.apply {
@@ -89,7 +96,6 @@ class ResultadoPesquisaFragment : Fragment() {
 
         if (search != null) {
             _viewModel.getUrlsImages(search).observe(viewLifecycleOwner) {
-
                 if (!it.isNullOrEmpty()) {
                     exibirLista(it)
                 } else {
@@ -113,14 +119,15 @@ class ResultadoPesquisaFragment : Fragment() {
     }
 
 
-    private fun exibirLista(lista:List<ObjectImageModel>){
+    private fun exibirLista(lista: List<ObjectImageModel>) {
         _listaImagens.addAll(lista)
         showLoading(false)
         _adaptador.notifyDataSetChanged()
     }
 
     fun View.hideKeyboard() {
-        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputManager =
+            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 }

@@ -70,6 +70,13 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_erroFragment"
+            app:destination="@id/erroFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
 
 
     </fragment>
@@ -256,6 +263,19 @@
         <action
             android:id="@+id/action_resultadoPesquisaFragment_to_imagemFragment"
             app:destination="@id/imagemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/erroFragment"
+        android:name="com.example.cyberspace_info.mensagemdeerro.ErroFragment"
+        android:label="fragment_erro"
+        tools:layout="@layout/fragment_erro" >
+        <action
+            android:id="@+id/action_erroFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
     </fragment>
 
 

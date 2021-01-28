@@ -44,7 +44,7 @@ class EventosNaturaisAnterioresFragment : Fragment() {
         val progresBar = view.findViewById<ProgressBar>(R.id.progessBar)
 
         showLoading(true)
-        val color = ContextCompat.getColor(view.context,R.color.colorPrimaryDarkMenu)
+        val color = ContextCompat.getColor(view.context,R.color.colorWhite)
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
@@ -56,11 +56,11 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
         _adaptador = EventoAnteriorAdapter(listaEventos)
 
-        _viewModel.getPastNaturalEvents().observe(viewLifecycleOwner,{
-            if(!it.isNullOrEmpty()){
+        _viewModel.getPastNaturalEvents().observe(viewLifecycleOwner) {
+            if (!it.isNullOrEmpty()) {
                 exibirResultado(it)
             }
-        })
+        }
 
         val managerLinear = LinearLayoutManager(view.context)
         aplicationPropertyRecyclerView(managerLinear)

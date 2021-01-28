@@ -128,6 +128,7 @@
             android:padding="@dimen/dimen_16">
 
             <TextView
+                android:id="@+id/txtCardNotFound"
                 android:layout_width="0dp"
                 android:layout_margin="@dimen/dimen_48"
                 android:layout_height="wrap_content"
