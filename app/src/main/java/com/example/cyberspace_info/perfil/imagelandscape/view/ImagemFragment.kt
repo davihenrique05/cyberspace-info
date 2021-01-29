@@ -134,15 +134,15 @@ class ImagemFragment : Fragment() {
 
                 ref.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        if(snapshot.value != null){
+                        if (snapshot.value != null) {
                             val lista = snapshot.value as MutableList<HashMap<String, Any>>
                             val listaAtualizada = mutableListOf<ImagemEntity>()
                             lista.forEach { imagemFB ->
                                 val id = imagemFB["id"] as Long
                                 val uid = imagemFB["uid"] as String
                                 val imagemUrl = imagemFB["url"] as String
-                                if(urlImagem != imagemUrl){
-                                    val imagem = ImagemEntity(id.toInt(),uid,imagemUrl)
+                                if (urlImagem != imagemUrl) {
+                                    val imagem = ImagemEntity(id.toInt(), uid, imagemUrl)
                                     listaAtualizada.add(imagem)
                                 }
                             }

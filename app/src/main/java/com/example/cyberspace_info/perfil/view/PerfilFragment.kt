@@ -117,17 +117,17 @@ class PerfilFragment : Fragment() {
 
 
         for (userInfo in user.providerData) {
-            if (userInfo.providerId == "google.com" && userInfo.providerId == "facebook.com") {
+            if (userInfo.providerId == "google.com" || userInfo.providerId == "facebook.com") {
                 _loggedSocial = true
             }
         }
 
-        if(_loggedSocial){
+        if (!_loggedSocial) {
             editButton.setOnClickListener {
                 editButton.setImageResource(R.drawable.ic_baseline_check_24)
                 mudarUiParaAlteraçãoDeDados()
             }
-        }else{
+        } else {
             editButton.visibility = View.GONE
         }
 
@@ -144,11 +144,11 @@ class PerfilFragment : Fragment() {
         }
         val imagemProfile = requireView().findViewById<CircleImageView>(R.id.imgPerfil)
 
-        if(!_loggedSocial){
+        if (_loggedSocial) {
             Picasso.get()
                 .load(user.photoUrl)
                 .into(imagemProfile)
-        }else{
+        } else {
             val storage = FirebaseStorage.getInstance()
             val ref = storage.getReference("usersprofile")
             ref.child(user.uid).downloadUrl

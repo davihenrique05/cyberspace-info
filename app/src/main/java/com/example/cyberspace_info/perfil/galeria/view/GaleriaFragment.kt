@@ -19,7 +19,6 @@ import com.example.cyberspace_info.perfil.galeria.view.adapter.ImagensAdapter
 import com.example.cyberspace_info.perfil.repository.ImagemRepository
 import com.example.cyberspace_info.perfil.viewmodel.ImagemViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
 
 class GaleriaFragment : Fragment() {
