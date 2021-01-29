@@ -39,6 +39,7 @@ class PerfilFragment : Fragment() {
     lateinit var _viewModel: ImagemViewModel
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
     private var _imageURI: Uri? = null
+    private var _loggedSocial = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +53,9 @@ class PerfilFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val lista = arguments?.get("lista") as MutableList<HashMap<String, Any>>
         val user = FirebaseAuth.getInstance().currentUser
+
+        val editButton = view.findViewById<ImageView>(R.id.imageIconEdit)
+
         _viewModel = ViewModelProvider(
             this,
             ImagemViewModel.ImagemViewModelFacytory(
@@ -61,11 +65,6 @@ class PerfilFragment : Fragment() {
             )
         ).get(ImagemViewModel::class.java)
 
-        val editButton = view.findViewById<ImageView>(R.id.imageIconEdit)
-        editButton.setOnClickListener {
-            editButton.setImageResource(R.drawable.ic_baseline_check_24)
-            mudarUiParaAlteraçãoDeDados()
-        }
 
         view.findViewById<ImageView>(R.id.imageIconReturnPerfil).setOnClickListener {
             val navController = Navigation.findNavController(view)
@@ -115,6 +114,23 @@ class PerfilFragment : Fragment() {
 
         exibirImagensPerfil()
         exibirDadosDoUsuario()
+
+
+        for (userInfo in user.providerData) {
+            if (userInfo.providerId == "google.com" && userInfo.providerId == "facebook.com") {
+                _loggedSocial = true
+            }
+        }
+
+        if(_loggedSocial){
+            editButton.setOnClickListener {
+                editButton.setImageResource(R.drawable.ic_baseline_check_24)
+                mudarUiParaAlteraçãoDeDados()
+            }
+        }else{
+            editButton.visibility = View.GONE
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -126,19 +142,26 @@ class PerfilFragment : Fragment() {
         } else {
             requireView().findViewById<TextView>(R.id.txtPerfilNome).text = "Guest"
         }
-
-        val storage = FirebaseStorage.getInstance()
-        val ref = storage.getReference("usersprofile")
         val imagemProfile = requireView().findViewById<CircleImageView>(R.id.imgPerfil)
-        ref.child(user.uid).downloadUrl
-            .addOnSuccessListener {
-                Picasso.get()
-                    .load(it)
-                    .into(imagemProfile)
-            }
-            .addOnFailureListener {
-                imagemProfile.setImageResource(R.drawable.gorgeuos_space_cat)
-            }
+
+        if(!_loggedSocial){
+            Picasso.get()
+                .load(user.photoUrl)
+                .into(imagemProfile)
+        }else{
+            val storage = FirebaseStorage.getInstance()
+            val ref = storage.getReference("usersprofile")
+            ref.child(user.uid).downloadUrl
+                .addOnSuccessListener {
+                    Picasso.get()
+                        .load(it)
+                        .into(imagemProfile)
+                }
+                .addOnFailureListener {
+                    imagemProfile.setImageResource(R.drawable.gorgeuos_space_cat)
+                }
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
