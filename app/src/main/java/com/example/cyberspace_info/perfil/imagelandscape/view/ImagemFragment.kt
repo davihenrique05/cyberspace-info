@@ -19,6 +19,10 @@ import com.example.cyberspace_info.perfil.entity.ImagemEntity
 import com.example.cyberspace_info.perfil.repository.ImagemRepository
 import com.example.cyberspace_info.perfil.viewmodel.ImagemViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 
 
@@ -99,7 +103,7 @@ class ImagemFragment : Fragment() {
     private fun favoritarImagem(url: String?) {
         val user = FirebaseAuth.getInstance().currentUser
         if (url != null) {
-            _viewModel.salvarImagem(url,user!!.uid).observe(viewLifecycleOwner) {
+            _viewModel.salvarImagem(url, user!!.uid).observe(viewLifecycleOwner) {
                 val toast = Toast.makeText(
                     requireView().context,
                     getString(R.string.favorito),
@@ -124,7 +128,37 @@ class ImagemFragment : Fragment() {
 
         val user = FirebaseAuth.getInstance().currentUser
         if (urlImagem != null) {
-            _viewModel.deletarImagem(urlImagem,user!!.uid).observe(viewLifecycleOwner) {
+            _viewModel.deletarImagem(urlImagem, user!!.uid).observe(viewLifecycleOwner) {
+                val db = FirebaseDatabase.getInstance()
+                val ref = db.getReference(user.uid)
+
+                ref.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.value != null) {
+                            val lista = snapshot.value as MutableList<HashMap<String, Any>>
+                            val listaAtualizada = mutableListOf<ImagemEntity>()
+                            lista.forEach { imagemFB ->
+                                val id = imagemFB["id"] as Long
+                                val uid = imagemFB["uid"] as String
+                                val imagemUrl = imagemFB["url"] as String
+                                if (urlImagem != imagemUrl) {
+                                    val imagem = ImagemEntity(id.toInt(), uid, imagemUrl)
+                                    listaAtualizada.add(imagem)
+                                }
+                            }
+                            ref.setValue(listaAtualizada)
+                            ref.removeEventListener(this)
+                        }
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+
+                    }
+
+                })
+
+
                 val toast = Toast.makeText(
                     requireView().context,
                     getString(R.string.removido),

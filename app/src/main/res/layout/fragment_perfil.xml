@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/apod_3"/>
+            android:src="@drawable/header"/>
 
         <View
             android:layout_width="match_parent"
