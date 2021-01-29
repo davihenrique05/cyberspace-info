@@ -12,12 +12,19 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.menu.view.MainActivity
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
@@ -26,6 +33,7 @@ class LoginFragment : Fragment() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var callbackManager: CallbackManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +48,9 @@ class LoginFragment : Fragment() {
 
         val email = view.findViewById<TextInputEditText>(R.id.edtEmailLogin)
         val senha = view.findViewById<TextInputEditText>(R.id.edtSenhaLogin)
-        val senhaContainer = view.findViewById<TextInputLayout>(R.id.txtInputSenhaLogin)
+        val senhaContainer =view.findViewById<TextInputLayout>(R.id.txtInputSenhaLogin)
+
+        callbackManager = CallbackManager.Factory.create()
 
         auth = FirebaseAuth.getInstance()
 
@@ -59,6 +69,10 @@ class LoginFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.btnLoginGoogle).setOnClickListener {
             realizarLogin("", "", "G")
+        }
+
+        view.findViewById<ImageView>(R.id.btnLoginFacebook).setOnClickListener {
+            realizarLogin("","","F")
         }
     }
 
@@ -111,7 +125,7 @@ class LoginFragment : Fragment() {
 
             // autenticação por facebook
             "F" -> {
-
+                loginFacebook()
             }
         }
     }
@@ -138,6 +152,7 @@ class LoginFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        callbackManager.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
@@ -161,6 +176,27 @@ class LoginFragment : Fragment() {
                     erroCredencial()
                 }
             }
+    }
+
+    private fun loginFacebook() {
+        val instanceFirebase = LoginManager.getInstance()
+
+        instanceFirebase.logInWithReadPermissions(this, listOf("email", "public_profile"))
+        instanceFirebase.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+
+            override fun onSuccess(loginResult: LoginResult) {
+                val credential: AuthCredential = FacebookAuthProvider.getCredential(loginResult.accessToken.token)
+                FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { openMain() }
+            }
+
+            override fun onCancel() {
+                Toast.makeText(requireContext(), "Cancelado!", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onError(error: FacebookException) {
+                Toast.makeText(requireContext(), error.message, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     companion object {

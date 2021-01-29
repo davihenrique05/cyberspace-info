@@ -39,7 +39,7 @@ class PerfilFragment : Fragment() {
     lateinit var _viewModel: ImagemViewModel
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
     private var _imageURI: Uri? = null
-    private var _loggedSocial = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -116,13 +116,9 @@ class PerfilFragment : Fragment() {
         exibirDadosDoUsuario()
 
 
-        for (userInfo in user.providerData) {
-            if (userInfo.providerId == "google.com" || userInfo.providerId == "facebook.com") {
-                _loggedSocial = true
-            }
-        }
+         val loggedSocial = verificarProvedor()
 
-        if (!_loggedSocial) {
+        if (!loggedSocial) {
             editButton.setOnClickListener {
                 editButton.setImageResource(R.drawable.ic_baseline_check_24)
                 mudarUiParaAlteraçãoDeDados()
@@ -143,8 +139,8 @@ class PerfilFragment : Fragment() {
             requireView().findViewById<TextView>(R.id.txtPerfilNome).text = "Guest"
         }
         val imagemProfile = requireView().findViewById<CircleImageView>(R.id.imgPerfil)
-
-        if (_loggedSocial) {
+        val loggedSocial = verificarProvedor()
+        if (loggedSocial) {
             Picasso.get()
                 .load(user.photoUrl)
                 .into(imagemProfile)
@@ -153,6 +149,7 @@ class PerfilFragment : Fragment() {
             val ref = storage.getReference("usersprofile")
             ref.child(user.uid).downloadUrl
                 .addOnSuccessListener {
+                    _imageURI = it
                     Picasso.get()
                         .load(it)
                         .into(imagemProfile)
@@ -177,7 +174,15 @@ class PerfilFragment : Fragment() {
         edtNome.setText(nome.text)
         nome.visibility = View.GONE
 
+
         uploadImage.setOnClickListener {
+            if(_imageURI != null){
+                val imagemProfile =
+                    requireView().findViewById<CircleImageView>(R.id.imgPerfil)
+                Picasso.get()
+                    .load(_imageURI)
+                    .into(imagemProfile)
+            }
             procurarArquivo()
         }
 
@@ -220,9 +225,7 @@ class PerfilFragment : Fragment() {
 
                     user!!.updateProfile(profileUpdates).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val imagemProfile =
-                                requireView().findViewById<CircleImageView>(R.id.imgPerfil)
-                            armazenarImagemNoStorage(imagemProfile)
+                            armazenarImagemNoStorage()
                             alterarUiPadrao()
                         }
                     }
@@ -247,7 +250,7 @@ class PerfilFragment : Fragment() {
 
     }
 
-    private fun armazenarImagemNoStorage(imagemProfile: CircleImageView) {
+    private fun armazenarImagemNoStorage() {
 
         _imageURI?.run {
             val user = FirebaseAuth.getInstance().currentUser
@@ -351,4 +354,15 @@ class PerfilFragment : Fragment() {
         }
     }
 
+    fun verificarProvedor():Boolean{
+        val user = FirebaseAuth.getInstance().currentUser
+
+        for (userInfo in user!!.providerData) {
+            if (userInfo.providerId == "google.com" || userInfo.providerId == "facebook.com") {
+                return true
+            }
+        }
+
+        return false
+    }
 }
