@@ -2,19 +2,17 @@ package com.example.cyberspace_info.autenticacao.login.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.menu.view.MainActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.google.android.material.textfield.TextInputLayout.END_ICON_NONE
-import com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE
+import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginFragment : Fragment() {
@@ -36,39 +34,28 @@ class LoginFragment : Fragment() {
 
         view.findViewById<Button>(R.id.btnLogin).setOnClickListener {
 
-            if(verificarCampos(email,senha,senhaContainer)){
-                val intent = Intent(view.context,MainActivity::class.java)
-                activity?.overridePendingTransition(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
-                startActivity(intent)
-                activity?.finish()
+            if (verificarCampos(email, senha)) {
+                realizarLogin(email.text.toString(), senha.text.toString())
             }
         }
 
 
     }
 
-    private fun verificarCampos(email: TextInputEditText?, pass: TextInputEditText?, container: TextInputLayout): Boolean {
+    private fun verificarCampos(
+        email: TextInputEditText?,
+        pass: TextInputEditText?
+    ): Boolean {
 
         if (email?.text.toString() == "") {
-            email?.error = "O campo e-mail não pode estar vazio"
+            email?.error = getString(R.string.email_vazio)
             email?.requestFocus()
             return false
         }
+
         if (pass?.text.toString() == "") {
-            container.endIconMode = END_ICON_NONE
-            pass?.error = "O campo senha não pode estar vazio"
+            pass?.error = getString(R.string.senha_vazia)
             pass?.requestFocus()
-            pass?.addTextChangedListener(object :TextWatcher{
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    container.endIconMode = END_ICON_PASSWORD_TOGGLE
-                }
-
-                override fun afterTextChanged(s: Editable?){}
-
-            })
-
             return false
         }
 
@@ -80,6 +67,25 @@ class LoginFragment : Fragment() {
         email?.setText(username)
         val pass = view?.findViewById<TextInputEditText>(R.id.edtSenhaLogin)
         pass?.requestFocus()
+    }
+
+    private fun realizarLogin(emailText: String, passText: String) {
+        val auth = FirebaseAuth.getInstance()
+        auth.signInWithEmailAndPassword(emailText, passText)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val intent = Intent(requireContext(), MainActivity::class.java)
+                    requireActivity().overridePendingTransition(
+                        R.anim.fragment_fade_enter,
+                        R.anim.fragment_fade_exit
+                    )
+                    startActivity(intent)
+                    requireActivity().finish()
+                } else {
+                    Toast.makeText(requireContext(), "Credenciais incorretas", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
     }
 
 }

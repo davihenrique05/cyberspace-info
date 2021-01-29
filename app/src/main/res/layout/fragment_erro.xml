@@ -50,7 +50,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Você não vai acreditar... tinha um buraco negro... duas supernovas... e uma civilização alienígina... enfim, não sabemos onde foi para a pagina que tava aqui mas nosso time está a todo vapor para solucionar o problema!"
+            android:text="@string/mensagem_de_erro"
+            android:textSize="@dimen/dimen_text_17"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

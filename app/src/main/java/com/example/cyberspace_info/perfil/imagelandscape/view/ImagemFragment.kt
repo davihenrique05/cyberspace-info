@@ -18,6 +18,7 @@ import com.example.cyberspace_info.db.ImagemDatabase
 import com.example.cyberspace_info.perfil.entity.ImagemEntity
 import com.example.cyberspace_info.perfil.repository.ImagemRepository
 import com.example.cyberspace_info.perfil.viewmodel.ImagemViewModel
+import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 
 
@@ -36,6 +37,7 @@ class ImagemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val user = FirebaseAuth.getInstance().currentUser
 
         @Suppress("DEPRECATION")
         activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
@@ -63,7 +65,7 @@ class ImagemFragment : Fragment() {
         ).get(ImagemViewModel::class.java)
 
 
-        _viewModel.obterImagems().observe(viewLifecycleOwner) {
+        _viewModel.obterImagems(user!!.uid).observe(viewLifecycleOwner) {
             _listaDeImagens.clear()
             _listaDeImagens.addAll(it)
 
@@ -95,8 +97,9 @@ class ImagemFragment : Fragment() {
     }
 
     private fun favoritarImagem(url: String?) {
+        val user = FirebaseAuth.getInstance().currentUser
         if (url != null) {
-            _viewModel.salvarImagem(url).observe(viewLifecycleOwner) {
+            _viewModel.salvarImagem(url,user!!.uid).observe(viewLifecycleOwner) {
                 val toast = Toast.makeText(
                     requireView().context,
                     getString(R.string.favorito),
@@ -119,8 +122,9 @@ class ImagemFragment : Fragment() {
 
     private fun removerImagem(urlImagem: String?) {
 
+        val user = FirebaseAuth.getInstance().currentUser
         if (urlImagem != null) {
-            _viewModel.deletarImagem(urlImagem).observe(viewLifecycleOwner) {
+            _viewModel.deletarImagem(urlImagem,user!!.uid).observe(viewLifecycleOwner) {
                 val toast = Toast.makeText(
                     requireView().context,
                     getString(R.string.removido),

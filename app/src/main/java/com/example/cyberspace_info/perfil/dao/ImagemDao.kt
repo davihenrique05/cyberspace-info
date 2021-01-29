@@ -11,9 +11,9 @@ interface ImagemDao {
     @Insert
     suspend fun salvarImagem(imagem: ImagemEntity)
 
-    @Query("SELECT * FROM Imagens")
-    suspend fun obterImagens() : MutableList<ImagemEntity>
+    @Query("SELECT * FROM Imagens WHERE uid = :uid")
+    suspend fun obterImagens(uid:String) : MutableList<ImagemEntity>
 
-    @Query("DELETE FROM Imagens WHERE url = :url")
-    suspend fun deletarImagemUrl (url: String)
+    @Query("DELETE FROM Imagens WHERE url = :url AND uid = :uid")
+    suspend fun deletarImagemUrl (url: String, uid:String)
 }

@@ -18,6 +18,8 @@ import com.example.cyberspace_info.perfil.entity.ImagemEntity
 import com.example.cyberspace_info.perfil.galeria.view.adapter.ImagensAdapter
 import com.example.cyberspace_info.perfil.repository.ImagemRepository
 import com.example.cyberspace_info.perfil.viewmodel.ImagemViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 
 class GaleriaFragment : Fragment() {
@@ -78,13 +80,14 @@ class GaleriaFragment : Fragment() {
 
     fun carregarImagensFavoritas() {
 
+        val user = FirebaseAuth.getInstance().currentUser
         _recylerAdapter = ImagensAdapter(_listaDeImagens) {
             val navController = Navigation.findNavController(requireView())
             val bundle = bundleOf("Imagem" to it)
             navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
         }
 
-        _viewModel.obterImagems().observe(viewLifecycleOwner) {
+        _viewModel.obterImagems(user!!.uid).observe(viewLifecycleOwner) {
             val listaUrl = extrairUrl(it)
             _listaDeImagens.clear()
             _listaDeImagens.addAll(listaUrl)
