@@ -40,7 +40,6 @@ class PerfilFragment : Fragment() {
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
     private var _imageURI: Uri? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -66,7 +65,6 @@ class PerfilFragment : Fragment() {
         editButton.setOnClickListener {
             editButton.setImageResource(R.drawable.ic_baseline_check_24)
             mudarUiParaAlteraçãoDeDados()
-
         }
 
         view.findViewById<ImageView>(R.id.imageIconReturnPerfil).setOnClickListener {
@@ -92,7 +90,6 @@ class PerfilFragment : Fragment() {
         }
 
         _viewModel.obterImagems(user!!.uid).observe(viewLifecycleOwner) { listaLocal ->
-
             if (listaLocal.isNullOrEmpty()) {
                 if (!lista.isNullOrEmpty()) {
                     lista.forEach { imagemFB ->

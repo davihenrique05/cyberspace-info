@@ -2,20 +2,30 @@ package com.example.cyberspace_info.autenticacao.login.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.menu.view.MainActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 
 
 class LoginFragment : Fragment() {
+
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +42,24 @@ class LoginFragment : Fragment() {
         val senha = view.findViewById<TextInputEditText>(R.id.edtSenhaLogin)
         val senhaContainer = view.findViewById<TextInputLayout>(R.id.txtInputSenhaLogin)
 
-        view.findViewById<Button>(R.id.btnLogin).setOnClickListener {
+        auth = FirebaseAuth.getInstance()
 
+        /* variáveis para autenticação google */
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(view.context, gso)
+
+        view.findViewById<Button>(R.id.btnLogin).setOnClickListener {
             if (verificarCampos(email, senha)) {
-                realizarLogin(email.text.toString(), senha.text.toString())
+                realizarLogin(email.text.toString(), senha.text.toString(), "E")
             }
         }
 
-
+        view.findViewById<ImageView>(R.id.btnLoginGoogle).setOnClickListener {
+            realizarLogin("", "", "G")
+        }
     }
 
     private fun verificarCampos(
@@ -69,23 +89,81 @@ class LoginFragment : Fragment() {
         pass?.requestFocus()
     }
 
-    private fun realizarLogin(emailText: String, passText: String) {
-        val auth = FirebaseAuth.getInstance()
-        auth.signInWithEmailAndPassword(emailText, passText)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    val intent = Intent(requireContext(), MainActivity::class.java)
-                    requireActivity().overridePendingTransition(
-                        R.anim.fragment_fade_enter,
-                        R.anim.fragment_fade_exit
-                    )
-                    startActivity(intent)
-                    requireActivity().finish()
+    private fun realizarLogin(emailText: String, passText: String, tipoLogin:String) {
+        when (tipoLogin) {
+            // autenticação por email
+            "E" -> {
+                auth.signInWithEmailAndPassword(emailText, passText)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            openMain()
+                        } else {
+                            erroCredencial()
+                        }
+                    }
+            }
+
+            // autenticação por gmail
+            "G" -> {
+                val signInIntent = googleSignInClient.signInIntent
+                startActivityForResult(signInIntent, RC_SIGN_IN)
+            }
+
+            // autenticação por facebook
+            "F" -> {
+
+            }
+        }
+    }
+
+    fun openMain(){
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        requireActivity().overridePendingTransition(
+            R.anim.fragment_fade_enter,
+            R.anim.fragment_fade_exit
+        )
+        startActivity(intent)
+        requireActivity().finish()
+    }
+
+    fun erroCredencial(){
+        Toast.makeText(
+            requireContext(),
+            "Credenciais incorretas",
+            Toast.LENGTH_SHORT
+        )
+            .show()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)!!
+                //Log.d("GoogleAuth", "firebaseAuthWithGoogle:" + account.id)
+                firebaseAuthWithGoogle(account.idToken!!)
+            } catch (e: ApiException) {
+                erroCredencial()
+            }
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    openMain()
                 } else {
-                    Toast.makeText(requireContext(), "Credenciais incorretas", Toast.LENGTH_SHORT)
-                        .show()
+                    erroCredencial()
                 }
             }
     }
 
+    companion object {
+        private const val RC_SIGN_IN = 1
+    }
 }
