@@ -60,6 +60,7 @@
     <string name="email_vazio">O campo e-mail não pode estar vazio</string>
     <string name="senha_vazia">O campo senha não pode estar vazio</string>
     <string name="senha_pequena">A senha não pode ter menos do que 6 caracteres</string>
+    <string name="facebook_app_id">435217121128795</string> <string name="fb_login_protocol_scheme">fb435217121128795</string>
     <string-array name="rover_array">
         <item></item>
         <item>Curiosity</item>
