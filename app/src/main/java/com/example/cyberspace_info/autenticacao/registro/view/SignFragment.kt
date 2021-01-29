@@ -2,21 +2,23 @@ package com.example.cyberspace_info.autenticacao.registro.view
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.autenticacao.adapter.INavegarTab
 import com.example.cyberspace_info.autenticacao.view.LOGIN_FRAGMENT
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
 
 class SignFragment : Fragment() {
 
-    lateinit var mudarTab : INavegarTab
+    lateinit var mudarTab: INavegarTab
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,9 +39,8 @@ class SignFragment : Fragment() {
 
         view.findViewById<Button>(R.id.btnSignUP).setOnClickListener {
 
-            if(verificarCampos(email,senha,confirmacao)) {
-                mudarTab.mudarTab(LOGIN_FRAGMENT)
-                mudarTab.emailAlterado(email.text.toString())
+            if (verificarCampos(email, senha, confirmacao)) {
+                criarUsuario(email.text.toString(), senha.text.toString())
             }
         }
     }
@@ -49,18 +50,28 @@ class SignFragment : Fragment() {
         mudarTab = context as INavegarTab
     }
 
-    private fun verificarCampos(email: TextInputEditText?,
-                                pass: TextInputEditText?,
-                                passConfirmed: TextInputEditText?
+    private fun verificarCampos(
+        email: TextInputEditText?,
+        pass: TextInputEditText?,
+        passConfirmed: TextInputEditText?
     ): Boolean {
 
         if (email?.text.toString() == "") {
-            email?.error = "O campo e-mail não pode estar vazio"
+            email?.error = getString(R.string.email_vazio)
             email?.requestFocus()
             return false
         }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email?.text.toString()).matches()) {
+            email!!.error = getString(R.string.email_invalido)
+            return false
+        }
         if (pass?.text.toString() == "") {
-            pass?.error = "O campo senha não pode estar vazio"
+            pass?.error = getString(R.string.senha_vazia)
+            pass?.requestFocus()
+            return false
+        }
+        if (pass?.text.toString().length < 6) {
+            pass?.error = getString(R.string.senha_pequena)
             pass?.requestFocus()
             return false
         }
@@ -69,6 +80,27 @@ class SignFragment : Fragment() {
             passConfirmed?.requestFocus()
             return false
         }
+
         return true
+    }
+
+    private fun criarUsuario(email: String, pass: String) {
+        val mAuth = FirebaseAuth.getInstance()
+
+        mAuth.createUserWithEmailAndPassword(email, pass)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Usuário criado com sucesso",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    mudarTab.mudarTab(LOGIN_FRAGMENT)
+                    mudarTab.emailAlterado(email)
+                } else {
+                    Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_LONG)
+                        .show()
+                }
+            }
     }
 }

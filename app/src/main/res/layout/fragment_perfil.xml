@@ -44,14 +44,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="@dimen/dimen_4"
-        android:background="@drawable/apod_1">
+        android:layout_marginTop="@dimen/dimen_4">
+
+        <ImageView
+            android:id="@+id/imageViewCardBackgroundPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/apod_3"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.4"
-            android:background="@color/colorBase" />
+            android:alpha="0.2"
+            android:background="@color/colorBase"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgPerfil"
@@ -59,10 +67,36 @@
             android:layout_height="100dp"
             android:layout_marginStart="50dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/babe_yoda"
+            tools:src="@drawable/gorgeuos_space_cat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleBackPerfilEdit"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/black_bacground"
+            android:layout_marginStart="50dp"
+            android:alpha="0.4"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/imgPerfilEdit"
+            android:layout_width="@dimen/dimen_50"
+            android:layout_height="@dimen/dimen_50"
+            android:visibility="gone"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_camera_alt_24"
+            android:backgroundTint="@color/colorGrayDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/imgPerfil"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/imgPerfil"/>
 
         <TextView
             android:id="@+id/txtPerfilNome"
@@ -70,12 +104,32 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_16"
             android:layout_marginBottom="@dimen/dimen_16"
-            android:text="Babe Yoda"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimen_text_30"
             android:textStyle="bold"
+            tools:visibility="gone"
+            tools:text = "Babe Yoda"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgPerfil"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edtPerfilNome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLength="16"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_16"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimen_text_30"
+            android:textStyle="bold"
+            android:textCursorDrawable="@null"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgPerfil"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView

@@ -9,5 +9,7 @@ data class ImagemEntity (
     @PrimaryKey(autoGenerate = true)
     val id:Int,
     @ColumnInfo
-    val url: String
+    val url: String,
+    @ColumnInfo
+    val uid: String
 )

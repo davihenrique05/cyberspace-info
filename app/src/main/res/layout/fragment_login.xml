@@ -33,7 +33,6 @@
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/colorPrimaryDark"
         android:hint="@string/senha"
-        app:endIconMode="password_toggle"
         app:hintTextColor="@color/colorPrimaryDark"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 

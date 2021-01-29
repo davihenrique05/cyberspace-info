@@ -55,6 +55,11 @@
     <string name="erro_de_conexao">Erro de conexão, verifique sua internet!</string>
     <string name="verifique_internet">A conexão está com problemas, verifique sua internet!</string>
     <string name="data_na_terra">Data na Terra</string>
+    <string name="mensagem_de_erro">Você não vai acreditar... tinha um buraco negro... duas supernovas... e uma civilização alienígina... enfim, não sabemos onde foi para a pagina que tava aqui mas nosso time está a todo vapor para solucionar o problema!</string>
+    <string name="email_invalido">E-mail inválido</string>
+    <string name="email_vazio">O campo e-mail não pode estar vazio</string>
+    <string name="senha_vazia">O campo senha não pode estar vazio</string>
+    <string name="senha_pequena">A senha não pode ter menos do que 6 caracteres</string>
     <string-array name="rover_array">
         <item></item>
         <item>Curiosity</item>

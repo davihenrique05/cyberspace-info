@@ -32,15 +32,17 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/dimen_24"
-        android:layout_marginTop="@dimen/dimen_28"
+        android:layout_marginTop="@dimen/dimen_16"
         android:layout_marginEnd="@dimen/dimen_24"
-        android:layout_marginBottom="@dimen/dimen_28"
+        android:layout_marginBottom="@dimen/dimen_30"
         app:cardCornerRadius="@dimen/dimen_4"
         app:cardElevation="@dimen/dimen_16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewIcon">
+        app:layout_constraintTop_toBottomOf="@id/imageViewIcon"
+        app:layout_constraintVertical_bias="0.0">
 
 
         <androidx.viewpager.widget.ViewPager
@@ -51,10 +53,10 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayoutLogin"
-                app:tabSelectedTextColor="@color/colorPrimaryDark"
-                app:tabIndicatorColor="@color/colorPrimaryDark"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dimen_35" />
+                android:layout_height="@dimen/dimen_35"
+                app:tabIndicatorColor="@color/colorPrimaryDark"
+                app:tabSelectedTextColor="@color/colorPrimaryDark" />
 
 
         </androidx.viewpager.widget.ViewPager>

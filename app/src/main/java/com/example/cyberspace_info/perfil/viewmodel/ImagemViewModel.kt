@@ -9,30 +9,30 @@ import kotlinx.coroutines.Dispatchers
 
 class ImagemViewModel(
     private val repository: ImagemRepository
-):ViewModel() {
+) : ViewModel() {
 
     lateinit var _listadeimagens: MutableList<ImagemEntity>
 
-    fun salvarImagem(url: String) = liveData(Dispatchers.IO){
-        val imagem = ImagemEntity(0,url)
+    fun salvarImagem(url: String, uid: String) = liveData(Dispatchers.IO) {
+        val imagem = ImagemEntity(0, url, uid)
 
         repository.salvarImagem(imagem)
         emit(imagem)
     }
 
-    fun obterImagems() = liveData(Dispatchers.IO) {
-        val response = repository.obterImagems()
-        
+    fun obterImagems(uid: String) = liveData(Dispatchers.IO) {
+        val response = repository.obterImagems(uid)
+
         emit(response)
     }
 
-    fun deletarImagem(url: String) = liveData(Dispatchers.IO) {
+    fun deletarImagem(url: String, uid: String) = liveData(Dispatchers.IO) {
 
-        repository.deletarImagens(url)
+        repository.deletarImagens(url, uid)
         emit(url)
     }
 
-    class ImagemViewModelFacytory(private val repository: ImagemRepository):
+    class ImagemViewModelFacytory(private val repository: ImagemRepository) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return ImagemViewModel(repository) as T
