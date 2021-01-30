@@ -19,7 +19,7 @@ interface ProjectIdEndpoint {
 
     companion object{
 
-        val BASE_URL = "https://api.nasa.gov/techport/api/"
+        private const val BASE_URL = "https://api.nasa.gov/techport/api/"
         val Endpoint:ProjectIdEndpoint by lazy {
             NetworkUtils.getRetrofitInstance(BASE_URL).create(ProjectIdEndpoint::class.java)
         }

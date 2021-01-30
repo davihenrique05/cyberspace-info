@@ -24,10 +24,10 @@ import com.example.cyberspace_info.listatecnologiasusadas.viewmodel.ProjectIdVie
 
 class TecnologiasUsadasFragment : Fragment() {
 
-    lateinit var _viewModelProject: ProjectIdViewModel
-    lateinit var _listaProjetos: MutableList<ProjectDataModel>
+    private lateinit var _viewModelProject: ProjectIdViewModel
+    private lateinit var _listaProjetos: MutableList<ProjectDataModel>
     private lateinit var _adaptador: TecnologiasUsadasAdapter
-    lateinit var _listaIdProjeto: MutableList<ProjectIdModel>
+    private lateinit var _listaIdProjeto: MutableList<ProjectIdModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -91,7 +91,7 @@ class TecnologiasUsadasFragment : Fragment() {
 
         }
 
-        _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner) {
+        _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner) { it ->
 
             _listaIdProjeto.addAll(it)
 
@@ -130,7 +130,7 @@ class TecnologiasUsadasFragment : Fragment() {
         }
     }
 
-    fun listarResultados(lista: List<ProjectDataModel>) {
+    private fun listarResultados(lista: List<ProjectDataModel>) {
         _listaProjetos.clear()
         _listaProjetos.addAll(lista)
         showLoading(false)

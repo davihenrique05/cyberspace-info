@@ -36,7 +36,7 @@ private const val CONTENT_REQUEST_CODE = 1
 
 class PerfilFragment : Fragment() {
 
-    lateinit var _viewModel: ImagemViewModel
+    private lateinit var _viewModel: ImagemViewModel
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
     private var _imageURI: Uri? = null
 
@@ -102,7 +102,7 @@ class PerfilFragment : Fragment() {
                         }
 
                         if (!isSaved) {
-                            _viewModel.salvarImagem(imagemUrl, user!!.uid)
+                            _viewModel.salvarImagem(imagemUrl, user.uid)
                                 .observe(viewLifecycleOwner) {}
                         }
                     }
@@ -121,7 +121,7 @@ class PerfilFragment : Fragment() {
         if (!loggedSocial) {
             editButton.setOnClickListener {
                 editButton.setImageResource(R.drawable.ic_baseline_check_24)
-                mudarUiParaAlteraçãoDeDados()
+                mudarUiParaAlteracaoDeDados()
             }
         } else {
             editButton.visibility = View.GONE
@@ -162,7 +162,7 @@ class PerfilFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun mudarUiParaAlteraçãoDeDados() {
+    private fun mudarUiParaAlteracaoDeDados() {
         val nome = requireView().findViewById<TextView>(R.id.txtPerfilNome)
         val edtNome = requireView().findViewById<EditText>(R.id.edtPerfilNome)
         val uploadImage = requireView().findViewById<ImageView>(R.id.imgPerfilEdit)
@@ -193,7 +193,7 @@ class PerfilFragment : Fragment() {
         }
     }
 
-    fun procurarArquivo() {
+    private fun procurarArquivo() {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
@@ -215,7 +215,7 @@ class PerfilFragment : Fragment() {
         val name = requireView().findViewById<EditText>(R.id.edtPerfilNome).text.toString()
 
         if (_imageURI != null) {
-            if (!name.isNullOrBlank()) {
+            if (!name.isBlank()) {
                 if (NetworkListener.isOnline(requireContext())) {
                     val user = FirebaseAuth.getInstance().currentUser
 
@@ -292,7 +292,7 @@ class PerfilFragment : Fragment() {
             } else {
                 backView.visibility = View.GONE
                 mensagem.visibility = View.GONE
-                var urls = mutableListOf<String>()
+                val urls = mutableListOf<String>()
                 val ultimaPosicao = _listaDeImagens.size - 1
 
                 for (i in ultimaPosicao downTo 0) {
@@ -300,7 +300,7 @@ class PerfilFragment : Fragment() {
                 }
 
                 for (i in urls) {
-                    var posicao = urls.indexOf(i)
+                    val posicao = urls.indexOf(i)
 
                     if (posicao == 0) {
                         atribuirImagem(imagem, i)
@@ -322,19 +322,19 @@ class PerfilFragment : Fragment() {
         }
     }
 
-    fun atribuirImagem(imagem: ImageView, url: String) {
+    private fun atribuirImagem(imagem: ImageView, url: String) {
         Picasso.get()
             .load(url)
             .into(imagem)
     }
 
-    fun atribuirImagem(imagem: CircleImageView, url: Uri) {
+    private fun atribuirImagem(imagem: CircleImageView, url: Uri) {
         Picasso.get()
             .load(url)
             .into(imagem)
     }
 
-    fun abrirImagem(imagem: ImageView, url: String) {
+    private fun abrirImagem(imagem: ImageView, url: String) {
         imagem.setOnClickListener {
             val bundle = bundleOf("Imagem" to url)
             val navController = Navigation.findNavController(requireView())
@@ -354,7 +354,7 @@ class PerfilFragment : Fragment() {
         }
     }
 
-    fun verificarProvedor():Boolean{
+    private fun verificarProvedor():Boolean{
         val user = FirebaseAuth.getInstance().currentUser
 
         for (userInfo in user!!.providerData) {

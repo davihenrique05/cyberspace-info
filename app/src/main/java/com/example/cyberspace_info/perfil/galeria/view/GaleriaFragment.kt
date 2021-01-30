@@ -23,8 +23,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class GaleriaFragment : Fragment() {
 
-    lateinit var _viewModel: ImagemViewModel
-    lateinit var _recylerAdapter: ImagensAdapter
+    private lateinit var _viewModel: ImagemViewModel
+    private lateinit var _recylerAdapter: ImagensAdapter
     private var _listaDeImagens = mutableListOf<String>()
 
     override fun onCreateView(
@@ -77,7 +77,7 @@ class GaleriaFragment : Fragment() {
     }
 
 
-    fun carregarImagensFavoritas() {
+    private fun carregarImagensFavoritas() {
 
         val user = FirebaseAuth.getInstance().currentUser
         _recylerAdapter = ImagensAdapter(_listaDeImagens) {
@@ -94,7 +94,7 @@ class GaleriaFragment : Fragment() {
         }
     }
 
-    fun navegacaoEntreTelas(tela: String?) {
+    private fun navegacaoEntreTelas(tela: String?) {
 
         val back = requireView().findViewById<ImageView>(R.id.imageIconReturnGaleria)
         back.setOnClickListener {
@@ -103,7 +103,7 @@ class GaleriaFragment : Fragment() {
         }
     }
 
-    fun extrairUrl(lista: MutableList<ImagemEntity>): MutableList<String> {
+    private fun extrairUrl(lista: MutableList<ImagemEntity>): MutableList<String> {
         val listaDeUrl = mutableListOf<String>()
         val ultimo = lista.size - 1
 

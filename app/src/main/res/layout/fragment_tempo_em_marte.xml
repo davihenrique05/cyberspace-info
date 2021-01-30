@@ -32,7 +32,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txtTittleClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -184,7 +183,7 @@
                     android:layout_weight="1"
                     android:text="@string/temperatura"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimen_13"
+                    android:textSize="@dimen/dimen_text_13"
                     android:textStyle="bold" />
 
                 <TextView

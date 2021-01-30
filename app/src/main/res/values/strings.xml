@@ -1,13 +1,10 @@
 <resources>
     <string name="app_name">Cyberspace Info</string>
     <string name="imagem_do_dia">IMAGEM DO DIA</string>
-    <string name="imagens">IMAGENS</string>
     <string name="perfil">PERFIL</string>
     <string name="mars_rover">MARS ROVER</string>
     <string name="eventos_naturais">EVENTOS NATURAIS</string>
     <string name="objetos_em_rota_de_colisao">OBJETOS EM ROTA DE COLISÃO</string>
-    <string name="planetas_orbitando_estrelas">PLANETAS ORBITANDO ESTRELAS</string>
-    <string name="novas_tecnologias">NOVAS TECNOLOGIAS</string>
     <string name="tempo_em_marte">TEMPO EM MARTE</string>
     <string name="eventos_naturais_titulo">Eventos Naturais</string>
     <string name="atuais">Atuais</string>
@@ -18,13 +15,11 @@
     <string name="sign_up">Sign UP</string>
     <string name="or">OR</string>
     <string name="login">Login</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tecnologias_usadas">Tecnologias Usadas</string>
     <string name="imagens_favoritas">Imagens Favoritas</string>
     <string name="tecnologias_usadas_menu">TECNOLOGIAS USADAS</string>
     <string name="galeria">GALERIA</string>
     <string name="menu_comparacao">Menu</string>
-    <string name="galeria_comparacao">Galeria</string>
     <string name="perfil_comparacao">Perfil</string>
     <string name="marsrover_comparacao">MarsRover</string>
     <string name="tempo_em_marte_tela">Tempo em Marte</string>
@@ -51,10 +46,6 @@
     <string name="internet_erro_content">Você precisa estar conectado a internet para utilizar o aplicativo.</string>
     <string name="internet_erro_confirmed">OK!</string>
     <string name="internet_erro_sair">Sair</string>
-    <string name="internet_erro_perfil">Sem conexão apenas o perfil estára disponível</string>
-    <string name="erro_de_conexao">Erro de conexão, verifique sua internet!</string>
-    <string name="verifique_internet">A conexão está com problemas, verifique sua internet!</string>
-    <string name="data_na_terra">Data na Terra</string>
     <string name="mensagem_de_erro">Você não vai acreditar... tinha um buraco negro... duas supernovas... e uma civilização alienígina... enfim, não sabemos onde foi para a pagina que tava aqui mas nosso time está a todo vapor para solucionar o problema!</string>
     <string name="email_invalido">E-mail inválido</string>
     <string name="email_vazio">O campo e-mail não pode estar vazio</string>
@@ -62,7 +53,7 @@
     <string name="senha_pequena">A senha não pode ter menos do que 6 caracteres</string>
     <string name="facebook_app_id">435217121128795</string> <string name="fb_login_protocol_scheme">fb435217121128795</string>
     <string-array name="rover_array">
-        <item></item>
+        <item />
         <item>Curiosity</item>
         <item>Opportunity</item>
         <item>Spirit</item>

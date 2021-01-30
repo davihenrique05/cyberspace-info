@@ -28,7 +28,7 @@ import com.squareup.picasso.Picasso
 
 class ImagemFragment : Fragment() {
 
-    lateinit var _viewModel: ImagemViewModel
+    private lateinit var _viewModel: ImagemViewModel
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
 
     override fun onCreateView(

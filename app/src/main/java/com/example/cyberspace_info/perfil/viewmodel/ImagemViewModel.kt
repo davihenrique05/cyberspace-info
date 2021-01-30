@@ -11,8 +11,6 @@ class ImagemViewModel(
     private val repository: ImagemRepository
 ) : ViewModel() {
 
-    lateinit var _listadeimagens: MutableList<ImagemEntity>
-
     fun salvarImagem(url: String, uid: String) = liveData(Dispatchers.IO) {
         val imagem = ImagemEntity(0, url, uid)
 

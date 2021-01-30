@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#105bd8</color>
     <color name="colorPrimaryDark">#0b3d91</color>
     <color name="colorPrimaryDarkMenu">#8D0B3D91</color>
     <color name="colorPrimaryDarkest">#061f4a</color>
@@ -11,19 +10,7 @@
     <color name="colorGray">#5b616b</color>
     <color name="colorGrayTitleAndContent">#47525E</color>
     <color name="colorGrayDark">#323a45</color>
-    <color name="colorGrayLight">#aeb0b5</color>
-    <color name="colorGrayLighter">#d6d7d9</color>
     <color name="colorGrayLightest">#f1f1f1</color>
     <color name="colorWhite">#ffffff</color>
-    <color name="colorPrimaryAlt">#02bfe7</color>
-    <color name="colorPrimaryAltDarkest">#046b99</color>
-    <color name="colorPrimaryAltDark">#00a6d2</color>
-    <color name="colorPrimaryAltLight">#9bdaf1</color>
-    <color name="colorPrimaryAltLightest">#e1f3f8</color>
-    <color name="colorSecundary">#dd361c</color>
-    <color name="colorSecundaryDarkest">#99231b</color>
-    <color name="colorSecundaryDark">#c62d1f</color>
-    <color name="colorSecundaryLight">#e59892</color>
-    <color name="colorSecundaryLightest">#f9e0de</color>
     <color name="colorBlueLightBackground">#EEF6FF</color>
 </resources>

@@ -16,7 +16,7 @@ interface EventosNaturaisEndpoint {
         ) : EventoNaturalContainerModel
 
     companion object {
-        const val BASE_URL_EONET = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/"
+        private const val BASE_URL_EONET = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/"
         val Endpoint: EventosNaturaisEndpoint by lazy {
             NetworkUtils.getRetrofitInstance(BASE_URL_EONET).create(EventosNaturaisEndpoint::class.java)
         }

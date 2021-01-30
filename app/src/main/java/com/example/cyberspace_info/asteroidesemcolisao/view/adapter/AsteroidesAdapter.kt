@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.asteroidesemcolisao.model.AsteroideModel
-import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.util.*
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class AsteroidesAdapter(
@@ -34,17 +32,17 @@ class AsteroidesAdapter(
 
 
             nome.text = asteroideModel.nome
-            diametroMax.text = "Diametro: ${diametroFormatado} KM"
-            velocidade.text = "Velocidade: ${velocidadeFormatada} Km/h"
+            diametroMax.text = "Diametro: $diametroFormatado KM"
+            velocidade.text = "Velocidade: $velocidadeFormatada Km/h"
             data.text = dataFormatada
 
         }
 
         @SuppressLint("SimpleDateFormat")
         fun formatarData(data:String): String {
-            val formato = SimpleDateFormat("yyyy-MM-dd");
-            val dataUm = formato.parse(data);
-            formato.applyPattern("dd-MM-yyyy");
+            val formato = SimpleDateFormat("yyyy-MM-dd")
+            val dataUm = formato.parse(data)
+            formato.applyPattern("dd-MM-yyyy")
             return formato.format(dataUm)
         }
     }

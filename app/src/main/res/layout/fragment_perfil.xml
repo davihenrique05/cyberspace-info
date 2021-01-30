@@ -47,7 +47,6 @@
         android:layout_marginTop="@dimen/dimen_4">
 
         <ImageView
-            android:id="@+id/imageViewCardBackgroundPerfil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -125,6 +124,7 @@
             android:textSize="@dimen/dimen_text_30"
             android:textStyle="bold"
             android:textCursorDrawable="@null"
+            android:inputType="text"
             android:visibility="gone"
             tools:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"

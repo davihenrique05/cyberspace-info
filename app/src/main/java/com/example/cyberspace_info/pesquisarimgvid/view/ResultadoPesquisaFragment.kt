@@ -26,9 +26,9 @@ import com.google.android.material.card.MaterialCardView
 
 class ResultadoPesquisaFragment : Fragment() {
 
-    lateinit var _viewModel: PesquisarImagemViewModel
-    lateinit var _listaImagens: MutableList<ObjectImageModel>
-    lateinit var _adaptador: PesquisaImgAdapter
+    private lateinit var _viewModel: PesquisarImagemViewModel
+    private lateinit var _listaImagens: MutableList<ObjectImageModel>
+    private lateinit var _adaptador: PesquisaImgAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,10 +51,10 @@ class ResultadoPesquisaFragment : Fragment() {
         novaPesquisa()
     }
 
-    fun novaPesquisa() {
+    private fun novaPesquisa() {
         requireView().findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid)
             .setOnClickListener {
-                var search =
+                val search =
                     requireView().findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
                 _listaImagens = mutableListOf()
                 view?.hideKeyboard()
@@ -125,7 +125,7 @@ class ResultadoPesquisaFragment : Fragment() {
         _adaptador.notifyDataSetChanged()
     }
 
-    fun View.hideKeyboard() {
+    private fun View.hideKeyboard() {
         val inputManager =
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(windowToken, 0)

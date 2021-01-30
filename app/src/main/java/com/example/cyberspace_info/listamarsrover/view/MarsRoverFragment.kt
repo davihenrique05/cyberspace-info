@@ -24,9 +24,9 @@ import java.util.*
 
 
 class MarsRoverFragment : Fragment() {
-    var dia: Int
-    var mes: Int
-    var ano: Int
+    private var dia: Int
+    private var mes: Int
+    private var ano: Int
 
     init {
         val calendar = Calendar.getInstance()
@@ -65,8 +65,8 @@ class MarsRoverFragment : Fragment() {
         }
 
         view.findViewById<ImageView>(R.id.imgPesquisar_fMarsRover).setOnClickListener {
-            if (consisteTela(view.findViewById<TextInputEditText>(R.id.textd),view.findViewById<Spinner>(R.id.rover_spinner))) {
-                val _viewModel = ViewModelProvider(
+            if (consisteTela(view.findViewById(R.id.textd),view.findViewById(R.id.rover_spinner))) {
+                val viewModel = ViewModelProvider(
                     this,
                     MarsRoverPhotosViewModel.MarsRoverPhotosViewModelFactory(
                         MarsRoverPhotosRepository()
@@ -79,9 +79,9 @@ class MarsRoverFragment : Fragment() {
                 val ano = dataMarsRover.substring(6, 10)
 
                 val spnRover = view.findViewById<Spinner>(R.id.rover_spinner)
-                _viewModel.obterLista(spnRover.selectedItem.toString().toLowerCase(), "$ano-$mes-$dia")
+                viewModel.obterLista(spnRover.selectedItem.toString().toLowerCase(), "$ano-$mes-$dia")
                     .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-                        var lista = mutableListOf<String>()
+                        val lista = mutableListOf<String>()
 
                         for (marsRover in it) {
                             lista.add(marsRover.imagemURL)
@@ -106,34 +106,32 @@ class MarsRoverFragment : Fragment() {
     private fun abrirCalendario(minhaView: View) {
         val dialog = DatePickerDialog(
             minhaView.context,
-            AlertDialog.THEME_DEVICE_DEFAULT_DARK, object : DatePickerDialog.OnDateSetListener {
-                override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                    var diaRetorno = dayOfMonth
-                    var mesRetorno = month + 1
+            AlertDialog.THEME_DEVICE_DEFAULT_DARK,
+            { view, year, month, dayOfMonth ->
+                val diaRetorno = dayOfMonth
+                val mesRetorno = month + 1
 
-                    var diaString = ""
-                    if (diaRetorno < 10) {
-                        diaString = "0"
-                    }
-
-                    var mesString = ""
-                    if (mesRetorno < 10) {
-                        mesString = "0"
-                    }
-                    mesString = mesString + mesRetorno
-                    diaString = diaString + diaRetorno
-
-                    minhaView.findViewById<TextInputEditText>(R.id.textd)
-                        .setText("$diaString/$mesString/$year")
+                var diaString = ""
+                if (diaRetorno < 10) {
+                    diaString = "0"
                 }
 
+                var mesString = ""
+                if (mesRetorno < 10) {
+                    mesString = "0"
+                }
+                mesString += mesRetorno
+                diaString += diaRetorno
+
+                minhaView.findViewById<TextInputEditText>(R.id.textd)
+                    .setText("$diaString/$mesString/$year")
             }, ano, mes, dia
         )
-        dialog.datePicker.setMaxDate(Date().time)
+        dialog.datePicker.maxDate = Date().time
         dialog.show()
     }
 
-    fun consisteTela(edtDataMarsRover:TextInputEditText,spnRover:Spinner):Boolean{
+    private fun consisteTela(edtDataMarsRover:TextInputEditText, spnRover:Spinner):Boolean{
         if (edtDataMarsRover.text.toString() == "") {
             edtDataMarsRover.error = "Informe a data da Terra"
             return false

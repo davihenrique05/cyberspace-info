@@ -1,18 +1,15 @@
 package com.example.cyberspace_info.pesquisarimgvid.view
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.cyberspace_info.R
@@ -20,7 +17,7 @@ import com.example.cyberspace_info.R
 
 class PesquisaFragment : Fragment() {
 
-    lateinit var _navigation: NavController
+    private lateinit var _navigation: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,16 +42,17 @@ class PesquisaFragment : Fragment() {
 
         requireView().findViewById<ImageView>(R.id.imgBtnPesquisar).setOnClickListener {
 
-            var search = requireView().findViewById<TextView>(R.id.txtPesquisaImage).text.toString()
+            val search = requireView().findViewById<TextView>(R.id.txtPesquisaImage).text.toString()
             val bundle = bundleOf("search" to search)
             view?.hideKeyboard()
-            _navigation.navigate(R.id.action_pesquisaFragment_to_resultadoPesquisaFragment,bundle)
+            _navigation.navigate(R.id.action_pesquisaFragment_to_resultadoPesquisaFragment, bundle)
         }
     }
 
 
-    fun View.hideKeyboard() {
-        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    private fun View.hideKeyboard() {
+        val inputManager =
+            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 }

@@ -32,7 +32,6 @@
                     app:layout_constraintVertical_bias="0.523" />
 
                 <TextView
-                    android:id="@+id/txtTittleMars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -63,7 +62,6 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_weight="1"
         android:clickable="false"
         android:focusable="false"
         app:cardBackgroundColor="@color/colorPrimaryDarkMenu">
