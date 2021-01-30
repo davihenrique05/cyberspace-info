@@ -132,7 +132,7 @@ class PerfilFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun exibirDadosDoUsuario() {
         val user = FirebaseAuth.getInstance().currentUser
-        if (!user!!.displayName.isNullOrBlank()) {
+        if (user!!.displayName!!.isNotEmpty()) {
             val nome = requireView().findViewById<TextView>(R.id.txtPerfilNome)
             nome.text = user.displayName
         } else {
@@ -215,7 +215,7 @@ class PerfilFragment : Fragment() {
         val name = requireView().findViewById<EditText>(R.id.edtPerfilNome).text.toString()
 
         if (_imageURI != null) {
-            if (!name.isBlank()) {
+            if (name.isNotEmpty()) {
                 if (NetworkListener.isOnline(requireContext())) {
                     val user = FirebaseAuth.getInstance().currentUser
 
