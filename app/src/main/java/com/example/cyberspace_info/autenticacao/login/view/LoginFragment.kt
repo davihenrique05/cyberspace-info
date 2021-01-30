@@ -2,7 +2,6 @@ package com.example.cyberspace_info.autenticacao.login.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,7 +47,7 @@ class LoginFragment : Fragment() {
 
         val email = view.findViewById<TextInputEditText>(R.id.edtEmailLogin)
         val senha = view.findViewById<TextInputEditText>(R.id.edtSenhaLogin)
-        val senhaContainer =view.findViewById<TextInputLayout>(R.id.txtInputSenhaLogin)
+        val senhaContainer = view.findViewById<TextInputLayout>(R.id.txtInputSenhaLogin)
 
         callbackManager = CallbackManager.Factory.create()
 
@@ -72,7 +71,7 @@ class LoginFragment : Fragment() {
         }
 
         view.findViewById<ImageView>(R.id.btnLoginFacebook).setOnClickListener {
-            realizarLogin("","","F")
+            realizarLogin("", "", "F")
         }
     }
 
@@ -103,7 +102,7 @@ class LoginFragment : Fragment() {
         pass?.requestFocus()
     }
 
-    private fun realizarLogin(emailText: String, passText: String, tipoLogin:String) {
+    private fun realizarLogin(emailText: String, passText: String, tipoLogin: String) {
         when (tipoLogin) {
             // autenticação por email
             "E" -> {
@@ -130,7 +129,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun openMain(){
+    fun openMain() {
         val intent = Intent(requireContext(), MainActivity::class.java)
         requireActivity().overridePendingTransition(
             R.anim.fragment_fade_enter,
@@ -140,7 +139,7 @@ class LoginFragment : Fragment() {
         requireActivity().finish()
     }
 
-    fun erroCredencial(){
+    private fun erroCredencial() {
         Toast.makeText(
             requireContext(),
             "Credenciais incorretas",
@@ -185,8 +184,10 @@ class LoginFragment : Fragment() {
         instanceFirebase.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
 
             override fun onSuccess(loginResult: LoginResult) {
-                val credential: AuthCredential = FacebookAuthProvider.getCredential(loginResult.accessToken.token)
-                FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { openMain() }
+                val credential: AuthCredential =
+                    FacebookAuthProvider.getCredential(loginResult.accessToken.token)
+                FirebaseAuth.getInstance().signInWithCredential(credential)
+                    .addOnCompleteListener { openMain() }
             }
 
             override fun onCancel() {

@@ -46,17 +46,16 @@ class AsteroidesEmColisaoViewModel(
     }
 
 
-    fun obterDiaDeHoje(): String {
+    private fun obterDiaDeHoje(): String {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH) + 1
         val day = c.get(Calendar.DAY_OF_MONTH)
-        val string = "${year}-${String.format("%02d", month)}-${String.format("%02d", day)}"
 
-        return string
+        return "${year}-${String.format("%02d", month)}-${String.format("%02d", day)}"
     }
 
-    fun intervaloDia(): String {
+    private fun intervaloDia(): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd")
         val data = obterDiaDeHoje()
         val parsed = dateFormat.parse(data)
@@ -66,9 +65,8 @@ class AsteroidesEmColisaoViewModel(
         c.add(Calendar.DAY_OF_YEAR, -1)
 
         val dataNova = c.time
-        val string = dateFormat.format(dataNova)
 
-        return string
+        return dateFormat.format(dataNova)
     }
 
     fun showBottomSheet(context: Context, it: AsteroideModel) {
@@ -88,13 +86,13 @@ class AsteroidesEmColisaoViewModel(
         )
     }
 
-    fun mapearTreeMap(it: LinkedTreeMap<String, Any>): AsteroideModel {
+    private fun mapearTreeMap(it: LinkedTreeMap<String, Any>): AsteroideModel {
 
         val diametros = it["estimated_diameter"] as LinkedTreeMap<String, Any>
         val metros = diametros["meters"] as LinkedTreeMap<String, Double>
         val data = it["close_approach_data"] as List<LinkedTreeMap<String, Any>>
         val velocidade = data[0]["relative_velocity"] as LinkedTreeMap<String, String>
-        val asteroid = AsteroideModel(
+        return AsteroideModel(
             it["name"].toString(),
             it["nasa_jpl_url"].toString(),
             metros["estimated_diameter_min"]!!.toDouble(),
@@ -102,7 +100,6 @@ class AsteroidesEmColisaoViewModel(
             data[0]["close_approach_date"].toString(),
             velocidade["kilometers_per_hour"]!!.toDouble()
         )
-        return asteroid
     }
 
     class AsteroidesEmColisaoViewModelFactory(private val repository: AsteroidesRepository) :

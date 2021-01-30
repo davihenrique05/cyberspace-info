@@ -12,7 +12,7 @@ class PesquisarImagemViewModel(val repository: PesquisarImagemRepository):ViewMo
     private var _lista = mutableListOf<ObjectImageModel>()
     fun getUrlsImages(search:String) = liveData(Dispatchers.IO){
         try {
-            var response = repository.getUrlsImages(search)
+            val response = repository.getUrlsImages(search)
             _lista = response.collection.items.toMutableList()
             emit(_lista)
         }catch(ex:Exception){

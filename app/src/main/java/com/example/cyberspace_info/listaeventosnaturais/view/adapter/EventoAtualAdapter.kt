@@ -23,7 +23,7 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>): Recycler
         fun bind(event:EventNaturalModel){
 
 
-            var coordenadasUrl = "https://maps.googleapis.com/maps/api/staticmap?"+"center=${event.geometries[0].coordinates[1]},${event.geometries[0].coordinates[0]}&"+"zoom=11&size=250x250&key=AIzaSyDFf6J-wAKE1OS-K7EYkn_pbznUhy55J2w"
+            val coordenadasUrl = "https://maps.googleapis.com/maps/api/staticmap?"+"center=${event.geometries[0].coordinates[1]},${event.geometries[0].coordinates[0]}&"+"zoom=11&size=250x250&key=AIzaSyDFf6J-wAKE1OS-K7EYkn_pbznUhy55J2w"
 
             Log.i("IMAGEM : ",coordenadasUrl)
             Picasso.get().load(coordenadasUrl).into(imagemCordenadas)

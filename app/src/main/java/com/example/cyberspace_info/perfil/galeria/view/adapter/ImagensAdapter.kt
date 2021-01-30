@@ -19,10 +19,10 @@ class ImagensAdapter(
 
         fun bind(url: String) {
             var urlConverted = ""
-            if(url.contains("http") && !url.contains("https")){
-                urlConverted = url.replace("http","https")
+            urlConverted = if(url.contains("http") && !url.contains("https")){
+                url.replace("http","https")
             }else{
-                urlConverted = url
+                url
             }
 
             Picasso.get()

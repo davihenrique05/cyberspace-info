@@ -11,7 +11,6 @@
     android:paddingTop="@dimen/dimen_4">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInputEmailSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_8"
@@ -28,7 +27,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInputSenhaSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/colorPrimaryDark"
@@ -45,7 +43,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInputConfirmacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/colorPrimaryDark"
@@ -113,7 +110,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/btnSignGoogle"
         android:layout_marginTop="@dimen/dimen_8"
         android:layout_width="@dimen/dimen_login_f_g_216dp"
         android:layout_height="@dimen/dimen_38"
@@ -122,7 +118,6 @@
         android:src="@drawable/ic_sign_with_google"/>
 
     <ImageView
-        android:id="@+id/btnSignFacebook"
         android:layout_marginTop="@dimen/dimen_4"
         android:layout_marginBottom="@dimen/dimen_8"
         android:layout_width="@dimen/dimen_login_f_g_216dp"

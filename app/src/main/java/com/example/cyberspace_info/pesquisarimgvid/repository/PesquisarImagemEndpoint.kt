@@ -12,7 +12,7 @@ interface PesquisarImagemEndpoint {
 
     companion object{
 
-        val BASE_URL = "https://images-api.nasa.gov/"
+        private const val BASE_URL = "https://images-api.nasa.gov/"
         val Endpoint: PesquisarImagemEndpoint by lazy {
             NetworkUtils.getRetrofitInstance(BASE_URL).create(PesquisarImagemEndpoint::class.java)
         }

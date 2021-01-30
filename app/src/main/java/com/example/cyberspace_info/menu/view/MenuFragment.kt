@@ -30,8 +30,8 @@ import com.squareup.picasso.Picasso
 
 class MenuFragment : Fragment() {
 
-    lateinit var _viewModel: ImageViewModel
-    lateinit var _url: String
+    private lateinit var _viewModel: ImageViewModel
+    private lateinit var _url: String
     private var _listaImagens = arrayListOf<ImagemEntity>()
 
     override fun onCreateView(

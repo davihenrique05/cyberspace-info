@@ -15,10 +15,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="progressBarBlue" parent="@style/Theme.AppCompat">
-        <item name="colorAccent">@color/colorPrimaryDarkest</item>
-    </style>
-
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">@color/colorGrayDark</item>
         <item name="android:textColor">@color/colorWhite</item>

@@ -19,7 +19,7 @@ const val LOGIN_FRAGMENT = 0
 class AutenticacaoActivity : AppCompatActivity(), INavegarTab {
 
     private val tab by lazy { findViewById<TabLayout>(R.id.tabLayoutLogin) }
-    lateinit var loginFragment: LoginFragment
+    private lateinit var loginFragment: LoginFragment
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class AutenticacaoActivity : AppCompatActivity(), INavegarTab {
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun checkConnection() {
-        var isOnline = NetworkListener.isOnline(this)
+        val isOnline = NetworkListener.isOnline(this)
         if (!isOnline) {
             val dialog = MaterialAlertDialogBuilder(this,R.style.MyDialogTheme)
                 .setCancelable(false)

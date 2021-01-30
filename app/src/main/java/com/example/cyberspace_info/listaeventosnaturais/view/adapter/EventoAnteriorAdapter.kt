@@ -7,25 +7,26 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.lottie.utils.Utils
 import com.example.cyberspace_info.R
 import com.example.cyberspace_info.listaeventosnaturais.model.EventNaturalModel
 import com.squareup.picasso.Picasso
 
-class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) : RecyclerView.Adapter<EventoAnteriorAdapter.EventoAnteriorViewHolder>() {
+class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) :
+    RecyclerView.Adapter<EventoAnteriorAdapter.EventoAnteriorViewHolder>() {
 
-    class EventoAnteriorViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    class EventoAnteriorViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val title : TextView by lazy { view.findViewById<TextView>(R.id.txtTitleEvent)}
-        private val category : TextView by lazy { view.findViewById<TextView>(R.id.txtCategoryEvent)}
-        private val date : TextView by lazy { view.findViewById<TextView>(R.id.txtDateEvent)}
-        private val imagemCordenadas : ImageView by lazy {view.findViewById<ImageView>(R.id.imgCoordinates)}
+        private val title: TextView by lazy { view.findViewById<TextView>(R.id.txtTitleEvent) }
+        private val category: TextView by lazy { view.findViewById<TextView>(R.id.txtCategoryEvent) }
+        private val date: TextView by lazy { view.findViewById<TextView>(R.id.txtDateEvent) }
+        private val imagemCordenadas: ImageView by lazy { view.findViewById<ImageView>(R.id.imgCoordinates) }
 
-        fun bind(event:EventNaturalModel){
+        fun bind(event: EventNaturalModel) {
 
-            var coordenadasUrl = "https://maps.googleapis.com/maps/api/staticmap?"+"center=${event.geometries[0].coordinates[1]},${event.geometries[0].coordinates[0]}&"+"zoom=11&size=250x250&key=AIzaSyDFf6J-wAKE1OS-K7EYkn_pbznUhy55J2w"
+            val coordenadasUrl =
+                "https://maps.googleapis.com/maps/api/staticmap?" + "center=${event.geometries[0].coordinates[1]},${event.geometries[0].coordinates[0]}&" + "zoom=11&size=250x250&key=AIzaSyDFf6J-wAKE1OS-K7EYkn_pbznUhy55J2w"
 
-            Log.i("IMAGEM : ",coordenadasUrl)
+            Log.i("IMAGEM : ", coordenadasUrl)
             Picasso.get().load(coordenadasUrl).into(imagemCordenadas)
 
             title.text = event.title
@@ -36,16 +37,17 @@ class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) : Recy
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventoAnteriorAdapter.EventoAnteriorViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventoAnteriorViewHolder {
 
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_eventos_naturais,parent,false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_eventos_naturais, parent, false)
         return EventoAnteriorViewHolder(view)
 
     }
 
     override fun getItemCount(): Int = eventos.size
 
-    override fun onBindViewHolder(holder: EventoAnteriorAdapter.EventoAnteriorViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: EventoAnteriorViewHolder, position: Int) {
         val item = eventos[position]
         holder.bind(item)
 

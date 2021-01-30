@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class SignFragment : Fragment() {
 
-    lateinit var mudarTab: INavegarTab
+    private lateinit var mudarTab: INavegarTab
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

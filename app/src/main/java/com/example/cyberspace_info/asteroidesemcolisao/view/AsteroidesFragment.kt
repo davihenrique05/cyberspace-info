@@ -20,7 +20,6 @@ import com.example.cyberspace_info.asteroidesemcolisao.model.AsteroideModel
 import com.example.cyberspace_info.asteroidesemcolisao.repository.AsteroidesRepository
 import com.example.cyberspace_info.asteroidesemcolisao.view.adapter.AsteroidesAdapter
 import com.example.cyberspace_info.asteroidesemcolisao.viewmodel.AsteroidesEmColisaoViewModel
-import com.google.android.material.card.MaterialCardView
 
 class AsteroidesFragment : Fragment() {
 

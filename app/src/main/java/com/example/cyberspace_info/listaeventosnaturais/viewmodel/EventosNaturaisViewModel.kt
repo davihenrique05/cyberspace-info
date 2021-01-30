@@ -20,7 +20,7 @@ class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository
 
          try {
              val response = repository.getListEvents(numberDays,numberEvents,status)
-             _listaAtual = response.events.slice(19..(response.events.size - 1)).toMutableList()
+             _listaAtual = response.events.slice(19 until response.events.size).toMutableList()
              emit(_listaAtual)
          }catch(ex:Exception){
              Log.e("ERRO_EVENTO_PASSADO",ex.message.toString())
@@ -37,7 +37,7 @@ class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository
         try {
 
             val response = repository.getListEvents(numberDays,numberEvents,status)
-            _listaAntigos = response.events.slice(0..(response.events.size - 1)).toMutableList()
+            _listaAntigos = response.events.slice(0 until response.events.size).toMutableList()
             emit(_listaAntigos)
         }catch(ex:Exception){
             Log.e("ERRO_EVENTO_ATUAL",ex.message.toString())

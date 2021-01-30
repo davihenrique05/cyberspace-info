@@ -40,7 +40,7 @@ class EventosNaturaisFragment : Fragment() {
         setupViewPagerAndTabLayout(tab,page)
     }
 
-    fun setupViewPagerAndTabLayout(tab : TabLayout,page: ViewPager){
+    private fun setupViewPagerAndTabLayout(tab : TabLayout, page: ViewPager){
 
         tab.setupWithViewPager(page)
 
