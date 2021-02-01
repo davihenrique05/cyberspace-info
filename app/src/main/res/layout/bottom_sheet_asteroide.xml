@@ -24,10 +24,10 @@
         />
 
     <TextView
-        android:id="@+id/diametro"
+        android:id="@+id/diametroMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/diametro_maximo"
+        android:text="@string/diametro_minimo"
         android:textSize="@dimen/dimen_text_17"
         android:textColor="@color/colorGrayTitleAndContent"
         android:layout_marginTop="@dimen/dimen_16"
@@ -35,37 +35,35 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtDiametroMaxBottomAsteroide"
+        android:id="@+id/txtDiametroMinBottomAsteroide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="517.6544m"
         android:textSize="@dimen/dimen_text_17"
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintStart_toEndOf="@id/diametro"
+        app:layout_constraintStart_toEndOf="@id/diametroMin"
         app:layout_constraintTop_toBottomOf="@id/txtTitleBottomAsteroid"
         android:layout_marginStart="@dimen/dimen_16"
         android:layout_marginTop="@dimen/dimen_16"
         />
     <TextView
-        android:id="@+id/diametro2"
+        android:id="@+id/diametroMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/diametro_minimo"
+        android:text="@string/diametro_maximo"
         android:textSize="@dimen/dimen_text_17"
         android:textColor="@color/colorGrayTitleAndContent"
         android:textAlignment="textStart"
-        app:layout_constraintTop_toBottomOf="@id/diametro"
+        app:layout_constraintTop_toBottomOf="@id/diametroMin"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/txtDiametroMinBottomAsteroide"
+        android:id="@+id/txtDiametroMaxBottomAsteroide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="231.5021m"
         android:textSize="@dimen/dimen_text_17"
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintStart_toEndOf="@id/diametro2"
-        app:layout_constraintTop_toBottomOf="@id/txtDiametroMaxBottomAsteroide"
+        app:layout_constraintStart_toEndOf="@id/diametroMax"
+        app:layout_constraintTop_toBottomOf="@id/txtDiametroMinBottomAsteroide"
         android:layout_marginStart="@dimen/dimen_16"
         />
 
@@ -77,18 +75,17 @@
         android:textSize="@dimen/dimen_text_17"
         android:textColor="@color/colorGrayTitleAndContent"
         android:textAlignment="textStart"
-        app:layout_constraintTop_toBottomOf="@id/diametro2"
+        app:layout_constraintTop_toBottomOf="@id/diametroMax"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/txtVelocidadeBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="65260.6370 km/h"
         android:textSize="@dimen/dimen_text_17"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toEndOf="@id/velocidade"
-        app:layout_constraintTop_toBottomOf="@id/txtDiametroMinBottomAsteroide"
+        app:layout_constraintTop_toBottomOf="@id/txtDiametroMaxBottomAsteroide"
         android:layout_marginStart="@dimen/dimen_16"
         />
 

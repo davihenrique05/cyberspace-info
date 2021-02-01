@@ -55,6 +55,7 @@ class GaleriaFragment : Fragment() {
 
             carregarImagensFavoritas()
 
+
         } else if (tela == "MarsRover") {
             _listaDeImagens.clear()
             val lista = arguments?.get("imagens") as MutableList<String>
@@ -91,6 +92,12 @@ class GaleriaFragment : Fragment() {
             _listaDeImagens.clear()
             _listaDeImagens.addAll(listaUrl)
             _recylerAdapter.notifyDataSetChanged()
+
+            if(_listaDeImagens.isEmpty()){
+                val imagemVazio = requireView().findViewById<ImageView>(R.id.imgVazioGaleria)
+
+                imagemVazio.visibility = View.VISIBLE
+            }
         }
     }
 

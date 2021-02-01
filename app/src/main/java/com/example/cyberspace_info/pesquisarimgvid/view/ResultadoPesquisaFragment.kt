@@ -23,6 +23,7 @@ import com.example.cyberspace_info.pesquisarimgvid.repository.PesquisarImagemRep
 import com.example.cyberspace_info.pesquisarimgvid.view.adapter.PesquisaImgAdapter
 import com.example.cyberspace_info.pesquisarimgvid.viewmodel.PesquisarImagemViewModel
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.textfield.TextInputEditText
 
 class ResultadoPesquisaFragment : Fragment() {
 
@@ -48,6 +49,10 @@ class ResultadoPesquisaFragment : Fragment() {
         view.findViewById<ImageView>(R.id.imgViewMenuPesquisaImgVid).setOnClickListener {
             navigation.popBackStack()
         }
+        if(!search.isNullOrEmpty()){
+            requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment).setText(search)
+            requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment).clearFocus()
+        }
         novaPesquisa()
     }
 
@@ -55,7 +60,7 @@ class ResultadoPesquisaFragment : Fragment() {
         requireView().findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid)
             .setOnClickListener {
                 val search =
-                    requireView().findViewById<TextView>(R.id.txtpesquisaimagefragment).text.toString()
+                    requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment).text.toString()
                 _listaImagens = mutableListOf()
                 view?.hideKeyboard()
                 resultarPesquisa(search)

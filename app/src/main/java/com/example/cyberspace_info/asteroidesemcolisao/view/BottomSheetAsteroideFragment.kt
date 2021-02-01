@@ -1,5 +1,6 @@
 package com.example.cyberspace_info.asteroidesemcolisao.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,16 +12,17 @@ import com.example.cyberspace_info.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
 
-class BottomSheetAsteroideFragment : BottomSheetDialogFragment(){
+class BottomSheetAsteroideFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.bottom_sheet_asteroide,container,false)
+        return inflater.inflate(R.layout.bottom_sheet_asteroide, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -29,11 +31,15 @@ class BottomSheetAsteroideFragment : BottomSheetDialogFragment(){
         val max = arguments?.getDouble("max")
         val velocidade = arguments?.getDouble("velocidade")
         val link = arguments?.getString("link")
+        val minFor = String.format("%.2f", min)
+        val maxFor = String.format("%.2f", max)
+        val velocidadeFor = String.format("%.2f", velocidade)
+
 
         view.findViewById<TextView>(R.id.txtTitleBottomAsteroid).text = nome
-        view.findViewById<TextView>(R.id.txtDiametroMaxBottomAsteroide).text = String.format("%.2f",max)
-        view.findViewById<TextView>(R.id.txtDiametroMinBottomAsteroide).text = String.format("%.2f",min)
-        view.findViewById<TextView>(R.id.txtVelocidadeBottom).text = String.format("%.2f",velocidade)
+        view.findViewById<TextView>(R.id.txtDiametroMaxBottomAsteroide).text = "$maxFor km"
+        view.findViewById<TextView>(R.id.txtDiametroMinBottomAsteroide).text = "$minFor km"
+        view.findViewById<TextView>(R.id.txtVelocidadeBottom).text = "$velocidadeFor km/h"
 
         view.findViewById<MaterialButton>(R.id.btnMoreInfo).setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW, Uri.parse(link))

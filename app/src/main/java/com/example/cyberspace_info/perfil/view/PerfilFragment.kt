@@ -279,19 +279,19 @@ class PerfilFragment : Fragment() {
         val imagem = requireView().findViewById<ImageView>(R.id.imageGalery1)
         val imagem2 = requireView().findViewById<ImageView>(R.id.imageGalery2)
         val imagem3 = requireView().findViewById<ImageView>(R.id.imageGalery3)
-        val backView = requireView().findViewById<View>(R.id.viewListaVazia)
-        val mensagem = requireView().findViewById<TextView>(R.id.txtListaVazia)
+        val vazio = requireView().findViewById<View>(R.id.imgVazio)
+        val viewVazio = requireView().findViewById<View>(R.id.viewVazio)
 
         _viewModel.obterImagems(user!!.uid).observe(viewLifecycleOwner) {
             _listaDeImagens.clear()
             _listaDeImagens.addAll(it)
 
             if (_listaDeImagens.isEmpty()) {
-                backView.visibility = View.VISIBLE
-                mensagem.visibility = View.VISIBLE
+                vazio.visibility = View.VISIBLE
+                viewVazio.visibility = View.VISIBLE
             } else {
-                backView.visibility = View.GONE
-                mensagem.visibility = View.GONE
+                vazio.visibility = View.GONE
+                viewVazio.visibility = View.GONE
                 val urls = mutableListOf<String>()
                 val ultimaPosicao = _listaDeImagens.size - 1
 

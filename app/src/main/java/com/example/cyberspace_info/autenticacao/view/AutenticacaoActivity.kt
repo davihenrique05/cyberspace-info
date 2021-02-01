@@ -58,7 +58,7 @@ class AutenticacaoActivity : AppCompatActivity(), INavegarTab {
         loginFragment = LoginFragment()
         pager.adapter = LoginAdapter(
             listOf(loginFragment, SignFragment()),
-            listOf("Login", "Sign"),
+            listOf("Entrar", "Cadastrar"),
             supportFragmentManager
         )
 
