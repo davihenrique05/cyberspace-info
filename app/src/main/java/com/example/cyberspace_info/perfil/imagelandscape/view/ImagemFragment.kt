@@ -1,6 +1,15 @@
 package com.example.cyberspace_info.perfil.imagelandscape.view
 
+import android.Manifest
+import android.app.DownloadManager
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.pm.PackageManager
+import android.database.Cursor
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +17,9 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -29,7 +40,9 @@ import com.squareup.picasso.Picasso
 class ImagemFragment : Fragment() {
 
     private lateinit var _viewModel: ImagemViewModel
+    private var _baixada = false
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
+    private val REQUEST_CODE = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +52,7 @@ class ImagemFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_imagem, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val user = FirebaseAuth.getInstance().currentUser
@@ -49,7 +63,7 @@ class ImagemFragment : Fragment() {
 
         val imagemUrl = arguments?.getString("Imagem")
 
-
+        val downloadBtn = view.findViewById<ImageView>(R.id.imgDownload)
         val imagem = view.findViewById<ImageView>(R.id.imageViewShow)
         val icone = view.findViewById<ImageView>(R.id.imageIconFavorite)
 
@@ -88,6 +102,38 @@ class ImagemFragment : Fragment() {
                     definirIcone(icone, true)
                 }
             }
+        }
+
+        downloadBtn.setOnClickListener {
+            if(!_baixada){
+                val array = arrayOf(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+
+                if(ActivityCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    ) != PackageManager.PERMISSION_GRANTED
+                    || ActivityCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ) != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(
+                        requireActivity(), array, REQUEST_CODE
+                    );
+                }else{
+                    download(imagemUrl!!)
+                }
+            }else{
+                val toast = Toast.makeText(
+                    requireView().context,
+                    "A imagem já foi baixada",
+                    Toast.LENGTH_SHORT
+                )
+                toast.show()
+            }
+
         }
 
         mostrarToolbar(imagem)
@@ -153,7 +199,12 @@ class ImagemFragment : Fragment() {
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-
+                        val toast = Toast.makeText(
+                            requireView().context,
+                            getString(R.string.internet_erro_content),
+                            Toast.LENGTH_SHORT
+                        )
+                        toast.show()
                     }
 
                 })
@@ -205,4 +256,25 @@ class ImagemFragment : Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun download(link: String) {
+
+        val mgr: DownloadManager =
+            requireActivity().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+
+        val downloadUri: Uri = Uri.parse(link)
+        val request: DownloadManager.Request = DownloadManager.Request(downloadUri)
+
+        request.setAllowedNetworkTypes(
+            DownloadManager.Request.NETWORK_WIFI
+                    or DownloadManager.Request.NETWORK_MOBILE
+        )
+            .setAllowedOverRoaming(true).setTitle("Imagem")
+            .setDescription("Dowloading image")
+            .setDestinationInExternalPublicDir("Download", "cyberspace-image.jpg")
+            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+
+        mgr.enqueue(request)
+        _baixada = true
+    }
 }

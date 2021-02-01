@@ -50,6 +50,7 @@
             android:layout_height="@dimen/dimen_35"/>
 
         <ImageView
+            android:id="@+id/imgDownload"
             app:layout_constraintStart_toEndOf="@id/imageIconFavorite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
