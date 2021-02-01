@@ -44,14 +44,34 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/imgVazioGaleria"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_16"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_folder"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
             android:alpha="0.1"
+            tools:visibility="gone"
             />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -61,6 +81,7 @@
             android:layout_marginEnd="@dimen/dimen_8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            tools:visibility="gone"
             tools:listitem="@layout/item_lista_imagens"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

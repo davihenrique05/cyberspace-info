@@ -39,8 +39,8 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_50"
-        android:layout_marginEnd="@dimen/dimen_50"
+        android:layout_marginStart="@dimen/dimen_24"
+        android:layout_marginEnd="@dimen/dimen_24"
         android:layout_marginTop="@dimen/dimen_8"
         app:cardBackgroundColor="@color/colorPrimaryDarkMenu"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:text="@string/mensagem_de_erro"
             android:textSize="@dimen/dimen_text_17"
+            android:textAlignment="center"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

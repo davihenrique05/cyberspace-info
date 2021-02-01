@@ -12,9 +12,9 @@
     <string name="e_mail">E-mail</string>
     <string name="senha">Senha</string>
     <string name="confirmar_senha">Confirmar senha</string>
-    <string name="sign_up">Sign UP</string>
-    <string name="or">OR</string>
-    <string name="login">Login</string>
+    <string name="sign_up">Cadastrar</string>
+    <string name="or">Ou</string>
+    <string name="login">Entrar</string>
     <string name="tecnologias_usadas">Tecnologias Usadas</string>
     <string name="imagens_favoritas">Imagens Favoritas</string>
     <string name="tecnologias_usadas_menu">TECNOLOGIAS USADAS</string>
@@ -51,7 +51,8 @@
     <string name="email_vazio">O campo e-mail não pode estar vazio</string>
     <string name="senha_vazia">O campo senha não pode estar vazio</string>
     <string name="senha_pequena">A senha não pode ter menos do que 6 caracteres</string>
-    <string name="facebook_app_id">435217121128795</string> <string name="fb_login_protocol_scheme">fb435217121128795</string>
+    <string name="facebook_app_id">435217121128795</string>
+    <string name="fb_login_protocol_scheme">fb435217121128795</string>
     <string-array name="rover_array">
         <item />
         <item>Curiosity</item>
