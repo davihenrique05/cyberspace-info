@@ -224,6 +224,9 @@
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_eventosNaturaisFragment_to_imagemEventosNaturaisFragment"
+            app:destination="@id/imagemEventosNaturaisFragment" />
     </fragment>
 
     <fragment
@@ -275,6 +278,15 @@
             app:exitAnim="@anim/to_right"
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagemEventosNaturaisFragment"
+        android:name="com.grupo5.cyberspace.listaeventosnaturais.view.ImagemEventosNaturaisFragment"
+        android:label="fragment_imagem_eventos_naturais"
+        tools:layout="@layout/fragment_imagem_eventos_naturais" >
+        <action
+            android:id="@+id/action_imagemEventosNaturaisFragment_to_eventosNaturaisFragment"
+            app:destination="@id/eventosNaturaisFragment" />
     </fragment>
 
 
