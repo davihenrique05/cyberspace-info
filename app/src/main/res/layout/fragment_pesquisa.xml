@@ -80,7 +80,8 @@
                 android:textColorHint="@color/colorWhite"
                 android:backgroundTint="@color/colorWhite"
                 android:textCursorDrawable ="@null"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:maxLines="1"/>
 
             <ImageView
                 android:layout_gravity="center"
