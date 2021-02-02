@@ -3,6 +3,7 @@ package com.example.cyberspace_info.perfil.imagelandscape.view
 import android.Manifest
 import android.app.DownloadManager
 import android.content.Context
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -68,6 +69,7 @@ class ImagemFragment : Fragment() {
             Picasso.get()
                 .load(imagemUrl)
                 .into(imagem)
+            compartilharImagem(imagemUrl)
         }
 
         _viewModel = ViewModelProvider(
@@ -135,6 +137,17 @@ class ImagemFragment : Fragment() {
 
         mostrarToolbar(imagem)
         fecharTela()
+    }
+
+    private fun compartilharImagem(imgemUrl: String) {
+        val shareBtn = requireView().findViewById<ImageView>(R.id.imgShare)
+        shareBtn.setOnClickListener {
+            val intent= Intent()
+            intent.action=Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT, "Veja, encontrei uma imagem bonita: $imgemUrl")
+            intent.type="text/plain"
+            startActivity(Intent.createChooser(intent,"Share To:"))
+        }
     }
 
     override fun onDestroy() {
