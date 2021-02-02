@@ -10,7 +10,6 @@ import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
 import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.menu.view.MainActivity
-import com.grupo5.cyberspace.utils.YoutubeManager
 
 class YoutubePlayActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
     private lateinit var _id: String

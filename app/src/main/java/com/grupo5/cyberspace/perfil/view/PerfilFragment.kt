@@ -1,5 +1,6 @@
 package com.grupo5.cyberspace.perfil.view
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -18,6 +19,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
+import com.facebook.internal.Utility.putUri
 import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.autenticacao.view.AutenticacaoActivity
 import com.grupo5.cyberspace.db.ImagemDatabase
@@ -31,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
+import java.net.URI
 
 private const val CONTENT_REQUEST_CODE = 1
 
@@ -144,19 +147,24 @@ class PerfilFragment : Fragment() {
             Picasso.get()
                 .load(user.photoUrl)
                 .into(imagemProfile)
-        } else {
-            val storage = FirebaseStorage.getInstance()
-            val ref = storage.getReference("usersprofile")
-            ref.child(user.uid).downloadUrl
-                .addOnSuccessListener {
-                    _imageURI = it
-                    Picasso.get()
-                        .load(it)
-                        .into(imagemProfile)
-                }
-                .addOnFailureListener {
-                    imagemProfile.setImageResource(R.drawable.gorgeuos_space_cat)
-                }
+        } else{
+            if(NetworkListener.isOnline(requireContext())){
+                val storage = FirebaseStorage.getInstance()
+                val ref = storage.getReference("usersprofile")
+                ref.child(user.uid).downloadUrl
+                    .addOnSuccessListener {
+                        _imageURI = it
+                        Picasso.get()
+                            .load(it)
+                            .into(imagemProfile)
+                    }
+                    .addOnFailureListener {
+                        imagemProfile.setImageResource(R.drawable.gorgeuos_space_cat)
+                    }
+            }else{
+                imagemProfile.setImageResource(R.drawable.gorgeuos_space_cat)
+            }
+
         }
 
     }
@@ -261,13 +269,6 @@ class PerfilFragment : Fragment() {
             val fileReference = storage.child(fileName)
 
             fileReference.putFile(this)
-                .addOnSuccessListener {
-                    Toast.makeText(
-                        requireContext(),
-                        "Arquivo enviado com sucesso",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
                 .addOnFailureListener {
                     Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
                 }

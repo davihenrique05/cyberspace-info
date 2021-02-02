@@ -21,8 +21,6 @@ import com.grupo5.cyberspace.menu.imagemdodia.viewmodel.ImageViewModel
 import com.grupo5.cyberspace.perfil.entity.ImagemEntity
 import com.grupo5.cyberspace.utils.NetworkListener
 import com.google.android.material.card.MaterialCardView
-import com.google.android.youtube.player.YouTubeInitializationResult
-import com.google.android.youtube.player.YouTubeThumbnailLoader
 import com.google.android.youtube.player.YouTubeThumbnailView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -30,8 +28,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.grupo5.cyberspace.playvideo.YoutubePlayActivity
-import com.grupo5.cyberspace.utils.YoutubeManager
+import com.grupo5.cyberspace.playvideo.YoutubeManager
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.android.awaitFrame
 
 
 class MenuFragment : Fragment() {
@@ -125,14 +124,14 @@ class MenuFragment : Fragment() {
             }
         } else {
             if (online) {
-                if(_midia == "image"){
-                   val bundle =
-                       bundleOf("Tela" to getString(R.string.menu_comparacao), "Imagem" to _url)
-                    navController.navigate(navDestino, bundle)
-                }else{
+                if(_midia != "image"){
                     val intent = Intent(requireContext(),YoutubePlayActivity::class.java)
                     intent.putExtra("url", _url)
                     startActivity(intent)
+                }else{
+                    val bundle =
+                        bundleOf("Tela" to getString(R.string.menu_comparacao), "Imagem" to _url)
+                    navController.navigate(navDestino, bundle)
                 }
 
             } else {

@@ -1,6 +1,5 @@
-package com.grupo5.cyberspace.utils
+package com.grupo5.cyberspace.playvideo
 
-import android.view.View
 import android.widget.ImageView
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubeThumbnailLoader
