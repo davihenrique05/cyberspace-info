@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -57,14 +57,18 @@ class ResultadoPesquisaFragment : Fragment() {
     }
 
     private fun novaPesquisa() {
-        requireView().findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid)
-            .setOnClickListener {
-                val search =
-                    requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment).text.toString()
-                _listaImagens = mutableListOf()
-                view?.hideKeyboard()
-                resultarPesquisa(search)
+
+        val search = requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment)
+        search.setOnEditorActionListener { _, action, event ->
+            if(action == EditorInfo.IME_ACTION_SEARCH)
+            {
+                mudarTela(search.text.toString())
             }
+            return@setOnEditorActionListener true
+        }
+        requireView().findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid).setOnClickListener {
+                mudarTela(search.text.toString())
+        }
     }
 
     private fun resultarPesquisa(search: String?) {
@@ -134,5 +138,11 @@ class ResultadoPesquisaFragment : Fragment() {
         val inputManager =
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(windowToken, 0)
+    }
+
+    private fun mudarTela(search:String){
+        view?.hideKeyboard()
+        _listaImagens = mutableListOf()
+        resultarPesquisa(search)
     }
 }

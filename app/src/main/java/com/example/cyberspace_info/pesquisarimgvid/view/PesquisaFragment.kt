@@ -2,9 +2,11 @@ package com.example.cyberspace_info.pesquisarimgvid.view
 
 import android.content.Context
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
@@ -39,16 +41,26 @@ class PesquisaFragment : Fragment() {
     }
 
     private fun pesquisar() {
+        val search = requireView().findViewById<TextView>(R.id.txtPesquisaImage)
+
+        search.setOnEditorActionListener { _, action, event ->
+            if(action == EditorInfo.IME_ACTION_SEARCH)
+            {
+                mudarTela(search.text.toString())
+            }
+            return@setOnEditorActionListener true
+        }
 
         requireView().findViewById<ImageView>(R.id.imgBtnPesquisar).setOnClickListener {
-
-            val search = requireView().findViewById<TextView>(R.id.txtPesquisaImage).text.toString()
-            val bundle = bundleOf("search" to search)
-            view?.hideKeyboard()
-            _navigation.navigate(R.id.action_pesquisaFragment_to_resultadoPesquisaFragment, bundle)
+            mudarTela(search.text.toString())
         }
     }
 
+    private fun mudarTela(search:String){
+        val bundle = bundleOf("search" to search)
+        view?.hideKeyboard()
+        _navigation.navigate(R.id.action_pesquisaFragment_to_resultadoPesquisaFragment, bundle)
+    }
 
     private fun View.hideKeyboard() {
         val inputManager =

@@ -12,7 +12,6 @@
         android:id="@+id/txtTitleBottomAsteroid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="465633 (2009 JR5)"
         android:layout_marginStart="@dimen/dimen_16"
         android:layout_marginTop="@dimen/dimen_16"
         android:layout_marginEnd="@dimen/dimen_30"

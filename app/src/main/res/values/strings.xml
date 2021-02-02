@@ -41,7 +41,6 @@
     <string name="mars_rover_min">Mars Rover</string>
     <string name="favorito">Favoritado com sucesso</string>
     <string name="removido">Removido com sucesso</string>
-    <string name="lista_fav_vazia">Sua lista de favoritos está vazia.</string>
     <string name="erro_tittle">Erro de conectividade!</string>
     <string name="internet_erro_content">Você precisa estar conectado a internet para utilizar o aplicativo.</string>
     <string name="internet_erro_confirmed">OK!</string>
@@ -53,6 +52,8 @@
     <string name="senha_pequena">A senha não pode ter menos do que 6 caracteres</string>
     <string name="facebook_app_id">435217121128795</string>
     <string name="fb_login_protocol_scheme">fb435217121128795</string>
+    <string name="data_na_terra">Data na Terra</string>
+    <string name="guest">Guest</string>
     <string-array name="rover_array">
         <item />
         <item>Curiosity</item>

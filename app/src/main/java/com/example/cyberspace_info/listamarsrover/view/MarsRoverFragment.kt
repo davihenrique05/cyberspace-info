@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.DatePicker
 import android.widget.ImageView
 import android.widget.Spinner
 import androidx.core.os.bundleOf
@@ -108,11 +107,10 @@ class MarsRoverFragment : Fragment() {
             minhaView.context,
             AlertDialog.THEME_DEVICE_DEFAULT_DARK,
             { view, year, month, dayOfMonth ->
-                val diaRetorno = dayOfMonth
                 val mesRetorno = month + 1
 
                 var diaString = ""
-                if (diaRetorno < 10) {
+                if (dayOfMonth < 10) {
                     diaString = "0"
                 }
 
@@ -121,7 +119,7 @@ class MarsRoverFragment : Fragment() {
                     mesString = "0"
                 }
                 mesString += mesRetorno
-                diaString += diaRetorno
+                diaString += dayOfMonth
 
                 minhaView.findViewById<TextInputEditText>(R.id.textd)
                     .setText("$diaString/$mesString/$year")
