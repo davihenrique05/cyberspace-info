@@ -11,7 +11,7 @@ import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.listaeventosnaturais.model.EventNaturalModel
 import com.squareup.picasso.Picasso
 
-class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) :
+class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>,  private val listener: (EventNaturalModel) -> Unit) :
     RecyclerView.Adapter<EventoAnteriorAdapter.EventoAnteriorViewHolder>() {
 
     class EventoAnteriorViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -50,6 +50,9 @@ class EventoAnteriorAdapter(private val eventos: List<EventNaturalModel>) :
     override fun onBindViewHolder(holder: EventoAnteriorViewHolder, position: Int) {
         val item = eventos[position]
         holder.bind(item)
+        holder.itemView.findViewById<ImageView>(R.id.imgCoordinates).setOnClickListener {
+            listener(item)
+        }
 
     }
 }
