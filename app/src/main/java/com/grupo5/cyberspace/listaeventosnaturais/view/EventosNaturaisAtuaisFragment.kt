@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo5.cyberspace.R
@@ -23,6 +25,7 @@ class EventosNaturaisAtuaisFragment : Fragment() {
     private lateinit var _adaptador : EventoAtualAdapter
     private lateinit var _viewModel : EventosNaturaisViewModel
     private lateinit var _listaEventos : MutableList<EventNaturalModel>
+    private lateinit var _view : View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +35,9 @@ class EventosNaturaisAtuaisFragment : Fragment() {
 
         _listaEventos = mutableListOf()
 
-        return inflater.inflate(R.layout.fragment_eventos_naturais_atuais, container, false)
+        var view =  inflater.inflate(R.layout.fragment_eventos_naturais_atuais, container, false)
+        _view = view
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +50,9 @@ class EventosNaturaisAtuaisFragment : Fragment() {
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY)
 
-        _adaptador = EventoAtualAdapter(_listaEventos)
+        _adaptador = EventoAtualAdapter(_listaEventos){
+            showImageEvent(it.geometries[0].coordinates[0].toString(),it.geometries[0].coordinates[1].toString())
+        }
 
         _viewModel = ViewModelProvider(this,EventosNaturaisViewModel.EventosNaturaisViewModelFactory(
             EventosNaturaisRepository()
@@ -55,6 +62,12 @@ class EventosNaturaisAtuaisFragment : Fragment() {
         val managerLinear = LinearLayoutManager(view.context)
         aplicationPropertyRecyclerView(managerLinear)
 
+    }
+
+    private fun showImageEvent(latitude:String,longitude:String){
+        val bundle = bundleOf("latitude" to latitude, "longitude" to longitude)
+        val navController = Navigation.findNavController(_view)
+        navController.navigate(R.id.action_eventosNaturaisFragment_to_imagemEventosNaturaisFragment,bundle)
     }
 
     private fun showLoading(isLoading: Boolean) {
