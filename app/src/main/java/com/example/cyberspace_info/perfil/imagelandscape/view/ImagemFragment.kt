@@ -146,7 +146,7 @@ class ImagemFragment : Fragment() {
             intent.action=Intent.ACTION_SEND
             intent.putExtra(Intent.EXTRA_TEXT, "Veja, encontrei uma imagem bonita: $imgemUrl")
             intent.type="text/plain"
-            startActivity(Intent.createChooser(intent,"Share To:"))
+            startActivity(Intent.createChooser(intent,"Compartilhar com:"))
         }
     }
 
