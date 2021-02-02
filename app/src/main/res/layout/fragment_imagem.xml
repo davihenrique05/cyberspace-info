@@ -33,7 +33,7 @@
             android:id="@+id/imageIconClose"
             android:layout_width="@dimen/dimen_30"
             android:layout_height="@dimen/dimen_30"
-            android:layout_marginStart="@dimen/dimen_250"
+            android:layout_marginStart="@dimen/dimen_200"
             android:src="@drawable/ic_close"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageIconFavorite"
@@ -42,8 +42,8 @@
 
         <ImageView
             android:id="@+id/imageIconFavorite"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageIconClose"
+            app:layout_constraintEnd_toStartOf="@id/imgDownload"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="@dimen/dimen_35"
@@ -52,13 +52,23 @@
         <ImageView
             android:id="@+id/imgDownload"
             app:layout_constraintStart_toEndOf="@id/imageIconFavorite"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imgShare"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="@dimen/dimen_250"
             android:layout_width="@dimen/dimen_30"
             android:layout_height="@dimen/dimen_30"
             android:src="@drawable/ic_download"/>
+
+        <ImageView
+            android:id="@+id/imgShare"
+            app:layout_constraintStart_toEndOf="@id/imgDownload"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/dimen_200"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:src="@drawable/ic_baseline_share_24"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
