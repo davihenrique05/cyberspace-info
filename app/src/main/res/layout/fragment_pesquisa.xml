@@ -73,13 +73,14 @@
                 android:id="@+id/txtPesquisaImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Pesquise astros, estrelas, etc..."
+                android:hint="@string/pesquise_astros_estrelas_etc"
                 android:inputType="text"
-                android:imeOptions="actionSend"
+                android:imeOptions="actionSearch"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
                 android:backgroundTint="@color/colorWhite"
-                android:textCursorDrawable ="@null"/>
+                android:textCursorDrawable ="@null"
+                android:importantForAutofill="no" />
 
             <ImageView
                 android:layout_gravity="center"

@@ -136,7 +136,7 @@ class PerfilFragment : Fragment() {
             val nome = requireView().findViewById<TextView>(R.id.txtPerfilNome)
             nome.text = user.displayName
         } else {
-            requireView().findViewById<TextView>(R.id.txtPerfilNome).text = "Guest"
+            requireView().findViewById<TextView>(R.id.txtPerfilNome).text = getString(R.string.guest)
         }
         val imagemProfile = requireView().findViewById<CircleImageView>(R.id.imgPerfil)
         val loggedSocial = verificarProvedor()

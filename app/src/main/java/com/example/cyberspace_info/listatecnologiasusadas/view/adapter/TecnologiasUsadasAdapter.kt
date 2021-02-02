@@ -33,7 +33,7 @@ class TecnologiasUsadasAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TecnologiasUsadasAdapter.TecnologiasUsadasViewHolder {
+    ): TecnologiasUsadasViewHolder {
 
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_lista_tecnologias_usadas, parent, false)

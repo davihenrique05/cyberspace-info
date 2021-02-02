@@ -37,7 +37,7 @@ class EventosNaturaisViewModel(private var repository: EventosNaturaisRepository
         try {
 
             val response = repository.getListEvents(numberDays,numberEvents,status)
-            _listaAntigos = response.events.slice(0 until response.events.size).toMutableList()
+            _listaAntigos = response.events.slice(response.events.indices).toMutableList()
             emit(_listaAntigos)
         }catch(ex:Exception){
             Log.e("ERRO_EVENTO_ATUAL",ex.message.toString())

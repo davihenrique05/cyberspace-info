@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDarkMenu"
     android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:layout_height="41dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
-        android:text="Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I"
+        tools:text="Ultra-high Energy Particle Astrophysics with ANITA-V - Washington University - Co-I"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -31,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_marginStart="12dp"
-            android:text="2/1980 - 9/2006"
+            tools:text="2/1980 - 9/2006"
             android:textColor="@color/colorWhite"
             android:layout_weight="1"
             android:textSize="17sp"
@@ -43,7 +43,7 @@
             android:layout_height="29dp"
             android:layout_marginEnd="12dp"
             android:gravity="end"
-            android:text="Completed"
+            tools:text="Completed"
             android:textColor="@color/colorWhite"
             android:textSize="17sp"
             />

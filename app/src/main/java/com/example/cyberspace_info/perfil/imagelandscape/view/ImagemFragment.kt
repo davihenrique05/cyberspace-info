@@ -2,12 +2,9 @@ package com.example.cyberspace_info.perfil.imagelandscape.view
 
 import android.Manifest
 import android.app.DownloadManager
-import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -42,7 +39,7 @@ class ImagemFragment : Fragment() {
     private lateinit var _viewModel: ImagemViewModel
     private var _baixada = false
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
-    private val REQUEST_CODE = 1
+    private val _REQUESTCODE = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -120,8 +117,8 @@ class ImagemFragment : Fragment() {
                         Manifest.permission.WRITE_EXTERNAL_STORAGE
                     ) != PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(
-                        requireActivity(), array, REQUEST_CODE
-                    );
+                        requireActivity(), array, _REQUESTCODE
+                    )
                 }else{
                     download(imagemUrl!!)
                 }

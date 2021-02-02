@@ -34,6 +34,7 @@
                 android:id="@+id/txtpesquisaimagefragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:hint="@string/pesquise_astros_estrelas_etc"
                 android:layout_marginStart="@dimen/dimen_16"
                 app:layout_constraintStart_toEndOf="@id/imgViewMenuPesquisaImgVid"
@@ -43,6 +44,7 @@
                 android:textColorHint="@color/colorWhite"
                 android:backgroundTint="@color/colorWhite"
                 android:textCursorDrawable ="@null"
+                android:imeOptions="actionSearch"
                 />
 
             <ImageView
