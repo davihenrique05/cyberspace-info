@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Cyberspace Info</string>
-    <string name="imagem_do_dia">IMAGEM DO DIA</string>
+    <string name="app_name">Cyberspace</string>
+    <string name="imagem_do_dia">IMAGEM OU VIDEO DO DIA</string>
     <string name="perfil">PERFIL</string>
     <string name="mars_rover">MARS ROVER</string>
     <string name="eventos_naturais">EVENTOS NATURAIS</string>
@@ -54,6 +54,7 @@
     <string name="fb_login_protocol_scheme">fb435217121128795</string>
     <string name="data_na_terra">Data na Terra</string>
     <string name="guest">Guest</string>
+    <string name="yotubeAPI">AIzaSyBDF79fdgU7e0vPY7DQSGob1nJZru_oELo</string>
     <string-array name="rover_array">
         <item />
         <item>Curiosity</item>

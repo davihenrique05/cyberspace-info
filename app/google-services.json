@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:219017359820:android:49710bca26374831232d69",
         "android_client_info": {
-          "package_name": "com.example.cyberspace_info"
+          "package_name": "com.grupo5.cyberspace"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "219017359820-moco2pcfer1bhv6691cnn3vlqtn93193.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.cyberspace_info",
+            "package_name": "com.grupo5.cyberspace",
             "certificate_hash": "13391fa777f6fd18f5d3d65f84c7a53de46617ce"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "219017359820-qi0eme3mg07nb1fvhc16fp1pfmrl2vaq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.cyberspace_info",
+            "package_name": "com.grupo5.cyberspace",
             "certificate_hash": "c50723aa3fb9f1a2eb32ad344d9bba57f392a1f7"
           }
         },

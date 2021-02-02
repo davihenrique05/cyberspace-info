@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.cyberspace_info.menu.view.MenuFragment"
+        android:name="com.grupo5.cyberspace.menu.view.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -81,12 +81,12 @@
     </fragment>
     <fragment
         android:id="@+id/tempoEmMarteFragment"
-        android:name="com.example.cyberspace_info.listatempomarte.view.TempoEmMarteFragment"
+        android:name="com.grupo5.cyberspace.listatempomarte.view.TempoEmMarteFragment"
         android:label="fragment_tempo_em_marte"
         tools:layout="@layout/fragment_tempo_em_marte" />
     <fragment
         android:id="@+id/marsRoverFragment"
-        android:name="com.example.cyberspace_info.listamarsrover.view.MarsRoverFragment"
+        android:name="com.grupo5.cyberspace.listamarsrover.view.MarsRoverFragment"
         android:label="fragment_mars_rover"
         tools:layout="@layout/fragment_mars_rover" >
         <action
@@ -109,7 +109,7 @@
 
     <fragment
         android:id="@+id/tecnologiasUsadasFragment"
-        android:name="com.example.cyberspace_info.listatecnologiasusadas.view.TecnologiasUsadasFragment"
+        android:name="com.grupo5.cyberspace.listatecnologiasusadas.view.TecnologiasUsadasFragment"
         android:label="fragment_tecnologias_usadas"
         tools:layout="@layout/fragment_tecnologias_usadas">
 
@@ -126,7 +126,7 @@
     </fragment>
     <fragment
         android:id="@+id/perfilFragment"
-        android:name="com.example.cyberspace_info.perfil.view.PerfilFragment"
+        android:name="com.grupo5.cyberspace.perfil.view.PerfilFragment"
         android:label="fragment_perfil"
         tools:layout="@layout/fragment_perfil" >
         <action
@@ -151,7 +151,7 @@
     </fragment>
     <fragment
         android:id="@+id/galeriaFragment"
-        android:name="com.example.cyberspace_info.perfil.galeria.view.GaleriaFragment"
+        android:name="com.grupo5.cyberspace.perfil.galeria.view.GaleriaFragment"
         android:label="fragment_galeria"
         tools:layout="@layout/fragment_galeria" >
         <action
@@ -176,7 +176,7 @@
     </fragment>
     <fragment
         android:id="@+id/imagemFragment"
-        android:name="com.example.cyberspace_info.perfil.imagelandscape.view.ImagemFragment"
+        android:name="com.grupo5.cyberspace.perfil.imagelandscape.view.ImagemFragment"
         android:label="fragment_imagem"
         tools:layout="@layout/fragment_imagem" >
         <action
@@ -202,7 +202,7 @@
     </fragment>
     <fragment
         android:id="@+id/asteroidesFragment"
-        android:name="com.example.cyberspace_info.asteroidesemcolisao.view.AsteroidesFragment"
+        android:name="com.grupo5.cyberspace.asteroidesemcolisao.view.AsteroidesFragment"
         android:label="fragment_asteroides"
         tools:layout="@layout/fragment_asteroides" >
         <action
@@ -215,7 +215,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventosNaturaisFragment"
-        android:name="com.example.cyberspace_info.listaeventosnaturais.view.EventosNaturaisFragment"
+        android:name="com.grupo5.cyberspace.listaeventosnaturais.view.EventosNaturaisFragment"
         android:label="EventosNaturaisFragment" >
         <action
             android:id="@+id/action_eventosNaturaisFragment_to_menuFragment"
@@ -228,7 +228,7 @@
 
     <fragment
         android:id="@+id/pesquisaFragment"
-        android:name="com.example.cyberspace_info.pesquisarimgvid.view.PesquisaFragment"
+        android:name="com.grupo5.cyberspace.pesquisarimgvid.view.PesquisaFragment"
         android:label="fragment_pesquisa"
         tools:layout="@layout/fragment_pesquisa" >
         <action
@@ -249,7 +249,7 @@
 
     <fragment
         android:id="@+id/resultadoPesquisaFragment"
-        android:name="com.example.cyberspace_info.pesquisarimgvid.view.ResultadoPesquisaFragment"
+        android:name="com.grupo5.cyberspace.pesquisarimgvid.view.ResultadoPesquisaFragment"
         android:label="fragment_resultado_pesquisa"
         tools:layout="@layout/fragment_resultado_pesquisa" >
         <action
@@ -265,7 +265,7 @@
     </fragment>
     <fragment
         android:id="@+id/erroFragment"
-        android:name="com.example.cyberspace_info.mensagemdeerro.ErroFragment"
+        android:name="com.grupo5.cyberspace.mensagemdeerro.ErroFragment"
         android:label="fragment_erro"
         tools:layout="@layout/fragment_erro" >
         <action
