@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -76,7 +77,7 @@ class ResultadoPesquisaFragment : Fragment() {
         val progresBar = requireView().findViewById<ProgressBar>(R.id.progessBar)
         showLoading(true)
 
-        requireView().findViewById<MaterialCardView>(R.id.cardNotFound).visibility =
+        requireView().findViewById<ConstraintLayout>(R.id.cardNotFound).visibility =
             View.GONE
 
         val color = ContextCompat.getColor(requireContext(), R.color.colorWhite)
@@ -112,7 +113,7 @@ class ResultadoPesquisaFragment : Fragment() {
                     exibirLista(it)
                 } else {
                     showLoading(false)
-                    requireView().findViewById<MaterialCardView>(R.id.cardNotFound).visibility =
+                    requireView().findViewById<ConstraintLayout>(R.id.cardNotFound).visibility =
                         View.VISIBLE
                 }
             }
