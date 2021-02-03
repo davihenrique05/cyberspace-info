@@ -76,6 +76,9 @@ class ResultadoPesquisaFragment : Fragment() {
         val progresBar = requireView().findViewById<ProgressBar>(R.id.progessBar)
         showLoading(true)
 
+        requireView().findViewById<MaterialCardView>(R.id.cardNotFound).visibility =
+            View.GONE
+
         val color = ContextCompat.getColor(requireContext(), R.color.colorWhite)
         @Suppress("DEPRECATION")
         progresBar.indeterminateDrawable.setColorFilter(

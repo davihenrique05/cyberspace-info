@@ -1,8 +1,10 @@
 package com.grupo5.cyberspace.perfil.imagelandscape.view
 
 import android.Manifest
+import android.app.AlertDialog
 import android.app.DownloadManager
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
@@ -22,7 +24,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
-import com.google.android.youtube.player.YouTubePlayer
 import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.db.ImagemDatabase
 import com.grupo5.cyberspace.perfil.entity.ImagemEntity
@@ -93,9 +94,8 @@ class ImagemFragment : Fragment() {
             icone?.setOnClickListener {
 
                 if (verificar) {
-                    removerImagem(imagemUrl)
+                    criarDialog(imagemUrl, icone)
                     verificar = verificarImagem(imagemUrl)
-                    definirIcone(icone, false)
                 } else {
                     favoritarImagem(imagemUrl)
                     verificar = verificarImagem(imagemUrl)
@@ -181,6 +181,22 @@ class ImagemFragment : Fragment() {
         return false
     }
 
+    private fun criarDialog(urlImagem: String?, icone: ImageView){
+        AlertDialog.Builder(requireContext(), R.style.MyDialogTheme)
+            .apply {
+                setTitle(getString(R.string.remover_img))
+                setMessage(getString(R.string.text_remover_fav))
+
+                setPositiveButton("Sim") { _, _ ->
+                    removerImagem(urlImagem)
+                    definirIcone(icone, false)
+                }
+
+                setNegativeButton("Não") { _: DialogInterface, _: Int -> }
+            }
+            .create()
+            .show()
+    }
     private fun removerImagem(urlImagem: String?) {
 
         val user = FirebaseAuth.getInstance().currentUser
@@ -219,7 +235,6 @@ class ImagemFragment : Fragment() {
                     }
 
                 })
-
 
                 val toast = Toast.makeText(
                     requireView().context,
