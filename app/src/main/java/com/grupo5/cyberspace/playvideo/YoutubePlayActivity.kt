@@ -17,12 +17,16 @@ class YoutubePlayActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedLi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_youtube_play)
 
-        val url = intent.getStringExtra("url").toString()
-        _id = YoutubeManager.extrairIDUrl(url)!!
+        val url = intent.getStringExtra("url")
 
-        if(_id.isBlank()){
-            _id = YoutubeManager.getIdVideo(url)!!
+        if(url != null){
+            _id = YoutubeManager.extrairIDUrl(url).toString()
+
+            if(_id.isBlank()){
+                _id = YoutubeManager.getIdVideo(url).toString()
+            }
         }
+
 
         findViewById<YouTubePlayerView>(R.id.youtubePlayer).initialize(
             getString(R.string.yotubeAPI),

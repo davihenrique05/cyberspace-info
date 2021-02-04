@@ -35,7 +35,7 @@
     <string name="ventos_mph">VENTOS(mph)</string>
     <string name="pressao">PRESSÃO(Pa)</string>
     <string name="app">Cyberspace Info</string>
-    <string name="not_found">Conteúdo não encontrado :(</string>
+    <string name="not_found">Conteúdo não encontrado!</string>
     <string name="pesquise_astros_estrelas_etc">Pesquise astros, estrelas, etc...</string>
     <string name="pesquisar_imagens">Pesquisar Imagens</string>
     <string name="mars_rover_min">Mars Rover</string>
@@ -63,4 +63,7 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sem_internet">Você está sem internet</string>
+    <string name="remover_img">Remover imagem</string>
+    <string name="text_remover_fav">Você tem certeza que deseja remover essa imagem dos favoritos?</string>
 </resources>

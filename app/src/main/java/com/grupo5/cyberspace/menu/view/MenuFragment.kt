@@ -36,8 +36,8 @@ import kotlinx.coroutines.android.awaitFrame
 class MenuFragment : Fragment() {
 
     private lateinit var _viewModel: ImageViewModel
-    private lateinit var _url: String
-    private lateinit var _midia:String
+    private var _url = ""
+    private var _midia = ""
     private var _listaImagens = arrayListOf<ImagemEntity>()
 
     override fun onCreateView(
@@ -66,7 +66,8 @@ class MenuFragment : Fragment() {
         if (NetworkListener.isOnline(requireContext())) {
             requisicaoImagemDoDia(title, image)
         } else {
-            image.setBackgroundColor(requireActivity().getColor(R.color.colorPrimaryDarkestMenu))
+            image.setImageResource(R.drawable.space_cats)
+            title.text = getString(R.string.sem_internet)
         }
 
         armazenandoLista()
@@ -124,18 +125,23 @@ class MenuFragment : Fragment() {
             }
         } else {
             if (online) {
-                if(_midia != "image"){
-                    val intent = Intent(requireContext(),YoutubePlayActivity::class.java)
-                    intent.putExtra("url", _url)
-                    startActivity(intent)
-                }else{
-                    val bundle =
-                        bundleOf("Tela" to getString(R.string.menu_comparacao), "Imagem" to _url)
-                    navController.navigate(navDestino, bundle)
+                when {
+                    _midia == "image" -> {
+                        val bundle =
+                            bundleOf("Tela" to getString(R.string.menu_comparacao), "Imagem" to _url)
+                        navController.navigate(navDestino, bundle)
+                    }
+                    _midia.isNotEmpty() -> {
+                        val intent = Intent(requireContext(),YoutubePlayActivity::class.java)
+                        intent.putExtra("url", _url)
+                        startActivity(intent)
+                    }
+                    else -> {
+                        navController.navigate(R.id.action_menuFragment_to_erroFragment)
+                    }
                 }
 
             } else {
-
                 navController.navigate(R.id.action_menuFragment_to_erroFragment)
             }
         }
@@ -182,7 +188,7 @@ class MenuFragment : Fragment() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    Log.e("Requisicao FB", error.message)
                 }
 
             })

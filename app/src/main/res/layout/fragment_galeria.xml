@@ -69,10 +69,10 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorWhite"
             android:alpha="0.1"
-            tools:visibility="gone"
-            />
+            android:background="@color/colorWhite"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewGaleria"
