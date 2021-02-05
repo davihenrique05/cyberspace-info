@@ -301,6 +301,11 @@ class ImagemFragment : Fragment() {
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
 
         mgr.enqueue(request)
+        val toast = Toast.makeText(context,
+            "A imagem será baixada em segundo plano",
+            Toast.LENGTH_SHORT
+        )
+        toast.show()
         _baixada = true
     }
 }

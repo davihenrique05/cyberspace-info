@@ -69,4 +69,7 @@
     <string name="rover">Rover</string>
     <string name="data">Data</string>
     <string name="pesquisar">PESQUISAR</string>
+    <string name="empty_mars_roover">Não encontramos nada nesse dia ou para esse rover.</string>
+    <string name="data_de_aproxima_o">Data de aproximação:</string>
+    <string name="dist_ncia_da_terra">Distância da Terra:</string>
 </resources>

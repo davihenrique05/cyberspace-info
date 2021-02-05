@@ -76,7 +76,9 @@ class AsteroidesEmColisaoViewModel(
             "min" to it.diametroMinimo,
             "max" to it.diametroMaximo,
             "velocidade" to it.velocidadeModelRel,
-            "link" to it.link
+            "link" to it.link,
+            "data" to it.data,
+            "distancia" to it.distancia
         )
 
         bottomSheetFragment.arguments = bundle
@@ -92,13 +94,15 @@ class AsteroidesEmColisaoViewModel(
         val metros = diametros["meters"] as LinkedTreeMap<String, Double>
         val data = it["close_approach_data"] as List<LinkedTreeMap<String, Any>>
         val velocidade = data[0]["relative_velocity"] as LinkedTreeMap<String, String>
+        val distancia = data[0]["miss_distance"] as LinkedTreeMap<String, String>
         return AsteroideModel(
             it["name"].toString(),
             it["nasa_jpl_url"].toString(),
             metros["estimated_diameter_min"]!!.toDouble(),
             metros["estimated_diameter_max"]!!.toDouble(),
             data[0]["close_approach_date"].toString(),
-            velocidade["kilometers_per_hour"]!!.toDouble()
+            velocidade["kilometers_per_hour"]!!.toDouble(),
+            distancia["kilometers"]!!.toDouble()
         )
     }
 

@@ -36,20 +36,20 @@ class TempoEmMarteFragment : Fragment() {
         ).get(SolViewModel::class.java)
 
         viewModel.obterLista().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            view.findViewById<TextView>(R.id.txtPressaoMax_fTempoEmMarte).text = formatarDados(it[0].pressure.mx)
-            view.findViewById<TextView>(R.id.txtPressaoMin_fTempoEmMarte).text = formatarDados(it[0].pressure.mn)
-            view.findViewById<TextView>(R.id.txtPressaoMed_fTempoEmMarte).text = formatarDados(it[0].pressure.av)
+            view.findViewById<TextView>(R.id.txtPressaoMax_fTempoEmMarte).text = formatarDados(it[5].pressure.mx)
+            view.findViewById<TextView>(R.id.txtPressaoMin_fTempoEmMarte).text = formatarDados(it[5].pressure.mn)
+            view.findViewById<TextView>(R.id.txtPressaoMed_fTempoEmMarte).text = formatarDados(it[5].pressure.av)
 
-            view.findViewById<TextView>(R.id.txtTempMax_fTempoEmMarte).text = formatarDados(it[0].atmosphericTemperature.mx,true)
-            view.findViewById<TextView>(R.id.txtTempMin_fTempoEmMarte).text = formatarDados(it[0].atmosphericTemperature.mn,true)
-            view.findViewById<TextView>(R.id.txtTempMed_fTempoEmMarte).text = formatarDados(it[0].atmosphericTemperature.av,true)
+            view.findViewById<TextView>(R.id.txtTempMax_fTempoEmMarte).text = formatarDados(it[5].atmosphericTemperature.mx,true)
+            view.findViewById<TextView>(R.id.txtTempMin_fTempoEmMarte).text = formatarDados(it[5].atmosphericTemperature.mn,true)
+            view.findViewById<TextView>(R.id.txtTempMed_fTempoEmMarte).text = formatarDados(it[5].atmosphericTemperature.av,true)
 
-            view.findViewById<TextView>(R.id.txtVentosMax_fTempoEmMarte).text = formatarDados(it[0].windSpeed.mx)
-            view.findViewById<TextView>(R.id.txtVentosMin_fTempoEmMarte).text = formatarDados(it[0].windSpeed.mn)
-            view.findViewById<TextView>(R.id.txtVentosMed_fTempoEmMarte).text = formatarDados(it[0].windSpeed.av)
+            view.findViewById<TextView>(R.id.txtVentosMax_fTempoEmMarte).text = formatarDados(it[5].windSpeed.mx)
+            view.findViewById<TextView>(R.id.txtVentosMin_fTempoEmMarte).text = formatarDados(it[5].windSpeed.mn)
+            view.findViewById<TextView>(R.id.txtVentosMed_fTempoEmMarte).text = formatarDados(it[5].windSpeed.av)
 
-            view.findViewById<TextView>(R.id.txtData_fTempoEmMarte).text = formatarData(it[0].firstUTC)
-            view.findViewById<TextView>(R.id.txtSol_fTempoEmMarte).text = "SOL " + it[0].id.toString()
+            view.findViewById<TextView>(R.id.txtData_fTempoEmMarte).text = formatarData(it[5].firstUTC)
+            view.findViewById<TextView>(R.id.txtSol_fTempoEmMarte).text = "SOL " + it[5].id.toString()
         })
     }
 

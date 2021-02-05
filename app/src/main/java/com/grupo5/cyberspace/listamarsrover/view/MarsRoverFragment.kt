@@ -1,11 +1,8 @@
 package com.grupo5.cyberspace.listamarsrover.view
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.icu.text.CaseMap
 import android.os.Bundle
-import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,14 +11,14 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.listamarsrover.repository.MarsRoverPhotosRepository
 import com.grupo5.cyberspace.listamarsrover.viewmodel.MarsRoverPhotosViewModel
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.fragment_mars_rover.*
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class MarsRoverFragment : Fragment() {
     private var dia: Int
@@ -56,22 +53,22 @@ class MarsRoverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        edtRover = view.findViewById<AutoCompleteTextView>(R.id.edtRover_fMarsRover)
-        edtData = view.findViewById<TextInputEditText>(R.id.edtData_fMarsRover)
-        btnPesquisar = view.findViewById<Button>(R.id.btnPesquisar_fMarsRover)
-        txtRover = view.findViewById<TextInputLayout>(R.id.txtRover_fMarsRover)
-        txtData = view.findViewById<TextInputLayout>(R.id.txtData_fMarsRover)
+        edtRover = view.findViewById(R.id.edtRover_fMarsRover)
+        edtData = view.findViewById(R.id.edtData_fMarsRover)
+        btnPesquisar = view.findViewById(R.id.btnPesquisar_fMarsRover)
+        txtRover = view.findViewById(R.id.txtRover_fMarsRover)
+        txtData = view.findViewById(R.id.txtData_fMarsRover)
 
-        edtData.setText(formatarData("$dia/$mes/$ano","dd/mm/yyyy","DD/MM/yyyy"))
+        edtData.setText(formatarData("$dia/$mes/$ano", "dd/mm/yyyy", "DD/MM/yyyy"))
         edtData.isEnabled = false
 
-        edtRover.setKeyListener(null);
+        edtRover.keyListener = null;
 
         val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
         val adapterRover = ArrayAdapter(requireContext(), R.layout.list_item_rover, itemsRover)
         (txtRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
 
-        edtRover.setOnItemClickListener { parent, view, position, id ->
+        edtRover.setOnItemClickListener { _, _, position, _ ->
             indexRover = position
         }
 
@@ -93,7 +90,11 @@ class MarsRoverFragment : Fragment() {
                     )
                 ).get(MarsRoverPhotosViewModel::class.java)
 
-                val dataMarsRover = formatarData(edtData.text.toString(),"DD/MM/yyyy", "yyyy-MM-DD")
+                val dataMarsRover = formatarData(
+                    edtData.text.toString(),
+                    "DD/MM/yyyy",
+                    "yyyy-MM-DD"
+                )
 
                 viewModel.obterLista(itemsRover[indexRover].toLowerCase(), dataMarsRover)
                     .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
@@ -119,15 +120,25 @@ class MarsRoverFragment : Fragment() {
     }
 
     private fun abrirCalendario(minhaView: View) {
-        val dialog = DatePickerDialog(
+        val dialog = object :DatePickerDialog(
             minhaView.context,
             android.R.style.Theme_Material_Light_Dialog_Alert,
-            { view, year, month, dayOfMonth ->
+            null, ano, mes, dia){
+
+            override fun onDateChanged(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
                 val mesRetorno = month + 1
 
-                edtData.setText(formatarData("$dayOfMonth-$mesRetorno-$year","dd-mm-yyyy","DD/MM/yyyy"))
-            }, ano, mes, dia
-        )
+                edtData.setText(
+                    formatarData(
+                        "$dayOfMonth-$mesRetorno-$year",
+                        "dd-mm-yyyy",
+                        "DD/MM/yyyy"
+                    )
+                )
+                dismiss()
+            }
+        }
+
         dialog.datePicker.maxDate = Date().time
         dialog.show()
     }
@@ -152,7 +163,7 @@ class MarsRoverFragment : Fragment() {
     }
 
     @SuppressLint("SimpleDateFormat")
-    fun formatarData(data: String, formatoOrigem:String, formatoDestino:String): String {
+    fun formatarData(data: String, formatoOrigem: String, formatoDestino: String): String {
         val formato = SimpleDateFormat(formatoOrigem)
         val dataUm = formato.parse(data)
         formato.applyPattern(formatoDestino)

@@ -88,13 +88,56 @@
         android:layout_marginStart="@dimen/dimen_16"
         />
 
+    <TextView
+        android:id="@+id/dataAsteroide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_de_aproxima_o"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/velocidade"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtDataAproximacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@id/dataAsteroide"
+        app:layout_constraintTop_toBottomOf="@id/txtVelocidadeBottom"
+        android:layout_marginStart="@dimen/dimen_16"
+        />
+
+    <TextView
+        android:id="@+id/distância"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dist_ncia_da_terra"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/dataAsteroide"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtProximidadeDaTerra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@id/distância"
+        app:layout_constraintTop_toBottomOf="@id/txtDataAproximacao"
+        android:layout_marginStart="@dimen/dimen_16"
+        />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMoreInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cornerRadius="@dimen/dimen_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtVelocidadeBottom"
+        app:layout_constraintTop_toBottomOf="@id/txtProximidadeDaTerra"
         android:layout_marginEnd="@dimen/dimen_16"
         android:text="@string/saiba_mais"/>
 

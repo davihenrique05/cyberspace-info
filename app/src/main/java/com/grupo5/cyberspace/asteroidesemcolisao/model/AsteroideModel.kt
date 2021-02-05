@@ -6,5 +6,6 @@ data class AsteroideModel (
     val diametroMinimo:Double,
     val diametroMaximo: Double,
     val data: String,
-    val velocidadeModelRel: Double
+    val velocidadeModelRel: Double,
+    val distancia: Double
 )
