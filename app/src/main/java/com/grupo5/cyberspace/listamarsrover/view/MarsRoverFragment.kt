@@ -3,13 +3,13 @@ package com.grupo5.cyberspace.listamarsrover.view
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.icu.text.CaseMap
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.Spinner
+import android.widget.*
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -19,19 +19,29 @@ import com.grupo5.cyberspace.listamarsrover.repository.MarsRoverPhotosRepository
 import com.grupo5.cyberspace.listamarsrover.viewmodel.MarsRoverPhotosViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.fragment_mars_rover.*
+import java.text.SimpleDateFormat
 import java.util.*
-
 
 class MarsRoverFragment : Fragment() {
     private var dia: Int
     private var mes: Int
     private var ano: Int
+    private var indexRover: Int
+
+    private lateinit var edtRover: AutoCompleteTextView
+    private lateinit var edtData: TextInputEditText
+    private lateinit var btnPesquisar: Button
+    private lateinit var txtRover: TextInputLayout
+    private lateinit var txtData: TextInputLayout
 
     init {
         val calendar = Calendar.getInstance()
         dia = calendar.get(Calendar.DAY_OF_MONTH)
         mes = calendar.get(Calendar.MONTH)
         ano = calendar.get(Calendar.YEAR)
+
+        indexRover = -1
     }
 
     override fun onCreateView(
@@ -46,25 +56,36 @@ class MarsRoverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val spinner = view.findViewById<Spinner>(R.id.rover_spinner)
-        val adapter = ArrayAdapter.createFromResource(
-            view.context,
-            R.array.rover_array, R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        edtRover = view.findViewById<AutoCompleteTextView>(R.id.edtRover_fMarsRover)
+        edtData = view.findViewById<TextInputEditText>(R.id.edtData_fMarsRover)
+        btnPesquisar = view.findViewById<Button>(R.id.btnPesquisar_fMarsRover)
+        txtRover = view.findViewById<TextInputLayout>(R.id.txtRover_fMarsRover)
+        txtData = view.findViewById<TextInputLayout>(R.id.txtData_fMarsRover)
 
-        view.findViewById<TextInputLayout>(R.id.textField).setEndIconOnClickListener {
+        edtData.setText(formatarData("$dia/$mes/$ano","dd/mm/yyyy","DD/MM/yyyy"))
+        edtData.isEnabled = false
+
+        edtRover.setKeyListener(null);
+
+        val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
+        val adapterRover = ArrayAdapter(requireContext(), R.layout.list_item_rover, itemsRover)
+        (txtRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
+
+        edtRover.setOnItemClickListener { parent, view, position, id ->
+            indexRover = position
+        }
+
+        txtData.setEndIconOnClickListener {
             abrirCalendario(view)
         }
 
         view.findViewById<ImageView>(R.id.imgReturn_fMarsRover).setOnClickListener {
             val navController = Navigation.findNavController(view)
-            navController.navigate(R.id.action_marsRoverFragment_to_menuFragment)
+            navController.popBackStack()
         }
 
-        view.findViewById<ImageView>(R.id.imgPesquisar_fMarsRover).setOnClickListener {
-            if (consisteTela(view.findViewById(R.id.textd),view.findViewById(R.id.rover_spinner))) {
+        view.findViewById<Button>(R.id.btnPesquisar_fMarsRover).setOnClickListener {
+            if (consisteTela(edtData, edtRover)) {
                 val viewModel = ViewModelProvider(
                     this,
                     MarsRoverPhotosViewModel.MarsRoverPhotosViewModelFactory(
@@ -72,13 +93,9 @@ class MarsRoverFragment : Fragment() {
                     )
                 ).get(MarsRoverPhotosViewModel::class.java)
 
-                val dataMarsRover = view.findViewById<TextInputEditText>(R.id.textd).text.toString()
-                val dia = dataMarsRover.substring(0, 2)
-                val mes = dataMarsRover.substring(3, 5)
-                val ano = dataMarsRover.substring(6, 10)
+                val dataMarsRover = formatarData(edtData.text.toString(),"DD/MM/yyyy", "yyyy-MM-DD")
 
-                val spnRover = view.findViewById<Spinner>(R.id.rover_spinner)
-                viewModel.obterLista(spnRover.selectedItem.toString().toLowerCase(), "$ano-$mes-$dia")
+                viewModel.obterLista(itemsRover[indexRover].toLowerCase(), dataMarsRover)
                     .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                         val lista = mutableListOf<String>()
 
@@ -90,14 +107,13 @@ class MarsRoverFragment : Fragment() {
                             "Origem" to getString(R.string.marsrover_comparacao),
                             "imagens" to lista
                         )
+
                         val navController = Navigation.findNavController(view)
                         navController.navigate(
                             R.id.action_marsRoverFragment_to_galeriaFragment,
                             bundle
                         )
                     })
-            } else {
-                view.findViewById<TextInputEditText>(R.id.textd).error = "Informe a data"
             }
         }
     }
@@ -105,37 +121,41 @@ class MarsRoverFragment : Fragment() {
     private fun abrirCalendario(minhaView: View) {
         val dialog = DatePickerDialog(
             minhaView.context,
-            AlertDialog.THEME_DEVICE_DEFAULT_DARK,
+            android.R.style.Theme_Material_Light_Dialog_Alert,
             { view, year, month, dayOfMonth ->
                 val mesRetorno = month + 1
 
-                var diaString = ""
-                if (dayOfMonth < 10) {
-                    diaString = "0"
-                }
-
-                var mesString = ""
-                if (mesRetorno < 10) {
-                    mesString = "0"
-                }
-                mesString += mesRetorno
-                diaString += dayOfMonth
-
-                minhaView.findViewById<TextInputEditText>(R.id.textd)
-                    .setText("$diaString/$mesString/$year")
+                edtData.setText(formatarData("$dayOfMonth-$mesRetorno-$year","dd-mm-yyyy","DD/MM/yyyy"))
             }, ano, mes, dia
         )
         dialog.datePicker.maxDate = Date().time
         dialog.show()
     }
 
-    private fun consisteTela(edtDataMarsRover:TextInputEditText, spnRover:Spinner):Boolean{
+    private fun consisteTela(
+        edtDataMarsRover: TextInputEditText,
+        edtRover: AutoCompleteTextView
+    ): Boolean {
         if (edtDataMarsRover.text.toString() == "") {
             edtDataMarsRover.error = "Informe a data da Terra"
+            edtDataMarsRover.requestFocus()
             return false
         } else {
+            if (indexRover == -1) {
+                edtRover.error = "Informe o rover"
+                edtRover.requestFocus()
+                return false
+            }
         }
 
         return true
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    fun formatarData(data: String, formatoOrigem:String, formatoDestino:String): String {
+        val formato = SimpleDateFormat(formatoOrigem)
+        val dataUm = formato.parse(data)
+        formato.applyPattern(formatoDestino)
+        return formato.format(dataUm)
     }
 }
