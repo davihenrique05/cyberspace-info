@@ -1,10 +1,14 @@
 package com.grupo5.cyberspace.perfil.galeria.view
 
 import android.os.Bundle
+import android.service.autofill.ImageTransformation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -40,7 +44,14 @@ class GaleriaFragment : Fragment() {
         val recyler = view.findViewById<RecyclerView>(R.id.recyclerViewGaleria)
         val manager = GridLayoutManager(view.context, 3)
         val tela = arguments?.getString("Origem")
+        val progresBar = view.findViewById<ProgressBar>(R.id.progessBarMars)
 
+        val color = ContextCompat.getColor(view.context, R.color.colorWhite)
+        @Suppress("DEPRECATION")
+        progresBar.indeterminateDrawable.setColorFilter(
+            color,
+            android.graphics.PorterDuff.Mode.MULTIPLY
+        )
 
         _viewModel = ViewModelProvider(
             this,
@@ -58,20 +69,24 @@ class GaleriaFragment : Fragment() {
 
         } else if (tela == "MarsRover") {
             _listaDeImagens.clear()
+            showLoading(true)
+            view.findViewById<TextView>(R.id.txtTituloGal).text = getString(R.string.mars_rover)
             val lista = arguments?.get("imagens") as MutableList<String>
-            _listaDeImagens.addAll(lista)
-            _recylerAdapter = ImagensAdapter(_listaDeImagens) {
-                val navController = Navigation.findNavController(requireView())
-                val bundle = bundleOf("Imagem" to it)
-                navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
+            if(lista.isNotEmpty()){
+                atribuirImagensRover(lista)
+            }else{
+                showLoading(false)
+                view.findViewById<ImageView>(R.id.imgVazioGaleria).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.txtEmptyRover).visibility= View.VISIBLE
             }
-            _recylerAdapter.notifyDataSetChanged()
         }
 
-        recyler.apply {
-            setHasFixedSize(true)
-            adapter = _recylerAdapter
-            layoutManager = manager
+        if(_listaDeImagens.isNotEmpty()){
+            recyler.apply {
+                setHasFixedSize(true)
+                adapter = _recylerAdapter
+                layoutManager = manager
+            }
         }
 
         navegacaoEntreTelas(tela)
@@ -121,4 +136,27 @@ class GaleriaFragment : Fragment() {
 
         return listaDeUrl
     }
+
+    private fun showLoading(isLoading: Boolean) {
+        val viewLoading = view?.findViewById<View>(R.id.loadingMars)
+
+        if (isLoading) {
+            viewLoading?.visibility = View.VISIBLE
+        } else {
+            viewLoading?.visibility = View.GONE
+        }
+    }
+
+    private fun atribuirImagensRover(lista: MutableList<String>) {
+
+        showLoading(false)
+        _listaDeImagens.addAll(lista)
+        _recylerAdapter = ImagensAdapter(_listaDeImagens) {
+            val navController = Navigation.findNavController(requireView())
+            val bundle = bundleOf("Imagem" to it)
+            navController.navigate(R.id.action_galeriaFragment_to_imagemFragment, bundle)
+        }
+        _recylerAdapter.notifyDataSetChanged()
+    }
+
 }
