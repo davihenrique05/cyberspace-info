@@ -98,6 +98,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
             <Spinner
                 android:id="@+id/rover_spinner"
                 android:paddingStart="@dimen/dimen_10"
@@ -109,6 +110,7 @@
                 android:entries="@array/rover_array"
                 android:popupBackground="@android:color/transparent"
                 android:spinnerMode="dropdown" />
+
 
             <ImageView
                 android:id="@+id/imgPesquisar_fMarsRover"
