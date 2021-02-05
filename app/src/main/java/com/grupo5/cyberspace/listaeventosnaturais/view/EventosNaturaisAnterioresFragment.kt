@@ -88,7 +88,7 @@ class EventosNaturaisAnterioresFragment : Fragment() {
     }
 
     private fun exibirResultado(lista:List<EventNaturalModel>){
-
+        listaEventos.clear()
         listaEventos.addAll(lista)
         showLoading(false)
         _adaptador.notifyDataSetChanged()

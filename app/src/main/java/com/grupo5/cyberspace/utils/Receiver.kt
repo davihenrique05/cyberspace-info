@@ -26,13 +26,6 @@ class Receiver:BroadcastReceiver() {
                         )
                         toast.show()
                     }
-                    if(status == DownloadManager.STATUS_RUNNING){
-                        val toast = Toast.makeText(context,
-                            "Downlaod em andamento...",
-                            Toast.LENGTH_SHORT
-                        )
-                        toast.show()
-                    }
                 }
             }
             cursor.close()

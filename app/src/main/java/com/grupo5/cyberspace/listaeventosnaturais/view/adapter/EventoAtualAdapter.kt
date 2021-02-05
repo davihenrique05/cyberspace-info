@@ -1,5 +1,6 @@
 package com.grupo5.cyberspace.listaeventosnaturais.view.adapter
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.listaeventosnaturais.model.EventNaturalModel
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
 
 class EventoAtualAdapter(private val eventos: List<EventNaturalModel>, private val listener: (EventNaturalModel) -> Unit):
     RecyclerView.Adapter<EventoAtualAdapter.EventoAtualViewHolder>() {
@@ -21,6 +23,8 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>, private v
         private val date : TextView by lazy { view.findViewById<TextView>(R.id.txtDateEvent)}
         private val imagemCordenadas : ImageView by lazy {view.findViewById<ImageView>(R.id.imgCoordinates)}
 
+        @SuppressLint("SimpleDateFormat")
+        @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
         fun bind(event:EventNaturalModel){
 
 
@@ -28,10 +32,19 @@ class EventoAtualAdapter(private val eventos: List<EventNaturalModel>, private v
 
             Log.i("IMAGEM : ",coordenadasUrl)
             Picasso.get().load(coordenadasUrl).into(imagemCordenadas)
+            val data = event.geometries[0].date.split("T")[0]
 
             title.text = event.title
             category.text = event.categories[0].title
-            date.text = event.geometries[0].date.split("T")[0]
+            date.text = formatarData(data)
+        }
+
+        @SuppressLint("SimpleDateFormat")
+        fun formatarData(data:String): String {
+            val formato = SimpleDateFormat("yyyy-MM-dd")
+            val dataUm = formato.parse(data)
+            formato.applyPattern("dd-MM-yyyy")
+            return formato.format(dataUm)
         }
 
     }

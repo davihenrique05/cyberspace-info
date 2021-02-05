@@ -65,7 +65,11 @@ class GaleriaFragment : Fragment() {
         if (tela == "Perfil") {
 
             carregarImagensFavoritas()
-
+            recyler.apply {
+                setHasFixedSize(true)
+                adapter = _recylerAdapter
+                layoutManager = manager
+            }
 
         } else if (tela == "MarsRover") {
             _listaDeImagens.clear()
@@ -114,6 +118,7 @@ class GaleriaFragment : Fragment() {
                 imagemVazio.visibility = View.VISIBLE
             }
         }
+
     }
 
     private fun navegacaoEntreTelas(tela: String?) {

@@ -31,7 +31,7 @@ class ImagemEventosNaturaisFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val latitude = arguments?.getString("latitude")
-        val longitude = arguments?.getInt("longitude")
+        val longitude = arguments?.getString("longitude")
         var imageEvent = view.findViewById<ImageView>(R.id.imgNaturalEvent)
 
         view.findViewById<ImageView>(R.id.imgCloseEventoNatural).setOnClickListener {
