@@ -66,4 +66,7 @@
     <string name="sem_internet">Você está sem internet</string>
     <string name="remover_img">Remover imagem</string>
     <string name="text_remover_fav">Você tem certeza que deseja remover essa imagem dos favoritos?</string>
+    <string name="rover">Rover</string>
+    <string name="data">Data</string>
+    <string name="pesquisar">PESQUISAR</string>
 </resources>

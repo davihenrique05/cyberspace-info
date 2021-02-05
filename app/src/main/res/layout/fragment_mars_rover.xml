@@ -53,12 +53,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardTempoEmMarte"
+        android:id="@+id/cardMarsRover"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -73,53 +72,58 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField"
+                android:id="@+id/txtData_fMarsRover"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
                 android:hint="@string/data_na_terra"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
-                app:endIconContentDescription="Data"
+                app:endIconContentDescription="@string/data"
                 app:endIconDrawable="@drawable/ic_baseline_calendar_today_24"
                 app:endIconMode="custom"
                 app:endIconTint="@color/colorWhite"
                 app:hintTextColor="@color/colorWhite">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textd"
+                    android:id="@+id/edtData_fMarsRover"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"
                     android:clickable="false"
-                    android:editable="false"
+                    android:inputType="date"
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorWhite" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <Spinner
-                android:id="@+id/rover_spinner"
-                android:paddingStart="@dimen/dimen_10"
-                style="@style/spinnerItemStyle"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtRover_fMarsRover"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorWhite"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/rover_array"
-                android:popupBackground="@android:color/transparent"
-                android:spinnerMode="dropdown" />
+                android:hint="@string/rover"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                app:endIconTint="@color/colorWhite"
+                app:hintTextColor="@color/colorWhite">
 
+                <AutoCompleteTextView
+                    android:id="@+id/edtRover_fMarsRover"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/imgPesquisar_fMarsRover"
-                android:layout_width="@dimen/dimen_35"
-                android:layout_height="@dimen/dimen_35"
-                android:layout_gravity="end"
-                android:layout_marginTop="@dimen/dimen_8"
-                android:src="@drawable/ic_baseline_search_24" />
-
+            <Button
+                android:id="@+id/btnPesquisar_fMarsRover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dimen_30"
+                android:text="@string/pesquisar"
+                android:textColor="@color/colorWhite" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>
