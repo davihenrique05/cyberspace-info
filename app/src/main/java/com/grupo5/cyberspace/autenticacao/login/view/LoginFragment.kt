@@ -82,6 +82,11 @@ class LoginFragment : Fragment() {
                         resetarSenha(resetEmail)
                     }
                 }
+            }else{
+                Toast.makeText(requireContext(),
+                    getString(R.string.email_vazio),
+                    Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
