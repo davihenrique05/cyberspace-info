@@ -75,7 +75,7 @@ class LoginFragment : Fragment() {
                 auth.fetchSignInMethodsForEmail(resetEmail).addOnCompleteListener {
                     if(it.result?.signInMethods?.size  == 0){
                         Toast.makeText(requireContext(),
-                            "E-mail não cadastrado",
+                            getString(R.string.nao_cadastrado),
                             Toast.LENGTH_SHORT)
                             .show()
                     }else{
@@ -90,7 +90,7 @@ class LoginFragment : Fragment() {
         auth.sendPasswordResetEmail(resetEmail).addOnCompleteListener {
             if(it.isSuccessful){
                 Toast.makeText(requireContext(),
-                    "E-mail enviado com sucesso",
+                    getString(R.string.email_enviado_com_suceso),
                     Toast.LENGTH_SHORT)
                     .show()
             }else{
@@ -170,7 +170,7 @@ class LoginFragment : Fragment() {
     private fun erroCredencial() {
         Toast.makeText(
             requireContext(),
-            "Credenciais incorretas",
+            getString(R.string.dados_incorretos),
             Toast.LENGTH_SHORT
         )
             .show()
@@ -188,7 +188,6 @@ class LoginFragment : Fragment() {
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 erroCredencial()
-                Log.e("ass",e.message.toString())
             }
         }
     }
@@ -220,11 +219,11 @@ class LoginFragment : Fragment() {
             }
 
             override fun onCancel() {
-                Toast.makeText(requireContext(), "Cancelado!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.canceled), Toast.LENGTH_SHORT).show()
             }
 
             override fun onError(error: FacebookException) {
-                Toast.makeText(requireContext(), "ocorreu um erro", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.ocorreu_um_erro), Toast.LENGTH_SHORT).show()
             }
         })
     }

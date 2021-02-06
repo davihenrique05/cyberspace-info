@@ -73,4 +73,9 @@
     <string name="data_de_aproxima_o">Data de aproximação:</string>
     <string name="dist_ncia_da_terra">Distância da Terra:</string>
     <string name="esqueceu_senha">Esqueceu senha</string>
+    <string name="ocorreu_um_erro">ocorreu um erro</string>
+    <string name="canceled">Operação cancelada!</string>
+    <string name="dados_incorretos">Credenciais incorretas</string>
+    <string name="email_enviado_com_suceso">E-mail enviado com sucesso</string>
+    <string name="nao_cadastrado">E-mail não cadastrado</string>
 </resources>
