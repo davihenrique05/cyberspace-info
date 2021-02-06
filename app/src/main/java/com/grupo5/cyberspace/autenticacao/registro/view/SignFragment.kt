@@ -98,7 +98,7 @@ class SignFragment : Fragment() {
                     mudarTab.mudarTab(LOGIN_FRAGMENT)
                     mudarTab.emailAlterado(email)
                 } else {
-                    Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(requireContext(), "Usuário já cadastrado", Toast.LENGTH_LONG)
                         .show()
                 }
             }
