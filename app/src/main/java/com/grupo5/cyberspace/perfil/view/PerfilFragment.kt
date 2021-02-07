@@ -135,7 +135,10 @@ class PerfilFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun exibirDadosDoUsuario() {
         val user = FirebaseAuth.getInstance().currentUser
-        if (user!!.displayName!!.isNotEmpty()) {
+        val temNome= user!!.displayName?.let {
+            it.isNotEmpty()
+        }
+        if (temNome != null && temNome) {
             val nome = requireView().findViewById<TextView>(R.id.txtPerfilNome)
             nome.text = user.displayName
         } else {

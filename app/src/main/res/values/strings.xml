@@ -34,7 +34,7 @@
     <string name="temperatura">TEMPERATURA</string>
     <string name="ventos_mph">VENTOS(mph)</string>
     <string name="pressao">PRESSÃO(Pa)</string>
-    <string name="app">Cyberspace Info</string>
+    <string name="app">Cyberspace</string>
     <string name="not_found">Conteúdo não encontrado!</string>
     <string name="pesquise_astros_estrelas_etc">Pesquise astros, estrelas, etc...</string>
     <string name="pesquisar_imagens">Pesquisar Imagens</string>
@@ -72,4 +72,10 @@
     <string name="empty_mars_roover">Não encontramos nada nesse dia ou para esse rover.</string>
     <string name="data_de_aproxima_o">Data de aproximação:</string>
     <string name="dist_ncia_da_terra">Distância da Terra:</string>
+    <string name="esqueceu_senha">Esqueceu senha</string>
+    <string name="ocorreu_um_erro">ocorreu um erro</string>
+    <string name="canceled">Operação cancelada!</string>
+    <string name="dados_incorretos">Credenciais incorretas</string>
+    <string name="email_enviado_com_suceso">E-mail enviado com sucesso</string>
+    <string name="nao_cadastrado">E-mail não cadastrado</string>
 </resources>

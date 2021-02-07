@@ -2,6 +2,7 @@ package com.grupo5.cyberspace.autenticacao.login.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,11 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.FacebookAuthProvider
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.*
 
 
 class LoginFragment : Fragment() {
@@ -47,7 +44,6 @@ class LoginFragment : Fragment() {
 
         val email = view.findViewById<TextInputEditText>(R.id.edtEmailLogin)
         val senha = view.findViewById<TextInputEditText>(R.id.edtSenhaLogin)
-        val senhaContainer = view.findViewById<TextInputLayout>(R.id.txtInputSenhaLogin)
 
         callbackManager = CallbackManager.Factory.create()
 
@@ -72,6 +68,43 @@ class LoginFragment : Fragment() {
 
         view.findViewById<ImageView>(R.id.btnLoginFacebook).setOnClickListener {
             realizarLogin("", "", "F")
+        }
+        view.findViewById<Button>(R.id.esqueceu_senha).setOnClickListener {
+            val resetEmail = email.text.toString()
+            if(resetEmail.isNotBlank()){
+                auth.fetchSignInMethodsForEmail(resetEmail).addOnCompleteListener {
+                    if(it.result?.signInMethods?.size  == 0){
+                        Toast.makeText(requireContext(),
+                            getString(R.string.nao_cadastrado),
+                            Toast.LENGTH_SHORT)
+                            .show()
+                    }else{
+                        resetarSenha(resetEmail)
+                    }
+                }
+            }else{
+                Toast.makeText(requireContext(),
+                    getString(R.string.email_vazio),
+                    Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+    }
+
+    private fun resetarSenha(resetEmail: String) {
+        auth.sendPasswordResetEmail(resetEmail).addOnCompleteListener {
+            if(it.isSuccessful){
+                Toast.makeText(requireContext(),
+                    getString(R.string.email_enviado_com_suceso),
+                    Toast.LENGTH_SHORT)
+                    .show()
+            }else{
+                Toast.makeText(requireContext(),
+                    it.exception.toString(),
+                    Toast.LENGTH_SHORT)
+                    .show()
+            }
+
         }
     }
 
@@ -110,7 +143,7 @@ class LoginFragment : Fragment() {
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             openMain()
-                        } else {
+                        }else{
                             erroCredencial()
                         }
                     }
@@ -142,7 +175,7 @@ class LoginFragment : Fragment() {
     private fun erroCredencial() {
         Toast.makeText(
             requireContext(),
-            "Credenciais incorretas",
+            getString(R.string.dados_incorretos),
             Toast.LENGTH_SHORT
         )
             .show()
@@ -156,7 +189,7 @@ class LoginFragment : Fragment() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)!!
-                //Log.d("GoogleAuth", "firebaseAuthWithGoogle:" + account.id)
+                Log.d("GoogleAuth", "firebaseAuthWithGoogle:" + account.id)
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 erroCredencial()
@@ -191,11 +224,11 @@ class LoginFragment : Fragment() {
             }
 
             override fun onCancel() {
-                Toast.makeText(requireContext(), "Cancelado!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.canceled), Toast.LENGTH_SHORT).show()
             }
 
             override fun onError(error: FacebookException) {
-                Toast.makeText(requireContext(), error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.ocorreu_um_erro), Toast.LENGTH_SHORT).show()
             }
         })
     }
