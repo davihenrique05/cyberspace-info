@@ -1,6 +1,7 @@
 package com.grupo5.cyberspace.listatecnologiasusadas.view
 
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,16 @@ class TecnologiasUsadasFragment : Fragment() {
     private lateinit var _listaProjetos: MutableList<ProjectDataModel>
     private lateinit var _adaptador: TecnologiasUsadasAdapter
     private lateinit var _listaIdProjeto: MutableList<ProjectIdModel>
+    private lateinit var linearManager : LinearLayoutManager
+    private var currentItens = 0
+    private var totalItens = 0
+    private var scrollOutItens = 0
+    var lastItemCompare = 0
+    private lateinit var _view : View
+
+    //layoutManager.getChildCount() -> Total itens na tela
+    //layoutManager.getItemCount() -> Total de itens no adapter
+    //layoutManager.findFirstVisibleItemPosition() -> Itens scrollados
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +71,9 @@ class TecnologiasUsadasFragment : Fragment() {
             )
         ).get(ProjectIdViewModel::class.java)
 
-        return inflater.inflate(R.layout.fragment_tecnologias_usadas, container, false)
+        val view =  inflater.inflate(R.layout.fragment_tecnologias_usadas, container, false)
+        _view = view
+        return view
 
     }
 
@@ -69,6 +82,7 @@ class TecnologiasUsadasFragment : Fragment() {
 
         val navController = Navigation.findNavController(view)
         view.findViewById<ImageView>(R.id.imgReturn).setOnClickListener {
+            START_VALUE_LIST = 0
             navController.navigate(R.id.action_tecnologiasUsadasFragment_to_menuFragment)
         }
 
@@ -81,7 +95,7 @@ class TecnologiasUsadasFragment : Fragment() {
     private fun recyclerviewItens(view: View) {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTecnologiasUsadas)
-        val linearManager = LinearLayoutManager(view.context)
+        linearManager = LinearLayoutManager(view.context)
 
         recyclerView.apply {
 
@@ -91,11 +105,77 @@ class TecnologiasUsadasFragment : Fragment() {
 
         }
 
+        var firstVisible = linearManager.findFirstVisibleItemPosition()
+
+        pushInListFirstItens()
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+
+            }
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val currentFirstVisible = linearManager.findFirstVisibleItemPosition()
+
+                firstVisible = currentFirstVisible
+
+                val beforeScrollTotal = START_VALUE_LIST
+
+                currentItens = linearManager.childCount
+                totalItens = linearManager.itemCount
+                scrollOutItens = linearManager.findFirstVisibleItemPosition()
+
+                pushDinamicItensWithSleep(dy,beforeScrollTotal)
+
+            }
+
+        })
+    }
+
+    private fun pushDinamicItensWithSleep(dy:Int,beforeScrollTotal:Int){
+
+        val lastItemCurrent = linearManager.findLastVisibleItemPosition()
+
+        if(!(dy < START_VALUE_LIST && scrollOutItens >= START_VALUE_LIST && beforeScrollTotal == START_VALUE_LIST)){
+
+            if(lastItemCurrent >= lastItemCompare){
+
+                lastItemCompare = lastItemCurrent
+
+                if((lastItemCompare <=  _listaIdProjeto.size) && lastItemCompare == (TOTAL_INITAL_ITENS-1)){
+
+                    SystemClock.sleep(2000)
+
+                    for (i in (lastItemCompare)..(lastItemCompare+ITENS_AFTER_UPDATE)) {
+
+                        _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
+                            .observe(viewLifecycleOwner) {
+                                if (!it.isNullOrEmpty()) {
+                                    listarResultados(it)
+                                }
+                            }
+                    }
+
+                    TOTAL_INITAL_ITENS = TOTAL_INITAL_ITENS + ITENS_AFTER_UPDATE
+
+                }
+            }
+
+        }
+
+    }
+
+    private fun pushInListFirstItens(){
+
         _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner) { it ->
 
             _listaIdProjeto.addAll(it)
 
-            for (i in 0..40) {
+            for (i in START_VALUE_LIST..INDEX_START_VALUE) {
 
                 _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
                     .observe(viewLifecycleOwner) {
@@ -120,6 +200,7 @@ class TecnologiasUsadasFragment : Fragment() {
 
     }
 
+
     private fun showLoading(isLoading: Boolean) {
         val viewLoading = view?.findViewById<View>(R.id.loading)
 
@@ -136,5 +217,13 @@ class TecnologiasUsadasFragment : Fragment() {
         showLoading(false)
         _adaptador.notifyDataSetChanged()
     }
+
+    companion object{
+        var TOTAL_INITAL_ITENS = 12
+        var ITENS_AFTER_UPDATE = 12
+        var START_VALUE_LIST = 0
+        var INDEX_START_VALUE = 11
+    }
+
 }
 
