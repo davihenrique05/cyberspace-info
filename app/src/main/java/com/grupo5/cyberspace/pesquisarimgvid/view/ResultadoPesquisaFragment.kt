@@ -2,7 +2,6 @@ package com.grupo5.cyberspace.pesquisarimgvid.view
 
 import android.content.Context
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +9,10 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
@@ -35,7 +32,7 @@ class ResultadoPesquisaFragment : Fragment() {
     private lateinit var _adaptador: PesquisaImgAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var _viewManager : GridLayoutManager
-    
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,8 +49,8 @@ class ResultadoPesquisaFragment : Fragment() {
         _listaImagens = mutableListOf()
         resultarPesquisa(_search)
         view.findViewById<ImageView>(R.id.imgViewMenuPesquisaImgVid).setOnClickListener {
+            _search = ""
             navigation.popBackStack()
-
         }
         if(!_search.isNullOrEmpty()){
             requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment).setText(_search)
@@ -65,7 +62,7 @@ class ResultadoPesquisaFragment : Fragment() {
     private fun novaPesquisa() {
 
         val search = requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment)
-        search.setOnEditorActionListener { _, action, event ->
+        search.setOnEditorActionListener { _, action, _ ->
             if(action == EditorInfo.IME_ACTION_SEARCH)
             {
                 _search = search.text.toString()
