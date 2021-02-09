@@ -32,10 +32,12 @@ class MarsRoverFragment : Fragment() {
     private lateinit var txtRover: TextInputLayout
     private lateinit var txtData: TextInputLayout
 
+    private val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
+
     init {
         val calendar = Calendar.getInstance()
         dia = calendar.get(Calendar.DAY_OF_MONTH)
-        mes = calendar.get(Calendar.MONTH)
+        mes = calendar.get(Calendar.MONTH) + 1
         ano = calendar.get(Calendar.YEAR)
 
         indexRover = -1
@@ -49,6 +51,13 @@ class MarsRoverFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mars_rover, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+        carregaDropDownList()
+        edtRover.dismissDropDown()
+        edtRover.error = null
+    }
+
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -59,14 +68,12 @@ class MarsRoverFragment : Fragment() {
         txtRover = view.findViewById(R.id.txtRover_fMarsRover)
         txtData = view.findViewById(R.id.txtData_fMarsRover)
 
-        edtData.setText(formatarData("$dia/$mes/$ano", "dd/mm/yyyy", "DD/MM/yyyy"))
+        edtData.setText(formatarData("$dia/$mes/$ano", "dd/mm/yyyy", "dd/mm/yyyy"))
         edtData.isEnabled = false
 
         edtRover.keyListener = null;
 
-        val itemsRover = listOf("Curiosity", "Opportunity", "Spirit")
-        val adapterRover = ArrayAdapter(requireContext(), R.layout.list_item_rover, itemsRover)
-        (txtRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
+        carregaDropDownList()
 
         edtRover.setOnItemClickListener { _, _, position, _ ->
             indexRover = position
@@ -129,11 +136,7 @@ class MarsRoverFragment : Fragment() {
                 val mesRetorno = month + 1
 
                 edtData.setText(
-                    formatarData(
-                        "$dayOfMonth-$mesRetorno-$year",
-                        "dd-mm-yyyy",
-                        "DD/MM/yyyy"
-                    )
+                    formatarData("$year-$mesRetorno-$dayOfMonth","yyyy-mm-dd","dd/mm/yyyy")
                 )
                 dismiss()
             }
@@ -168,5 +171,10 @@ class MarsRoverFragment : Fragment() {
         val dataUm = formato.parse(data)
         formato.applyPattern(formatoDestino)
         return formato.format(dataUm)
+    }
+
+    fun carregaDropDownList(){
+        val adapterRover = ArrayAdapter(requireContext(), R.layout.list_item_rover, itemsRover)
+        (txtRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
     }
 }
