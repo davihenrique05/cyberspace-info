@@ -146,7 +146,9 @@ class ResultadoPesquisaFragment : Fragment() {
             _adaptador.notifyDataSetChanged()
         }
 
+        if(CLICK_SEARCH == false){
         TOTAL_INITAL_ITENS_IMAGE = TOTAL_INITAL_ITENS_IMAGE + ITENS_AFTER_UPDATE_IMAGE
+}
 
         showLoading(false)
 
@@ -218,9 +220,14 @@ class ResultadoPesquisaFragment : Fragment() {
         view?.hideKeyboard()
         _listaImagens = mutableListOf()
         resultarPesquisa(search)
+        lastItemCompare = 0
+        CLICK_SEARCH = true
+        TOTAL_INITAL_ITENS_IMAGE = 0
+        resultarPesquisa(search)
     }
 
     companion object{
+        var CLICK_SEARCH = false
         var TOTAL_INITAL_ITENS_IMAGE = 0
         var ITENS_AFTER_UPDATE_IMAGE = 25
         var START_VALUE_LIST_IMAGE = 0
