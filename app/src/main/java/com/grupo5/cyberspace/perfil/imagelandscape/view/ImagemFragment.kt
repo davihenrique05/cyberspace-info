@@ -34,6 +34,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.grupo5.cyberspace.pesquisarimgvid.view.ResultadoPesquisaFragment
 import com.squareup.picasso.Picasso
 
 
@@ -62,7 +63,6 @@ class ImagemFragment : Fragment() {
         activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         val imagemUrl = arguments?.getString("Imagem")
-
         val downloadBtn = view.findViewById<ImageView>(R.id.imgDownload)
         val imagem = view.findViewById<ImageView>(R.id.imageViewShow)
         val icone = view.findViewById<ImageView>(R.id.imageIconFavorite)
