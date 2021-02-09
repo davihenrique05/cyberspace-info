@@ -43,18 +43,15 @@
                     app:layout_constraintStart_toEndOf="@+id/imgReturn_fTempoEmMarte"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
                 <ImageView
                     android:id="@+id/icon1"
                     android:layout_width="75dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="@dimen/dimen_16"
                     android:src="@drawable/ic_mars"
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
                 <ImageView
                     android:layout_width="65dp"
@@ -64,11 +61,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/icon1"
                     app:layout_constraintTop_toTopOf="parent" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -108,7 +101,7 @@
                     android:gravity="center"
                     tools:text="20 DE AGOSTO, 2020."
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimen_text_30"
+                    android:textSize="@dimen/dimen_text_24"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

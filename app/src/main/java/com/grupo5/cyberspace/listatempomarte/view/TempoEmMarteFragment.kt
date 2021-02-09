@@ -1,5 +1,6 @@
 package com.grupo5.cyberspace.listatempomarte.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,8 @@ import androidx.navigation.Navigation
 import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.listatempomarte.repository.SolRepository
 import com.grupo5.cyberspace.listatempomarte.viewmodel.SolViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TempoEmMarteFragment : Fragment() {
     override fun onCreateView(
@@ -48,32 +51,18 @@ class TempoEmMarteFragment : Fragment() {
             view.findViewById<TextView>(R.id.txtVentosMin_fTempoEmMarte).text = formatarDados(it[5].windSpeed.mn)
             view.findViewById<TextView>(R.id.txtVentosMed_fTempoEmMarte).text = formatarDados(it[5].windSpeed.av)
 
-            view.findViewById<TextView>(R.id.txtData_fTempoEmMarte).text = formatarData(it[5].firstUTC)
+            view.findViewById<TextView>(R.id.txtData_fTempoEmMarte).text = formatarData(it[5].firstUTC.substring(0,10),"yyyy-MM-dd","EEEE, d 'de' MMMM 'de' yyyy").capitalize()
             view.findViewById<TextView>(R.id.txtSol_fTempoEmMarte).text = "SOL " + it[5].id.toString()
         })
     }
 
-    private fun formatarData(valor: String):String{
-        return valor.substring(8,10)+" de "+meses(valor.substring(5,7))+" de "+valor.substring(0,4)
-    }
-
-    private fun meses(mes:String):String{
-        var descMes = ""
-        when (mes) {
-            "01" -> descMes = "janeiro"
-            "02" -> descMes = "fevereiro"
-            "03" -> descMes = "março"
-            "04" -> descMes = "abril"
-            "05" -> descMes = "maio"
-            "06" -> descMes = "junho"
-            "07" -> descMes = "julho"
-            "08" -> descMes = "agosto"
-            "09" -> descMes = "setembro"
-            "10" -> descMes = "outubro"
-            "11" -> descMes = "novembro"
-            "12" -> descMes = "dezembro"
-        }
-        return descMes
+    @SuppressLint("SimpleDateFormat")
+    fun formatarData(data: String, formatoOrigem: String, formatoDestino: String): String {
+        val locale = Locale("pt","BR")
+        val formato = SimpleDateFormat(formatoOrigem,locale)
+        val dataUm = formato.parse(data)
+        formato.applyPattern(formatoDestino)
+        return formato.format(dataUm)
     }
 
     private fun formatarDados(valor: Double, isTemperatura: Boolean = false):String{
