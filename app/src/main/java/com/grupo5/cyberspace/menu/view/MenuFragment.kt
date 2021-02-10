@@ -31,6 +31,7 @@ import com.grupo5.cyberspace.playvideo.YoutubePlayActivity
 import com.grupo5.cyberspace.playvideo.YoutubeManager
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.android.awaitFrame
+import java.lang.Exception
 
 
 class MenuFragment : Fragment() {
@@ -149,25 +150,27 @@ class MenuFragment : Fragment() {
     }
 
     private fun requisicaoImagemDoDia(title: TextView, image: ImageView) {
+        try{
+            _viewModel.obterImagemDoDia().observe(viewLifecycleOwner) {
+                _midia = it.midia
+                title.text = it.tittle
+                _url = it.url
 
-        _viewModel.obterImagemDoDia().observe(viewLifecycleOwner) {
-            _midia = it.midia
-            title.text = it.tittle
-            _url = it.url
+                if(it.midia == "image"){
+                    Picasso.get()
+                        .load(it.url)
+                        .into(image)
+                }else{
+                    val thumbnail = requireView().findViewById<YouTubeThumbnailView>(R.id.imgThumbnail)
+                    thumbnail.visibility = View.VISIBLE
+                    image.visibility = View.GONE
+                    YoutubeManager.setThumbnail(thumbnail, it.url, getString(R.string.yotubeAPI))
+                }
 
-            if(it.midia == "image"){
-                Picasso.get()
-                    .load(it.url)
-                    .into(image)
-            }else{
-                val thumbnail = requireView().findViewById<YouTubeThumbnailView>(R.id.imgThumbnail)
-                thumbnail.visibility = View.VISIBLE
-                image.visibility = View.GONE
-                YoutubeManager.setThumbnail(thumbnail, it.url, getString(R.string.yotubeAPI))
             }
-
+        }catch (ex:Exception){
+            Log.e("Requisicao", ex.message.toString())
         }
-
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -178,20 +181,25 @@ class MenuFragment : Fragment() {
             val db = FirebaseDatabase.getInstance()
             val ref = db.getReference(user!!.uid)
 
-            ref.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val lista = snapshot.value as ArrayList<ImagemEntity>?
+            try {
+                ref.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val lista = snapshot.value as ArrayList<ImagemEntity>?
 
-                    if (lista != null) {
-                        _listaImagens = lista
+                        if (lista != null) {
+                            _listaImagens = lista
+                        }
                     }
-                }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Log.e("Requisicao FB", error.message)
-                }
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.e("Requisicao FB", error.message)
+                    }
 
-            })
+                })
+            }catch (ex:Exception){
+                Log.e("Requisicao", ex.message.toString())
+            }
+
         }
     }
 
