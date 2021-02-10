@@ -75,7 +75,7 @@ class TecnologiasUsadasFragment : Fragment() {
         val navController = Navigation.findNavController(view)
         view.findViewById<ImageView>(R.id.imgReturn).setOnClickListener {
             START_VALUE_LIST = 0
-            navController.navigate(R.id.action_tecnologiasUsadasFragment_to_menuFragment)
+            navController.popBackStack()
         }
 
         createProgressBar(view)
@@ -103,19 +103,20 @@ class TecnologiasUsadasFragment : Fragment() {
     }
 
     private fun pushInListExampleItens(){
-
+        _listaProjetos.clear()
+        val listaDeIdSelecionados = mutableListOf<Int>()
         _viewModelProject.getAllIdsProjects().observe(viewLifecycleOwner) { it ->
 
             _listaIdProjeto.addAll(it)
 
             for (i in START_VALUE_LIST..VALUE_EXAMPLE){
-
-                _viewModelProject.getUniqueObjectProject(_listaIdProjeto[i])
-                    .observe(viewLifecycleOwner) {
-                        if (!it.isNullOrEmpty()) {
+                val random = (0 until _listaIdProjeto.size).random()
+                _viewModelProject.getUniqueObjectProject(_listaIdProjeto[random]).observe(viewLifecycleOwner) {
+                        if(listaDeIdSelecionados.indexOf(it.id) == -1 ){
+                            listaDeIdSelecionados.add(it.id)
                             listarResultados(it)
                         }
-                    }
+                }
             }
         }
 
@@ -144,9 +145,8 @@ class TecnologiasUsadasFragment : Fragment() {
         }
     }
 
-    private fun listarResultados(lista: List<ProjectDataModel>) {
-        _listaProjetos.clear()
-        _listaProjetos.addAll(lista)
+    private fun listarResultados(item: ProjectDataModel ) {
+        _listaProjetos.add(item)
         showLoading(false)
         _adaptador.notifyDataSetChanged()
     }

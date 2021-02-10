@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 
 class ProjectIdViewModel(val repository: ProjectIdRepository) : ViewModel() {
 
-    private var listaTecnologias = mutableListOf<ProjectDataModel>()
     private var listaIdProjetos = mutableListOf<ProjectIdModel>()
 
     fun getAllIdsProjects() = liveData(Dispatchers.IO) {
@@ -29,9 +28,7 @@ class ProjectIdViewModel(val repository: ProjectIdRepository) : ViewModel() {
     fun getUniqueObjectProject(project: ProjectIdModel) = liveData(Dispatchers.IO) {
 
         val response = repository.getUniqueObjectProject(project.id)
-        listaTecnologias.add(response.project)
-        emit(listaTecnologias)
-
+        emit(response.project)
     }
 
     class ProjectIdViewModelFactory(private val repository: ProjectIdRepository) :
