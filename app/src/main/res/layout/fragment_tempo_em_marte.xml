@@ -225,7 +225,7 @@
                     android:layout_weight="1"
                     android:text="@string/ventos_mph"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimen_14"
+                    android:textSize="@dimen/dimen_text_14"
                     android:textStyle="bold" />
 
                 <TextView
@@ -273,7 +273,7 @@
                     android:layout_weight="1"
                     android:text="@string/pressao"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimen_14"
+                    android:textSize="@dimen/dimen_text_14"
                     android:textStyle="bold" />
 
                 <TextView

@@ -21,7 +21,7 @@ class ImagemEventosNaturaisFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view =  inflater.inflate(R.layout.fragment_imagem_eventos_naturais, container, false)
+        val view =  inflater.inflate(R.layout.fragment_imagem_eventos_naturais, container, false)
         _view = view
         return view
 
@@ -32,10 +32,10 @@ class ImagemEventosNaturaisFragment : Fragment() {
 
         val latitude = arguments?.getString("latitude")
         val longitude = arguments?.getString("longitude")
-        var imageEvent = view.findViewById<ImageView>(R.id.imgNaturalEvent)
+        val imageEvent = view.findViewById<ImageView>(R.id.imgNaturalEvent)
 
         view.findViewById<ImageView>(R.id.imgCloseEventoNatural).setOnClickListener {
-            var navController = Navigation.findNavController(_view)
+            val navController = Navigation.findNavController(_view)
             navController.navigate(R.id.action_imagemEventosNaturaisFragment_to_eventosNaturaisFragment)
         }
 

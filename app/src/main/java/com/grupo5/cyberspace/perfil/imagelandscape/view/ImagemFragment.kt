@@ -34,7 +34,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.grupo5.cyberspace.pesquisarimgvid.view.ResultadoPesquisaFragment
 import com.squareup.picasso.Picasso
 
 
@@ -43,7 +42,7 @@ class ImagemFragment : Fragment() {
     private lateinit var _viewModel: ImagemViewModel
     private var _baixada = false
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
-    private val _REQUESTCODE = 1
+    private val _requestCode = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -120,7 +119,7 @@ class ImagemFragment : Fragment() {
                         Manifest.permission.WRITE_EXTERNAL_STORAGE
                     ) != PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(
-                        requireActivity(), array, _REQUESTCODE
+                        requireActivity(), array, _requestCode
                     )
                 }else{
                     download(imagemUrl!!)

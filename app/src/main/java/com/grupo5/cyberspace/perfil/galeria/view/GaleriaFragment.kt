@@ -1,7 +1,6 @@
 package com.grupo5.cyberspace.perfil.galeria.view
 
 import android.os.Bundle
-import android.service.autofill.ImageTransformation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,13 +15,13 @@ import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.db.ImagemDatabase
 import com.grupo5.cyberspace.perfil.entity.ImagemEntity
 import com.grupo5.cyberspace.perfil.galeria.view.adapter.ImagensAdapter
 import com.grupo5.cyberspace.perfil.repository.ImagemRepository
 import com.grupo5.cyberspace.perfil.viewmodel.ImagemViewModel
-import com.google.firebase.auth.FirebaseAuth
 
 
 class GaleriaFragment : Fragment() {

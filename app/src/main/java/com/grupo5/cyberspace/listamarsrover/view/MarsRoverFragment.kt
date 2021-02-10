@@ -71,7 +71,7 @@ class MarsRoverFragment : Fragment() {
         edtData.setText(formatarData("$dia/$mes/$ano", "dd/mm/yyyy", "dd/mm/yyyy"))
         edtData.isEnabled = false
 
-        edtRover.keyListener = null;
+        edtRover.keyListener = null
 
         carregaDropDownList()
 
@@ -173,7 +173,7 @@ class MarsRoverFragment : Fragment() {
         return formato.format(dataUm)
     }
 
-    fun carregaDropDownList(){
+    private fun carregaDropDownList(){
         val adapterRover = ArrayAdapter(requireContext(), R.layout.list_item_rover, itemsRover)
         (txtRover.editText as? AutoCompleteTextView)?.setAdapter(adapterRover)
     }

@@ -15,9 +15,7 @@
         android:layout_marginStart="@dimen/dimen_14"
         android:src="@drawable/baseline_close_white_18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="14dp"
-        android:contentDescription="Icon close natural event" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,8 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:layout_gravity="center"
-            android:scaleType="fitXY"
-            android:contentDescription="Image of Map Event Natural" />
+            android:scaleType="fitXY" />
 
     </LinearLayout>
 

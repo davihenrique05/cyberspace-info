@@ -25,6 +25,7 @@ class TempoEmMarteFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_tempo_em_marte, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -52,7 +53,7 @@ class TempoEmMarteFragment : Fragment() {
             view.findViewById<TextView>(R.id.txtVentosMed_fTempoEmMarte).text = formatarDados(it[5].windSpeed.av)
 
             view.findViewById<TextView>(R.id.txtData_fTempoEmMarte).text = formatarData(it[5].firstUTC.substring(0,10),"yyyy-MM-dd","EEEE, d 'de' MMMM 'de' yyyy").capitalize()
-            view.findViewById<TextView>(R.id.txtSol_fTempoEmMarte).text = "SOL " + it[5].id.toString()
+            view.findViewById<TextView>(R.id.txtSol_fTempoEmMarte).text = "SOL ${it[5].id}"
         })
     }
 

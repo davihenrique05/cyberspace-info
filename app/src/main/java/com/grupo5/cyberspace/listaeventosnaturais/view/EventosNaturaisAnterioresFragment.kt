@@ -35,7 +35,7 @@ class EventosNaturaisAnterioresFragment : Fragment() {
 
         listaEventos = mutableListOf()
 
-        var view =  inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
+        val view =  inflater.inflate(R.layout.fragment_eventos_naturais_anteriores, container, false)
         _view = view
         return view
     }

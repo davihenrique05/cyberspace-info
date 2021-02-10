@@ -1,5 +1,6 @@
 package com.grupo5.cyberspace.asteroidesemcolisao.viewmodel
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -55,6 +56,7 @@ class AsteroidesEmColisaoViewModel(
         return "${year}-${String.format("%02d", month)}-${String.format("%02d", day)}"
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun intervaloDia(): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd")
         val data = obterDiaDeHoje()
