@@ -1,6 +1,5 @@
 package com.grupo5.cyberspace.perfil.view
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -19,7 +18,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
-import com.facebook.internal.Utility.putUri
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import com.grupo5.cyberspace.R
 import com.grupo5.cyberspace.autenticacao.view.AutenticacaoActivity
 import com.grupo5.cyberspace.db.ImagemDatabase
@@ -27,13 +29,8 @@ import com.grupo5.cyberspace.perfil.entity.ImagemEntity
 import com.grupo5.cyberspace.perfil.repository.ImagemRepository
 import com.grupo5.cyberspace.perfil.viewmodel.ImagemViewModel
 import com.grupo5.cyberspace.utils.NetworkListener
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
-import java.net.URI
 
 private const val CONTENT_REQUEST_CODE = 1
 
@@ -135,9 +132,7 @@ class PerfilFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun exibirDadosDoUsuario() {
         val user = FirebaseAuth.getInstance().currentUser
-        val temNome= user!!.displayName?.let {
-            it.isNotEmpty()
-        }
+        val temNome= user!!.displayName?.isNotEmpty()
         if (temNome != null && temNome) {
             val nome = requireView().findViewById<TextView>(R.id.txtPerfilNome)
             nome.text = user.displayName

@@ -15,11 +15,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
-import com.grupo5.cyberspace.R
-import com.grupo5.cyberspace.menu.imagemdodia.repository.ImageModelRepository
-import com.grupo5.cyberspace.menu.imagemdodia.viewmodel.ImageViewModel
-import com.grupo5.cyberspace.perfil.entity.ImagemEntity
-import com.grupo5.cyberspace.utils.NetworkListener
 import com.google.android.material.card.MaterialCardView
 import com.google.android.youtube.player.YouTubeThumbnailView
 import com.google.firebase.auth.FirebaseAuth
@@ -27,11 +22,14 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.grupo5.cyberspace.playvideo.YoutubePlayActivity
+import com.grupo5.cyberspace.R
+import com.grupo5.cyberspace.menu.imagemdodia.repository.ImageModelRepository
+import com.grupo5.cyberspace.menu.imagemdodia.viewmodel.ImageViewModel
+import com.grupo5.cyberspace.perfil.entity.ImagemEntity
 import com.grupo5.cyberspace.playvideo.YoutubeManager
+import com.grupo5.cyberspace.playvideo.YoutubePlayActivity
+import com.grupo5.cyberspace.utils.NetworkListener
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.android.awaitFrame
-import java.lang.Exception
 
 
 class MenuFragment : Fragment() {

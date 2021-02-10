@@ -43,17 +43,17 @@ class ResultadoPesquisaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navigation = Navigation.findNavController(view)
-        if(_search.isBlank()){
-            _search = arguments?.getString("search").toString()
+        if(search.isBlank()){
+            search = arguments?.getString("search").toString()
         }
         _listaImagens = mutableListOf()
-        resultarPesquisa(_search)
+        resultarPesquisa(search)
         view.findViewById<ImageView>(R.id.imgViewMenuPesquisaImgVid).setOnClickListener {
-            _search = ""
+            search = ""
             navigation.popBackStack()
         }
-        if(!_search.isNullOrEmpty()){
-            requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment).setText(_search)
+        if(search.isNotEmpty()){
+            requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment).setText(search)
             requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment).clearFocus()
         }
         novaPesquisa()
@@ -61,18 +61,18 @@ class ResultadoPesquisaFragment : Fragment() {
 
     private fun novaPesquisa() {
 
-        val search = requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment)
-        search.setOnEditorActionListener { _, action, _ ->
+        val newSearch = requireView().findViewById<TextInputEditText>(R.id.txtpesquisaimagefragment)
+        newSearch.setOnEditorActionListener { _, action, _ ->
             if(action == EditorInfo.IME_ACTION_SEARCH)
             {
-                _search = search.text.toString()
-                mudarTela(_search)
+                search = newSearch.text.toString()
+                mudarTela(search)
             }
             return@setOnEditorActionListener true
         }
         requireView().findViewById<ImageView>(R.id.imgViewProcurarPesquisaImgVid).setOnClickListener {
-            _search = search.text.toString()
-            mudarTela(_search)
+            search = newSearch.text.toString()
+            mudarTela(search)
         }
     }
 
@@ -98,7 +98,7 @@ class ResultadoPesquisaFragment : Fragment() {
         ).get(PesquisarImagemViewModel::class.java)
 
         _viewManager = GridLayoutManager(requireContext(), 3)
-        recyclerView = requireView().findViewById<RecyclerView>(R.id.listaFotosVideos)
+        recyclerView = requireView().findViewById(R.id.listaFotosVideos)
         _adaptador = PesquisaImgAdapter(_listaImagens) {
             val navigation = Navigation.findNavController(requireView())
             val bundle = bundleOf("Imagem" to it.links[0].href)
@@ -158,7 +158,7 @@ class ResultadoPesquisaFragment : Fragment() {
     }
 
     companion object{
-        var _search = ""
+        var search = ""
     }
 
 }

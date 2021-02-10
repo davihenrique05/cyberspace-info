@@ -55,14 +55,7 @@
     <string name="data_na_terra">Data na Terra</string>
     <string name="guest">Guest</string>
     <string name="yotubeAPI">AIzaSyBDF79fdgU7e0vPY7DQSGob1nJZru_oELo</string>
-    <string-array name="rover_array">
-        <item />
-        <item>Curiosity</item>
-        <item>Opportunity</item>
-        <item>Spirit</item>
-    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sem_internet">Você está sem internet</string>
     <string name="remover_img">Remover imagem</string>
     <string name="text_remover_fav">Você tem certeza que deseja remover essa imagem dos favoritos?</string>

@@ -6,7 +6,8 @@
     android:background="@color/colorBlueLightBackground"
     android:focusable="false"
     android:focusableInTouchMode="true"
-    android:paddingStart="@dimen/dimen_8">
+    android:paddingStart="@dimen/dimen_8"
+    android:paddingEnd="@dimen/dimen_8">
 
     <TextView
         android:id="@+id/txtTitleBottomAsteroid"

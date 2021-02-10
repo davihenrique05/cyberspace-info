@@ -3,7 +3,6 @@ package com.grupo5.cyberspace.listatecnologiasusadas.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
-import com.grupo5.cyberspace.listatecnologiasusadas.model.ProjectDataModel
 import com.grupo5.cyberspace.listatecnologiasusadas.model.ProjectIdModel
 import com.grupo5.cyberspace.listatecnologiasusadas.repository.ProjectIdRepository
 import kotlinx.coroutines.Dispatchers
