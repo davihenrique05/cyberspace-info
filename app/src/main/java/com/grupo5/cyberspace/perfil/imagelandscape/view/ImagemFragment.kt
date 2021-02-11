@@ -41,6 +41,7 @@ class ImagemFragment : Fragment() {
 
     private lateinit var _viewModel: ImagemViewModel
     private var _baixada = false
+    private var _verificar = false
     private var _listaDeImagens = mutableListOf<ImagemEntity>()
     private val _requestCode = 1
 
@@ -87,20 +88,7 @@ class ImagemFragment : Fragment() {
             _listaDeImagens.clear()
             _listaDeImagens.addAll(it)
 
-            var verificar = verificarImagem(imagemUrl)
-            definirIcone(icone, verificar)
-
-            icone?.setOnClickListener {
-
-                if (verificar) {
-                    criarDialog(imagemUrl, icone)
-                    verificar = verificarImagem(imagemUrl)
-                } else {
-                    favoritarImagem(imagemUrl)
-                    verificar = verificarImagem(imagemUrl)
-                    definirIcone(icone, true)
-                }
-            }
+            verificarImagem(imagemUrl)
         }
 
         downloadBtn.setOnClickListener {
@@ -166,18 +154,29 @@ class ImagemFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 )
                 toast.show()
+                _verificar = true
             }
         }
     }
 
-    private fun verificarImagem(urlImagem: String?): Boolean {
+    private fun verificarImagem(urlImagem: String?){
+        val icone = requireView().findViewById<ImageView>(R.id.imageIconFavorite)
 
         _listaDeImagens.forEach {
-            if (it.url == urlImagem) {
-                return true
-            }
+            _verificar = it.url == urlImagem
         }
-        return false
+
+        definirIcone(icone, _verificar)
+        icone?.setOnClickListener {
+
+            if (_verificar) {
+                criarDialog(urlImagem, icone)
+            } else {
+                definirIcone(icone, true)
+                favoritarImagem(urlImagem)
+            }
+
+        }
     }
 
     private fun criarDialog(urlImagem: String?, icone: ImageView){
@@ -188,6 +187,7 @@ class ImagemFragment : Fragment() {
 
                 setPositiveButton("Sim") { _, _ ->
                     removerImagem(urlImagem)
+                    _verificar = false
                     definirIcone(icone, false)
                 }
 
