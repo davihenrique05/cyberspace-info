@@ -65,7 +65,6 @@ class ImagemFragment : Fragment() {
         val imagemUrl = arguments?.getString("Imagem")
         val downloadBtn = view.findViewById<ImageView>(R.id.imgDownload)
         val imagem = view.findViewById<ImageView>(R.id.imageViewShow)
-        val icone = view.findViewById<ImageView>(R.id.imageIconFavorite)
 
         if (imagemUrl != null) {
             Picasso.get()
@@ -88,7 +87,7 @@ class ImagemFragment : Fragment() {
             _listaDeImagens.clear()
             _listaDeImagens.addAll(it)
 
-            verificarImagem(imagemUrl)
+            verificarImagem(imagemUrl,it)
         }
 
         downloadBtn.setOnClickListener {
@@ -149,7 +148,7 @@ class ImagemFragment : Fragment() {
         if (url != null) {
             _viewModel.salvarImagem(url, user!!.uid).observe(viewLifecycleOwner) {
                 val toast = Toast.makeText(
-                    requireView().context,
+                    requireContext(),
                     getString(R.string.favorito),
                     Toast.LENGTH_SHORT
                 )
@@ -159,11 +158,16 @@ class ImagemFragment : Fragment() {
         }
     }
 
-    private fun verificarImagem(urlImagem: String?){
+    private fun verificarImagem(urlImagem: String?, lista: MutableList<ImagemEntity>){
         val icone = requireView().findViewById<ImageView>(R.id.imageIconFavorite)
 
-        _listaDeImagens.forEach {
-            _verificar = it.url == urlImagem
+        for(i in lista){
+            if(i.url == urlImagem){
+                _verificar = true
+                break
+            }else{
+                _verificar = false
+            }
         }
 
         definirIcone(icone, _verificar)

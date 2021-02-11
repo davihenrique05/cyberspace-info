@@ -93,18 +93,7 @@ class PerfilFragment : Fragment() {
                 if (!lista.isNullOrEmpty()) {
                     lista.forEach { imagemFB ->
                         val imagemUrl = imagemFB["url"] as String
-                        var isSaved = false
-
-                        listaLocal.forEach { imagemLocal ->
-                            if (imagemLocal.url == imagemUrl) {
-                                isSaved = true
-                            }
-                        }
-
-                        if (!isSaved) {
-                            _viewModel.salvarImagem(imagemUrl, user.uid)
-                                .observe(viewLifecycleOwner) {}
-                        }
+                        _viewModel.salvarImagem(imagemUrl, user.uid).observe(viewLifecycleOwner) {}
                     }
                 }
             } else {
