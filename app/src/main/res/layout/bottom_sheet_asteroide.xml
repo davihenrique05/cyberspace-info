@@ -1,0 +1,147 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/colorBlueLightBackground"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
+    android:paddingStart="@dimen/dimen_8"
+    android:paddingEnd="@dimen/dimen_8">
+
+    <TextView
+        android:id="@+id/txtTitleBottomAsteroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_16"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:layout_marginEnd="@dimen/dimen_30"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_text_30"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/diametroMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/diametro_minimo"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:layout_marginTop="@dimen/dimen_16"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleBottomAsteroid"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDiametroMinBottomAsteroide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@id/diametroMin"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleBottomAsteroid"
+        android:layout_marginStart="@dimen/dimen_16"
+        android:layout_marginTop="@dimen/dimen_16"
+        />
+    <TextView
+        android:id="@+id/diametroMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/diametro_maximo"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/diametroMin"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtDiametroMaxBottomAsteroide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@id/diametroMax"
+        app:layout_constraintTop_toBottomOf="@id/txtDiametroMinBottomAsteroide"
+        android:layout_marginStart="@dimen/dimen_16"
+        />
+
+    <TextView
+        android:id="@+id/velocidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/velocidade"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/diametroMax"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtVelocidadeBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@id/velocidade"
+        app:layout_constraintTop_toBottomOf="@id/txtDiametroMaxBottomAsteroide"
+        android:layout_marginStart="@dimen/dimen_16"
+        />
+
+    <TextView
+        android:id="@+id/dataAsteroide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_de_aproxima_o"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/velocidade"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtDataAproximacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@id/dataAsteroide"
+        app:layout_constraintTop_toBottomOf="@id/txtVelocidadeBottom"
+        android:layout_marginStart="@dimen/dimen_16"
+        />
+
+    <TextView
+        android:id="@+id/distância"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dist_ncia_da_terra"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:textAlignment="textStart"
+        app:layout_constraintTop_toBottomOf="@id/dataAsteroide"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtProximidadeDaTerra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_text_17"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@id/distância"
+        app:layout_constraintTop_toBottomOf="@id/txtDataAproximacao"
+        android:layout_marginStart="@dimen/dimen_16"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMoreInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cornerRadius="@dimen/dimen_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtProximidadeDaTerra"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:text="@string/saiba_mais"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

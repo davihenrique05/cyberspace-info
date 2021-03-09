@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".autenticacao.login.view.LoginFragment"
+    android:paddingStart="@dimen/dimen_16"
+    android:paddingEnd="@dimen/dimen_16">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/e_mail"
+        app:boxStrokeColor="@color/colorPrimaryDark"
+        app:hintTextColor="@color/colorPrimaryDark"
+        android:layout_marginTop="@dimen/dimen_16"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtEmailLogin"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/colorPrimaryDark"
+        android:hint="@string/senha"
+        app:hintTextColor="@color/colorPrimaryDark"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtSenhaLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/esqueceu_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:text="@string/esqueceu_senha"
+        android:textSize="@dimen/dimen_text_13"
+        android:layout_gravity="end"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="@dimen/dimen_login_f_g_216dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/dimen_text_17"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        app:cornerRadius="0dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/viewBarra1"
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/colorGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/materialTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/or"
+            android:textColor="@color/colorGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/viewBarra2"
+            app:layout_constraintStart_toEndOf="@+id/viewBarra1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/viewBarra2"
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/colorGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/materialTextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/btnLoginGoogle"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:layout_width="@dimen/dimen_login_f_g_216dp"
+        android:layout_height="@dimen/dimen_38"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/colorWhite"
+        android:src="@drawable/ic_login_with_google"/>
+
+    <ImageView
+        android:id="@+id/btnLoginFacebook"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_8"
+        android:layout_width="@dimen/dimen_login_f_g_216dp"
+        android:layout_height="@dimen/dimen_38"
+        android:backgroundTint="@color/colorWhite"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_login_with_facebook"/>
+</LinearLayout>

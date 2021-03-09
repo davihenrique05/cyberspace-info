@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo_test"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".listaeventosnaturais.view.ImagemEventosNaturaisFragment">
+
+    <ImageView
+        android:id="@+id/imgCloseEventoNatural"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_50"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="@dimen/dimen_14"
+        android:src="@drawable/baseline_close_white_18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginStart="@dimen/dimen_14"
+        android:layout_marginEnd="@dimen/dimen_14"
+        android:background="@drawable/fundo_test"
+        android:padding="06dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgCloseEventoNatural">
+
+        <ImageView
+            android:id="@+id/imgNaturalEvent"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY" />
+
+    </LinearLayout>
+
+</FrameLayout>

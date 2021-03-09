@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".pesquisarimgvid.view.PesquisaFragment"
+    android:orientation="vertical"
+    android:background="@drawable/fundo_test">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:background="@color/colorPrimaryDarkest">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgViewMenuPesquisa"
+                android:layout_width="@dimen/dimen_35"
+                android:layout_height="@dimen/dimen_35"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/pesquisar_imagens"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimen_text_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDarkMenu"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_50"
+        android:padding="@dimen/dimen_20">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_observatory"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtPesquisaImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pesquise_astros_estrelas_etc"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:backgroundTint="@color/colorWhite"
+                android:textCursorDrawable ="@null"
+                android:importantForAutofill="no"
+                android:maxLines="1"/>
+
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/imgBtnPesquisar"
+                android:layout_width="@dimen/dimen_30"
+                android:layout_height="@dimen/dimen_30"
+                android:src="@drawable/ic_baseline_search_24"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

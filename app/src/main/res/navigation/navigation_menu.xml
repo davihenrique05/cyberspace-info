@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/menuFragment">
+
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.grupo5.cyberspace.menu.view.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_tempoEmMarteFragment"
+            app:destination="@id/tempoEmMarteFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_marsRoverFragment"
+            app:destination="@id/marsRoverFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+
+        <action
+            android:id="@+id/action_menuFragment_to_tecnologiasUsadasFragment"
+            app:destination="@id/tecnologiasUsadasFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
+        <action
+            android:id="@+id/action_menuFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_menuFragment_to_imagemFragment"
+            app:destination="@id/imagemFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_menuFragment_to_asteroidesFragment"
+            app:destination="@id/asteroidesFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_menuFragment_to_eventosNaturaisFragment"
+            app:destination="@id/eventosNaturaisFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
+        <action
+            android:id="@+id/action_menuFragment_to_pesquisaFragment"
+            app:destination="@id/pesquisaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_menuFragment_to_erroFragment"
+            app:destination="@id/erroFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/tempoEmMarteFragment"
+        android:name="com.grupo5.cyberspace.listatempomarte.view.TempoEmMarteFragment"
+        android:label="fragment_tempo_em_marte"
+        tools:layout="@layout/fragment_tempo_em_marte" />
+    <fragment
+        android:id="@+id/marsRoverFragment"
+        android:name="com.grupo5.cyberspace.listamarsrover.view.MarsRoverFragment"
+        android:label="fragment_mars_rover"
+        tools:layout="@layout/fragment_mars_rover" >
+        <action
+            android:id="@+id/action_marsRoverFragment_to_galeriaFragment"
+            app:destination="@id/galeriaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_marsRoverFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"/>
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/tecnologiasUsadasFragment"
+        android:name="com.grupo5.cyberspace.listatecnologiasusadas.view.TecnologiasUsadasFragment"
+        android:label="fragment_tecnologias_usadas"
+        tools:layout="@layout/fragment_tecnologias_usadas">
+
+        <action
+            android:id="@+id/action_tecnologiasUsadasFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
+            app:popUpTo="@id/menuFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.grupo5.cyberspace.perfil.view.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_perfilFragment_to_galeriaFragment"
+            app:destination="@id/galeriaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_perfilFragment_to_imagemFragment"
+            app:destination="@id/imagemFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:popEnterAnim="@anim/fragment_close_enter" />
+    </fragment>
+    <fragment
+        android:id="@+id/galeriaFragment"
+        android:name="com.grupo5.cyberspace.perfil.galeria.view.GaleriaFragment"
+        android:label="fragment_galeria"
+        tools:layout="@layout/fragment_galeria" >
+        <action
+            android:id="@+id/action_galeriaFragment_to_imagemFragment"
+            app:destination="@id/imagemFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:popEnterAnim="@anim/fragment_close_enter" />
+        <action
+            android:id="@+id/action_galeriaFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_galeriaFragment_to_marsRoverFragment"
+            app:destination="@id/marsRoverFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagemFragment"
+        android:name="com.grupo5.cyberspace.perfil.imagelandscape.view.ImagemFragment"
+        android:label="fragment_imagem"
+        tools:layout="@layout/fragment_imagem" >
+        <action
+            android:id="@+id/action_imagemFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/action_imagemFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_close_exit"/>
+        <action
+            android:id="@+id/action_imagemFragment_to_galeriaFragment"
+            app:destination="@id/galeriaFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_close_exit"/>
+        <action
+            android:id="@+id/action_imagemFragment_to_resultadoPesquisaFragment"
+            app:destination="@id/resultadoPesquisaFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popExitAnim="@anim/fragment_close_exit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/asteroidesFragment"
+        android:name="com.grupo5.cyberspace.asteroidesemcolisao.view.AsteroidesFragment"
+        android:label="fragment_asteroides"
+        tools:layout="@layout/fragment_asteroides" >
+        <action
+            android:id="@+id/action_asteroidesFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventosNaturaisFragment"
+        android:name="com.grupo5.cyberspace.listaeventosnaturais.view.EventosNaturaisFragment"
+        android:label="EventosNaturaisFragment" >
+        <action
+            android:id="@+id/action_eventosNaturaisFragment_to_menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_eventosNaturaisFragment_to_imagemEventosNaturaisFragment"
+            app:destination="@id/imagemEventosNaturaisFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pesquisaFragment"
+        android:name="com.grupo5.cyberspace.pesquisarimgvid.view.PesquisaFragment"
+        android:label="fragment_pesquisa"
+        tools:layout="@layout/fragment_pesquisa" >
+        <action
+            android:id="@+id/action_pesquisaFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"/>
+        <action
+            android:id="@+id/action_pesquisaFragment_to_resultadoPesquisaFragment"
+            app:destination="@id/resultadoPesquisaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultadoPesquisaFragment"
+        android:name="com.grupo5.cyberspace.pesquisarimgvid.view.ResultadoPesquisaFragment"
+        android:label="fragment_resultado_pesquisa"
+        tools:layout="@layout/fragment_resultado_pesquisa" >
+        <action
+            android:id="@+id/action_resultadoPesquisaFragment_to_pesquisaFragment"
+            app:destination="@id/pesquisaFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"/>
+        <action
+            android:id="@+id/action_resultadoPesquisaFragment_to_imagemFragment"
+            app:destination="@id/imagemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/erroFragment"
+        android:name="com.grupo5.cyberspace.mensagemdeerro.ErroFragment"
+        android:label="fragment_erro"
+        tools:layout="@layout/fragment_erro" >
+        <action
+            android:id="@+id/action_erroFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagemEventosNaturaisFragment"
+        android:name="com.grupo5.cyberspace.listaeventosnaturais.view.ImagemEventosNaturaisFragment"
+        android:label="fragment_imagem_eventos_naturais"
+        tools:layout="@layout/fragment_imagem_eventos_naturais" >
+        <action
+            android:id="@+id/action_imagemEventosNaturaisFragment_to_eventosNaturaisFragment"
+            app:destination="@id/eventosNaturaisFragment" />
+    </fragment>
+
+
+</navigation>

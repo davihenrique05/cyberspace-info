@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/colorBlueLightBackground"
+    android:focusable="false"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/txtTitleProject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Ultra-high Energy Particle Astrophysics with ANITA-V"
+        android:layout_margin="@dimen/dimen_30"
+        android:textColor="@color/colorGrayTitleAndContent"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_text_24"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="12dp"
+        android:paddingBottom="20dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtDescriptionProject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen_45"
+                android:gravity="center"
+                tools:text="Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month. Testing Contributed to Apollo 11.NASA marks the 45th anniversary of the first moon landing this month."
+                android:textAlignment="textStart"
+                android:textColor="@color/colorGrayTitleAndContent"
+                android:textSize="20sp"
+                tools:ignore="RtlCompat" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo_test"
+    tools:context=".main.view.SplashScreenActivity"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBase"
+        android:alpha="0.2"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animacao"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/foguete"
+            android:layout_width="@dimen/dimen_200"
+            android:layout_height="@dimen/dimen_200">
+        </com.airbnb.lottie.LottieAnimationView>
+
+        <TextView
+            android:id="@+id/txtSplash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/app"
+            android:textColor="@color/colorGrayLightest"
+            android:textSize="@dimen/dimen_text_41" />
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
